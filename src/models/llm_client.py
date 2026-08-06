@@ -135,21 +135,22 @@ class Gemma4LLMClient(BaseLLMClient):
         if hasattr(self.model.model.language_model, "rotary_emb") and self.model.model.language_model.rotary_emb is not None:
             register_device_dispatch(self.model.model.language_model.rotary_emb)
             
-        # 3. Distribute 60 layers evenly
+        # 3. Distribute 60 layers (27 on GPU 0 to account for embeddings, 33 on GPU 1)
         layers = self.model.model.language_model.layers
+        # 3. Distribute 60 layers (28 on GPU 0, 32 on GPU 1)
         num_layers = len(layers)
         for i, layer in enumerate(layers):
-            device = "cuda:0" if i < num_layers // 2 else "cuda:1"
+            device = "cuda:0" if i < 28 else "cuda:1"
             layer.to(device)
             register_device_dispatch(layer)
             
-        # 4. Move norm and head to GPU 1
+        # 4. Move norm to GPU 1 and head to GPU 0
         if hasattr(self.model.model.language_model, "norm") and self.model.model.language_model.norm is not None:
             self.model.model.language_model.norm.to("cuda:1")
             register_device_dispatch(self.model.model.language_model.norm)
             
         if hasattr(self.model, "lm_head") and self.model.lm_head is not None:
-            self.model.lm_head.to("cuda:1")
+            self.model.lm_head.to("cuda:0")
             register_device_dispatch(self.model.lm_head)
             
         print("Model sharding completed successfully.")

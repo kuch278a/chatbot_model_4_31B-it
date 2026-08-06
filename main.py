@@ -32,7 +32,7 @@ def load_services_bg():
         # 2. Load Local Embedding Model
         from src.models.embeddings import LocalMultilingualEmbeddings
         print("Loading local multilingual sentence embeddings model...")
-        embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH)
+        embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
         
         # 3. Load Vector Store and RAG pipeline
         from src.db.vector_store import SQLiteVectorStore
