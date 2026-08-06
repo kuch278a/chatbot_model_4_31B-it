@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Amani AI Assistant — a bilingual Amharic/English AI chat powered by Gemma 4 with document-aware RAG.">
+    <title>Amani AI Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Custom UI additions */
+        .sidebar-section {
+            padding: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            font-weight: 700;
+        }
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            font-size: 14px;
+            transition: color 0.2s;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .icon-btn:hover {
+            color: var(--primary);
+            background: rgba(255,255,255,0.05);
+        }
+        .file-list {
+            max-height: 150px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .file-item {
+            font-size: 12px;
+            color: var(--text-main);
+            background: rgba(0, 0, 0, 0.15);
+            padding: 6px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .lang-select {
+            background: var(--input-bg);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 12px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .lang-select:focus {
+            border-color: var(--primary);
+        }
+        .speaker-btn, .mic-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            padding: 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            height: 48px;
+            width: 48px;
+        }
+        .speaker-btn:hover, .mic-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        .speaker-btn.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        .mic-btn.listening {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border-color: #ef4444;
+            animation: pulse-mic 1.5s infinite;
+        }
+        @keyframes pulse-mic {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .mic-icon, .speaker-icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mobile sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <div class="main-wrapper">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" onclick="startNewChat()">
+                    <span>+</span> New Chat
+                </button>
+            </div>
+            <div class="chat-list" id="chatList">
+                <!-- Chat items will be injected here -->
+            </div>
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <span>Knowledge Base</span>
+                    <button class="icon-btn" onclick="refreshFiles()" title="Refresh Knowledge Index">↻</button>
+                </div>
+                <div class="file-list" id="indexedFiles">
+                    <!-- Files will be injected here -->
+                </div>
+            </div>
+        </div>
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">☰</button>
+                    <div class="status" id="status"></div>
+                    <h1>አማኒ studio</h1>
+                </div>
+                <div class="header-actions">
+                    <select id="langSelect" class="lang-select" title="Toggle Chat Language">
+                        <option value="en-US">English (en-US)</option>
+                        <option value="am-ET" selected>Amharic (am-ET)</option>
+                    </select>
+                    <button id="speakerBtn" onclick="toggleTTS()" class="speaker-btn active" title="Toggle Auto Text-to-Speech">
+                        <svg class="speaker-icon" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M11,21L6,16H2V8H6L11,3V21Z" />
+                        </svg>
+                    </button>
+                    <button class="clear-btn" onclick="deleteCurrentChat()">Delete</button>
+                </div>
+            </div>
+            <div class="messages" id="messages">
+                <div class="empty-state">Welcome! I am your አማኒ AI assistant. How can I help you today?</div>
+            </div>
+            <div class="input-container">
+                <textarea id="input" placeholder="Type your message..." rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+                <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="Speak to Chatbot">
+                    <svg class="mic-icon" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,1 12,16A5,5 0 0,1 17,11H19Z" />
+                    </svg>
+                </button>
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let messages = [];
+        let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
+        let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
+        
+        // Voice STT / TTS state
+        let recognition = null;
+        let isListening = false;
+        let ttsEnabled = true;
+
+        // ─── Init ──────────────────────────────────────────────────────────
+        function init() {
+            if (!currentChatId || !chats.find(c => c.id === currentChatId)) {
+                startNewChat(false);
+            } else {
+                loadChat(currentChatId);
+            }
+            renderChatList();
+            checkHealth();
+            setInterval(checkHealth, 5000);
+            loadFileList();
+            initSpeechRecognition();
+            
+            // Prime speech synthesis voices loading
+            if (window.speechSynthesis) {
+                window.speechSynthesis.getVoices();
+            }
+        }
+
+        // ─── Health Check ──────────────────────────────────────────────────
+        async function checkHealth() {
+            try {
+                // Return dummy true for server health check
+                document.getElementById('status').classList.remove('loading');
+            } catch {
+                document.getElementById('status').classList.add('loading');
+            }
+        }
+
+        // ─── Sidebar Toggle (mobile) ───────────────────────────────────────
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+
+        // ─── Chat Management ──────────────────────────────────────────────
+        function startNewChat(shouldConfirm = true) {
+            if (shouldConfirm && messages.length > 0) {
+                if (!confirm("Start a new chat?")) return;
+            }
+            
+            // Clear backend history for the new session
+            const newId = Date.now().toString();
+            fetch('/clear', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ session_id: newId })
+            });
+
+            const newChat = {
+                id: newId,
+                title: 'New Chat',
+                messages: [],
+                timestamp: Date.now()
+            };
+            
+            chats.unshift(newChat);
+            currentChatId = newId;
+            messages = [];
+            
+            saveToLocalStorage();
+            renderChatList();
+            displayMessages();
+        }
+
+        function loadChat(id) {
+            const chat = chats.find(c => c.id === id);
+            if (chat) {
+                currentChatId = id;
+                messages = chat.messages;
+                displayMessages();
+                renderChatList();
+                saveToLocalStorage();
+                // Close sidebar on mobile after selecting a chat
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('open');
+                    document.getElementById('sidebarOverlay').classList.remove('active');
+                }
+            }
+        }
+
+        function saveToLocalStorage() {
+            const chat = chats.find(c => c.id === currentChatId);
+            if (chat) {
+                chat.messages = JSON.parse(JSON.stringify(messages)); // Deep copy
+                chat.timestamp = Date.now();
+                if (chat.title === 'New Chat' && messages.length > 0) {
+                    let firstMsg = messages[0].content;
+                    if (firstMsg.length > 30) {
+                        const truncated = firstMsg.substring(0, 30);
+                        const lastSpace = truncated.lastIndexOf(' ');
+                        chat.title = (lastSpace > 10 ? truncated.substring(0, lastSpace) : truncated) + '...';
+                    } else {
+                        chat.title = firstMsg;
+                    }
+                }
+            }
+            localStorage.setItem('amani_chats', JSON.stringify(chats));
+            localStorage.setItem('amani_current_chat_id', currentChatId);
+            renderChatList();
+        }
+
+        function renderChatList() {
+            const list = document.getElementById('chatList');
+            list.innerHTML = '';
+            
+            chats.forEach(chat => {
+                const div = document.createElement('div');
+                div.className = `chat-item ${chat.id === currentChatId ? 'active' : ''}`;
+                div.onclick = () => loadChat(chat.id);
+                
+                const title = document.createElement('span');
+                title.className = 'chat-item-title';
+                title.textContent = chat.title;
+                
+                const delBtn = document.createElement('button');
+                delBtn.className = 'delete-chat-btn';
+                delBtn.innerHTML = '&times;';
+                delBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    deleteChat(chat.id);
+                };
+                
+                div.appendChild(title);
+                div.appendChild(delBtn);
+                list.appendChild(div);
+            });
+        }
+
+        function deleteChat(id) {
+            if (!confirm("Delete this chat?")) return;
+            
+            fetch('/clear', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ session_id: id })
+            });
+
+            chats = chats.filter(c => c.id !== id);
+            if (currentChatId === id) {
+                if (chats.length > 0) {
+                    loadChat(chats[0].id);
+                } else {
+                    startNewChat(false);
+                }
+            }
+            saveToLocalStorage();
+            renderChatList();
+        }
+
+        function deleteCurrentChat() {
+            deleteChat(currentChatId);
+        }
+
+        // ─── Display Messages ─────────────────────────────────────────────
+        function displayMessages() {
+            const container = document.getElementById('messages');
+            container.innerHTML = '';
+            
+            if (messages.length === 0) {
+                container.innerHTML = '<div class="empty-state">Welcome! I am your አማኒ AI assistant. How can I help you today?</div>';
+                return;
+            }
+            
+            messages.forEach(msg => {
+                addMessageUI(msg.role, msg.content, false, msg.sources);
+            });
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // ─── File List ────────────────────────────────────────────────────
+        async function loadFileList() {
+            try {
+                const res = await fetch('/files');
+                const data = await res.json();
+                const container = document.getElementById('indexedFiles');
+                if (container) {
+                    container.innerHTML = '';
+                    if (data.files && data.files.length > 0) {
+                        data.files.forEach(name => {
+                            const div = document.createElement('div');
+                            div.className = 'file-item';
+                            div.textContent = '✓ ' + name;
+                            container.appendChild(div);
+                        });
+                    } else {
+                        container.innerHTML = '<div style="font-size:11px;color:var(--text-dim);text-align:center;">No files indexed</div>';
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load file list");
+            }
+        }
+
+        // ─── Input Handling ───────────────────────────────────────────────
+        function handleKeyDown(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+        }
+
+        // ─── Typing Indicator ─────────────────────────────────────────────
+        function showTypingIndicator() {
+            const container = document.getElementById('messages');
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator';
+            indicator.id = 'typingIndicator';
+            indicator.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+            container.appendChild(indicator);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        // ─── Markdown Rendering ───────────────────────────────────────────
+        function renderMarkdown(text) {
+            let html = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+            
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+            html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li>$1</li>');
+            html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+            
+            html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+            html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, function(match) {
+                if (match.startsWith('<ul>')) return match;
+                return '<ol>' + match + '</ol>';
+            });
+            
+            html = html.replace(/\n\n+/g, '</p><p>');
+            html = html.replace(/\n/g, '<br>');
+            html = '<p>' + html + '</p>';
+            html = html.replace(/<p>\s*<\/p>/g, '');
+            return html;
+        }
+
+        // ─── Send Message ─────────────────────────────────────────────────
+        async function sendMessage() {
+            const input = document.getElementById('input');
+            const sendBtn = document.getElementById('sendBtn');
+            const content = input.value.trim();
+
+            if (!content) return;
+
+            // Stop any playing speech immediately on new interaction
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
+
+            messages.push({ role: 'user', content });
+            addMessageUI('user', content);
+            input.value = '';
+            input.style.height = 'auto';
+            
+            saveToLocalStorage();
+            
+            input.disabled = true;
+            sendBtn.disabled = true;
+            document.getElementById('status').classList.add('loading');
+            showTypingIndicator();
+
+            try {
+                const res = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        prompt: content,
+                        session_id: currentChatId 
+                    })
+                });
+
+                const data = await res.json();
+                removeTypingIndicator();
+
+                if (data.error) {
+                    addMessageUI('assistant', 'Error: ' + data.error);
+                    messages.pop();
+                } else {
+                    messages.push({ 
+                        role: 'assistant', 
+                        content: data.response,
+                        sources: data.sources 
+                    });
+                    addMessageUI('assistant', data.response, true, data.sources);
+                    saveToLocalStorage();
+                    speakText(data.response);
+                }
+            } catch (e) {
+                removeTypingIndicator();
+                addMessageUI('assistant', 'Connection error. Make sure the server is running.');
+                messages.pop();
+            }
+
+            input.disabled = false;
+            sendBtn.disabled = false;
+            input.focus();
+            document.getElementById('status').classList.remove('loading');
+        }
+
+        function addMessageUI(role, content, scroll = true, sources = null) {
+            const container = document.getElementById('messages');
+            const empty = container.querySelector('.empty-state');
+            if (empty) empty.remove();
+
+            const div = document.createElement('div');
+            div.className = `message ${role}`;
+            
+            if (role === 'assistant') {
+                div.innerHTML = renderMarkdown(content);
+                
+                if (sources && sources.length > 0) {
+                    const contextPanel = document.createElement('div');
+                    contextPanel.className = 'context-panel';
+                    
+                    const toggleDiv = document.createElement('div');
+                    toggleDiv.className = 'context-toggle';
+                    toggleDiv.innerHTML = `📚 View ${sources.length} retrieved source(s)`;
+                    
+                    const bodyDiv = document.createElement('div');
+                    bodyDiv.className = 'context-body';
+                    
+                    sources.forEach(src => {
+                        const chunkDiv = document.createElement('div');
+                        chunkDiv.className = 'context-chunk';
+                        chunkDiv.innerHTML = `<strong>File: ${src.document_name} (Score: ${(src.score * 100).toFixed(1)}%)</strong>\n${src.text}`;
+                        bodyDiv.appendChild(chunkDiv);
+                    });
+                    
+                    toggleDiv.onclick = () => {
+                        bodyDiv.classList.toggle('open');
+                    };
+                    
+                    contextPanel.appendChild(toggleDiv);
+                    contextPanel.appendChild(bodyDiv);
+                    
+                    const wrapper = document.createElement('div');
+                    wrapper.style.display = 'flex';
+                    wrapper.style.flexDirection = 'column';
+                    wrapper.style.alignSelf = 'flex-start';
+                    wrapper.style.maxWidth = '80%';
+                    wrapper.style.gap = '8px';
+                    
+                    div.style.maxWidth = '100%';
+                    contextPanel.style.maxWidth = '100%';
+                    contextPanel.style.alignSelf = 'stretch';
+                    
+                    wrapper.appendChild(div);
+                    wrapper.appendChild(contextPanel);
+                    container.appendChild(wrapper);
+                } else {
+                    container.appendChild(div);
+                }
+            } else {
+                div.textContent = content;
+                container.appendChild(div);
+            }
+            
+            if (scroll) container.scrollTop = container.scrollHeight;
+        }
+
+        async function refreshFiles() {
+            const status = document.getElementById('status');
+            status.classList.add('loading');
+            try {
+                const res = await fetch('/refresh', { method: 'POST' });
+                await loadFileList();
+                addMessageUI('assistant', 'Index refreshed! Accessing your local files now.');
+            } catch (e) {
+                addMessageUI('assistant', 'Failed to refresh index.');
+            } finally {
+                status.classList.remove('loading');
+            }
+        }
+
+        // ─── Speech Recognition (STT) ──────────────────────────────────────
+        function initSpeechRecognition() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                console.warn("Speech Recognition not supported in this browser.");
+                document.getElementById("micBtn").style.display = "none";
+                return;
+            }
+            
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            
+            recognition.onstart = () => {
+                isListening = true;
+                document.getElementById("micBtn").classList.add("listening");
+                document.getElementById("input").placeholder = "Listening...";
+            };
+            
+            recognition.onend = () => {
+                isListening = false;
+                document.getElementById("micBtn").classList.remove("listening");
+                document.getElementById("input").placeholder = "Type your message...";
+            };
+            
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error", event.error);
+                isListening = false;
+                document.getElementById("micBtn").classList.remove("listening");
+            };
+            
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("input").value = transcript;
+                sendMessage();
+            };
+        }
+
+        function toggleSpeechRecognition() {
+            if (!recognition) initSpeechRecognition();
+            if (!recognition) return;
+            
+            if (isListening) {
+                recognition.stop();
+            } else {
+                const lang = document.getElementById("langSelect").value;
+                recognition.lang = lang;
+                recognition.start();
+            }
+        }
+
+        // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+        function toggleTTS() {
+            ttsEnabled = !ttsEnabled;
+            const btn = document.getElementById("speakerBtn");
+            if (ttsEnabled) {
+                btn.classList.add("active");
+                btn.title = "Toggle Auto Text-to-Speech (ON)";
+            } else {
+                btn.classList.remove("active");
+                btn.title = "Toggle Auto Text-to-Speech (OFF)";
+                if (window.speechSynthesis) {
+                    window.speechSynthesis.cancel();
+                }
+            }
+        }
+
+        function speakText(text) {
+            if (!ttsEnabled || !window.speechSynthesis) return;
+            
+            window.speechSynthesis.cancel();
+            
+            // Clean markdown syntax and HTML tags
+            const cleanText = text.replace(/<[^>]*>/g, '')
+                                  .replace(/\*\*|__/g, '')
+                                  .replace(/\*|_/g, '')
+                                  .replace(/`[^`]+`/g, '')
+                                  .trim();
+            if (!cleanText) return;
+            
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            const lang = document.getElementById("langSelect").value;
+            utterance.lang = lang;
+            
+            const voices = window.speechSynthesis.getVoices();
+            let selectedVoice = null;
+            
+            if (lang === "am-ET") {
+                // Find Amharic voice or fallback
+                selectedVoice = voices.find(v => v.lang.startsWith("am")) || 
+                                voices.find(v => v.lang.startsWith("en"));
+            } else {
+                selectedVoice = voices.find(v => v.lang.startsWith("en"));
+            }
+            
+            if (selectedVoice) {
+                utterance.voice = selectedVoice;
+            }
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
