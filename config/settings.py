@@ -30,5 +30,8 @@ class Settings:
     EMBEDDING_MODEL_PATH = os.getenv("EMBEDDING_MODEL_PATH", "/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/744955b57f0f6bb689255bb15fb9ec87b9275460")
     HOST = os.getenv("HOST", "0.0.0.0")
     PORT = int(os.getenv("PORT", "5000"))
+    # accelerate (Hugging Face Accelerate dispatch) or manual (layer sharding).
+    # Benchmarked on 2xV100: manual is ~15% faster at generation (~6.4 vs ~5.5 tok/s).
+    LLM_BACKEND = os.getenv("LLM_BACKEND", "manual")
 
 settings = Settings()

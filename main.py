@@ -7,6 +7,24 @@ from flask import Flask, jsonify
 # Add current folder to sys.path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+# Dual logging to output.log and console
+class LoggerTee:
+    def __init__(self, filename="output.log"):
+        self.terminal = sys.stdout
+        self.log = open(filename, "a", encoding="utf-8")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.log.flush()
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+sys.stdout = LoggerTee("output.log")
+sys.stderr = sys.stdout
+
 from config import settings
 from src.ui.app import create_ui_app
 
@@ -64,8 +82,12 @@ def load_services_bg():
             app.config["VECTOR_STORE"] = vector_store
 
             # 4. Load sharded Gemma 4 model
-            from src.models.llm_client import Gemma4LLMClient
-            llm_client = Gemma4LLMClient(settings.MODEL_PATH)
+            if settings.LLM_BACKEND == "accelerate":
+                from src.models.accelerate import AcceleratedGemma4LLMClient
+                llm_client = AcceleratedGemma4LLMClient(settings.MODEL_PATH)
+            else:
+                from src.models.llm_client import Gemma4LLMClient
+                llm_client = Gemma4LLMClient(settings.MODEL_PATH)
             services["llm_client"] = llm_client
 
             # 5. Load Conversation Service
