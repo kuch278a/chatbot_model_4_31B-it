@@ -14,7 +14,10 @@ def load_dotenv(dotenv_path=".env"):
                         key, val = line.split("=", 1)
                         # Clean up quotes if present
                         val = val.strip().strip("'\"")
-                        os.environ[key.strip()] = val
+                        key = key.strip()
+                        # Existing environment variables take precedence over .env
+                        if key and key not in os.environ:
+                            os.environ[key] = val
             break
 
 # Load env variables at module import time

@@ -33,7 +33,10 @@ class RAGPipeline:
         chunks = split_text(content)
         if not chunks:
             return False
-            
+
+        # Replace any previously indexed chunks for this document (idempotent re-indexing)
+        self.vector_store.delete_document_chunks(filename)
+
         # Embed the chunks
         embeddings = self.embeddings_model.embed_documents(chunks)
         

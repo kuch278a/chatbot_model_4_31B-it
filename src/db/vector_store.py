@@ -90,6 +90,14 @@ class SQLiteVectorStore:
         finally:
             conn.close()
 
+    def delete_document_chunks(self, document_name):
+        conn = get_db_connection()
+        try:
+            conn.execute("DELETE FROM vector_store WHERE document_name = ?;", (document_name,))
+            conn.commit()
+        finally:
+            conn.close()
+
     def clear_all(self):
         conn = get_db_connection()
         try:

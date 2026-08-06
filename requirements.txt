@@ -1,6 +1,6 @@
-python-dotenv
-pydantic-settings
+flask
+torch
+transformers
+numpy
+Pillow
 accelerate
-gTTS
-librosa
-soundfile

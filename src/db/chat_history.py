@@ -15,10 +15,11 @@ def get_history(session_id, limit=50):
     conn = get_db_connection()
     try:
         cursor = conn.execute(
-            "SELECT sender, message, timestamp FROM chat_history WHERE session_id = ? ORDER BY timestamp ASC LIMIT ?;",
+            "SELECT sender, message, timestamp FROM chat_history WHERE session_id = ? ORDER BY id DESC LIMIT ?;",
             (session_id, limit)
         )
         rows = cursor.fetchall()
+        rows.reverse()
         return [(row["sender"], row["message"]) for row in rows]
     finally:
         conn.close()

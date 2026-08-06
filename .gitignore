@@ -1,1 +1,14 @@
+# Model weights
 src/models/model/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Data
+data/*.sqlite
+data/*.sqlite-journal
+
+# Environment
+.env

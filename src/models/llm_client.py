@@ -118,41 +118,78 @@ class Gemma4LLMClient(BaseLLMClient):
         self._shard_model()
         
     def _shard_model(self):
-        # 1. Move vision tower and embed_vision to GPU 0 if present
+        device0, device1 = "cuda:0", "cuda:1"
+
+        def param_bytes(module):
+            total = 0
+            for p in module.parameters():
+                total += p.numel() * p.element_size()
+            for b in module.buffers():
+                total += b.numel() * b.element_size()
+            return total
+
+        # Shared, non-layer modules
         if hasattr(self.model.model, "vision_tower") and self.model.model.vision_tower is not None:
-            self.model.model.vision_tower.to("cuda:0")
+            self.model.model.vision_tower.to(device0)
             register_device_dispatch(self.model.model.vision_tower)
-            
+
         if hasattr(self.model.model, "embed_vision") and self.model.model.embed_vision is not None:
-            self.model.model.embed_vision.to("cuda:0")
+            self.model.model.embed_vision.to(device0)
             register_device_dispatch(self.model.model.embed_vision)
-            
-        # 2. Move embed_tokens to GPU 0 and register rotary embedding dispatch
-        if hasattr(self.model.model.language_model, "embed_tokens") and self.model.model.language_model.embed_tokens is not None:
-            self.model.model.language_model.embed_tokens.to("cuda:0")
-            register_device_dispatch(self.model.model.language_model.embed_tokens)
-            
+
+        embed_tokens = getattr(self.model.model.language_model, "embed_tokens", None)
+        if embed_tokens is not None:
+            embed_tokens.to(device0)
+            register_device_dispatch(embed_tokens)
+
         if hasattr(self.model.model.language_model, "rotary_emb") and self.model.model.language_model.rotary_emb is not None:
             register_device_dispatch(self.model.model.language_model.rotary_emb)
-            
-        # 3. Distribute 60 layers (27 on GPU 0 to account for embeddings, 33 on GPU 1)
+
+        norm = getattr(self.model.model.language_model, "norm", None)
+        if norm is not None:
+            norm.to(device1)
+            register_device_dispatch(norm)
+
+        lm_head = getattr(self.model, "lm_head", None)
+        if lm_head is not None:
+            lm_head.to(device0)
+            register_device_dispatch(lm_head)
+
+        # Track weight bytes already placed on each GPU to balance layers.
+        # lm_head is weight-tied to embed_tokens, so count it only once.
+        load = {device0: 0.0, device1: 0.0}
+        vision_tower = getattr(self.model.model, "vision_tower", None)
+        if vision_tower is not None:
+            load[device0] += param_bytes(vision_tower)
+        embed_vision = getattr(self.model.model, "embed_vision", None)
+        if embed_vision is not None:
+            load[device0] += param_bytes(embed_vision)
+        if embed_tokens is not None:
+            load[device0] += param_bytes(embed_tokens)
+        if norm is not None:
+            load[device1] += param_bytes(norm)
+        if lm_head is not None:
+            tied = embed_tokens is not None and getattr(lm_head, "weight", None) is getattr(embed_tokens, "weight", None)
+            if not tied:
+                load[device0] += param_bytes(lm_head)
+
+        # Greedily assign each layer to the GPU with the least weight bytes.
         layers = self.model.model.language_model.layers
-        # 3. Distribute 60 layers (28 on GPU 0, 32 on GPU 1)
         num_layers = len(layers)
-        for i, layer in enumerate(layers):
-            device = "cuda:0" if i < 28 else "cuda:1"
+        layer_sizes = [param_bytes(layer) for layer in layers]
+        device_counts = {device0: 0, device1: 0}
+        for layer, size in zip(layers, layer_sizes):
+            device = min(load, key=load.get)
             layer.to(device)
             register_device_dispatch(layer)
-            
-        # 4. Move norm to GPU 1 and head to GPU 0
-        if hasattr(self.model.model.language_model, "norm") and self.model.model.language_model.norm is not None:
-            self.model.model.language_model.norm.to("cuda:1")
-            register_device_dispatch(self.model.model.language_model.norm)
-            
-        if hasattr(self.model, "lm_head") and self.model.lm_head is not None:
-            self.model.lm_head.to("cuda:0")
-            register_device_dispatch(self.model.lm_head)
-            
+            load[device] += size
+            device_counts[device] += 1
+
+        print(
+            f"Layer balancing complete: {device0}={device_counts[device0]} layers "
+            f"({load[device0] / 1e9:.1f}GB), {device1}={device_counts[device1]} layers "
+            f"({load[device1] / 1e9:.1f}GB)"
+        )
         print("Model sharding completed successfully.")
 
     def generate(self, prompt, system_prompt=None, history=None, **kwargs):
