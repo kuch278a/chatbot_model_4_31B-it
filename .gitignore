@@ -12,3 +12,5 @@ data/*.sqlite-journal
 
 # Environment
 .env
+
+logs/app.log
