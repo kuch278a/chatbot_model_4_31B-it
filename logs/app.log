@@ -1,0 +1,327 @@
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: /home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e onto cuda:1
+CRITICAL: Failed to load services: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 747, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 72, in load_services_bg
+    embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/embeddings.py", line 9, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 751, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 680, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Retrying in 15s...
+Starting background service initialization (attempt 2/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: /home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e onto cuda:1
+CRITICAL: Failed to load services: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 747, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 72, in load_services_bg
+    embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/embeddings.py", line 9, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 751, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 680, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Retrying in 15s...
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: /home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e onto cuda:1
+CRITICAL: Failed to load services: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 747, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 72, in load_services_bg
+    embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/embeddings.py", line 9, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 751, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 680, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Retrying in 15s...
+Starting background service initialization (attempt 2/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: /home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e onto cuda:1
+CRITICAL: Failed to load services: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 747, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 72, in load_services_bg
+    embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/embeddings.py", line 9, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 751, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 680, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 721, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/configuration_utils.py", line 776, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/iotadmin/.cache/huggingface/hub/models--rasyosef--bert-amharic-text-embedding-medium/snapshots/5133017743a43adee5b5638daebbda089462949e'. Use `repo_type` argument if needed.
+Retrying in 15s...
+[2026-08-07 16:22:15] [INFO] [test_module]: Test log entry for Amani AI assistant
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4530.14it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<16:26,  1.20it/s]Loading weights:   6%|5         | 71/1188 [00:01<00:20, 55.10it/s]Loading weights:   9%|9         | 107/1188 [00:01<00:13, 80.29it/s]Loading weights:  12%|#1        | 137/1188 [00:02<00:10, 102.45it/s]Loading weights:  14%|#3        | 164/1188 [00:02<00:08, 119.16it/s]Loading weights:  16%|#5        | 188/1188 [00:02<00:12, 80.65it/s] Loading weights:  18%|#7        | 213/1188 [00:02<00:09, 98.57it/s]Loading weights:  20%|#9        | 237/1188 [00:02<00:08, 117.94it/s]Loading weights:  22%|##1       | 258/1188 [00:03<00:07, 129.64it/s]Loading weights:  24%|##3       | 282/1188 [00:03<00:06, 144.59it/s]Loading weights:  26%|##6       | 310/1188 [00:03<00:05, 160.68it/s]Loading weights:  28%|##8       | 334/1188 [00:03<00:05, 164.88it/s]Loading weights:  30%|##9       | 354/1188 [00:03<00:04, 172.31it/s]Loading weights:  32%|###1      | 375/1188 [00:03<00:04, 180.98it/s]Loading weights:  33%|###3      | 395/1188 [00:03<00:04, 182.35it/s]Loading weights:  35%|###5      | 421/1188 [00:03<00:03, 193.60it/s]Loading weights:  37%|###7      | 445/1188 [00:04<00:03, 202.69it/s]Loading weights:  40%|###9      | 472/1188 [00:04<00:03, 215.70it/s]Loading weights:  42%|####1     | 495/1188 [00:04<00:03, 201.84it/s]Loading weights:  44%|####3     | 518/1188 [00:04<00:03, 196.69it/s]Loading weights:  46%|####5     | 545/1188 [00:04<00:03, 203.34it/s]Loading weights:  48%|####7     | 569/1188 [00:04<00:02, 210.21it/s]Loading weights:  50%|####9     | 591/1188 [00:04<00:02, 207.18it/s]Loading weights:  52%|#####1    | 612/1188 [00:04<00:02, 204.39it/s]Loading weights:  54%|#####3    | 638/1188 [00:04<00:02, 202.95it/s]Loading weights:  55%|#####5    | 659/1188 [00:05<00:02, 195.94it/s]Loading weights:  57%|#####7    | 683/1188 [00:05<00:02, 201.46it/s]Loading weights:  60%|#####9    | 711/1188 [00:05<00:02, 208.91it/s]Loading weights:  62%|######1   | 735/1188 [00:05<00:02, 216.44it/s]Loading weights:  64%|######3   | 757/1188 [00:06<00:07, 58.62it/s] Loading weights:  65%|######5   | 773/1188 [00:08<00:19, 21.07it/s]Loading weights:  66%|######6   | 785/1188 [00:10<00:23, 16.96it/s]Loading weights:  67%|######6   | 794/1188 [00:10<00:22, 17.26it/s]Loading weights:  67%|######7   | 801/1188 [00:11<00:24, 15.79it/s]Loading weights:  68%|######8   | 808/1188 [00:12<00:27, 14.03it/s]Loading weights:  69%|######8   | 816/1188 [00:12<00:23, 15.78it/s]Loading weights:  69%|######9   | 822/1188 [00:12<00:22, 16.22it/s]Loading weights:  69%|######9   | 825/1188 [00:12<00:23, 15.43it/s]Loading weights:  79%|#######9  | 940/1188 [00:13<00:02, 104.55it/s]Loading weights:  85%|########5 | 1013/1188 [00:13<00:01, 168.19it/s]Loading weights:  92%|#########1| 1092/1188 [00:13<00:00, 246.06it/s]Loading weights:  96%|#########6| 1142/1188 [00:13<00:00, 284.82it/s]Loading weights: 100%|##########| 1188/1188 [00:13<00:00, 88.04it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4759.80it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:54, 10.33it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:05, 199.85it/s]Loading weights:   7%|6         | 83/1188 [00:00<00:05, 190.07it/s]Loading weights:   9%|8         | 103/1188 [00:00<00:05, 185.62it/s]Loading weights:  11%|#         | 127/1188 [00:00<00:05, 201.31it/s]Loading weights:  12%|#2        | 148/1188 [00:00<00:05, 200.18it/s]Loading weights:  14%|#4        | 169/1188 [00:00<00:05, 191.82it/s]Loading weights:  16%|#6        | 193/1188 [00:01<00:05, 194.79it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 215.38it/s]Loading weights:  21%|##        | 245/1188 [00:01<00:04, 189.38it/s]Loading weights:  23%|##2       | 269/1188 [00:01<00:04, 197.91it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 207.39it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:04, 207.34it/s]Loading weights:  29%|##8       | 341/1188 [00:01<00:04, 187.11it/s]Loading weights:  30%|###       | 361/1188 [00:02<00:05, 141.88it/s]Loading weights:  33%|###2      | 389/1188 [00:02<00:04, 168.69it/s]Loading weights:  34%|###4      | 408/1188 [00:02<00:04, 165.85it/s]Loading weights:  36%|###6      | 433/1188 [00:02<00:04, 178.35it/s]Loading weights:  38%|###8      | 456/1188 [00:02<00:03, 185.92it/s]Loading weights:  40%|####      | 476/1188 [00:03<00:09, 71.64it/s] Loading weights:  41%|####1     | 491/1188 [00:03<00:10, 64.34it/s]Loading weights:  44%|####4     | 527/1188 [00:03<00:06, 98.28it/s]Loading weights:  46%|####5     | 545/1188 [00:04<00:09, 71.21it/s]Loading weights:  47%|####7     | 560/1188 [00:04<00:08, 76.69it/s]Loading weights:  48%|####8     | 573/1188 [00:04<00:08, 68.92it/s]Loading weights:  49%|####9     | 584/1188 [00:04<00:08, 69.05it/s]Loading weights:  51%|#####1    | 610/1188 [00:04<00:05, 97.85it/s]Loading weights:  53%|#####2    | 629/1188 [00:04<00:04, 112.43it/s]Loading weights:  55%|#####4    | 652/1188 [00:05<00:04, 132.56it/s]Loading weights:  56%|#####6    | 671/1188 [00:05<00:03, 133.79it/s]Loading weights:  60%|#####9    | 707/1188 [00:05<00:02, 175.32it/s]Loading weights:  61%|######1   | 727/1188 [00:05<00:02, 178.77it/s]Loading weights:  63%|######2   | 747/1188 [00:05<00:02, 183.32it/s]Loading weights:  65%|######4   | 767/1188 [00:05<00:02, 184.45it/s]Loading weights:  66%|######6   | 790/1188 [00:05<00:02, 168.36it/s]Loading weights:  68%|######8   | 808/1188 [00:09<00:20, 18.63it/s] Loading weights:  69%|######9   | 821/1188 [00:09<00:17, 21.09it/s]Loading weights:  70%|#######   | 832/1188 [00:09<00:14, 24.36it/s]Loading weights:  76%|#######6  | 908/1188 [00:09<00:04, 67.35it/s]Loading weights:  82%|########1 | 972/1188 [00:09<00:01, 111.15it/s]Loading weights:  94%|#########3| 1116/1188 [00:10<00:00, 243.19it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 117.60it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+10.100.9.209 - - [07/Aug/2026 16:28:03] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:28:04] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:28:04] "GET /files HTTP/1.1" 200 -
+Layer balancing complete: cuda:0=28 layers (31.8GB), cuda:1=32 layers (30.8GB)
+Model sharding completed successfully.
+All services loaded and ready!
+10.100.9.209 - - [07/Aug/2026 16:28:13] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:28:25] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:29:06] "POST /clear HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:29:17] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:29:50] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:30:29] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:30:56] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:31:44] "POST /chat HTTP/1.1" 200 -
+10.100.9.209 - - [07/Aug/2026 16:32:32] "POST /chat HTTP/1.1" 200 -
+[2026-08-07 16:39:38] [INFO] [test_module]: Test log entry for Amani AI assistant

@@ -60,13 +60,24 @@ class RAGPipeline:
             print(f"Directory not found: {directory_path}")
             return
             
+        active_filenames = set()
         indexed_count = 0
         for filename in os.listdir(directory_path):
             filepath = os.path.join(directory_path, filename)
             if os.path.isfile(filepath) and filename.endswith((".txt", ".md", ".json", ".csv")):
+                active_filenames.add(filename)
                 if self.index_file(filepath):
                     indexed_count += 1
+
+        # Strict sync: Purge documents from DB that no longer exist in local_data directory
+        existing_db_docs = self.vector_store.get_all_document_names()
+        for doc in existing_db_docs:
+            if doc not in active_filenames:
+                print(f"Purging deleted document '{doc}' from vector store database...")
+                self.vector_store.delete_document_chunks(doc)
+
         print(f"Indexed {indexed_count} files from {directory_path}")
+
 
     def get_context(self, query, k=3):
         results = self.retriever.retrieve(query, k=k)

@@ -1,14 +1,30 @@
+import os
 import torch
 from transformers import AutoTokenizer, AutoModel
 from .base import BaseEmbeddings
+
 
 class LocalMultilingualEmbeddings(BaseEmbeddings):
     def __init__(self, model_path, device="cuda:0"):
         self.device = device
         print(f"Loading local embedding model from: {model_path} onto {device}")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
-        self.model = AutoModel.from_pretrained(model_path, local_files_only=True).to(device)
+        
+        # Use local_files_only=True only if the path is an existing local directory
+        is_local_dir = os.path.isdir(model_path)
+        fallback_repo = "rasyosef/bert-amharic-text-embedding-medium"
+        target_path = model_path if (is_local_dir or not model_path.startswith("/")) else fallback_repo
+
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(target_path, local_files_only=is_local_dir)
+            self.model = AutoModel.from_pretrained(target_path, local_files_only=is_local_dir, use_safetensors=True).to(device)
+        except Exception as e:
+            print(f"Warning: Failed to load from {target_path} ({e}). Downloading fallback {fallback_repo}...")
+            self.tokenizer = AutoTokenizer.from_pretrained(fallback_repo)
+            self.model = AutoModel.from_pretrained(fallback_repo, use_safetensors=True).to(device)
+
         self.model.eval()
+
+
 
     def embed_documents(self, texts):
         if not texts:
