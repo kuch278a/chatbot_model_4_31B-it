@@ -7,9 +7,14 @@ from flask import Flask, jsonify
 # Add current folder to sys.path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Dual logging to output.log and console
+# Ensure logs directory exists
+LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE_PATH = os.path.join(LOG_DIR, "app.log")
+
+# Dual logging to logs/app.log and console
 class LoggerTee:
-    def __init__(self, filename="output.log"):
+    def __init__(self, filename=LOG_FILE_PATH):
         self.terminal = sys.stdout
         self.log = open(filename, "a", encoding="utf-8")
 
@@ -22,8 +27,9 @@ class LoggerTee:
         self.terminal.flush()
         self.log.flush()
 
-sys.stdout = LoggerTee("output.log")
+sys.stdout = LoggerTee(LOG_FILE_PATH)
 sys.stderr = sys.stdout
+
 
 from config import settings
 from src.ui.app import create_ui_app

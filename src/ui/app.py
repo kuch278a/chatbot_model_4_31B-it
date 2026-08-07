@@ -39,6 +39,62 @@ def chat():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+@ui_bp.route("/api/voices", methods=["GET"])
+def list_voices():
+    """Returns available TTS voice profiles, focusing on Amharic (am-ET)."""
+    from src.tts.synthesizer import VoiceSynthesizer
+    synthesizer = VoiceSynthesizer()
+    lang = request.args.get("lang")
+    voices = synthesizer.get_available_voices(lang=lang)
+    return jsonify({"status": "success", "voices": voices})
+
+@ui_bp.route("/api/tts", methods=["POST"])
+def synthesize_speech():
+    """Endpoint to synthesize text into speech parameters for Amharic or target languages."""
+    from src.tts.synthesizer import VoiceSynthesizer
+    synthesizer = VoiceSynthesizer()
+    data = request.get_json() or {}
+    text = data.get("text", "")
+    lang = data.get("lang", "am-ET")
+    rate = data.get("rate", 1.0)
+    pitch = data.get("pitch", 1.0)
+    
+    if not text.strip():
+        return jsonify({"error": "Text to speak cannot be empty"}), 400
+
+    result = synthesizer.synthesize(text=text, lang=lang, rate=rate, pitch=pitch)
+    return jsonify(result)
+
+@ui_bp.route("/api/tts/audio", methods=["POST", "GET"])
+def stream_speech_audio():
+    """Endpoint that synthesizes text using edge-tts and streams the resulting MP3 audio file."""
+    import asyncio
+    import tempfile
+    from flask import send_file
+    from src.tts.synthesizer import VoiceSynthesizer
+    
+    if request.method == "GET":
+        text = request.args.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
+        lang = request.args.get("lang", "am-ET")
+    else:
+        data = request.get_json() or {}
+        text = data.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
+        lang = data.get("lang", "am-ET")
+
+    if not text.strip():
+        return jsonify({"error": "Text cannot be empty"}), 400
+
+    synthesizer = VoiceSynthesizer()
+    temp_mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
+    
+    try:
+        asyncio.run(synthesizer.generate_audio_file(text=text, output_path=temp_mp3.name, lang=lang))
+        return send_file(temp_mp3.name, mimetype="audio/mpeg", as_attachment=False)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+
 @ui_bp.route("/refresh", methods=["POST"])
 def refresh():
     """Rescans and index the documents folder."""

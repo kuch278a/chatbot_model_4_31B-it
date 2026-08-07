@@ -640,9 +640,7 @@
         }
 
         function speakText(text) {
-            if (!ttsEnabled || !window.speechSynthesis) return;
-            
-            window.speechSynthesis.cancel();
+            if (!ttsEnabled) return;
             
             // Clean markdown syntax and HTML tags
             const cleanText = text.replace(/<[^>]*>/g, '')
@@ -652,27 +650,35 @@
                                   .trim();
             if (!cleanText) return;
             
-            const utterance = new SpeechSynthesisUtterance(cleanText);
-            const lang = document.getElementById("langSelect").value;
-            utterance.lang = lang;
-            
-            const voices = window.speechSynthesis.getVoices();
-            let selectedVoice = null;
-            
-            if (lang === "am-ET") {
-                // Find Amharic voice or fallback
-                selectedVoice = voices.find(v => v.lang.startsWith("am")) || 
-                                voices.find(v => v.lang.startsWith("en"));
-            } else {
-                selectedVoice = voices.find(v => v.lang.startsWith("en"));
+            const lang = document.getElementById("langSelect").value || "am-ET";
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const voices = window.speechSynthesis.getVoices();
+                
+                // Prioritize Microsoft Mekdes Neural voice directly
+                let targetVoice = voices.find(v => v.name === 'Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)') ||
+                                  voices.find(v => v.name.includes('am-ET-MekdesNeural')) ||
+                                  voices.find(v => v.name.includes('Mekdes')) ||
+                                  voices.find(v => v.lang === 'am-ET' || v.lang.startsWith('am'));
+
+                if (targetVoice) {
+                    const utterance = new SpeechSynthesisUtterance(cleanText);
+                    utterance.lang = lang;
+                    utterance.voice = targetVoice;
+                    utterance.rate = 1.0;
+                    utterance.pitch = 1.0;
+                    window.speechSynthesis.speak(utterance);
+                    return;
+                }
             }
-            
-            if (selectedVoice) {
-                utterance.voice = selectedVoice;
-            }
-            
-            window.speechSynthesis.speak(utterance);
+
+            // Fallback: Stream neural Mekdes voice directly from backend edge-tts service
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${encodeURIComponent(lang)}`;
+            const audio = new Audio(audioUrl);
+            audio.play().catch(e => console.warn("Backend audio playback error:", e));
         }
+
 
         init();
     </script>
