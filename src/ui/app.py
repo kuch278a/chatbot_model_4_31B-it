@@ -39,6 +39,27 @@ def chat():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+@ui_bp.route("/chat/stream", methods=["POST"])
+def chat_stream():
+    """Endpoint for streaming chatbot responses token-by-token."""
+    from flask import stream_with_context
+    conv_service = current_app.config.get("CONVERSATION_SERVICE")
+    if not conv_service:
+        return jsonify({"error": "LLM client service not loaded yet."}), 503
+
+    data = request.get_json() or {}
+    prompt = data.get("prompt", "")
+    session_id = data.get("session_id", "default_session")
+
+    if not prompt.strip():
+        return jsonify({"error": "Prompt cannot be empty"}), 400
+
+    def generate():
+        for token in conv_service.chat_stream(session_id, prompt):
+            yield token
+
+    return Response(stream_with_context(generate()), mimetype="text/plain")
+
 @ui_bp.route("/api/voices", methods=["GET"])
 def list_voices():
     """Returns available TTS voice profiles, focusing on Amharic (am-ET)."""

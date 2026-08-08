@@ -910,3 +910,359 @@ torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 108.00 MiB. GPU 0 
 127.0.0.1 - - [08/Aug/2026 15:21:30] "POST /chat HTTP/1.1" 200 -
 127.0.0.1 - - [08/Aug/2026 15:21:30] "GET /api/voices?lang=am-ET HTTP/1.1" 200 -
 127.0.0.1 - - [08/Aug/2026 15:21:31] "POST /api/tts/audio HTTP/1.1" 200 -
+10.100.9.209 - - [08/Aug/2026 15:24:44] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:25:34] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:25:34] "GET /api/voices?lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:25:35] "POST /api/tts/audio HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:25:37] "POST /chat HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 32, in chat
+    result = conv_service.chat(session_id, prompt)
+  File "/mnt/data/chatbot_model_4_31B-it/src/services/conversation.py", line 30, in chat
+    response = self.llm_client.generate(
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 227, in generate
+    outputs = self.model.generate(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 94, in custom_forward
+    return original_forward(*new_args, **new_kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+    attn_output, attn_weights = attention_interface(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 154, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 98.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 55.50 MiB is free. Including non-PyTorch memory, this process has 31.67 GiB memory in use. Of the allocated memory 30.84 GiB is allocated by PyTorch, and 459.20 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+127.0.0.1 - - [08/Aug/2026 15:25:47] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+127.0.0.1 - - [08/Aug/2026 15:25:52] "GET /health HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 32, in chat
+    result = conv_service.chat(session_id, prompt)
+  File "/mnt/data/chatbot_model_4_31B-it/src/services/conversation.py", line 30, in chat
+    response = self.llm_client.generate(
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 227, in generate
+    outputs = self.model.generate(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 94, in custom_forward
+    return original_forward(*new_args, **new_kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1433, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1089, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 46.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 9.50 MiB is free. Including non-PyTorch memory, this process has 31.71 GiB memory in use. Of the allocated memory 30.94 GiB is allocated by PyTorch, and 394.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+127.0.0.1 - - [08/Aug/2026 15:25:54] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 32, in chat
+    result = conv_service.chat(session_id, prompt)
+  File "/mnt/data/chatbot_model_4_31B-it/src/services/conversation.py", line 30, in chat
+    response = self.llm_client.generate(
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 227, in generate
+    outputs = self.model.generate(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/llm_client.py", line 94, in custom_forward
+    return original_forward(*new_args, **new_kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1250, in forward
+    query_states = self.q_norm(query_states)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 212, in forward
+    normed_output = self._norm(hidden_states.float())
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 207, in _norm
+    mean_squared = hidden_states.pow(2).mean(-1, keepdim=True) + self.eps
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 108.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 11.50 MiB is free. Including non-PyTorch memory, this process has 31.71 GiB memory in use. Of the allocated memory 30.65 GiB is allocated by PyTorch, and 690.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+127.0.0.1 - - [08/Aug/2026 15:25:55] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+127.0.0.1 - - [08/Aug/2026 15:25:55] "GET /api/voices?lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:25:55] "POST /api/tts/audio HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:26:11] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:27:07] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:29:42] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:29:42] "[33mPOST /chat/stream HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4583.16it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+CRITICAL: Failed to load services: No module named 'accelerate'
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 92, in load_services_bg
+    from src.models.accelerate import AcceleratedGemma4LLMClient
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/accelerate.py", line 10, in <module>
+    from accelerate import dispatch_model
+ModuleNotFoundError: No module named 'accelerate'
+Retrying in 15s...
+Starting background service initialization (attempt 2/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5172.90it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+CRITICAL: Failed to load services: No module named 'accelerate'
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 92, in load_services_bg
+    from src.models.accelerate import AcceleratedGemma4LLMClient
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/accelerate.py", line 10, in <module>
+    from accelerate import dispatch_model
+ModuleNotFoundError: No module named 'accelerate'
+Retrying in 15s...
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 6333.96it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.1s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:48,  7.03it/s]Loading weights:   6%|5         | 71/1188 [00:00<00:05, 223.24it/s]Loading weights:   9%|9         | 107/1188 [00:00<00:04, 226.09it/s]Loading weights:  12%|#1        | 137/1188 [00:00<00:04, 225.46it/s]Loading weights:  14%|#3        | 164/1188 [00:00<00:04, 221.94it/s]Loading weights:  16%|#5        | 189/1188 [00:00<00:04, 208.67it/s]Loading weights:  18%|#7        | 213/1188 [00:01<00:04, 206.85it/s]Loading weights:  20%|#9        | 235/1188 [00:01<00:04, 207.42it/s]Loading weights:  22%|##1       | 257/1188 [00:01<00:04, 201.89it/s]Loading weights:  24%|##3       | 282/1188 [00:01<00:04, 202.24it/s]Loading weights:  26%|##6       | 310/1188 [00:01<00:04, 210.33it/s]Loading weights:  28%|##7       | 332/1188 [00:01<00:04, 197.89it/s]Loading weights:  30%|###       | 362/1188 [00:01<00:03, 207.27it/s]Loading weights:  33%|###2      | 390/1188 [00:01<00:03, 208.49it/s]Loading weights:  35%|###4      | 411/1188 [00:02<00:03, 204.58it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:03, 206.79it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 213.97it/s]Loading weights:  41%|####1     | 490/1188 [00:02<00:03, 212.91it/s]Loading weights:  43%|####3     | 513/1188 [00:02<00:03, 215.10it/s]Loading weights:  46%|####5     | 541/1188 [00:02<00:03, 208.07it/s]Loading weights:  48%|####7     | 567/1188 [00:02<00:03, 204.52it/s]Loading weights:  49%|####9     | 588/1188 [00:02<00:02, 204.93it/s]Loading weights:  51%|#####1    | 609/1188 [00:03<00:02, 196.27it/s]Loading weights:  54%|#####3    | 640/1188 [00:03<00:02, 218.01it/s]Loading weights:  56%|#####5    | 662/1188 [00:03<00:02, 207.44it/s]Loading weights:  57%|#####7    | 683/1188 [00:03<00:02, 206.48it/s]Loading weights:  59%|#####9    | 704/1188 [00:03<00:02, 206.34it/s]Loading weights:  62%|######1   | 733/1188 [00:03<00:02, 227.44it/s]Loading weights:  64%|######3   | 756/1188 [00:03<00:02, 208.87it/s]Loading weights:  65%|######5   | 778/1188 [00:05<00:08, 49.06it/s] Loading weights:  67%|######6   | 794/1188 [00:11<00:41,  9.54it/s]Loading weights:  68%|######7   | 805/1188 [00:12<00:39,  9.78it/s]Loading weights:  68%|######8   | 813/1188 [00:12<00:36, 10.27it/s]Loading weights:  69%|######9   | 822/1188 [00:13<00:33, 10.96it/s]Loading weights:  70%|######9   | 827/1188 [00:14<00:34, 10.38it/s]Loading weights:  73%|#######2  | 862/1188 [00:14<00:13, 23.68it/s]Loading weights:  75%|#######4  | 887/1188 [00:14<00:08, 34.51it/s]Loading weights:  78%|#######7  | 923/1188 [00:14<00:04, 56.45it/s]Loading weights:  81%|########  | 962/1188 [00:14<00:02, 85.39it/s]Loading weights:  84%|########4 | 998/1188 [00:14<00:01, 115.85it/s]Loading weights:  86%|########6 | 1026/1188 [00:15<00:01, 102.86it/s]Loading weights:  89%|########8 | 1057/1188 [00:15<00:01, 128.21it/s]Loading weights:  92%|#########1| 1092/1188 [00:15<00:00, 161.58it/s]Loading weights:  94%|#########4| 1119/1188 [00:15<00:00, 178.73it/s]Loading weights:  96%|#########6| 1146/1188 [00:15<00:00, 180.90it/s]Loading weights:  99%|#########8| 1171/1188 [00:15<00:00, 191.25it/s]Loading weights: 100%|##########| 1188/1188 [00:15<00:00, 75.59it/s] 
+Model weights loaded in 17.5s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 22.5s
+All services loaded and ready!
+127.0.0.1 - - [08/Aug/2026 15:32:02] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:32:02] "[35m[1mPOST /chat/stream HTTP/1.1[0m" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/werkzeug/serving.py", line 371, in run_wsgi
+    execute(self.server.app)
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/werkzeug/serving.py", line 334, in execute
+    for data in application_iter:
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/werkzeug/wsgi.py", line 270, in __next__
+    return self._next()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/werkzeug/wrappers/response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/helpers.py", line 132, in generator
+    yield from gen
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 58, in generate
+    for token in conv_service.chat_stream(session_id, prompt):
+  File "/mnt/data/chatbot_model_4_31B-it/src/services/conversation.py", line 55, in chat_stream
+    for token in self.llm_client.generate_stream(
+AttributeError: 'AcceleratedGemma4LLMClient' object has no attribute 'generate_stream'
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  74%|#######4  | 100/135 [00:00<00:00, 991.09it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1132.41it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.3s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<14:42,  1.34it/s]Loading weights:   6%|6         | 75/1188 [00:01<00:17, 63.98it/s]Loading weights:   9%|9         | 111/1188 [00:01<00:11, 91.73it/s]Loading weights:  12%|#1        | 142/1188 [00:01<00:09, 116.21it/s]Loading weights:  14%|#4        | 171/1188 [00:02<00:07, 131.22it/s]Loading weights:  16%|#6        | 196/1188 [00:02<00:06, 145.31it/s]Loading weights:  19%|#8        | 222/1188 [00:02<00:05, 164.40it/s]Loading weights:  21%|##        | 246/1188 [00:02<00:05, 173.28it/s]Loading weights:  23%|##2       | 269/1188 [00:02<00:05, 177.93it/s]Loading weights:  25%|##4       | 293/1188 [00:02<00:04, 190.65it/s]Loading weights:  27%|##6       | 315/1188 [00:02<00:04, 190.57it/s]Loading weights:  28%|##8       | 337/1188 [00:02<00:04, 193.86it/s]Loading weights:  30%|###       | 359/1188 [00:02<00:04, 200.41it/s]Loading weights:  32%|###2      | 381/1188 [00:03<00:04, 199.67it/s]Loading weights:  34%|###4      | 407/1188 [00:03<00:03, 201.64it/s]Loading weights:  36%|###6      | 430/1188 [00:03<00:03, 209.01it/s]Loading weights:  38%|###8      | 456/1188 [00:03<00:03, 215.20it/s]Loading weights:  40%|####      | 478/1188 [00:03<00:03, 207.84it/s]Loading weights:  42%|####2     | 500/1188 [00:03<00:03, 207.00it/s]Loading weights:  44%|####4     | 527/1188 [00:03<00:02, 223.94it/s]Loading weights:  46%|####6     | 550/1188 [00:03<00:02, 220.26it/s]Loading weights:  48%|####8     | 573/1188 [00:03<00:02, 216.95it/s]Loading weights:  50%|#####     | 595/1188 [00:04<00:02, 213.43it/s]Loading weights:  52%|#####1    | 617/1188 [00:04<00:02, 208.61it/s]Loading weights:  54%|#####4    | 642/1188 [00:04<00:02, 214.24it/s]Loading weights:  56%|#####5    | 664/1188 [00:04<00:02, 215.58it/s]Loading weights:  58%|#####7    | 686/1188 [00:04<00:02, 213.72it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:02, 213.50it/s]Loading weights:  62%|######1   | 736/1188 [00:04<00:02, 213.86it/s]Loading weights:  64%|######4   | 766/1188 [00:04<00:02, 208.32it/s]Loading weights:  67%|######6   | 794/1188 [00:04<00:01, 213.14it/s]Loading weights:  69%|######8   | 816/1188 [00:06<00:06, 60.39it/s] Loading weights:  70%|#######   | 832/1188 [00:13<00:39,  8.96it/s]Loading weights:  80%|########  | 952/1188 [00:14<00:09, 24.34it/s]Loading weights:  92%|#########2| 1094/1188 [00:14<00:01, 51.97it/s]Loading weights: 100%|##########| 1188/1188 [00:14<00:00, 80.14it/s]
+Model weights loaded in 17.7s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 25.9s
+All services loaded and ready!
+127.0.0.1 - - [08/Aug/2026 15:35:07] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:35:08] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:36:10] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:36:11] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:53:52] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:54:09] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:54:21] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2026 15:55:31] "POST /chat HTTP/1.1" 200 -
+[2026-08-08 15:55:31,274] ERROR in app: Exception on /api/voices [GET]
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 66, in list_voices
+    from src.tts.synthesizer import VoiceSynthesizer
+  File "/mnt/data/chatbot_model_4_31B-it/src/tts/synthesizer.py", line 3, in <module>
+    import edge_tts
+ModuleNotFoundError: No module named 'edge_tts'
+127.0.0.1 - - [08/Aug/2026 15:55:31] "[35m[1mGET /api/voices?lang=am-ET HTTP/1.1[0m" 500 -
+[2026-08-08 15:55:31,280] ERROR in app: Exception on /api/tts/audio [POST]
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 95, in stream_speech_audio
+    from src.tts.synthesizer import VoiceSynthesizer
+  File "/mnt/data/chatbot_model_4_31B-it/src/tts/synthesizer.py", line 3, in <module>
+    import edge_tts
+ModuleNotFoundError: No module named 'edge_tts'
+127.0.0.1 - - [08/Aug/2026 15:55:31] "[35m[1mPOST /api/tts/audio HTTP/1.1[0m" 500 -

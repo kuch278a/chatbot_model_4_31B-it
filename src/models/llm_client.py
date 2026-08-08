@@ -229,6 +229,7 @@ class Gemma4LLMClient(BaseLLMClient):
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
                 do_sample=do_sample,
+                use_cache=True,
                 pad_token_id=self.processor.tokenizer.pad_token_id or 0
             )
             
@@ -236,3 +237,52 @@ class Gemma4LLMClient(BaseLLMClient):
         del inputs, outputs
         torch.cuda.empty_cache()
         return response.strip()
+
+    def generate_stream(self, prompt, system_prompt=None, history=None, **kwargs):
+        from transformers import TextIteratorStreamer
+        from threading import Thread
+
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+            
+        if history:
+            for role, content in history:
+                role_mapped = "assistant" if role in ["assistant", "bot", "model"] else "user"
+                messages.append({"role": role_mapped, "content": content})
+                
+        messages.append({"role": "user", "content": prompt})
+        
+        inputs = self.processor.apply_chat_template(
+            messages,
+            tokenize=True,
+            return_dict=True,
+            return_tensors="pt",
+            add_generation_prompt=True,
+            enable_thinking=False
+        )
+        
+        inputs = {k: v.to("cuda:0") if isinstance(v, torch.Tensor) else v for k, v in inputs.items()}
+        
+        streamer = TextIteratorStreamer(self.processor.tokenizer, skip_prompt=True, skip_special_tokens=True)
+        max_new_tokens = kwargs.get("max_new_tokens", 512)
+        temperature = kwargs.get("temperature", 0.7)
+        do_sample = kwargs.get("do_sample", True) if temperature > 0.0 else False
+
+        generation_kwargs = dict(
+            **inputs,
+            streamer=streamer,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            do_sample=do_sample,
+            use_cache=True,
+            pad_token_id=self.processor.tokenizer.pad_token_id or 0
+        )
+
+        thread = Thread(target=self.model.generate, kwargs=generation_kwargs)
+        thread.start()
+
+        for new_text in streamer:
+            yield new_text
+
+        torch.cuda.empty_cache()

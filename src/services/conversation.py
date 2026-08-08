@@ -41,3 +41,26 @@ class ConversationService:
             "response": response,
             "sources": sources
         }
+
+    def chat_stream(self, session_id, prompt):
+        history = get_history(session_id, limit=10)
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=3)
+        
+        if context_str:
+            llm_prompt = f"Context:\n{context_str}\n\nQuestion: {prompt}"
+        else:
+            llm_prompt = prompt
+            
+        full_response = []
+        for token in self.llm_client.generate_stream(
+            prompt=llm_prompt,
+            system_prompt=self.system_prompt,
+            history=history
+        ):
+            full_response.append(token)
+            yield token
+            
+        complete_text = "".join(full_response)
+        add_message(session_id, "user", prompt)
+        add_message(session_id, "assistant", complete_text)
+
