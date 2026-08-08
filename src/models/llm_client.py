@@ -233,4 +233,6 @@ class Gemma4LLMClient(BaseLLMClient):
             )
             
         response = self.processor.decode(outputs[0][input_len:], skip_special_tokens=True)
+        del inputs, outputs
+        torch.cuda.empty_cache()
         return response.strip()
