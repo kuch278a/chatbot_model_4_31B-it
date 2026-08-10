@@ -176,12 +176,15 @@
             </div>
             <div class="input-container">
                 <textarea id="input" placeholder="Type your message..." rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
-                <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="Speak to Chatbot">
-                    <svg class="mic-icon" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,1 12,16A5,5 0 0,1 17,11H19Z" />
-                    </svg>
-                </button>
-                <button id="sendBtn" onclick="sendMessage()">Send</button>
+                <div class="input-actions">
+                    <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="Click to record Amharic speech">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,1 12,16A5,5 0 0,1 17,11H19Z" />
+                        </svg>
+                        <span class="mic-label">Mic</span>
+                    </button>
+                    <button id="sendBtn" onclick="sendMessage()">Send</button>
+                </div>
             </div>
         </div>
     </div>
@@ -191,8 +194,6 @@
         let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
         let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
         
-        // Voice STT / TTS state
-        let recognition = null;
         let isListening = false;
         let ttsEnabled = true;
 
@@ -592,55 +593,164 @@
             }
         }
 
-        // ─── Speech Recognition (STT) ──────────────────────────────────────
+        // ─── Speech Recognition (STT) + VAD (Voice Activity Detection) ──────
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let audioContext = null;
+        let vadAnalyser = null;
+        let vadAnimationId = null;
+        let silenceStartTime = null;
+        let speechHasStarted = false;
+
+        const VAD_SILENCE_THRESHOLD = 0.015; // RMS threshold for speech vs silence
+        const VAD_SILENCE_DURATION_MS = 1200; // 1.2s silence auto-stops recording
+        const MAX_RECORDING_MS = 15000;       // 15s max fallback limit
+
         function initSpeechRecognition() {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRecognition) {
-                console.warn("Speech Recognition not supported in this browser.");
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                 document.getElementById("micBtn").style.display = "none";
-                return;
             }
-            
-            recognition = new SpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            
-            recognition.onstart = () => {
-                isListening = true;
-                document.getElementById("micBtn").classList.add("listening");
-                document.getElementById("input").placeholder = "Listening...";
-            };
-            
-            recognition.onend = () => {
-                isListening = false;
-                document.getElementById("micBtn").classList.remove("listening");
-                document.getElementById("input").placeholder = "Type your message...";
-            };
-            
-            recognition.onerror = (event) => {
-                console.error("Speech recognition error", event.error);
-                isListening = false;
-                document.getElementById("micBtn").classList.remove("listening");
-            };
-            
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                document.getElementById("input").value = transcript;
-                sendMessage();
-            };
         }
 
-        function toggleSpeechRecognition() {
-            if (!recognition) initSpeechRecognition();
-            if (!recognition) return;
-            
-            if (isListening) {
-                recognition.stop();
-            } else {
-                const lang = document.getElementById("langSelect").value;
-                recognition.lang = lang;
-                recognition.start();
+        function stopVAD() {
+            if (vadAnimationId) {
+                cancelAnimationFrame(vadAnimationId);
+                vadAnimationId = null;
             }
+            if (audioContext && audioContext.state !== "closed") {
+                audioContext.close().catch(() => {});
+                audioContext = null;
+            }
+            speechHasStarted = false;
+            silenceStartTime = null;
+        }
+
+        async function startVAD(stream) {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const source = audioContext.createMediaStreamSource(stream);
+                vadAnalyser = audioContext.createAnalyser();
+                vadAnalyser.fftSize = 512;
+                source.connect(vadAnalyser);
+
+                const pcmData = new Float32Array(vadAnalyser.fftSize);
+                const recordingStartTime = Date.now();
+
+                function monitorVAD() {
+                    if (!isListening) return;
+
+                    vadAnalyser.getFloatTimeDomainData(pcmData);
+                    let sum = 0;
+                    for (let i = 0; i < pcmData.length; i++) {
+                        sum += pcmData[i] * pcmData[i];
+                    }
+                    const rms = Math.sqrt(sum / pcmData.length);
+
+                    const now = Date.now();
+
+                    // Check for speech
+                    if (rms > VAD_SILENCE_THRESHOLD) {
+                        if (!speechHasStarted) {
+                            speechHasStarted = true;
+                            document.getElementById("input").placeholder = "Speech detected... (listening)";
+                        }
+                        silenceStartTime = null; // reset silence clock
+                    } else if (speechHasStarted) {
+                        // Volume dropped below threshold after speech started
+                        if (!silenceStartTime) {
+                            silenceStartTime = now;
+                        } else if (now - silenceStartTime >= VAD_SILENCE_DURATION_MS) {
+                            // Silence timeout reached! Auto-stop recording
+                            console.log("[VAD] Silence detected for 1.2s — auto-stopping recording");
+                            document.getElementById("input").placeholder = "Silence detected — transcribing...";
+                            if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                                mediaRecorder.stop();
+                            }
+                            stopVAD();
+                            return;
+                        }
+                    }
+
+                    // Max duration safeguard
+                    if (now - recordingStartTime >= MAX_RECORDING_MS) {
+                        console.log("[VAD] Max recording duration reached (15s)");
+                        if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                            mediaRecorder.stop();
+                        }
+                        stopVAD();
+                        return;
+                    }
+
+                    vadAnimationId = requestAnimationFrame(monitorVAD);
+                }
+
+                vadAnimationId = requestAnimationFrame(monitorVAD);
+            } catch (e) {
+                console.warn("[VAD] Could not initialize Web Audio VAD:", e);
+            }
+        }
+
+        async function toggleSpeechRecognition() {
+            if (isListening) {
+                stopVAD();
+                if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                    mediaRecorder.stop();
+                }
+                return;
+            }
+
+            let stream;
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            } catch (e) {
+                addMessageUI('assistant', '⚠️ Microphone access denied. Please allow microphone access in your browser.');
+                return;
+            }
+
+            isListening = true;
+            audioChunks = [];
+            document.getElementById("micBtn").classList.add("listening");
+            document.getElementById("input").placeholder = "Listening... (VAD auto-stop on silence)";
+
+            mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) audioChunks.push(e.data);
+            };
+
+            mediaRecorder.onstop = async () => {
+                stopVAD();
+                stream.getTracks().forEach(t => t.stop());
+                isListening = false;
+                document.getElementById("micBtn").classList.remove("listening");
+                document.getElementById("input").placeholder = "Transcribing with Ethio-ASR...";
+
+                const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+                try {
+                    const res = await fetch("/api/stt", {
+                        method: "POST",
+                        headers: { "Content-Type": "audio/webm" },
+                        body: audioBlob
+                    });
+                    const data = await res.json();
+                    if (data.transcript && data.transcript.trim().length > 0) {
+                        document.getElementById("input").value = data.transcript;
+                        document.getElementById("input").placeholder = "Type your message...";
+                        sendMessage();
+                    } else {
+                        document.getElementById("input").placeholder = "No speech detected. Try again.";
+                        setTimeout(() => {
+                            document.getElementById("input").placeholder = "Type your message...";
+                        }, 2500);
+                    }
+                } catch (e) {
+                    console.error("STT error:", e);
+                    document.getElementById("input").placeholder = "Type your message...";
+                }
+            };
+
+            mediaRecorder.start(200); // 200ms timeslice chunks
+            startVAD(stream);
         }
 
         // ─── Speech Synthesis (TTS) ────────────────────────────────────────

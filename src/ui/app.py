@@ -151,6 +151,29 @@ def chat_stream():
 
     return Response(stream_with_context(generate()), mimetype="text/plain")
 
+@ui_bp.route("/api/stt", methods=["POST"])
+def speech_to_text():
+    """Transcribes Amharic audio to text using badrex/Ethio-ASR-amharic."""
+    from src.stt.transcriber import transcribe_webm
+
+    client_ip = request.remote_addr
+    audio_bytes = request.data  # Raw binary audio from browser MediaRecorder
+
+    if not audio_bytes:
+        return jsonify({"error": "No audio data received"}), 400
+
+    _log_request("POST", "/api/stt", client_ip, "-", f"[audio {len(audio_bytes)//1024}KB]")
+    t0 = time.time()
+
+    try:
+        transcript = transcribe_webm(audio_bytes)
+        _log_done("/api/stt", time.time() - t0)
+        print(f"  {_C['cyan']}Transcript:{_C['reset']} {transcript}", flush=True)
+        return jsonify({"status": "success", "transcript": transcript})
+    except Exception as e:
+        print(f"  {_C['red']}✘ /api/stt error: {e}{_C['reset']}", flush=True)
+        return jsonify({"error": str(e)}), 500
+
 @ui_bp.route("/api/voices", methods=["GET"])
 def list_voices():
     """Returns available TTS voice profiles, focusing on Amharic (am-ET)."""

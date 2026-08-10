@@ -310,7 +310,7 @@ body {
     background: var(--header-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
-    gap: 16px;
+    gap: 12px;
     align-items: flex-end;
 }
 
@@ -337,8 +337,61 @@ body {
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
-.input-container button {
-    padding: 12px 32px;
+/* ─── Input Action Buttons (Mic + Send) ─────────────────────────────────── */
+.input-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Mic button — dark pill with icon + label */
+.mic-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--text-dim);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.mic-btn:hover {
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--primary);
+    border-color: rgba(99, 102, 241, 0.35);
+    transform: translateY(-1px);
+}
+
+.mic-btn.listening {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.4);
+    animation: mic-pulse 1.5s infinite;
+}
+
+@keyframes mic-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+
+.mic-label {
+    font-size: 13px;
+    line-height: 1;
+}
+
+/* Send button */
+#sendBtn {
+    padding: 0 28px;
+    height: 48px;
     background: var(--primary);
     color: #fff;
     border: none;
@@ -346,16 +399,17 @@ body {
     cursor: pointer;
     font-size: 15px;
     font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
     transition: all 0.2s;
-    height: 48px;
+    white-space: nowrap;
 }
 
-.input-container button:hover {
+#sendBtn:hover {
     background: var(--primary-hover);
     transform: translateY(-1px);
 }
 
-.input-container button:disabled {
+#sendBtn:disabled {
     background: #475569;
     cursor: not-allowed;
     transform: none;
