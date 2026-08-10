@@ -10,7 +10,55 @@ Starting background service initialization (attempt 1/5)...Starting Amani AI ser
 Database initialized successfully!
 Loading local multilingual sentence embeddings model...
 Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
-Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  56%|#####5    | 75/135 [00:00<00:00, 734.12it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1007.09it/s]
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 6330.28it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.1s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<10:57,  1.80it/s]Loading weights:   5%|5         | 61/1188 [00:01<00:16, 66.74it/s]Loading weights:   8%|8         | 98/1188 [00:01<00:10, 106.56it/s]Loading weights:  11%|#         | 128/1188 [00:01<00:08, 121.69it/s]Loading weights:  13%|#3        | 156/1188 [00:01<00:07, 147.39it/s]Loading weights:  15%|#5        | 182/1188 [00:01<00:06, 163.49it/s]Loading weights:  17%|#7        | 207/1188 [00:01<00:05, 168.29it/s]Loading weights:  20%|#9        | 235/1188 [00:02<00:05, 185.55it/s]Loading weights:  22%|##1       | 258/1188 [00:02<00:04, 195.43it/s]Loading weights:  24%|##3       | 282/1188 [00:02<00:04, 189.69it/s]Loading weights:  26%|##5       | 304/1188 [00:02<00:04, 195.12it/s]Loading weights:  28%|##7       | 332/1188 [00:02<00:03, 215.93it/s]Loading weights:  30%|##9       | 356/1188 [00:02<00:03, 213.46it/s]Loading weights:  32%|###1      | 379/1188 [00:02<00:03, 212.34it/s]Loading weights:  34%|###3      | 401/1188 [00:02<00:03, 210.17it/s]Loading weights:  36%|###5      | 423/1188 [00:02<00:03, 205.68it/s]Loading weights:  38%|###7      | 448/1188 [00:03<00:03, 209.31it/s]Loading weights:  40%|###9      | 472/1188 [00:03<00:03, 209.82it/s]Loading weights:  42%|####1     | 498/1188 [00:03<00:03, 196.99it/s]Loading weights:  44%|####4     | 527/1188 [00:03<00:03, 206.92it/s]Loading weights:  47%|####6     | 554/1188 [00:03<00:02, 222.53it/s]Loading weights:  49%|####8     | 577/1188 [00:03<00:02, 210.59it/s]Loading weights:  51%|#####     | 600/1188 [00:03<00:02, 207.75it/s]Loading weights:  53%|#####2    | 628/1188 [00:03<00:02, 215.84it/s]Loading weights:  55%|#####5    | 656/1188 [00:03<00:02, 214.23it/s]Loading weights:  57%|#####7    | 683/1188 [00:04<00:02, 218.23it/s]Loading weights:  60%|#####9    | 708/1188 [00:04<00:02, 212.90it/s]Loading weights:  61%|######1   | 730/1188 [00:04<00:02, 180.62it/s]Loading weights:  63%|######3   | 749/1188 [00:04<00:02, 181.52it/s]Loading weights:  65%|######5   | 776/1188 [00:04<00:02, 193.46it/s]Loading weights:  67%|######7   | 796/1188 [00:04<00:02, 189.01it/s]Loading weights:  69%|######8   | 819/1188 [00:05<00:05, 73.52it/s] Loading weights:  70%|#######   | 834/1188 [00:06<00:10, 33.63it/s]Loading weights:  75%|#######4  | 887/1188 [00:06<00:04, 66.04it/s]Loading weights:  81%|########1 | 965/1188 [00:07<00:01, 126.44it/s]Loading weights:  87%|########6 | 1030/1188 [00:07<00:00, 182.46it/s]Loading weights:  92%|#########2| 1093/1188 [00:07<00:00, 236.58it/s]Loading weights:  98%|#########8| 1170/1188 [00:07<00:00, 309.27it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 160.85it/s]
+Model weights loaded in 9.5s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 22.8s
+All services loaded and ready!
+127.0.0.1 - - [10/Aug/2026 17:00:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:00:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:00:04] "GET /files HTTP/1.1" 200 -
+by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [10/Aug/2026 17:00:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:00:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:00:04] "GET /files HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+127.0.0.1 - - [10/Aug/2026 17:03:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:05] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:05] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5028.65it/s]
 Indexing file: amani_info.txt
 Successfully indexed 8 chunks from amani_info.txt
 Indexed 1 files from /mnt/data/local_data
@@ -18,9 +66,180 @@ Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/s
 Processor loaded in 4.0s
 Loading model weights (streamed to CPU RAM)...
 [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
-Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 34/1188 [00:00<00:03, 296.54it/s]Loading weights:   6%|6         | 72/1188 [00:00<00:03, 330.51it/s]Loading weights:   9%|8         | 106/1188 [00:00<00:04, 251.48it/s]Loading weights:  11%|#1        | 133/1188 [00:00<00:04, 238.80it/s]Loading weights:  13%|#3        | 158/1188 [00:00<00:04, 237.90it/s]Loading weights:  15%|#5        | 183/1188 [00:00<00:04, 231.84it/s]Loading weights:  18%|#7        | 209/1188 [00:00<00:04, 220.96it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 217.44it/s]Loading weights:  22%|##1       | 259/1188 [00:01<00:04, 214.40it/s]Loading weights:  24%|##3       | 283/1188 [00:01<00:04, 221.30it/s]Loading weights:  26%|##5       | 306/1188 [00:01<00:04, 215.78it/s]Loading weights:  28%|##7       | 328/1188 [00:01<00:04, 210.25it/s]Loading weights:  30%|##9       | 351/1188 [00:01<00:03, 215.66it/s]Loading weights:  32%|###1      | 376/1188 [00:01<00:03, 224.38it/s]Loading weights:  34%|###3      | 399/1188 [00:01<00:03, 223.39it/s]Loading weights:  36%|###5      | 422/1188 [00:01<00:03, 210.04it/s]Loading weights:  38%|###7      | 448/1188 [00:01<00:03, 215.27it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 221.84it/s]Loading weights:  42%|####2     | 500/1188 [00:02<00:03, 211.87it/s]Loading weights:  44%|####3     | 522/1188 [00:02<00:03, 207.23it/s]Loading weights:  47%|####6     | 553/1188 [00:02<00:02, 228.03it/s]Loading weights:  48%|####8     | 576/1188 [00:02<00:02, 220.02it/s]Loading weights:  51%|#####     | 600/1188 [00:02<00:02, 215.93it/s]Loading weights:  53%|#####2    | 624/1188 [00:02<00:02, 221.94it/s]Loading weights:  54%|#####4    | 647/1188 [00:02<00:02, 222.39it/s]Loading weights:  56%|#####6    | 670/1188 [00:03<00:07, 72.80it/s] Loading weights:  58%|#####7    | 687/1188 [00:04<00:08, 58.11it/s]Loading weights:  61%|######1   | 725/1188 [00:04<00:05, 90.41it/s]Loading weights:  63%|######2   | 747/1188 [00:04<00:04, 105.39it/s]Loading weights:  65%|######5   | 774/1188 [00:04<00:03, 125.80it/s]Loading weights:  68%|######7   | 802/1188 [00:04<00:03, 110.92it/s]Loading weights:  69%|######8   | 819/1188 [00:06<00:11, 33.18it/s] Loading weights:  70%|#######   | 832/1188 [00:07<00:12, 28.00it/s]Loading weights:  76%|#######5  | 897/1188 [00:07<00:04, 62.22it/s]Loading weights:  82%|########1 | 972/1188 [00:07<00:01, 112.45it/s]Loading weights:  91%|######### | 1077/1188 [00:07<00:00, 200.63it/s]Loading weights:  99%|#########8| 1171/1188 [00:07<00:00, 288.41it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 150.48it/s]
-Model weights loaded in 10.0s
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 35/1188 [00:00<00:03, 344.23it/s]Loading weights:   6%|5         | 70/1188 [00:00<00:04, 279.24it/s]Loading weights:   8%|8         | 99/1188 [00:00<00:04, 224.60it/s]Loading weights:  10%|#         | 123/1188 [00:00<00:04, 213.82it/s]Loading weights:  12%|#2        | 145/1188 [00:00<00:05, 206.59it/s]Loading weights:  14%|#3        | 166/1188 [00:00<00:04, 207.01it/s]Loading weights:  16%|#5        | 187/1188 [00:01<00:10, 94.90it/s] Loading weights:  17%|#7        | 203/1188 [00:01<00:09, 102.11it/s]Loading weights:  19%|#9        | 227/1188 [00:01<00:07, 127.00it/s]Loading weights:  21%|##1       | 251/1188 [00:01<00:06, 139.76it/s]Loading weights:  23%|##3       | 278/1188 [00:01<00:05, 166.02it/s]Loading weights:  25%|##5       | 299/1188 [00:01<00:05, 172.54it/s]Loading weights:  27%|##6       | 319/1188 [00:01<00:05, 173.69it/s]Loading weights:  29%|##9       | 345/1188 [00:02<00:04, 186.51it/s]Loading weights:  31%|###       | 365/1188 [00:02<00:04, 181.97it/s]Loading weights:  33%|###3      | 393/1188 [00:02<00:03, 200.29it/s]Loading weights:  35%|###4      | 415/1188 [00:02<00:03, 195.06it/s]Loading weights:  37%|###6      | 436/1188 [00:02<00:04, 180.93it/s]Loading weights:  38%|###8      | 455/1188 [00:03<00:08, 81.92it/s] Loading weights:  39%|###9      | 469/1188 [00:03<00:08, 88.89it/s]Loading weights:  41%|####1     | 490/1188 [00:03<00:06, 108.71it/s]Loading weights:  43%|####3     | 513/1188 [00:03<00:05, 129.58it/s]Loading weights:  46%|####5     | 541/1188 [00:03<00:04, 154.75it/s]Loading weights:  47%|####7     | 561/1188 [00:03<00:03, 160.60it/s]Loading weights:  49%|####9     | 583/1188 [00:03<00:03, 174.59it/s]Loading weights:  52%|#####1    | 614/1188 [00:03<00:03, 183.01it/s]Loading weights:  54%|#####3    | 638/1188 [00:04<00:02, 194.50it/s]Loading weights:  55%|#####5    | 659/1188 [00:04<00:02, 196.68it/s]Loading weights:  57%|#####7    | 680/1188 [00:04<00:02, 196.05it/s]Loading weights:  60%|#####9    | 707/1188 [00:04<00:02, 212.83it/s]Loading weights:  61%|######1   | 729/1188 [00:04<00:02, 202.70it/s]Loading weights:  63%|######3   | 750/1188 [00:04<00:02, 200.24it/s]Loading weights:  65%|######4   | 771/1188 [00:04<00:02, 195.58it/s]Loading weights:  67%|######6   | 794/1188 [00:04<00:02, 192.99it/s]Loading weights:  69%|######8   | 818/1188 [00:05<00:05, 69.88it/s] Loading weights:  70%|#######   | 833/1188 [00:06<00:09, 36.65it/s]Loading weights:  73%|#######3  | 868/1188 [00:06<00:05, 57.73it/s]Loading weights:  82%|########2 | 977/1188 [00:06<00:01, 149.31it/s]Loading weights:  90%|########9 | 1064/1188 [00:07<00:00, 228.43it/s]Loading weights:  94%|#########3| 1116/1188 [00:07<00:00, 261.02it/s]Loading weights:  98%|#########8| 1165/1188 [00:07<00:00, 277.57it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 156.61it/s]
+Model weights loaded in 9.8s
 Building balanced device map and dispatching across GPUs...
 Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
-Device dispatch completed in 20.5s
+127.0.0.1 - - [10/Aug/2026 17:03:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:35] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:35] "GET /files HTTP/1.1" 200 -
+Device dispatch completed in 21.6s
 All services loaded and ready!
+127.0.0.1 - - [10/Aug/2026 17:03:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:51] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:03:51] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:14] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[17:04:15][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [10/Aug/2026 17:04:15] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:15] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 17:04:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:35] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:04:35] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:08] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:08] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:08] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:11] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:11] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:11] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:18] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:18] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [10/Aug/2026 17:05:18] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:05:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:05:42] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[17:05:42][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370742423
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [10/Aug/2026 17:05:42] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:05:42] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 17:05:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:02][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+[STT] Loading Ethio-ASR-amharic from HuggingFace (/mnt/data/ethio-asr)...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  48%|####7     | 379/796 [00:00<00:00, 3788.15it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5595.49it/s]
+[STT] Ethio-ASR-amharic loaded ✔
+  [92m✔ /api/stt done[0m in [93m3.16s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:05] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:24][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.39s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:24] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:35][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 5KB]
+  [92m✔ /api/stt done[0m in [93m0.29s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:41][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 3KB]
+  [92m✔ /api/stt done[0m in [93m0.30s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:42] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 3KB]
+  [92m✔ /api/stt done[0m in [93m0.27s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:48] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:06:55][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 2KB]
+  [92m✔ /api/stt done[0m in [93m0.26s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:06:55] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:07:14][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.41s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:07:15] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:07:35][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 8KB]
+  [92m✔ /api/stt done[0m in [93m0.25s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:07:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:07:52][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.84s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:07:53] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:08:15][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.92s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:08:16] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:08:35][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.83s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:08:36] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:08:54][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.84s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:08:54] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:09:16][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.81s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:09:17] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[17:09:36][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+  [92m✔ /api/stt done[0m in [93m0.75s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [10/Aug/2026 17:09:37] "POST /api/stt HTTP/1.1" 200 -
