@@ -1558,3 +1558,291 @@ All services loaded and ready!
 127.0.0.1 - - [10/Aug/2026 12:01:26] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ኢንስቲትዩት%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማድረግ%20የተነደፈ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ነው።%0A%0Aማዕከሉ%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ሲሆን፣%20እኔንም%20(አማኒን)%20የፈጠረና%20የገነባው%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
 127.0.0.1 - - [10/Aug/2026 12:05:15] "POST /chat HTTP/1.1" 200 -
 127.0.0.1 - - [10/Aug/2026 12:05:17] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%20ናቸው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 12:08:26] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:08:28] "[35m[1mGET /api/tts/audio?text=I%20was%20created%20and%20built%20by%20the%20EAII%20(Ethiopian%20Artificial%20Intelligence%20Institute),%20specifically%20by%20the%20Amani%20Studio%20team.&lang=en-US HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 12:10:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:10:54] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:10:55] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:11:09] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:11:12] "[35m[1mGET /api/tts/audio?text=I%20was%20created%20and%20built%20by%20the%20EAII%20(Ethiopian%20Artificial%20Intelligence%20Institute),%20specifically%20by%20the%20Amani%20Studio%20team.&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 12:11:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...
+Starting Amani AI server on 0.0.0.0:5000...
+ * Serving Flask app 'main'
+ * Debug mode: off
+Database initialized successfully!
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5335.41it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+127.0.0.1 - - [10/Aug/2026 12:11:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:11:47] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:11:48] "GET /files HTTP/1.1" 200 -
+Processor loaded in 4.4s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:00,  9.85it/s]Loading weights:   5%|4         | 57/1188 [00:00<00:04, 232.88it/s]Loading weights:   8%|7         | 90/1188 [00:00<00:05, 206.76it/s]Loading weights:  10%|9         | 117/1188 [00:00<00:05, 201.63it/s]Loading weights:  12%|#2        | 144/1188 [00:00<00:04, 209.84it/s]Loading weights:  14%|#4        | 168/1188 [00:00<00:05, 199.63it/s]Loading weights:  16%|#5        | 190/1188 [00:00<00:04, 204.74it/s]Loading weights:  18%|#7        | 213/1188 [00:01<00:04, 199.07it/s]Loading weights:  20%|##        | 241/1188 [00:01<00:04, 199.88it/s]Loading weights:  22%|##2       | 262/1188 [00:01<00:04, 189.45it/s]Loading weights:  24%|##3       | 282/1188 [00:02<00:16, 56.32it/s] Loading weights:  25%|##4       | 296/1188 [00:02<00:13, 63.81it/s]Loading weights:  27%|##7       | 324/1188 [00:02<00:09, 89.33it/s]Loading weights:  29%|##9       | 346/1188 [00:02<00:07, 107.18it/s]Loading weights:  31%|###       | 365/1188 [00:02<00:07, 117.27it/s]Loading weights:  33%|###2      | 390/1188 [00:02<00:05, 139.74it/s]Loading weights:  35%|###4      | 410/1188 [00:03<00:05, 143.31it/s]Loading weights:  37%|###6      | 434/1188 [00:03<00:04, 157.59it/s]Loading weights:  38%|###8      | 453/1188 [00:03<00:04, 163.65it/s]Loading weights:  40%|####      | 476/1188 [00:03<00:03, 178.20it/s]Loading weights:  42%|####1     | 498/1188 [00:03<00:03, 173.51it/s]Loading weights:  44%|####4     | 527/1188 [00:03<00:03, 199.34it/s]Loading weights:  46%|####6     | 549/1188 [00:03<00:03, 177.59it/s]Loading weights:  48%|####8     | 574/1188 [00:03<00:03, 195.23it/s]Loading weights:  50%|#####     | 595/1188 [00:04<00:03, 171.25it/s]Loading weights:  52%|#####1    | 614/1188 [00:04<00:03, 174.20it/s]Loading weights:  54%|#####3    | 639/1188 [00:04<00:02, 185.40it/s]Loading weights:  55%|#####5    | 659/1188 [00:04<00:03, 169.88it/s]Loading weights:  58%|#####7    | 684/1188 [00:04<00:02, 185.00it/s]Loading weights:  60%|#####9    | 707/1188 [00:04<00:02, 189.31it/s]Loading weights:  62%|######1   | 735/1188 [00:04<00:02, 204.81it/s]Loading weights:  64%|######3   | 756/1188 [00:04<00:02, 191.31it/s]Loading weights:  66%|######5   | 780/1188 [00:05<00:02, 192.61it/s]Loading weights:  68%|######7   | 804/1188 [00:05<00:02, 189.00it/s]Loading weights:  69%|######9   | 824/1188 [00:06<00:06, 60.12it/s] Loading weights:  75%|#######5  | 896/1188 [00:06<00:02, 126.46it/s]Loading weights:  79%|#######9  | 939/1188 [00:06<00:01, 157.45it/s]127.0.0.1 - - [10/Aug/2026 12:11:55] "POST /clear HTTP/1.1" 200 -
+Loading weights:  88%|########7 | 1040/1188 [00:06<00:00, 278.92it/s]Loading weights:  95%|#########5| 1129/1188 [00:06<00:00, 380.18it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 177.89it/s]
+Model weights loaded in 8.5s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 19.3s
+All services loaded and ready!
+127.0.0.1 - - [10/Aug/2026 12:12:32] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:12:34] "[35m[1mGET /api/tts/audio?text=I%20was%20created%20and%20built%20by%20the%20Ethiopian%20Artificial%20Intelligence%20Institute%20(EAII).&lang=en-US HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 12:12:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 12:20:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:04] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:04] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 12:20:13] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:14] "[35m[1mGET /api/tts/audio?text=Hello!%20How%20can%20I%20help%20you%20today?&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 12:20:23] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 12:20:25] "[35m[1mGET /api/tts/audio?text=I%20cannot%20respond%20to%20that%20as%20it%20contains%20offensive%20language.%20If%20you%20have%20a%20question%20or%20need%20assistance%20with%20something%20else,%20please%20feel%20free%20to%20ask.&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:35:14] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:35:15] "[35m[1mGET /api/tts/audio?text=I%20cannot%20respond%20to%20that%20as%20it%20contains%20offensive%20language.%20If%20you%20have%20a%20question%20or%20need%20assistance%20with%20something%20else,%20please%20feel%20free%20to%20ask.&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:35:32] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:35:49] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:35:52] "[35m[1mGET /api/tts/audio?text=I%20am%20Amani%20(አማኒ),%20an%20advanced%20bilingual%20artificial%20intelligence%20assistant%20designed%20to%20operate%20seamlessly%20in%20both%20Amharic%20(አማርኛ)%20and%20English.%20I%20was%20created%20and%20built%20by%20the%20Ethiopian%20Artificial%20Intelligence%20Institute%20(EAII).&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:36:18] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:36:19] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:36:38] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:36:40] "[35m[1mGET /api/tts/audio?text=እሺ፣%20ምንም%20ችግር%20የለም።%20ሌላ%20ጊዜ%20እርዳታ%20ካስፈለገዎት%20እዚህ%20ነኝ።%20መልካም%20ቀን%20ይሁንልዎት!&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:36:58] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:37:00] "[35m[1mGET /api/tts/audio?text=ቻው!%20መልካም%20ጊዜ%20ይሁንልዎት።%20በሌላ%20ጊዜ%20በድጋሚ%20እንገናኝ!&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 13:37:20] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:38:52] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:40:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:40:55] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 13:40:55] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:15:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:15:47] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:15:48] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:17:14] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:17:15] "[35m[1mGET /api/tts/audio?text=Hello!%20How%20can%20I%20help%20you%20today?&lang=en-US HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:17:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:18:37] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:18:43] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:20:27] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:20:28] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:21:21] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:21:23] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:26:33] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:26:35] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%20ናቸው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:30:04] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:30:06] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:33:20] "[33mGET /ዶች HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:33:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:23] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:23] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:31] "[33mGET /docs HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:33:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:37] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:37] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:33:53] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:34:27] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:34:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:36:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:36:16] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:36:17] "GET /files HTTP/1.1" 200 -
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+127.0.0.1 - - [10/Aug/2026 14:36:23] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:36:24] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:37:00] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:37:34] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:37:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:38:18] "[33mGET /docs HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:38:19] "[33mGET /docs HTTP/1.1[0m" 404 -
+127.0.0.1 - - [10/Aug/2026 14:39:38] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:14] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:40:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:23] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:23] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:47] "POST /chat/stream HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:54] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:40:54] "GET /files HTTP/1.1" 200 -
+Exception in thread Exception in thread Thread-97 (generate)Thread-102 (generate):
+:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()    self.run()
+
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)    self._target(*self._args, **self._kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)    return func(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(    result = decoding_method(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2895, in _sample
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)    outputs = self._prefill(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)    return self._call_impl(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)    output = module._old_forward(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+        outputs = self.model(outputs = self.model(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)    return self._call_impl(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)    
+return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+
+    output = func(self, *args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+
+    output = func(self, *args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+
+    output = func(self, *args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+output = func(self, *args, **kwargs)    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+
+    outputs = self.language_model(  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+
+    return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+
+    return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)    output = func(self, *args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+        outputs = func(self, *args, **kwargs)outputs = func(self, *args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(    hidden_states = decoder_layer(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+        return super().__call__(*args, **kwargs)return super().__call__(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    return forward_call(*args, **kwargs)    output = module._old_forward(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(    output = module._old_forward(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    return self._call_impl(*args, **kwargs)
+    hidden_states, _ = self.self_attn(  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+        output = module._old_forward(*args, **kwargs)return self._call_impl(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    attn_output, attn_weights = attention_interface(    
+return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 100, in sdpa_attention_forward
+
+    value = repeat_kv(value, module.num_key_value_groups)  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 25, in repeat_kv
+        output = module._old_forward(*args, **kwargs)return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 21.25 MiB is free. Including non-PyTorch memory, this process has 31.70 GiB memory in use. Of the allocated memory 30.97 GiB is allocated by PyTorch, and 363.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)    attn_output, attn_weights = attention_interface(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 154, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 85.25 MiB is free. Including non-PyTorch memory, this process has 31.64 GiB memory in use. Of the allocated memory 30.91 GiB is allocated by PyTorch, and 361.69 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 11312.63it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 7.2s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|3         | 41/1188 [00:00<00:03, 326.73it/s]Loading weights:   6%|6         | 74/1188 [00:00<00:03, 281.54it/s]Loading weights:   9%|8         | 103/1188 [00:00<00:04, 232.03it/s]Loading weights:  11%|#         | 130/1188 [00:00<00:04, 235.26it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 221.08it/s]Loading weights:  15%|#5        | 181/1188 [00:00<00:04, 214.49it/s]Loading weights:  17%|#7        | 203/1188 [00:00<00:04, 214.84it/s]Loading weights:  19%|#9        | 227/1188 [00:01<00:04, 204.93it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:04, 200.78it/s]Loading weights:  23%|##3       | 277/1188 [00:01<00:04, 222.08it/s]Loading weights:  25%|##5       | 300/1188 [00:01<00:04, 205.41it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 201.23it/s]Loading weights:  29%|##9       | 345/1188 [00:01<00:08, 103.07it/s]Loading weights:  30%|###       | 361/1188 [00:02<00:10, 79.16it/s] Loading weights:  32%|###2      | 381/1188 [00:02<00:08, 91.63it/s]Loading weights:  34%|###4      | 408/1188 [00:02<00:06, 119.13it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:05, 141.40it/s]Loading weights:  39%|###8      | 458/1188 [00:02<00:04, 151.66it/s]Loading weights:  41%|####      | 487/1188 [00:02<00:04, 171.59it/s]Loading weights:  43%|####3     | 512/1188 [00:03<00:03, 189.23it/s]Loading weights:  45%|####4     | 534/1188 [00:03<00:03, 182.44it/s]Loading weights:  47%|####6     | 556/1188 [00:03<00:03, 189.90it/s]Loading weights:  49%|####8     | 577/1188 [00:03<00:03, 184.67it/s]Loading weights:  50%|#####     | 597/1188 [00:03<00:04, 127.11it/s]Loading weights:  52%|#####1    | 616/1188 [00:03<00:04, 139.46it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:03, 156.75it/s]Loading weights:  56%|#####6    | 666/1188 [00:04<00:03, 169.43it/s]Loading weights:  59%|#####8    | 696/1188 [00:04<00:02, 194.58it/s]Loading weights:  60%|######    | 717/1188 [00:04<00:02, 192.74it/s]Loading weights:  62%|######2   | 739/1188 [00:04<00:02, 191.13it/s]Loading weights:  64%|######3   | 759/1188 [00:04<00:02, 185.95it/s]127.0.0.1 - - [10/Aug/2026 14:44:12] "GET / HTTP/1.1" 200 -
+Loading weights:  66%|######5   | 782/1188 [00:04<00:02, 192.02it/s]Loading weights:  68%|######7   | 802/1188 [00:04<00:02, 191.85it/s]127.0.0.1 - - [10/Aug/2026 14:44:12] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Aug/2026 14:44:12] "GET /files HTTP/1.1" 200 -
+Loading weights:  69%|######9   | 822/1188 [00:05<00:05, 66.38it/s] Loading weights:  70%|#######   | 837/1188 [00:05<00:05, 67.76it/s]Loading weights:  77%|#######7  | 915/1188 [00:05<00:01, 160.23it/s]Loading weights:  86%|########5 | 1017/1188 [00:05<00:00, 292.40it/s]Loading weights:  94%|#########4| 1118/1188 [00:06<00:00, 416.09it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 194.98it/s]
+Model weights loaded in 8.3s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 21.7s
+All services loaded and ready!
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:44:39][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786353114725
+  [96mPrompt :[0m ሰለ EAII ንገሪኝ
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [10/Aug/2026 14:44:42] "POST /chat/stream HTTP/1.1" 200 -
+  [94mResponse:[0m የኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII) በሴፕቴምበር 2020 በጠቅላይ ሚኒስትር ዶ/ር አብይ አህመድ ተመርቋል። ይህ ተቋም ኢትዮጵያ በአፍሪካ የቴክኖሎጂ እድገት ግንባር ቀደም ሆና እንድትቀመጥ ለማስቻል የተወሰደ ስትራቴጂካዊ ተነሳሽነት አካል ሲሆን፣ በዋናነት በግብርና፣ በትምህርት፣ በጤና እና በሕዝብ ደህንነት ላይ ባሉ ቁልፍ ዘርፎች የአይቲ (IT) አገልግሎቶችን ለመስጠት ታስቦ የተዘጋጀ ነው። በተጨማሪም እኔን (አማኒን) የፈጠረ እና የገነባ ተቋም ነው።
+  [92m✔ /chat/stream done[0m in [93m35.68s[0m | [93m196 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.97s[0m
+
+127.0.0.1 - - [10/Aug/2026 14:45:16] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ይህ%20ተቋም%20ኢትዮጵያ%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ሆና%20እንድትቀመጥ%20ለማስቻል%20የተወሰደ%20ስትራቴጂካዊ%20ተነሳሽነት%20አካል%20ሲሆን፣%20በዋናነት%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ላይ%20ባሉ%20ቁልፍ%20ዘርፎች%20የአይቲ%20(IT)%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው።%20በተጨማሪም%20እኔን%20(አማኒን)%20የፈጠረ%20እና%20የገነባ%20ተቋም%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [10/Aug/2026 14:45:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

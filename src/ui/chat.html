@@ -113,6 +113,17 @@
             width: 20px;
             height: 20px;
         }
+        /* Streaming cursor blink */
+        .stream-cursor {
+            display: inline-block;
+            animation: blink 0.7s step-end infinite;
+            color: var(--primary, #6366f1);
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
     </style>
 </head>
 
@@ -434,7 +445,7 @@
             return html;
         }
 
-        // ─── Send Message ─────────────────────────────────────────────────
+        // ─── Send Message (streaming) ──────────────────────────────────────
         async function sendMessage() {
             const input = document.getElementById('input');
             const sendBtn = document.getElementById('sendBtn');
@@ -451,39 +462,47 @@
             addMessageUI('user', content);
             input.value = '';
             input.style.height = 'auto';
-            
+
             saveToLocalStorage();
-            
+
             input.disabled = true;
             sendBtn.disabled = true;
             document.getElementById('status').classList.add('loading');
             showTypingIndicator();
 
             try {
-                const res = await fetch('/chat', {
+                const res = await fetch('/chat/stream', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
+                    body: JSON.stringify({
                         prompt: content,
-                        session_id: currentChatId 
+                        session_id: currentChatId
                     })
                 });
 
-                const data = await res.json();
-                removeTypingIndicator();
-
-                if (data.error) {
-                    addMessageUI('assistant', 'Error: ' + data.error);
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({ error: 'Server error' }));
+                    removeTypingIndicator();
+                    addMessageUI('assistant', 'Error: ' + (err.error || res.statusText));
                     messages.pop();
                 } else {
-                    messages.push({ 
-                        role: 'assistant', 
-                        content: data.response,
-                        sources: data.sources 
-                    });
-                    addMessageUI('assistant', data.response, true, data.sources);
+                    // Buffer all tokens silently — keep typing indicator until done
+                    const reader = res.body.getReader();
+                    const decoder = new TextDecoder();
+                    let fullText = '';
+
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        fullText += decoder.decode(value, { stream: true });
+                    }
+
+                    // Stream complete — remove indicator and show full response at once
+                    removeTypingIndicator();
+                    addMessageUI('assistant', fullText, true);
+                    messages.push({ role: 'assistant', content: fullText, sources: [] });
                     saveToLocalStorage();
-                    speakText(data.response);
+                    speakText(fullText);
                 }
             } catch (e) {
                 removeTypingIndicator();
@@ -496,6 +515,7 @@
             input.focus();
             document.getElementById('status').classList.remove('loading');
         }
+
 
         function addMessageUI(role, content, scroll = true, sources = null) {
             const container = document.getElementById('messages');
