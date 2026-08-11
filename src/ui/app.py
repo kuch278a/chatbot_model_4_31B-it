@@ -132,10 +132,8 @@ def chat_stream():
 
     def generate():
         token_count = 0
-        full_response = []
         try:
             for token in conv_service.chat_stream(session_id, prompt):
-                full_response.append(token)
                 token_count += 1
                 yield token
         finally:
@@ -145,8 +143,6 @@ def chat_stream():
                 torch.cuda.empty_cache()
             except Exception:
                 pass
-        response_text = "".join(full_response)
-        print(f"  {_C['blue']}Response:{_C['reset']} {response_text}", flush=True)
         _log_done("/chat/stream", time.time() - t0, token_count)
 
     return Response(stream_with_context(generate()), mimetype="text/plain")
