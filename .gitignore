@@ -1,20 +1,13 @@
 
-
-
-
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-
 # Data
 data/*.sqlite
 data/*.sqlite-journal
-
-# Environment
 .env
-
+# Environment
 logs/
+__pycache__/
+*.py[cod]
+# Python
 src/models/distil-large-v3.5
 src/models/model
+.venv/
