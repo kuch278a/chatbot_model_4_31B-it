@@ -16,3 +16,4 @@ data/*.sqlite-journal
 .env
 
 logs/
+src/models/distil-large-v3.5
