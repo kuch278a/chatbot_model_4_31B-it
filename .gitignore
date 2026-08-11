@@ -17,3 +17,4 @@ data/*.sqlite-journal
 
 logs/
 src/models/distil-large-v3.5
+src/models/model
