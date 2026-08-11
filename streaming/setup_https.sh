@@ -29,13 +29,13 @@ if [[ $EUID -ne 0 ]]; then
     error "Please run with sudo: sudo bash setup_https.sh"
 fi
 
-# ── Detect LAN IP ─────────────────────────────────────────────
-info "Detecting server LAN IP..."
-SERVER_IP=$(hostname -I | awk '{print $1}')
+# ── Detect LAN / Public IP ──────────────────────────────────────
+info "Detecting server IP..."
+SERVER_IP=${SERVER_IP:-"196.188.240.106"}
 if [[ -z "$SERVER_IP" ]]; then
-    error "Could not detect IP. Set it manually: export SERVER_IP=192.168.x.x"
+    SERVER_IP=$(hostname -I | awk '{print $1}')
 fi
-info "Detected IP: ${SERVER_IP}"
+info "Configuring for IP: ${SERVER_IP}"
 
 # ── Install Nginx ─────────────────────────────────────────────
 info "Installing Nginx..."
