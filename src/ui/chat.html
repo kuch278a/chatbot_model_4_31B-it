@@ -701,7 +701,15 @@
 
             let stream;
             try {
-                stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true,
+                        sampleRate: 16000,
+                        channelCount: 1
+                    }
+                });
             } catch (e) {
                 addMessageUI('assistant', '⚠️ Microphone access denied. Please allow microphone access in your browser.');
                 return;

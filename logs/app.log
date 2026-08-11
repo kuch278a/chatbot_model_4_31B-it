@@ -153,3 +153,23 @@ All services loaded and ready!
 127.0.0.1 - - [11/Aug/2026 10:29:45] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [11/Aug/2026 10:29:45] "GET /style.css HTTP/1.1" 200 -
 127.0.0.1 - - [11/Aug/2026 10:29:46] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:03:34][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786353114725
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [11/Aug/2026 11:03:36] "POST /chat/stream HTTP/1.1" 200 -
+  [94mResponse:[0m ሰላም! እንዴት ልረዳዎት እችላለሁ?
+  [92m✔ /chat/stream done[0m in [93m5.78s[0m | [93m15 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.06s[0m
+
+127.0.0.1 - - [11/Aug/2026 11:03:41] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [11/Aug/2026 11:03:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+10.100.9.209 - - [11/Aug/2026 11:05:13] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [11/Aug/2026 11:05:14] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [11/Aug/2026 11:05:14] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [11/Aug/2026 11:06:55] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [11/Aug/2026 11:06:55] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [11/Aug/2026 11:06:55] "GET /files HTTP/1.1" 200 -

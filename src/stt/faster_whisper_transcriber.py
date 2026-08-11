@@ -17,8 +17,12 @@ _DEVICE = "cpu"
 _COMPUTE_TYPE = "int8"  # 8-bit quantization for maximum CPU speed
 
 
+# Domain vocabulary initial prompt to guide Whisper tokenizer for Amharic and AI terminology
+DEFAULT_INITIAL_PROMPT = "የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት, አማኒ, EAII, Amani AI assistant, Gemma."
+
+
 class FasterWhisperTranscriber:
-    """Wrapper class for faster-whisper CTranslate2 STT model."""
+    """Wrapper class for faster-whisper CTranslate2 STT model with enhanced decoding."""
 
     def __init__(
         self,
@@ -28,13 +32,17 @@ class FasterWhisperTranscriber:
         use_vad: bool = True,
         vad_parameters: dict = None,
         language: str = None,
-        initial_prompt: str = None
+        initial_prompt: str = DEFAULT_INITIAL_PROMPT
     ):
         self.model_size_or_path = model_size_or_path
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.compute_type = compute_type or ("int8" if self.device == "cpu" else "float16")
         self.use_vad = use_vad
-        self.vad_parameters = vad_parameters or {"threshold": 0.45, "min_silence_duration_ms": 500}
+        self.vad_parameters = vad_parameters or {
+            "threshold": 0.40,
+            "min_silence_duration_ms": 400,
+            "speech_pad_ms": 300
+        }
         self.language = language
         self.initial_prompt = initial_prompt
 
@@ -48,7 +56,7 @@ class FasterWhisperTranscriber:
 
     def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000) -> str:
         """
-        Transcribe a 1D float32 numpy audio array.
+        Transcribe a 1D float32 numpy audio array with normalization and beam search.
 
         Args:
             audio_array: 1D float32 numpy array normalized to [-1.0, 1.0].
@@ -60,10 +68,19 @@ class FasterWhisperTranscriber:
         if len(audio_array) == 0:
             return ""
 
+        # Audio Amplitude Peak Normalization (brings low-gain audio to clear audible range)
+        max_val = np.max(np.abs(audio_array))
+        if max_val > 1e-5:
+            audio_array = audio_array / max_val * 0.95
+
         segments, info = self.model.transcribe(
             audio_array,
             language=self.language,
             initial_prompt=self.initial_prompt,
+            beam_size=5,
+            best_of=5,
+            repetition_penalty=1.2,
+            condition_on_previous_text=False,
             vad_filter=self.use_vad,
             vad_parameters=self.vad_parameters if self.use_vad else None
         )
