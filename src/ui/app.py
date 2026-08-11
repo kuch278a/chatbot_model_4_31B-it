@@ -153,8 +153,8 @@ def chat_stream():
 
 @ui_bp.route("/api/stt", methods=["POST"])
 def speech_to_text():
-    """Transcribes Amharic audio to text using badrex/Ethio-ASR-amharic."""
-    from src.stt.transcriber import transcribe_webm
+    """Transcribes audio using faster-whisper (distil-large-v3.5 int8 CPU)."""
+    from src.stt.faster_whisper_transcriber import transcribe_webm
 
     client_ip = request.remote_addr
     audio_bytes = request.data  # Raw binary audio from browser MediaRecorder
