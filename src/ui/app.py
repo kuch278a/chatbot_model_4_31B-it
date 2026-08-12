@@ -292,4 +292,6 @@ def create_ui_app(flask_app=None):
         flask_app = Flask(__name__)
 
     flask_app.register_blueprint(ui_bp)
+    from API.api_docs import docs_bp
+    flask_app.register_blueprint(docs_bp, url_prefix="/API")
     return flask_app
