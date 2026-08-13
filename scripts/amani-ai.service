@@ -1,0 +1,14 @@
+[Unit]
+Description=Amani AI Chatbot Server (Gunicorn WSGI)
+After=network.target nginx.service
+
+[Service]
+User=iotadmin
+WorkingDirectory=/mnt/data/chatbot_model_4_31B-it
+ExecStart=/mnt/data/chatbot_model_4_31B-it/scripts/start_server.sh
+Restart=always
+RestartSec=10
+Environment=PATH=/mnt/data/chatbot_model_4_31B-it/.venv/bin:/usr/bin
+
+[Install]
+WantedBy=multi-user.target

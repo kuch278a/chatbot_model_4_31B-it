@@ -4,3 +4,4 @@ transformers
 numpy
 Pillow
 accelerate
+gunicorn

@@ -135,12 +135,12 @@ def health():
         "max_attempts": MAX_LOAD_ATTEMPTS
     }), 503
 
-def main():
-    # Start loading heavy model in a background thread to prevent server startup hang
-    loading_thread = threading.Thread(target=load_services_bg)
-    loading_thread.daemon = True
-    loading_thread.start()
+# Start loading heavy model in a background thread to prevent server startup hang
+loading_thread = threading.Thread(target=load_services_bg)
+loading_thread.daemon = True
+loading_thread.start()
 
+def main():
     # Start Flask development server
     print(f"Starting Amani AI server on {settings.HOST}:{settings.PORT}...")
     app.run(host=settings.HOST, port=settings.PORT, debug=False, threaded=True)
