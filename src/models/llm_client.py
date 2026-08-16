@@ -17,6 +17,9 @@ if not hasattr(PIL.Image, "Resampling"):
         HAMMING = 5
     PIL.Image.Resampling = ResamplingMock
 
+import warnings
+warnings.filterwarnings("ignore", message=".*calling .generate\\(\\) with the `input_ids` being on a device type different.*")
+
 import torch
 import types
 from transformers import AutoProcessor, AutoModelForMultimodalLM

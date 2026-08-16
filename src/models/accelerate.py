@@ -6,6 +6,9 @@ os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
+import warnings
+warnings.filterwarnings("ignore", message=".*calling .generate\\(\\) with the `input_ids` being on a device type different.*")
+
 import torch
 from transformers import AutoProcessor, AutoModelForMultimodalLM
 from accelerate import dispatch_model
