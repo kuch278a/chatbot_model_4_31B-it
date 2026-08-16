@@ -1755,3 +1755,1245 @@ Indexing file: amani_info.txt
 Successfully indexed 8 chunks from amani_info.txt
 Indexed 1 files from /mnt/data/local_data
 Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.5s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:42,  7.31it/s]Loading weights:   5%|5         | 63/1188 [00:00<00:05, 209.11it/s]Loading weights:   8%|8         | 97/1188 [00:00<00:05, 214.89it/s]Loading weights:  11%|#         | 126/1188 [00:00<00:05, 195.71it/s]Loading weights:  13%|#2        | 150/1188 [00:00<00:05, 193.22it/s]Loading weights:  15%|#4        | 173/1188 [00:00<00:05, 189.27it/s]Loading weights:  16%|#6        | 196/1188 [00:01<00:05, 191.59it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 205.85it/s]Loading weights:  21%|##        | 245/1188 [00:01<00:05, 183.86it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 184.64it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 190.43it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:04, 197.50it/s]Loading weights:  29%|##9       | 345/1188 [00:01<00:04, 209.61it/s]Loading weights:  31%|###       | 367/1188 [00:01<00:04, 194.99it/s]Loading weights:  33%|###3      | 393/1188 [00:02<00:04, 195.89it/s]Loading weights:  35%|###4      | 413/1188 [00:02<00:03, 195.86it/s]Loading weights:  37%|###6      | 435/1188 [00:02<00:03, 200.83it/s]Loading weights:  38%|###8      | 456/1188 [00:02<00:03, 195.38it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 194.84it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 184.64it/s]Loading weights:  44%|####4     | 527/1188 [00:02<00:03, 211.59it/s]Loading weights:  46%|####6     | 549/1188 [00:02<00:03, 198.27it/s]Loading weights:  48%|####7     | 570/1188 [00:02<00:03, 195.75it/s]Loading weights:  50%|####9     | 590/1188 [00:03<00:05, 116.33it/s]Loading weights:  51%|#####1    | 606/1188 [00:03<00:08, 65.10it/s] Loading weights:  52%|#####2    | 618/1188 [00:04<00:09, 59.81it/s]Loading weights:  54%|#####4    | 642/1188 [00:04<00:06, 79.99it/s]Loading weights:  55%|#####5    | 655/1188 [00:04<00:06, 85.82it/s]Loading weights:  56%|#####6    | 668/1188 [00:05<00:15, 34.56it/s]Loading weights:  57%|#####6    | 677/1188 [00:05<00:14, 34.45it/s]Loading weights:  58%|#####7    | 685/1188 [00:06<00:18, 27.72it/s]Loading weights:  58%|#####8    | 693/1188 [00:06<00:15, 31.22it/s]Loading weights:  59%|#####8    | 699/1188 [00:07<00:22, 21.91it/s]Loading weights:  60%|#####9    | 708/1188 [00:07<00:17, 27.41it/s]Loading weights:  60%|######    | 714/1188 [00:07<00:20, 22.76it/s]Loading weights:  61%|######    | 721/1188 [00:07<00:18, 25.07it/s]Loading weights:  61%|######1   | 725/1188 [00:08<00:22, 20.85it/s]Loading weights:  62%|######1   | 735/1188 [00:08<00:15, 28.43it/s]Loading weights:  62%|######2   | 740/1188 [00:08<00:18, 24.22it/s]Loading weights:  63%|######2   | 744/1188 [00:08<00:18, 23.68it/s]Loading weights:  63%|######3   | 749/1188 [00:09<00:21, 20.13it/s]Loading weights:  63%|######3   | 752/1188 [00:09<00:21, 20.15it/s]Loading weights:  64%|######3   | 755/1188 [00:09<00:22, 18.96it/s]Loading weights:  64%|######4   | 762/1188 [00:09<00:15, 26.97it/s]Loading weights:  64%|######4   | 766/1188 [00:10<00:26, 15.93it/s]Loading weights:  65%|######5   | 777/1188 [00:10<00:15, 26.04it/s]Loading weights:  66%|######5   | 782/1188 [00:10<00:23, 17.50it/s]Loading weights:  67%|######6   | 791/1188 [00:11<00:19, 20.77it/s]Loading weights:  67%|######6   | 795/1188 [00:11<00:25, 15.66it/s]Loading weights:  68%|######7   | 804/1188 [00:11<00:17, 21.84it/s]Loading weights:  68%|######8   | 808/1188 [00:12<00:25, 15.10it/s]Loading weights:  68%|######8   | 811/1188 [00:12<00:24, 15.39it/s]Loading weights:  69%|######8   | 816/1188 [00:12<00:23, 15.62it/s]Loading weights:  69%|######9   | 822/1188 [00:13<00:22, 16.06it/s]Loading weights:  69%|######9   | 824/1188 [00:13<00:26, 13.69it/s]Loading weights:  72%|#######1  | 855/1188 [00:13<00:06, 48.29it/s]Loading weights:  75%|#######4  | 888/1188 [00:13<00:03, 87.57it/s]Loading weights:  82%|########1 | 972/1188 [00:13<00:01, 213.68it/s]Loading weights:  85%|########4 | 1008/1188 [00:14<00:00, 182.76it/s]Loading weights:  91%|#########1| 1085/1188 [00:14<00:00, 284.15it/s]Loading weights:  95%|#########5| 1129/1188 [00:14<00:00, 269.91it/s]Loading weights: 100%|##########| 1188/1188 [00:14<00:00, 81.83it/s] 
+Model weights loaded in 16.2s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+127.0.0.1 - - [16/Aug/2026 13:16:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:16:32] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:16:32] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:16:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:16:33] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:16:33] "GET /files HTTP/1.1" 200 -
+Device dispatch completed in 25.8s
+All services loaded and ready!
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:16:43][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 38KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cuda:1...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####1     | 327/796 [00:00<00:00, 3267.70it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4727.94it/s]
+[Ethio-ASR] Model loaded successfully on cuda:1 ✔
+  [92m✔ /api/stt done[0m in [93m2.16s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም።
+127.0.0.1 - - [16/Aug/2026 13:16:46] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:16:46][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m ሰላም።
+  [2m[queued — lock acquired][0m
+Exception in thread Thread-10 (generate):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1250, in forward
+    query_states = self.q_norm(query_states)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 212, in forward
+    normed_output = self._norm(hidden_states.float())
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 207, in _norm
+    mean_squared = hidden_states.pow(2).mean(-1, keepdim=True) + self.eps
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 21.50 MiB is free. Including non-PyTorch memory, this process has 31.70 GiB memory in use. Of the allocated memory 31.16 GiB is allocated by PyTorch, and 164.81 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5176.69it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.0s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:02<20:45,  1.05s/it]Loading weights:   7%|7         | 89/1188 [00:02<00:19, 55.76it/s]Loading weights:  11%|#1        | 134/1188 [00:02<00:12, 82.14it/s]Loading weights:  14%|#4        | 170/1188 [00:02<00:09, 103.13it/s]Loading weights:  17%|#6        | 200/1188 [00:02<00:08, 117.29it/s]Loading weights:  19%|#9        | 227/1188 [00:02<00:07, 134.35it/s]Loading weights:  21%|##1       | 252/1188 [00:02<00:06, 145.37it/s]Loading weights:  23%|##3       | 276/1188 [00:03<00:05, 158.88it/s]Loading weights:  25%|##5       | 299/1188 [00:03<00:05, 163.47it/s]Loading weights:  27%|##7       | 324/1188 [00:03<00:04, 176.47it/s]Loading weights:  29%|##9       | 347/1188 [00:03<00:04, 176.83it/s]Loading weights:  32%|###1      | 376/1188 [00:03<00:04, 193.57it/s]Loading weights:  34%|###3      | 398/1188 [00:03<00:04, 196.14it/s]Loading weights:  35%|###5      | 420/1188 [00:03<00:03, 194.46it/s]Loading weights:  37%|###7      | 441/1188 [00:03<00:03, 188.92it/s]Loading weights:  39%|###8      | 462/1188 [00:04<00:03, 190.64it/s]Loading weights:  41%|####      | 487/1188 [00:04<00:03, 198.70it/s]Loading weights:  43%|####2     | 508/1188 [00:04<00:03, 199.97it/s]Loading weights:  45%|####4     | 529/1188 [00:04<00:03, 194.34it/s]Loading weights:  46%|####6     | 549/1188 [00:04<00:03, 173.90it/s]Loading weights:  48%|####8     | 575/1188 [00:04<00:03, 188.32it/s]Loading weights:  51%|#####     | 600/1188 [00:04<00:02, 202.79it/s]Loading weights:  53%|#####2    | 628/1188 [00:04<00:02, 202.28it/s]Loading weights:  55%|#####4    | 652/1188 [00:04<00:02, 204.80it/s]Loading weights:  57%|#####6    | 673/1188 [00:05<00:08, 61.18it/s] Loading weights:  58%|#####7    | 689/1188 [00:06<00:09, 52.70it/s]Loading weights:  59%|#####9    | 701/1188 [00:07<00:12, 39.48it/s]Loading weights:  60%|#####9    | 711/1188 [00:07<00:13, 34.16it/s]Loading weights:  61%|######1   | 725/1188 [00:08<00:16, 28.18it/s]Loading weights:  62%|######2   | 739/1188 [00:10<00:29, 15.24it/s]Loading weights:  63%|######2   | 743/1188 [00:10<00:32, 13.75it/s]Loading weights:  63%|######3   | 752/1188 [00:11<00:35, 12.27it/s]Loading weights:  64%|######4   | 762/1188 [00:13<00:47,  8.92it/s]Loading weights:  64%|######4   | 764/1188 [00:13<00:45,  9.24it/s]Loading weights:  65%|######4   | 767/1188 [00:13<00:41, 10.14it/s]Loading weights:  65%|######5   | 774/1188 [00:14<00:33, 12.26it/s]Loading weights:  65%|######5   | 777/1188 [00:14<00:37, 10.89it/s]Loading weights:  66%|######5   | 781/1188 [00:14<00:32, 12.51it/s]Loading weights:  66%|######5   | 784/1188 [00:14<00:28, 14.18it/s]Loading weights:  66%|######6   | 790/1188 [00:15<00:27, 14.59it/s]Loading weights:  67%|######6   | 794/1188 [00:15<00:25, 15.31it/s]Loading weights:  67%|######7   | 796/1188 [00:15<00:25, 15.65it/s]Loading weights:  68%|######7   | 802/1188 [00:15<00:23, 16.14it/s]Loading weights:  68%|######8   | 808/1188 [00:16<00:24, 15.36it/s]Loading weights:  68%|######8   | 810/1188 [00:16<00:28, 13.39it/s]Loading weights:  69%|######8   | 818/1188 [00:16<00:20, 17.87it/s]Loading weights:  69%|######9   | 822/1188 [00:17<00:26, 14.06it/s]Loading weights:  69%|######9   | 824/1188 [00:17<00:29, 12.40it/s]Loading weights:  73%|#######2  | 862/1188 [00:17<00:05, 55.29it/s]Loading weights:  75%|#######5  | 894/1188 [00:17<00:03, 92.46it/s]Loading weights:  77%|#######6  | 912/1188 [00:18<00:02, 98.26it/s]Loading weights:  83%|########2 | 986/1188 [00:18<00:00, 213.42it/s]Loading weights:  89%|########8 | 1054/1188 [00:18<00:00, 306.19it/s]Loading weights:  92%|#########2| 1097/1188 [00:18<00:00, 328.24it/s]Loading weights:  96%|#########5| 1139/1188 [00:18<00:00, 347.82it/s]Loading weights:  99%|#########9| 1181/1188 [00:18<00:00, 360.58it/s]Loading weights: 100%|##########| 1188/1188 [00:18<00:00, 63.89it/s] 
+Model weights loaded in 20.5s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 20.2s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:20:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:20:38] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:20:38] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:20:43][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 40KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  50%|####9     | 397/796 [00:00<00:00, 3965.05it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4327.92it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m2.29s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:20:45] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:20:46][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:20:48] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.37s[0m | [93m20 tokens[0m
+
+  [91m✘ /api/tts/audio error: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x7f2bb5eee6c0> [Temporary failure in name resolution][0m
+127.0.0.1 - - [16/Aug/2026 13:21:01] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20ዛሬ%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 500 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5594.39it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 7.1s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:03, 334.27it/s]Loading weights:   7%|6         | 81/1188 [00:00<00:03, 281.37it/s]Loading weights:   9%|9         | 110/1188 [00:00<00:04, 234.16it/s]Loading weights:  11%|#1        | 134/1188 [00:00<00:04, 227.79it/s]Loading weights:  13%|#3        | 157/1188 [00:00<00:07, 134.62it/s]Loading weights:  15%|#4        | 175/1188 [00:01<00:19, 51.60it/s] Loading weights:  16%|#5        | 187/1188 [00:02<00:26, 38.31it/s]Loading weights:  16%|#6        | 196/1188 [00:02<00:23, 42.29it/s]Loading weights:  17%|#7        | 205/1188 [00:03<00:27, 36.26it/s]Loading weights:  18%|#7        | 212/1188 [00:03<00:29, 32.91it/s]Loading weights:  18%|#8        | 218/1188 [00:03<00:33, 28.58it/s]Loading weights:  19%|#9        | 227/1188 [00:03<00:28, 34.15it/s]Loading weights:  22%|##1       | 256/1188 [00:03<00:14, 64.72it/s]Loading weights:  25%|##4       | 292/1188 [00:04<00:08, 106.39it/s]Loading weights:  26%|##6       | 310/1188 [00:04<00:07, 118.61it/s]Loading weights:  28%|##8       | 334/1188 [00:04<00:06, 133.74it/s]Loading weights:  30%|###       | 359/1188 [00:04<00:05, 158.03it/s]Loading weights:  32%|###1      | 379/1188 [00:04<00:05, 157.92it/s]Loading weights:  34%|###3      | 401/1188 [00:04<00:04, 170.07it/s]Loading weights:  35%|###5      | 420/1188 [00:04<00:04, 173.11it/s]Loading weights:  37%|###7      | 442/1188 [00:04<00:04, 182.95it/s]Loading weights:  39%|###8      | 462/1188 [00:04<00:04, 178.48it/s]Loading weights:  41%|####1     | 490/1188 [00:05<00:03, 189.58it/s]Loading weights:  43%|####3     | 513/1188 [00:05<00:03, 194.44it/s]Loading weights:  45%|####5     | 538/1188 [00:05<00:03, 204.57it/s]Loading weights:  47%|####7     | 559/1188 [00:05<00:03, 194.70it/s]Loading weights:  49%|####8     | 581/1188 [00:05<00:03, 200.04it/s]Loading weights:  51%|#####     | 602/1188 [00:05<00:03, 185.14it/s]Loading weights:  53%|#####2    | 624/1188 [00:05<00:02, 192.46it/s]Loading weights:  54%|#####4    | 644/1188 [00:05<00:02, 191.04it/s]Loading weights:  56%|#####5    | 664/1188 [00:05<00:02, 190.09it/s]Loading weights:  58%|#####8    | 691/1188 [00:06<00:02, 209.84it/s]Loading weights:  60%|######    | 713/1188 [00:06<00:02, 203.75it/s]Loading weights:  62%|######1   | 736/1188 [00:06<00:02, 210.14it/s]Loading weights:  64%|######3   | 758/1188 [00:06<00:02, 211.97it/s]Loading weights:  66%|######5   | 780/1188 [00:06<00:04, 97.52it/s] Loading weights:  67%|######7   | 797/1188 [00:07<00:04, 80.67it/s]Loading weights:  68%|######8   | 810/1188 [00:08<00:14, 26.74it/s]Loading weights:  69%|######9   | 820/1188 [00:09<00:13, 27.48it/s]Loading weights:  70%|######9   | 828/1188 [00:09<00:13, 26.76it/s]Loading weights:  74%|#######4  | 884/1188 [00:09<00:04, 68.37it/s]Loading weights:  77%|#######6  | 913/1188 [00:09<00:03, 90.13it/s]Loading weights:  81%|########1 | 967/1188 [00:09<00:01, 143.00it/s]Loading weights:  87%|########7 | 1037/1188 [00:10<00:00, 224.86it/s]Loading weights:  92%|#########2| 1097/1188 [00:10<00:00, 290.13it/s]Loading weights:  97%|#########6| 1149/1188 [00:10<00:00, 333.18it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 114.23it/s]
+Model weights loaded in 12.9s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+127.0.0.1 - - [16/Aug/2026 13:23:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:23:35] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:23:36] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:23:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:23:37] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:23:37] "GET /files HTTP/1.1" 200 -
+Device dispatch completed in 28.9s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:25:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:25:27] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:25:27] "GET /files HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4925.59it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+127.0.0.1 - - [16/Aug/2026 13:28:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:28:06] "GET /style.css HTTP/1.1" 200 -
+Processor loaded in 4.4s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+127.0.0.1 - - [16/Aug/2026 13:28:07] "GET /files HTTP/1.1" 200 -
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   2%|2         | 27/1188 [00:00<00:04, 261.04it/s]Loading weights:   5%|4         | 54/1188 [00:00<00:05, 191.40it/s]Loading weights:   7%|6         | 83/1188 [00:00<00:05, 220.99it/s]Loading weights:   9%|9         | 107/1188 [00:00<00:05, 211.27it/s]Loading weights:  11%|#         | 130/1188 [00:00<00:04, 212.00it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 220.21it/s]Loading weights:  15%|#4        | 177/1188 [00:00<00:05, 201.60it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:05, 195.39it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 198.29it/s]Loading weights:  21%|##        | 244/1188 [00:01<00:05, 187.03it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 191.22it/s]Loading weights:  24%|##4       | 290/1188 [00:01<00:05, 179.41it/s]Loading weights:  27%|##7       | 321/1188 [00:01<00:04, 202.01it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:04, 197.61it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:04, 193.42it/s]Loading weights:  33%|###2      | 390/1188 [00:01<00:03, 201.16it/s]Loading weights:  35%|###4      | 411/1188 [00:02<00:04, 191.68it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:03, 191.42it/s]Loading weights:  39%|###8      | 461/1188 [00:02<00:03, 203.47it/s]Loading weights:  41%|####      | 484/1188 [00:02<00:03, 209.37it/s]Loading weights:  43%|####2     | 506/1188 [00:02<00:03, 196.22it/s]Loading weights:  44%|####4     | 528/1188 [00:02<00:03, 194.82it/s]Loading weights:  46%|####6     | 548/1188 [00:02<00:03, 187.24it/s]Loading weights:  48%|####8     | 573/1188 [00:02<00:03, 200.15it/s]Loading weights:  50%|#####     | 597/1188 [00:02<00:02, 200.29it/s]Loading weights:  52%|#####2    | 619/1188 [00:03<00:02, 205.56it/s]Loading weights:  54%|#####3    | 640/1188 [00:03<00:02, 197.07it/s]Loading weights:  56%|#####5    | 660/1188 [00:03<00:04, 105.62it/s]Loading weights:  57%|#####6    | 676/1188 [00:04<00:06, 76.91it/s] Loading weights:  58%|#####8    | 691/1188 [00:04<00:05, 86.89it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:05, 81.41it/s]Loading weights:  62%|######2   | 739/1188 [00:04<00:04, 106.97it/s]Loading weights:  63%|######3   | 754/1188 [00:04<00:03, 113.14it/s]Loading weights:  66%|######5   | 780/1188 [00:04<00:02, 138.63it/s]Loading weights:  68%|######7   | 802/1188 [00:04<00:02, 154.09it/s]Loading weights:  69%|######9   | 820/1188 [00:05<00:05, 70.07it/s] Loading weights:  70%|#######   | 834/1188 [00:06<00:10, 35.02it/s]
+[1m[92m▶ POST /clear[0m [2m[13:28:14][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m [clear history]
+Loading weights:  76%|#######5  | 902/1188 [00:06<00:03, 82.96it/s]  [92m✔ /clear done[0m in [93m0.04s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:28:14] "POST /clear HTTP/1.1" 200 -
+Loading weights:  84%|########4 | 1001/1188 [00:06<00:01, 159.55it/s]Loading weights:  89%|########9 | 1063/1188 [00:06<00:00, 207.81it/s]Loading weights:  93%|#########3| 1110/1188 [00:07<00:00, 222.81it/s]Loading weights:  97%|#########6| 1148/1188 [00:07<00:00, 245.45it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 162.11it/s]
+
+[1m[92m▶ POST /clear[0m [2m[13:28:16][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876085699
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.02s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:28:16] "POST /clear HTTP/1.1" 200 -
+Model weights loaded in 9.3s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+
+[1m[92m▶ POST /clear[0m [2m[13:28:17][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876085699
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:28:17] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[13:28:20][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874003165
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:28:20] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[13:28:20][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:28:20] "POST /clear HTTP/1.1" 200 -
+Device dispatch completed in 20.1s
+All services loaded and ready!
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:28:45][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 34KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  46%|####5     | 363/796 [00:00<00:00, 3615.02it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5393.92it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.36s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:28:47] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:28:47][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:28:48] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m3.79s[0m | [93m15 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:29:28][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 155KB]
+  [92m✔ /api/stt done[0m in [93m1.57s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:29:30] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:29:30][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:29:31] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.47s[0m | [93m27 tokens[0m
+
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5939.88it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.0s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:04, 272.80it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:04, 232.31it/s]Loading weights:   7%|7         | 85/1188 [00:00<00:05, 213.93it/s]Loading weights:   9%|9         | 112/1188 [00:00<00:05, 206.03it/s]Loading weights:  11%|#1        | 133/1188 [00:00<00:05, 205.50it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:05, 199.67it/s]Loading weights:  15%|#4        | 174/1188 [00:00<00:05, 176.53it/s]Loading weights:  17%|#7        | 207/1188 [00:00<00:04, 214.75it/s]Loading weights:  19%|#9        | 230/1188 [00:01<00:04, 191.91it/s]Loading weights:  21%|##1       | 251/1188 [00:01<00:04, 191.26it/s]Loading weights:  23%|##3       | 278/1188 [00:01<00:04, 192.52it/s]Loading weights:  26%|##5       | 304/1188 [00:01<00:04, 208.42it/s]Loading weights:  27%|##7       | 326/1188 [00:01<00:04, 189.60it/s]Loading weights:  29%|##9       | 346/1188 [00:01<00:04, 186.73it/s]Loading weights:  31%|###1      | 373/1188 [00:01<00:04, 199.79it/s]Loading weights:  33%|###3      | 394/1188 [00:01<00:04, 189.90it/s]Loading weights:  35%|###4      | 415/1188 [00:02<00:04, 187.92it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:04, 185.78it/s]Loading weights:  38%|###8      | 456/1188 [00:02<00:03, 188.11it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 190.77it/s]Loading weights:  42%|####1     | 496/1188 [00:02<00:07, 86.70it/s] Loading weights:  43%|####3     | 511/1188 [00:03<00:08, 75.87it/s]Loading weights:  45%|####4     | 531/1188 [00:03<00:07, 92.16it/s]Loading weights:  47%|####7     | 559/1188 [00:03<00:05, 117.56it/s]Loading weights:  49%|####8     | 581/1188 [00:03<00:04, 129.51it/s]Loading weights:  51%|#####1    | 611/1188 [00:03<00:03, 157.25it/s]Loading weights:  53%|#####3    | 630/1188 [00:03<00:03, 161.41it/s]Loading weights:  55%|#####4    | 652/1188 [00:03<00:03, 172.41it/s]Loading weights:  57%|#####6    | 672/1188 [00:04<00:02, 175.95it/s]Loading weights:  58%|#####8    | 691/1188 [00:04<00:02, 178.18it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:02, 177.30it/s]Loading weights:  62%|######2   | 739/1188 [00:04<00:04, 110.39it/s]Loading weights:  63%|######3   | 754/1188 [00:04<00:04, 95.95it/s] Loading weights:  66%|######5   | 780/1188 [00:05<00:03, 122.58it/s]Loading weights:  68%|######7   | 805/1188 [00:05<00:02, 140.99it/s]Loading weights:  69%|######9   | 823/1188 [00:07<00:12, 30.06it/s] Loading weights:  70%|#######   | 836/1188 [00:07<00:10, 34.78it/s]Loading weights:  78%|#######7  | 921/1188 [00:07<00:02, 94.19it/s]Loading weights:  80%|########  | 955/1188 [00:07<00:02, 106.06it/s]Loading weights:  83%|########2 | 984/1188 [00:07<00:01, 123.36it/s]Loading weights:  89%|########8 | 1057/1188 [00:07<00:00, 201.61it/s]Loading weights:  92%|#########2| 1097/1188 [00:07<00:00, 215.02it/s]Loading weights:  96%|#########6| 1146/1188 [00:08<00:00, 262.24it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 145.24it/s]
+Model weights loaded in 10.1s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 20.2s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:32:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:32:36] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:32:37] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:32:42][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 33KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  49%|####9     | 394/796 [00:00<00:00, 3925.52it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5324.55it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.50s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም።
+127.0.0.1 - - [16/Aug/2026 13:32:44] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:32:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:32:46] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m9.72s[0m | [93m27 tokens[0m
+
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5424.19it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.0s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:33,  7.71it/s]Loading weights:   6%|5         | 71/1188 [00:00<00:04, 233.95it/s]Loading weights:   9%|8         | 106/1188 [00:00<00:04, 225.11it/s]Loading weights:  11%|#1        | 135/1188 [00:00<00:04, 222.30it/s]Loading weights:  14%|#3        | 161/1188 [00:00<00:04, 208.76it/s]Loading weights:  16%|#5        | 185/1188 [00:00<00:04, 205.00it/s]Loading weights:  18%|#7        | 213/1188 [00:01<00:04, 212.94it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 217.62it/s]Loading weights:  22%|##1       | 260/1188 [00:01<00:04, 212.26it/s]Loading weights:  24%|##3       | 282/1188 [00:01<00:04, 200.55it/s]Loading weights:  26%|##5       | 303/1188 [00:01<00:04, 201.36it/s]Loading weights:  27%|##7       | 325/1188 [00:01<00:04, 192.68it/s]Loading weights:  30%|##9       | 351/1188 [00:01<00:04, 204.94it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:03, 209.71it/s]Loading weights:  34%|###3      | 402/1188 [00:01<00:03, 214.92it/s]Loading weights:  36%|###5      | 424/1188 [00:02<00:03, 204.08it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:03, 200.35it/s]Loading weights:  40%|###9      | 473/1188 [00:02<00:03, 211.39it/s]Loading weights:  42%|####1     | 495/1188 [00:02<00:03, 198.07it/s]Loading weights:  44%|####3     | 519/1188 [00:02<00:03, 202.27it/s]Loading weights:  46%|####5     | 541/1188 [00:02<00:03, 202.65it/s]Loading weights:  48%|####7     | 568/1188 [00:02<00:02, 220.93it/s]Loading weights:  50%|####9     | 591/1188 [00:02<00:02, 200.12it/s]Loading weights:  52%|#####1    | 614/1188 [00:03<00:03, 191.04it/s]Loading weights:  53%|#####3    | 634/1188 [00:03<00:05, 100.82it/s]Loading weights:  55%|#####4    | 649/1188 [00:04<00:08, 62.65it/s] Loading weights:  57%|#####7    | 683/1188 [00:04<00:05, 93.35it/s]Loading weights:  59%|#####8    | 700/1188 [00:04<00:04, 100.56it/s]Loading weights:  60%|######    | 716/1188 [00:04<00:04, 94.99it/s] Loading weights:  62%|######2   | 741/1188 [00:04<00:03, 119.63it/s]Loading weights:  64%|######4   | 766/1188 [00:04<00:02, 143.07it/s]Loading weights:  66%|######6   | 790/1188 [00:04<00:02, 158.98it/s]Loading weights:  68%|######8   | 810/1188 [00:04<00:02, 165.15it/s]Loading weights:  70%|######9   | 830/1188 [00:06<00:11, 31.25it/s] Loading weights:  77%|#######7  | 915/1188 [00:07<00:03, 77.90it/s]Loading weights:  84%|########4 | 1002/1188 [00:07<00:01, 136.89it/s]Loading weights:  91%|#########1| 1082/1188 [00:07<00:00, 197.52it/s]Loading weights:  96%|#########6| 1145/1188 [00:07<00:00, 249.35it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 159.50it/s]
+Model weights loaded in 10.2s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 19.6s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:37:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:37:04] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:37:05] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:37:16][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 106KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  51%|#####     | 402/796 [00:00<00:00, 4016.36it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5016.91it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.94s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:37:18] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:37:18][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:37:20] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.17s[0m | [93m27 tokens[0m
+
+127.0.0.1 - - [16/Aug/2026 13:38:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:38:14] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:38:14] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:38:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:38:14] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:38:15] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:38:22][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 54KB]
+  [92m✔ /api/stt done[0m in [93m1.04s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:38:23] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:38:24][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:38:25] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.88s[0m | [93m27 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:39:35][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 51KB]
+  [92m✔ /api/stt done[0m in [93m0.99s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም ስለ ኢትዮጵያ አርቲፊሻል እንተለጅ ተነኛለች
+127.0.0.1 - - [16/Aug/2026 13:39:36] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:39:36][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም ስለ ኢትዮጵያ አርቲፊሻል እንተለጅ ተነኛለች
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:39:37] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m62.04s[0m | [93m344 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:41:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 79KB]
+  [92m✔ /api/stt done[0m in [93m2.18s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:41:46] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:41:46][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:41:48] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.33s[0m | [93m27 tokens[0m
+
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4766.05it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.0s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<04:56,  4.00it/s]Loading weights:   7%|7         | 85/1188 [00:00<00:05, 185.75it/s]Loading weights:  11%|#1        | 132/1188 [00:00<00:05, 197.03it/s]Loading weights:  14%|#4        | 168/1188 [00:01<00:07, 145.10it/s]Loading weights:  16%|#6        | 195/1188 [00:01<00:06, 160.66it/s]Loading weights:  19%|#8        | 220/1188 [00:01<00:05, 173.52it/s]Loading weights:  21%|##        | 244/1188 [00:01<00:05, 158.93it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:05, 167.55it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 178.87it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:04, 186.51it/s]Loading weights:  29%|##9       | 347/1188 [00:02<00:04, 196.39it/s]Loading weights:  31%|###1      | 369/1188 [00:02<00:04, 191.66it/s]Loading weights:  33%|###2      | 390/1188 [00:02<00:04, 189.67it/s]Loading weights:  35%|###4      | 410/1188 [00:02<00:04, 186.50it/s]Loading weights:  36%|###6      | 431/1188 [00:02<00:03, 192.60it/s]Loading weights:  38%|###7      | 451/1188 [00:02<00:03, 191.01it/s]Loading weights:  40%|###9      | 474/1188 [00:02<00:03, 201.68it/s]Loading weights:  42%|####1     | 495/1188 [00:02<00:03, 201.24it/s]Loading weights:  43%|####3     | 516/1188 [00:02<00:03, 200.71it/s]Loading weights:  45%|####5     | 539/1188 [00:03<00:03, 201.97it/s]Loading weights:  47%|####7     | 560/1188 [00:03<00:03, 202.13it/s]Loading weights:  49%|####8     | 581/1188 [00:03<00:03, 198.94it/s]Loading weights:  51%|#####     | 601/1188 [00:03<00:04, 132.67it/s]Loading weights:  52%|#####2    | 622/1188 [00:03<00:03, 149.09it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:03, 157.38it/s]Loading weights:  56%|#####5    | 660/1188 [00:03<00:03, 160.44it/s]Loading weights:  57%|#####7    | 683/1188 [00:04<00:02, 168.77it/s]Loading weights:  59%|#####9    | 705/1188 [00:04<00:02, 179.75it/s]Loading weights:  61%|######1   | 727/1188 [00:04<00:02, 177.30it/s]Loading weights:  63%|######3   | 752/1188 [00:04<00:02, 194.19it/s]Loading weights:  66%|######5   | 780/1188 [00:04<00:02, 198.00it/s]Loading weights:  68%|######7   | 804/1188 [00:04<00:01, 199.64it/s]Loading weights:  69%|######9   | 825/1188 [00:06<00:07, 45.43it/s] Loading weights:  71%|#######   | 840/1188 [00:06<00:06, 51.77it/s]Loading weights:  76%|#######5  | 898/1188 [00:06<00:02, 99.90it/s]Loading weights:  80%|########  | 953/1188 [00:06<00:01, 149.72it/s]Loading weights:  84%|########4 | 1002/1188 [00:06<00:00, 190.11it/s]Loading weights:  89%|########8 | 1054/1188 [00:06<00:00, 224.12it/s]Loading weights:  98%|#########7| 1161/1188 [00:06<00:00, 343.08it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 172.94it/s]
+Model weights loaded in 8.9s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 20.8s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:43:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:43:22] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:43:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:43:38][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 89KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  56%|#####5    | 444/796 [00:00<00:00, 4427.14it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5360.33it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m2.49s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:43:41] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:43:41][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:43:43] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.57s[0m | [93m27 tokens[0m
+
+  [91m✘ /api/tts/audio error: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x7f8bc1d0f140> [Temporary failure in name resolution][0m
+127.0.0.1 - - [16/Aug/2026 13:43:58] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?%20ማንኛውንም%20ጥያቄ%20መጠየቅ%20ይችላሉ።&lang=am-ET HTTP/1.1[0m" 500 -
+127.0.0.1 - - [16/Aug/2026 13:44:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:44:21] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[13:44:22][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:44:22] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:44:22] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:44:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 7355.85it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.3s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:12,  8.97it/s]Loading weights:   6%|5         | 69/1188 [00:00<00:04, 253.21it/s]Loading weights:   9%|8         | 104/1188 [00:00<00:04, 228.28it/s]Loading weights:  11%|#1        | 133/1188 [00:00<00:05, 209.59it/s]Loading weights:  13%|#3        | 158/1188 [00:01<00:09, 104.71it/s]Loading weights:  15%|#4        | 176/1188 [00:01<00:09, 109.13it/s]Loading weights:  17%|#7        | 207/1188 [00:01<00:06, 141.12it/s]Loading weights:  19%|#9        | 228/1188 [00:01<00:06, 151.80it/s]Loading weights:  21%|##        | 248/1188 [00:01<00:05, 160.26it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:05, 168.74it/s]Loading weights:  24%|##4       | 290/1188 [00:01<00:05, 178.03it/s]Loading weights:  26%|##6       | 310/1188 [00:02<00:06, 129.27it/s]Loading weights:  28%|##7       | 327/1188 [00:02<00:11, 73.35it/s] Loading weights:  30%|##9       | 353/1188 [00:02<00:08, 96.97it/s]Loading weights:  32%|###1      | 376/1188 [00:02<00:06, 118.10it/s]Loading weights:  33%|###3      | 395/1188 [00:02<00:06, 130.23it/s]Loading weights:  35%|###4      | 415/1188 [00:03<00:05, 141.05it/s]Loading weights:  37%|###7      | 440/1188 [00:03<00:04, 165.50it/s]Loading weights:  39%|###8      | 460/1188 [00:03<00:04, 173.51it/s]Loading weights:  40%|####      | 480/1188 [00:03<00:04, 176.13it/s]Loading weights:  42%|####2     | 500/1188 [00:03<00:03, 173.73it/s]Loading weights:  44%|####4     | 525/1188 [00:03<00:03, 193.86it/s]Loading weights:  46%|####5     | 546/1188 [00:03<00:03, 182.40it/s]Loading weights:  48%|####8     | 573/1188 [00:03<00:03, 190.75it/s]Loading weights:  50%|#####     | 597/1188 [00:03<00:02, 198.09it/s]Loading weights:  52%|#####2    | 618/1188 [00:04<00:02, 200.07it/s]Loading weights:  54%|#####4    | 642/1188 [00:04<00:02, 199.04it/s]Loading weights:  56%|#####5    | 664/1188 [00:04<00:02, 196.31it/s]Loading weights:  58%|#####7    | 684/1188 [00:04<00:02, 191.04it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:02, 203.25it/s]Loading weights:  62%|######1   | 732/1188 [00:04<00:02, 202.48it/s]Loading weights:  63%|######3   | 753/1188 [00:04<00:02, 193.21it/s]Loading weights:  66%|######5   | 780/1188 [00:04<00:02, 194.68it/s]Loading weights:  68%|######7   | 804/1188 [00:05<00:01, 205.04it/s]Loading weights:  69%|######9   | 825/1188 [00:06<00:09, 36.63it/s] Loading weights:  73%|#######2  | 863/1188 [00:06<00:05, 58.03it/s]Loading weights:  79%|#######9  | 939/1188 [00:07<00:02, 116.32it/s]Loading weights:  82%|########2 | 979/1188 [00:07<00:01, 146.14it/s]Loading weights:  87%|########6 | 1030/1188 [00:07<00:00, 191.00it/s]Loading weights:  93%|#########2| 1099/1188 [00:07<00:00, 268.83it/s]Loading weights:  97%|#########6| 1148/1188 [00:07<00:00, 273.51it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 156.92it/s]
+Model weights loaded in 9.6s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 21.9s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:45:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:45:48] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:45:48] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:46:05][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 48KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  48%|####8     | 383/796 [00:00<00:00, 3821.25it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5038.42it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.95s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [16/Aug/2026 13:46:07] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:46:07][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:46:08] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m15.99s[0m | [93m76 tokens[0m
+
+  [91m✘ /api/tts/audio error: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x7f8eb5fbf8c0> [Temporary failure in name resolution][0m
+127.0.0.1 - - [16/Aug/2026 13:46:38] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20እኔ%20አማኒ%20(Amani)%20ነኝ፤%20በኢትዮጵያ%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20የተገነባሁ%20ረዳት%20የሰው%20ሰራሽ%20ብልህነት%20(AI)%20ነኝ።%20በምን%20ላግዝዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 500 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:46:39][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 92KB]
+  [92m✔ /api/stt done[0m in [93m1.12s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም ስለኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ትነግኛለች እና ስለ ዳይረክተሩ
+127.0.0.1 - - [16/Aug/2026 13:46:40] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:46:40][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ሰላም ስለኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ትነግኛለች እና ስለ ዳይረክተሩ
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:46:41] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m86.88s[0m | [93m445 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m10.45s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:48:18] "[35m[1mGET /api/tts/audio?text=ሰላም!%20ስለ%20ኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20እና%20ስለ%20አመራሮቹ%20የሚከተሉትን%20መረጃዎች%20አቀርብልዎታለሁ፦%0A%0Aስለ%20ኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት፦%0Aኢንስቲትዩቱ%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶክተር%20አብይ%20አህመድ%20ተመርቋል።%20ዋና%20ዓላማውም%20በወጣት%20ኢትዮጵያውያን%20መካከል%20ፈጠራንና%20የአቅም%20ግንባታን%20በማሳደግ፣%20ኢትዮጵያን%20በአፍሪካ%20የአርቴፊሻል%20ኢንተለጀንስ%20ቴክኖሎጂ%20ግንባር%20ቀደም%20አድርጎ%20ለማስቀመጥ%20ነው።%20ማዕከሉ%20በተለይ%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20ላይ%20የአይቲ%20አገልግሎቶችን%20ለመስጠት፣%20ምርታማነትን%20እና%20የኢኮኖሚ%20እድገትን%20ለማሻሻል%20ታስቦ%20የተቋቋመ%20ነው።%0A%0Aስለ%20ዳይሬክተሩ%20እና%20አመራሮቹ፦%0A%20%20%20የኢንስቲትዩቱ%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%20ናቸው።%0A%20%20%20ኢንስቲትዩቱ%20በሦስት%20ምክትል%20ዋና%20ዳይሬክተሮች%20ይመራል፦%0A%20%20%20%201.%20%20ክቡር%20ዶክተር%20ታዬ%20ግርማ%20(የምርምር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር)%0A%20%20%20%202.%20%20አቶ%20ይታገሱ%20ደሳለኝ%20(የአስተዳደር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር)%0A%20%20%20%203.%20%20ቢኒይም%20እንደዳሻው%20(የመረጃ%20አሰባሰብ%20እና%20አደረጃጀት%20ምክትል%20ዋና%20ዳይሬክተር)&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 13:48:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:49:19][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 73KB]
+  [92m✔ /api/stt done[0m in [93m0.84s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ራሱ የትኒስት ነገር ትናግኛለች።
+127.0.0.1 - - [16/Aug/2026 13:49:20] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:49:20][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ስለ ራሱ የትኒስት ነገር ትናግኛለች።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:49:22] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m90.81s[0m | [93m513 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m13.64s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:51:05] "[35m[1mGET /api/tts/audio?text=ጥያቄዎ%20"ስለ%20ራሱ%20የኢንስቲትዩት%20ነገር%20ትናገሪልኝ"%20የሚል%20እንደሆነ%20ተረድቻለሁ።%20የቀረበውን%20መረጃ%20መሠረት%20በማድረግ%20ስለ%20ኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20የሚከተሉትን%20ነጥቦች%20አቀርባለሁ፦%0A%0Aየኢንስቲትዩቱ%20ዓላማ%20እና%20ራዕይ፦%0A%20%20%20በጠቅላይ%20ሚኒስትር%20አብይ%20አህመድ%20አመራር%20ስር%20የተቋቋመ%20ሲሆን፣%20ዋና%20ዓላማው%20በወጣት%20ኢትዮጵያውያን%20መካከል%20ፈጠራን%20እና%20የአቅም%20ግንባታን%20ማሳደግ%20ነው።%0A%20%20%20ኢትዮጵያን%20በአፍሪካ%20አህጉር%20በአርቴፊሻል%20ኢንተለጀንስ%20ቴክኖሎጂ%20ግንባር%20ቀደም%20አድርጎ%20ለማስቀመጥ%20ያለመ%20ነው።%0A%20%20%20አርቴፊሻል%20ኢንተለጀንስን%20በተለያዩ%20ዘርፎች%20በማዋሃድ%20ምርታማነትን%20እና%20የኢኮኖሚ%20እድገትን%20ማሻሻል%20እንዲሁም%20ለኢትዮጵያ%20ፍላጎቶች%20የተዘጋጁ%20ተግባራዊ%20እና%20ችግር%20ፈቺ%20የቴክኖሎጂ%20ፈጠራዎችን%20ማዘጋጀት%20ላይ%20ያተኩራል።%0A%0Aየአመራር%20አካላቱ፦%0A%20%20%20ዋና%20ዳይሬክተር፦%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%20ናቸው።%0A%20%20%20ምክትል%20ዋና%20ዳይሬክተሮች፦%20ኢንስቲትዩቱ%20በሦስት%20ምክትል%20ዋና%20ዳይሬክተሮች%20ይመራል፦%0A%20%20%20%201.%20%20ክቡር%20ዶክተር%20ታዬ%20ግርማ፦%20የምርምር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር።%0A%20%20%20%202.%20%20አቶ%20ይታገሱ%20ደሳለኝ፦%20የአስተዳደር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር።%0A%20%20%20%203.%20%20ቢኒይም%20እንደዳሻው፦%20የመረጃ%20አሰባሰብ%20እና%20አደረጃጀት%20ምክትል%20ዋና%20ዳይሬክተር።%0A%0Aበተጨማሪም፣%20እኔ%20(አማኒ%20AI)%20የተፈጠርኩት%20እና%20የተገነባሁት%20በዚህው%20በኢትዮጵያ%20አ&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[13:52:17][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 72KB]
+  [92m✔ /api/stt done[0m in [93m0.95s[0m
+
+  [96mTranscript (am-ET):[0m ስለአማኔ ተናግኛለች
+127.0.0.1 - - [16/Aug/2026 13:52:18] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:52:19][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ስለአማኔ ተናግኛለች
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:52:21] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m23.94s[0m | [93m132 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.56s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:52:46] "[35m[1mGET /api/tts/audio?text=ስለ%20አማኒ%20(Amani)%20የሚከተሉትን%20መረጃዎች%20አቀርባለሁ፦%0A%0Aአማኒ%20(Amani)%20በአማርኛ%20እና%20በእንግሊዝኛ%20ቋንቋዎች%20በተቀላጠፈ%20ሁኔታ%20እንዲሠራ%20ተደርጎ%20የተነደፈ%20የላቀ%20የሁለት%20ቋንቋዎች%20አርቴፊሻል%20ኢንተለጀንስ%20ረዳት%20(Bilingual%20AI%20Assistant)%20ነው።%20አማኒ%20የተፈጠረው%20እና%20የተገነባው%20በኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:11:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:11:20] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:11:20] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:11:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[14:12:40][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 53KB]
+  [92m✔ /api/stt done[0m in [93m1.25s[0m
+
+  [96mTranscript (am-ET):[0m ካኙቴ ሚ ሁዩዋ
+127.0.0.1 - - [16/Aug/2026 14:12:41] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:12:42][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ካኙቴ ሚ ሁዩዋ
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:12:44] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m19.01s[0m | [93m81 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m7.49s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:13:08] "[35m[1mGET /api/tts/audio?text=ይቅርታ፣%20የጠየቁት%20ጥያቄ%20("ካኙቴ%20ሚ%20ሁዩዋ")%20ግልጽ%20አይደለም%20ወይም%20በአማርኛ%20ቋንቋ%20የተጻፈ%20አይመስልም።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20በአማርኛ%20ወይም%20በእንግሊዝኛ%20ቢጽፉልኝ%20በደስታ%20እመልስልዎታለሁ።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:13:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5152.00it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.9s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 44/1188 [00:00<00:03, 358.02it/s]Loading weights:   7%|6         | 80/1188 [00:00<00:04, 270.58it/s]Loading weights:   9%|9         | 108/1188 [00:00<00:04, 248.44it/s]Loading weights:  11%|#1        | 134/1188 [00:00<00:04, 228.93it/s]Loading weights:  13%|#3        | 158/1188 [00:00<00:04, 210.22it/s]Loading weights:  16%|#5        | 185/1188 [00:00<00:04, 209.18it/s]Loading weights:  18%|#7        | 209/1188 [00:00<00:04, 210.78it/s]Loading weights:  19%|#9        | 231/1188 [00:01<00:04, 208.64it/s]Loading weights:  21%|##1       | 252/1188 [00:01<00:04, 204.94it/s]Loading weights:  23%|##2       | 273/1188 [00:01<00:04, 202.39it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 199.06it/s]Loading weights:  27%|##7       | 321/1188 [00:01<00:04, 205.92it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:04, 202.31it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:04, 200.74it/s]Loading weights:  33%|###2      | 387/1188 [00:01<00:04, 194.35it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:07, 111.25it/s]Loading weights:  36%|###5      | 423/1188 [00:02<00:08, 86.47it/s] Loading weights:  38%|###8      | 456/1188 [00:02<00:05, 124.47it/s]Loading weights:  40%|###9      | 475/1188 [00:02<00:05, 135.79it/s]Loading weights:  42%|####1     | 494/1188 [00:02<00:04, 145.10it/s]Loading weights:  44%|####3     | 517/1188 [00:02<00:04, 157.26it/s]Loading weights:  46%|####5     | 542/1188 [00:03<00:03, 177.97it/s]Loading weights:  48%|####7     | 570/1188 [00:03<00:03, 199.45it/s]Loading weights:  50%|####9     | 592/1188 [00:03<00:03, 191.03it/s]Loading weights:  52%|#####1    | 613/1188 [00:03<00:03, 178.68it/s]Loading weights:  53%|#####3    | 632/1188 [00:03<00:03, 168.67it/s]Loading weights:  55%|#####5    | 657/1188 [00:03<00:02, 186.05it/s]Loading weights:  57%|#####6    | 677/1188 [00:04<00:04, 112.26it/s]Loading weights:  59%|#####8    | 697/1188 [00:04<00:03, 126.30it/s]Loading weights:  61%|######1   | 725/1188 [00:04<00:03, 148.55it/s]Loading weights:  63%|######2   | 747/1188 [00:04<00:02, 162.43it/s]Loading weights:  65%|######5   | 775/1188 [00:04<00:02, 187.74it/s]Loading weights:  67%|######7   | 797/1188 [00:05<00:06, 56.15it/s] Loading weights:  68%|######8   | 813/1188 [00:07<00:13, 28.06it/s]Loading weights:  69%|######9   | 825/1188 [00:08<00:15, 22.89it/s]Loading weights:  78%|#######8  | 927/1188 [00:08<00:03, 72.90it/s]Loading weights:  81%|########1 | 964/1188 [00:08<00:02, 91.04it/s]Loading weights:  84%|########4 | 999/1188 [00:08<00:01, 111.85it/s]Loading weights:  90%|########9 | 1064/1188 [00:08<00:00, 169.00it/s]Loading weights:  93%|#########3| 1106/1188 [00:08<00:00, 185.18it/s]Loading weights:  97%|#########7| 1157/1188 [00:08<00:00, 231.95it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 132.24it/s]
+Model weights loaded in 12.3s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 19.7s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 14:21:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:21:04] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:21:05] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[14:21:10][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 54KB]
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m18.08s[0m
+
+  [96mTranscript (en-US):[0m Can you tell me your name?
+127.0.0.1 - - [16/Aug/2026 14:21:28] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:21:29][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m Can you tell me your name?
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:21:32] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.22s[0m | [93m12 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.02s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:21:35] "[35m[1mGET /api/tts/audio?text=My%20name%20is%20Amani%20(አማኒ).&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:21:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=en-us[0m [2m[14:21:56][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 66KB]
+  [92m✔ /api/stt done[0m in [93m7.04s[0m
+
+  [96mTranscript (en-US):[0m So, Michelle and I are going to share this.
+127.0.0.1 - - [16/Aug/2026 14:22:03] "POST /api/stt?lang=en-US HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:22:03][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m So, Michelle and I are going to share this.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:22:06] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m15.12s[0m | [93m78 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.69s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:22:20] "[35m[1mGET /api/tts/audio?text=It%20seems%20like%20your%20message%20was%20cut%20off.%20You%20mentioned%20that%20you%20and%20Michelle%20are%20going%20to%20share%20something,%20but%20you%20didn't%20specify%20what%20it%20is.%0A%0AAre%20you%20referring%20to%20sharing%20information%20about%20Amani,%20the%20Ethiopia%20Artificial%20Intelligence%20Institute%20(EAII),%20or%20perhaps%20some%20of%20the%20historical%20facts%20mentioned%20in%20the%20provided%20text?%20Please%20let%20me%20know%20how%20I%20can%20help%20you%20and%20Michelle!&lang=en-US HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt?lang=en-us[0m [2m[14:22:21][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 57KB]
+  [92m✔ /api/stt done[0m in [93m9.03s[0m
+
+  [96mTranscript (en-US):[0m So I'm sure they're going to challenge.
+127.0.0.1 - - [16/Aug/2026 14:22:30] "POST /api/stt?lang=en-US HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:22:31][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m So I'm sure they're going to challenge.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:22:33] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[14:22:36][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 205KB]
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[14:22:41][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 58KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  40%|###9      | 316/796 [00:00<00:00, 3159.02it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4333.90it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /chat/stream done[0m in [93m23.63s[0m | [93m112 tokens[0m
+
+  [92m✔ /api/stt done[0m in [93m19.02s[0m
+
+  [96mTranscript (am-ET):[0m ው።
+127.0.0.1 - - [16/Aug/2026 14:22:55] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:22:55][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ው።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:22:57] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m4.62s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:22:59] "[35m[1mGET /api/tts/audio?text=Your%20message%20seems%20to%20be%20incomplete.%20You%20mentioned,%20"So%20I'm%20sure%20they're%20going%20to%20challenge,"%20but%20you%20didn't%20specify%20who%20"they"%20are%20or%20what%20they%20are%20going%20to%20challenge.%0A%0AIf%20you%20are%20referring%20to%20the%20goals%20of%20the%20Ethiopia%20Artificial%20Intelligence%20Institute%20(EAII)%20mentioned%20in%20the%20context,%20perhaps%20you%20are%20talking%20about%20the%20challenges%20of%20integrating%20AI%20into%20sectors%20like%20agriculture,%20education,%20and%20health%20to%20improve%20productivity%20and%20economic%20growth.%0A%0APlease%20provide%20more%20details%20so%20I%20can%20give%20you%20a%20more%20accurate%20and%20helpful%20response!&lang=am-ET HTTP/1.1[0m" 206 -
+  [92m✔ /api/stt done[0m in [93m18.12s[0m
+
+  [96mTranscript (en-US):[0m Let's see what we can do in Greenwich.
+127.0.0.1 - - [16/Aug/2026 14:22:59] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:22:59][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m Let's see what we can do in Greenwich.
+127.0.0.1 - - [16/Aug/2026 14:23:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:23:05] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:23:06] "GET /files HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:23:09] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-et[0m [2m[14:23:12][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 57KB]
+  [92m✔ /api/stt done[0m in [93m12.54s[0m
+
+  [96mTranscript (en-US):[0m Some of you think we're going to finish.
+127.0.0.1 - - [16/Aug/2026 14:23:24] "POST /api/stt?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:23:24][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m Some of you think we're going to finish.
+  [2m[queued — lock acquired][0m
+Exception in thread Thread-32 (generate):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1250, in forward
+    query_states = self.q_norm(query_states)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 212, in forward
+    normed_output = self._norm(hidden_states.float())
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 88.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 83.50 MiB is free. Including non-PyTorch memory, this process has 31.64 GiB memory in use. Of the allocated memory 30.82 GiB is allocated by PyTorch, and 446.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4188.10it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 7.1s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   5%|4         | 55/1188 [00:00<00:02, 526.91it/s]Loading weights:   9%|9         | 108/1188 [00:00<00:03, 274.56it/s]Loading weights:  12%|#1        | 142/1188 [00:00<00:04, 241.20it/s]Loading weights:  14%|#4        | 170/1188 [00:00<00:04, 229.72it/s]Loading weights:  16%|#6        | 195/1188 [00:00<00:04, 215.46it/s]Loading weights:  18%|#8        | 218/1188 [00:00<00:04, 218.30it/s]Loading weights:  20%|##        | 241/1188 [00:01<00:04, 206.97it/s]Loading weights:  22%|##2       | 266/1188 [00:01<00:04, 216.00it/s]Loading weights:  24%|##4       | 289/1188 [00:01<00:04, 201.63it/s]Loading weights:  26%|##6       | 310/1188 [00:01<00:04, 195.76it/s]Loading weights:  28%|##7       | 332/1188 [00:01<00:04, 191.81it/s]Loading weights:  30%|##9       | 353/1188 [00:01<00:04, 189.01it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:04, 195.40it/s]Loading weights:  34%|###4      | 407/1188 [00:01<00:03, 198.28it/s]Loading weights:  36%|###6      | 428/1188 [00:02<00:03, 194.92it/s]Loading weights:  38%|###7      | 449/1188 [00:02<00:03, 196.92it/s]Loading weights:  40%|###9      | 472/1188 [00:02<00:03, 202.05it/s]Loading weights:  41%|####1     | 493/1188 [00:02<00:03, 193.35it/s]Loading weights:  43%|####3     | 513/1188 [00:02<00:03, 194.79it/s]Loading weights:  45%|####4     | 533/1188 [00:03<00:11, 56.07it/s] Loading weights:  46%|####6     | 548/1188 [00:03<00:12, 49.71it/s]Loading weights:  47%|####7     | 560/1188 [00:04<00:13, 46.92it/s]Loading weights:  49%|####9     | 588/1188 [00:04<00:08, 68.84it/s]Loading weights:  52%|#####1    | 614/1188 [00:04<00:06, 92.82it/s]Loading weights:  54%|#####4    | 642/1188 [00:04<00:04, 116.22it/s]Loading weights:  56%|#####5    | 664/1188 [00:04<00:04, 129.89it/s]Loading weights:  58%|#####7    | 685/1188 [00:04<00:03, 138.85it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:02, 164.07it/s]Loading weights:  62%|######1   | 735/1188 [00:04<00:02, 173.49it/s]Loading weights:  64%|######3   | 756/1188 [00:05<00:04, 97.71it/s] Loading weights:  66%|######5   | 780/1188 [00:05<00:03, 115.39it/s]Loading weights:  67%|######7   | 797/1188 [00:05<00:03, 98.91it/s] Loading weights:  68%|######8   | 811/1188 [00:08<00:20, 18.62it/s]Loading weights:  69%|######9   | 821/1188 [00:08<00:17, 20.82it/s]Loading weights:  70%|######9   | 830/1188 [00:09<00:15, 22.56it/s]Loading weights:  79%|#######9  | 940/1188 [00:09<00:02, 88.95it/s]Loading weights:  88%|########7 | 1042/1188 [00:09<00:00, 156.40it/s]Loading weights:  96%|#########6| 1142/1188 [00:09<00:00, 238.17it/s]Loading weights: 100%|##########| 1188/1188 [00:09<00:00, 122.03it/s]
+Model weights loaded in 12.0s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 22.6s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 14:26:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:26:15] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:26:15] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-ET[0m [2m[14:26:22][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 57KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  56%|#####6    | 448/796 [00:00<00:00, 4458.71it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5017.40it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.83s[0m
+
+  [96mTranscript (am-ET):[0m ስለራሱች ትነግረኛለች።
+127.0.0.1 - - [16/Aug/2026 14:26:24] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:26:24][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ስለራሱች ትነግረኛለች።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 14:26:27] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m49.32s[0m | [93m264 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m11.66s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:27:26] "[35m[1mGET /api/tts/audio?text=እኔ%20አማኒ%20(Amani)%20እባላለሁ።%20እኔ%20በአማርኛ%20እና%20በእንግሊዝኛ%20ቋንቋዎች%20በተቀላጠፈ%20ሁኔታ%20እንዲሠራ%20ተደርጎ%20የተነደፈ%20የላቀ%20የሁለት%20ቋንቋዎች%20አርቴፊሻል%20ኢንተለጀንስ%20ረዳት%20ነኝ።%0A%0Aየተፈጠርኩት%20በኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20ሲሆን፣%20ይህ%20ተቋም%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20የኢንስቲትዩቱ%20ዋና%20ዓላማ%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ማድረግ፣%20በወጣት%20ኢትዮጵያውያን%20መካከል%20ፈጠራን%20ማሳደግ%20እና%20አርቴፊሻል%20ኢንተለጀንስን%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20ላይ%20በማዋሃድ%20ምርታማነትንና%20የኢኮኖሚ%20እድገትን%20ማሻሻል%20ነው።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:27:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5449.61it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.4s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:03, 368.78it/s]Loading weights:   7%|7         | 84/1188 [00:00<00:03, 302.94it/s]Loading weights:  10%|9         | 115/1188 [00:00<00:04, 266.71it/s]Loading weights:  12%|#1        | 142/1188 [00:00<00:04, 222.50it/s]Loading weights:  14%|#3        | 166/1188 [00:00<00:04, 213.02it/s]Loading weights:  16%|#5        | 188/1188 [00:00<00:04, 212.88it/s]Loading weights:  18%|#7        | 213/1188 [00:00<00:04, 210.26it/s]Loading weights:  20%|#9        | 235/1188 [00:01<00:07, 121.59it/s]Loading weights:  21%|##1       | 252/1188 [00:01<00:13, 70.30it/s] Loading weights:  23%|##3       | 279/1188 [00:01<00:09, 94.28it/s]Loading weights:  25%|##5       | 301/1188 [00:02<00:07, 111.75it/s]Loading weights:  27%|##7       | 324/1188 [00:02<00:06, 129.16it/s]Loading weights:  29%|##9       | 345/1188 [00:02<00:05, 141.33it/s]Loading weights:  31%|###       | 365/1188 [00:02<00:05, 153.51it/s]Loading weights:  33%|###3      | 393/1188 [00:02<00:04, 172.72it/s]Loading weights:  35%|###4      | 415/1188 [00:02<00:04, 180.10it/s]Loading weights:  37%|###6      | 436/1188 [00:02<00:04, 178.91it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 198.95it/s]Loading weights:  41%|####      | 487/1188 [00:02<00:03, 209.31it/s]Loading weights:  43%|####2     | 509/1188 [00:03<00:03, 205.64it/s]Loading weights:  45%|####4     | 531/1188 [00:03<00:03, 203.43it/s]Loading weights:  47%|####6     | 555/1188 [00:03<00:03, 210.81it/s]Loading weights:  49%|####8     | 577/1188 [00:03<00:03, 197.78it/s]Loading weights:  50%|#####     | 598/1188 [00:03<00:03, 188.40it/s]Loading weights:  52%|#####2    | 618/1188 [00:03<00:05, 112.37it/s]Loading weights:  53%|#####3    | 634/1188 [00:04<00:08, 67.96it/s] Loading weights:  54%|#####4    | 646/1188 [00:04<00:08, 64.61it/s]Loading weights:  57%|#####7    | 683/1188 [00:04<00:04, 104.21it/s]Loading weights:  60%|#####9    | 711/1188 [00:04<00:03, 126.91it/s]Loading weights:  62%|######1   | 736/1188 [00:05<00:03, 147.19it/s]Loading weights:  64%|######3   | 756/1188 [00:05<00:02, 157.87it/s]Loading weights:  66%|######5   | 780/1188 [00:05<00:04, 95.96it/s] Loading weights:  67%|######7   | 796/1188 [00:07<00:14, 27.42it/s]Loading weights:  68%|######8   | 808/1188 [00:07<00:13, 28.29it/s]Loading weights:  69%|######8   | 818/1188 [00:08<00:11, 31.42it/s]Loading weights:  70%|######9   | 826/1188 [00:08<00:11, 32.39it/s]Loading weights:  77%|#######6  | 914/1188 [00:08<00:02, 108.84it/s]Loading weights:  81%|########1 | 965/1188 [00:08<00:01, 152.15it/s]Loading weights:  85%|########5 | 1015/1188 [00:08<00:00, 200.40it/s]Loading weights:  89%|########8 | 1056/1188 [00:08<00:00, 218.42it/s]Loading weights:  94%|#########4| 1122/1188 [00:08<00:00, 290.63it/s]Loading weights:  98%|#########7| 1164/1188 [00:09<00:00, 262.54it/s]Loading weights: 100%|##########| 1188/1188 [00:09<00:00, 129.60it/s]
+Model weights loaded in 11.4s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 24.1s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 14:33:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:33:22] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:33:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-ET[0m [2m[14:33:29][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 74KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  33%|###3      | 265/796 [00:00<00:00, 2614.65it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4174.42it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m2.36s[0m
+
+  [96mTranscript (am-ET):[0m ስለ አርቴፊሻል ኢንተለጀንስ ትነገረኛለች።
+127.0.0.1 - - [16/Aug/2026 14:33:31] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:33:32][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ስለ አርቴፊሻል ኢንተለጀንስ ትነገረኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/3 context chunks (top score: 0.582).
+127.0.0.1 - - [16/Aug/2026 14:33:33] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m88.95s[0m | [93m513 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m9.96s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:35:11] "[35m[1mGET /api/tts/audio?text=አርቴፊሻል%20ኢንተለጀንስ%20(Artificial%20Intelligence%20ወይም%20AI)%20ማለት%20የሰው%20ልጅን%20የማሰብ፣%20የመማር%20እና%20ውሳኔ%20የመስጠት%20ችሎታን%20በመምሰል%20ማሽኖች%20ወይም%20የኮምፒውተር%20ፕሮግራሞች%20እንዲሰሩ%20ተደርጎ%20የሚዘጋጅ%20የቴክኖሎጂ%20ዘርፍ%20ነው።%0A%0Aስለ%20አርቴፊሻል%20ኢንተለጀንስ%20ዋና%20ዋና%20ነጥቦች%20የሚከተሉት%20ናቸው፦%0A%0A1.%20አርቴፊሻል%20ኢንተለጀንስ%20እንዴት%20ይሠራል?%0AAI%20በብዛት%20የሚሠራው%20በከፍተኛ%20መጠን%20ካሉ%20መረጃዎች%20(Data)%20በመነሳት፣%20በውስጣቸው%20ያሉትን%20ቅጦች%20(Patterns)%20በማጥናት%20እና%20በዚያ%20መሠረት%20ትንበያዎችን%20በመስጠት%20ወይም%20ተግባራትን%20በማከናወን%20ነው።%20ለምሳሌ፣%20ብዙ%20ምስሎችን%20በማየት%20የድመትን%20እና%20የውሻን%20ምስል%20መለየት%20ይችላል።%0A%0A2.%20ዋና%20ዋና%20ጥቅሞቹ፦%0A%20%20%20ምርታማነትን%20መጨመር፦%20አድካሚ%20እና%20ተደጋጋሚ%20የሆኑ%20ስራዎችን%20በፍጥነት%20እና%20ያለ%20ስህተት%20ማከናወን%20ያስችላል።%0A%20%20%20በጤና%20ዘርፍ፦%20በሽታዎችን%20ቀድሞ%20ለመለየት%20እና%20ለታካሚዎች%20የተሻለ%20ሕክምና%20ለማቅረብ%20ይረዳል።%0A%20%20%20በግብርና፦%20የአፈር%20ሁኔታን%20በማጥናት፣%20የሰብል%20ምርትን%20ለመጨመር%20እና%20ተባዮችን%20ለመቆጣጠር%20ያግዛል።%0A%20%20%20በትምህርት፦%20ለእያንዳንዱ%20ተማሪ%20እንደየችሎታው%20የሚመጥን%20የትምህርት%20አሰጣጥን%20(Personalized%20Learning)%20ለመፍጠር%20ይጠቅማል።%0A%0A3.%20በኢትዮጵያ%20ያለውን%20ሚና%20በተመለከተ፦%0Aየኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20ይህንን%20ቴክኖሎጂ%20በመጠቀም%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20ላይ%20ትልቅ%20ለውጥ%20ለማምጣት%20እና%20የሀገሪቱን%20የኢኮኖሚ%20እድገት%20ለማፋጠን%20እየሠራ%20ይገኛል።%0A%0Aበአጠቃላይ%20አርቴፊሻል%20ኢንተለጀንስ%20የሰው%20ልጅን%20ስ&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:35:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5242.44it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.0s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:35, 12.44it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:04, 250.32it/s]Loading weights:   7%|7         | 89/1188 [00:00<00:04, 221.88it/s]Loading weights:  10%|9         | 113/1188 [00:00<00:04, 223.83it/s]Loading weights:  12%|#1        | 137/1188 [00:00<00:04, 221.03it/s]Loading weights:  13%|#3        | 160/1188 [00:00<00:05, 197.68it/s]Loading weights:  15%|#5        | 181/1188 [00:00<00:05, 199.36it/s]Loading weights:  17%|#7        | 202/1188 [00:01<00:04, 198.47it/s]Loading weights:  19%|#9        | 227/1188 [00:01<00:05, 175.03it/s]Loading weights:  21%|##        | 246/1188 [00:01<00:12, 75.51it/s] Loading weights:  23%|##2       | 269/1188 [00:01<00:09, 94.20it/s]Loading weights:  25%|##4       | 296/1188 [00:02<00:07, 116.99it/s]Loading weights:  27%|##7       | 321/1188 [00:02<00:06, 133.88it/s]Loading weights:  29%|##8       | 340/1188 [00:02<00:05, 141.53it/s]Loading weights:  30%|###       | 362/1188 [00:02<00:05, 153.30it/s]Loading weights:  32%|###2      | 381/1188 [00:03<00:12, 63.35it/s] Loading weights:  35%|###4      | 415/1188 [00:03<00:08, 94.11it/s]Loading weights:  37%|###6      | 436/1188 [00:03<00:06, 109.13it/s]Loading weights:  38%|###8      | 456/1188 [00:03<00:05, 122.94it/s]Loading weights:  41%|####1     | 490/1188 [00:03<00:04, 149.23it/s]Loading weights:  43%|####3     | 513/1188 [00:03<00:04, 165.03it/s]Loading weights:  45%|####5     | 535/1188 [00:03<00:03, 173.28it/s]Loading weights:  47%|####6     | 556/1188 [00:03<00:03, 181.77it/s]Loading weights:  49%|####8     | 577/1188 [00:04<00:03, 181.58it/s]Loading weights:  51%|#####     | 600/1188 [00:04<00:03, 186.94it/s]Loading weights:  52%|#####2    | 620/1188 [00:04<00:02, 189.87it/s]Loading weights:  54%|#####4    | 642/1188 [00:04<00:02, 188.01it/s]Loading weights:  56%|#####6    | 666/1188 [00:04<00:02, 193.63it/s]Loading weights:  58%|#####7    | 686/1188 [00:04<00:02, 178.95it/s]Loading weights:  59%|#####9    | 705/1188 [00:04<00:02, 181.06it/s]Loading weights:  61%|######    | 724/1188 [00:05<00:03, 126.86it/s]Loading weights:  62%|######2   | 740/1188 [00:05<00:04, 109.38it/s]Loading weights:  64%|######4   | 766/1188 [00:05<00:03, 136.47it/s]Loading weights:  66%|######6   | 790/1188 [00:05<00:02, 157.56it/s]Loading weights:  68%|######8   | 809/1188 [00:09<00:24, 15.43it/s] Loading weights:  69%|######9   | 822/1188 [00:10<00:20, 17.85it/s]Loading weights:  70%|#######   | 833/1188 [00:10<00:16, 21.05it/s]Loading weights:  79%|#######8  | 937/1188 [00:10<00:03, 74.25it/s]Loading weights:  83%|########2 | 984/1188 [00:10<00:02, 101.71it/s]Loading weights:  91%|######### | 1081/1188 [00:10<00:00, 179.12it/s]Loading weights:  97%|#########7| 1157/1188 [00:10<00:00, 243.20it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 112.04it/s]
+Model weights loaded in 12.7s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 20.7s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 14:36:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:36:57] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 14:36:57] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=am-ET[0m [2m[14:37:05][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 81KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  43%|####2     | 342/796 [00:00<00:00, 3416.13it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5336.96it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m2.26s[0m
+
+  [96mTranscript (am-ET):[0m ምስሉየኢትዮጵያ ኢአቲፊሻል ኢንተለጀንስ ናገኛለች።
+127.0.0.1 - - [16/Aug/2026 14:37:07] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:37:07][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ምስሉየኢትዮጵያ ኢአቲፊሻል ኢንተለጀንስ ናገኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/3 context chunks (top score: 0.518).
+127.0.0.1 - - [16/Aug/2026 14:37:10] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m47.09s[0m | [93m185 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.97s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:37:59] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20የሚመራው%20በሚከተሉት%20አመራሮች%20ነው፦%0A%0A%20%20%20ዋና%20ዳይሬክተር፦%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%0A%20%20%20ምክትል%20ዋና%20ዳይሬክተሮች፦%0A%20%20%20%201.%20%20ክቡር%20ዶክተር%20ታዬ%20ግርማ፦%20የምርምር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር%0A%20%20%20%202.%20%20አቶ%20ይታገሱ%20ደሳለኝ፦%20የአስተዳደር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር%0A%20%20%20%203.%20%20ቢኒይም%20እንደዳሻው፦%20የመረጃ%20አሰባሰብ%20እና%20አደረጃጀት%20ምክትል%20ዋና%20ዳይሬክተር&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 14:38:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=am-ET[0m [2m[14:38:22][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 80KB]
+  [92m✔ /api/stt done[0m in [93m1.29s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ትነገኛለች።
+127.0.0.1 - - [16/Aug/2026 14:38:24] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:38:24][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ትነገኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/3 context chunks (top score: 0.571).
+127.0.0.1 - - [16/Aug/2026 14:38:26] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m127.38s[0m | [93m498 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m9.12s[0m
+
+127.0.0.1 - - [16/Aug/2026 14:40:40] "[35m[1mGET /api/tts/audio?text=ስለ%20ኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20የሚከተሉትን%20ዋና%20ዋና%20መረጃዎች%20ላካፍልዎት፦%0A%0Aመመስረቻው%20እና%20ዓላማው፦%0Aየኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20በሴፕቴምበር%202020%20በጠቅላይ%20ሚኒስትር%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20የኢንስቲትዩቱ%20ዋና%20ዓላማ%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ማድረግ፣%20በወጣት%20ኢትዮጵያውያን%20መካከል%20ፈጠራን%20እና%20የአቅም%20ግንባታን%20ማሳደግ%20እንዲሁም%20ለሀገሪቱ%20ፍላጎቶች%20የተዘጋጁ%20ተግባራዊ%20እና%20ችግር%20ፈቺ%20የቴክኖሎጂ%20ፈጠራዎችን%20ማዘጋጀት%20ነው።%0A%0Aትኩረት%20የሚሰጣቸው%20ዘርፎች፦%0Aኢንስቲትዩቱ%20አርቴፊሻል%20ኢንተለጀንስን%20በተለያዩ%20ዘርፎች%20በማዋሃድ%20ምርታማነትን%20እና%20የኢኮኖሚ%20እድገትን%20ለማሻሻል%20ይሠራል።%20በተለይም%20በሚከተሉት%20ቁልፍ%20ዘርፎች%20ላይ%20የአይቲ%20አገልግሎቶችን%20ለመስጠት%20ታስቦ%20የተዘጋጀ%20ነው፦%0A%20%20%20ግብርና%0A%20%20%20ትምህርት%0A%20%20%20ጤና%0A%20%20%20የሕዝብ%20ደህንነት%0A%0Aየአመራር%20ስብጥር፦%0Aየኢንስቲትዩቱ%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተር%20ወርቁ%20ጋቸና%20ሲሆኑ፣%20በሦስት%20ምክትል%20ዋና%20ዳይሬክተሮች%20ይመራል።%20እነርሱም፦%0A1.%20%20ክቡር%20ዶክተር%20ታዬ%20ግርማ፦%20የምርምር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር%0A2.%20%20አቶ%20ይታገሱ%20ደሳለኝ፦%20የአስተዳደር%20እና%20ልማት%20ምክትል%20ዋና%20ዳይሬክተር%0A3.%20%20ቢኒይም%20እንደዳሻው፦%20የመረጃ%20አሰባሰብ%20እና%20አደረጃጀት%20ምክትል%20ዋና%20ዳይሬክተር%20ናቸው።&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt?lang=am-ET[0m [2m[14:41:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 101KB]
+  [92m✔ /api/stt done[0m in [93m1.67s[0m
+
+  [96mTranscript (am-ET):[0m የአድዋ ጥርነት ማን ያሸነፈው?
+127.0.0.1 - - [16/Aug/2026 14:41:49] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:41:49][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786877053176
+  [96mPrompt :[0m የአድዋ ጥርነት ማን ያሸነፈው?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/3 context chunks (top score: 0.485).
+Exception in thread Thread-18 (generate):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+    outputs = self._prefill(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    outputs = self.language_model(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+    attn_output, attn_weights = attention_interface(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 154, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 170.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 133.50 MiB is free. Including non-PyTorch memory, this process has 31.59 GiB memory in use. Of the allocated memory 30.80 GiB is allocated by PyTorch, and 432.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5504.39it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 3.9s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:03, 18.78it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:04, 247.49it/s]Loading weights:   6%|6         | 72/1188 [00:00<00:04, 231.83it/s]Loading weights:   8%|8         | 96/1188 [00:00<00:04, 229.95it/s]Loading weights:  10%|#         | 119/1188 [00:00<00:04, 218.45it/s]Loading weights:  12%|#2        | 144/1188 [00:00<00:05, 206.27it/s]Loading weights:  14%|#3        | 166/1188 [00:00<00:04, 206.08it/s]Loading weights:  16%|#5        | 187/1188 [00:00<00:04, 200.95it/s]Loading weights:  18%|#7        | 210/1188 [00:01<00:04, 205.36it/s]Loading weights:  19%|#9        | 231/1188 [00:01<00:04, 202.84it/s]Loading weights:  21%|##1       | 252/1188 [00:01<00:04, 192.59it/s]Loading weights:  23%|##3       | 278/1188 [00:01<00:04, 200.29it/s]Loading weights:  25%|##5       | 299/1188 [00:01<00:04, 200.37it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:04, 202.34it/s]Loading weights:  29%|##8       | 341/1188 [00:01<00:04, 199.16it/s]Loading weights:  30%|###       | 361/1188 [00:01<00:04, 187.73it/s]Loading weights:  32%|###1      | 380/1188 [00:02<00:10, 79.25it/s] Loading weights:  34%|###4      | 404/1188 [00:02<00:07, 100.90it/s]Loading weights:  36%|###6      | 428/1188 [00:02<00:06, 120.87it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:05, 133.98it/s]Loading weights:  39%|###9      | 467/1188 [00:02<00:05, 134.34it/s]Loading weights:  41%|####      | 484/1188 [00:03<00:06, 104.77it/s]Loading weights:  43%|####3     | 511/1188 [00:03<00:05, 130.72it/s]Loading weights:  45%|####4     | 531/1188 [00:03<00:04, 142.18it/s]Loading weights:  47%|####6     | 553/1188 [00:03<00:03, 159.08it/s]Loading weights:  48%|####8     | 574/1188 [00:03<00:04, 153.31it/s]Loading weights:  51%|#####     | 602/1188 [00:03<00:03, 182.81it/s]Loading weights:  53%|#####2    | 628/1188 [00:03<00:02, 188.58it/s]Loading weights:  55%|#####4    | 652/1188 [00:03<00:02, 191.13it/s]Loading weights:  57%|#####6    | 673/1188 [00:04<00:02, 192.40it/s]Loading weights:  58%|#####8    | 693/1188 [00:04<00:02, 186.85it/s]Loading weights:  61%|######    | 721/1188 [00:04<00:02, 193.27it/s]Loading weights:  62%|######2   | 741/1188 [00:04<00:02, 191.88it/s]Loading weights:  64%|######4   | 762/1188 [00:04<00:02, 192.71it/s]Loading weights:  66%|######5   | 782/1188 [00:04<00:03, 107.07it/s]Loading weights:  67%|######7   | 798/1188 [00:05<00:04, 94.97it/s] Loading weights:  68%|######8   | 811/1188 [00:05<00:06, 59.94it/s]Loading weights:  69%|######9   | 821/1188 [00:06<00:10, 36.11it/s]Loading weights:  70%|######9   | 829/1188 [00:07<00:14, 24.67it/s]Loading weights:  80%|#######9  | 947/1188 [00:07<00:02, 104.34it/s]Loading weights:  92%|#########2| 1094/1188 [00:07<00:00, 227.00it/s]Loading weights:  98%|#########7| 1164/1188 [00:07<00:00, 280.93it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 156.43it/s]
+Model weights loaded in 9.7s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=30 modules (31.2GB static, ~0.6GB headroom), cuda:1=36 modules (34.2GB static, ~-2.5GB headroom)
+CRITICAL: Failed to load services: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 215.50 MiB is free. Including non-PyTorch memory, this process has 31.51 GiB memory in use. Of the allocated memory 31.19 GiB is allocated by PyTorch, and 19.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 97, in load_services_bg
+    llm_client = AcceleratedGemma4LLMClient(settings.MODEL_PATH)
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/accelerate.py", line 114, in __init__
+    dispatch_model(self.model, device_map=device_map)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/big_modeling.py", line 432, in dispatch_model
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  [Previous line repeated 1 more time]
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 665, in attach_align_device_hook_on_blocks
+    add_hook_to_module(module, hook)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 183, in add_hook_to_module
+    module = hook.init_hook(module)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 305, in init_hook
+    set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/utils/modeling.py", line 345, in set_module_tensor_to_device
+    new_value = old_value.to(device, non_blocking=non_blocking)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 215.50 MiB is free. Including non-PyTorch memory, this process has 31.51 GiB memory in use. Of the allocated memory 31.19 GiB is allocated by PyTorch, and 19.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Retrying in 15s...
+Starting background service initialization (attempt 2/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4655.51it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 4.1s
+Loading model weights (streamed to CPU RAM)...
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:04, 273.27it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:04, 233.73it/s]Loading weights:   7%|7         | 85/1188 [00:00<00:05, 217.53it/s]Loading weights:   9%|9         | 110/1188 [00:00<00:04, 226.87it/s]Loading weights:  11%|#1        | 133/1188 [00:00<00:05, 203.05it/s]Loading weights:  13%|#3        | 158/1188 [00:00<00:05, 194.45it/s]Loading weights:  15%|#5        | 179/1188 [00:00<00:05, 190.23it/s]Loading weights:  17%|#7        | 206/1188 [00:00<00:04, 209.47it/s]Loading weights:  19%|#9        | 228/1188 [00:01<00:04, 197.55it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:05, 187.42it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 186.78it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 200.05it/s]Loading weights:  26%|##6       | 313/1188 [00:01<00:04, 195.07it/s]Loading weights:  28%|##8       | 333/1188 [00:01<00:04, 186.23it/s]Loading weights:  30%|##9       | 353/1188 [00:01<00:04, 184.26it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:04, 201.36it/s]Loading weights:  34%|###3      | 400/1188 [00:01<00:03, 201.49it/s]Loading weights:  35%|###5      | 421/1188 [00:02<00:04, 187.09it/s]Loading weights:  37%|###7      | 444/1188 [00:02<00:03, 192.02it/s]Loading weights:  39%|###9      | 464/1188 [00:02<00:03, 189.19it/s]Loading weights:  41%|####      | 486/1188 [00:02<00:03, 187.63it/s]Loading weights:  43%|####2     | 505/1188 [00:02<00:06, 107.92it/s]Loading weights:  44%|####3     | 520/1188 [00:02<00:06, 108.64it/s]Loading weights:  46%|####5     | 546/1188 [00:03<00:04, 137.59it/s]Loading weights:  47%|####7     | 564/1188 [00:03<00:04, 131.03it/s]Loading weights:  49%|####9     | 583/1188 [00:03<00:04, 143.40it/s]Loading weights:  51%|#####1    | 610/1188 [00:03<00:03, 164.76it/s]Loading weights:  53%|#####2    | 629/1188 [00:03<00:03, 168.18it/s]Loading weights:  55%|#####4    | 650/1188 [00:03<00:03, 178.37it/s]Loading weights:  56%|#####6    | 669/1188 [00:03<00:02, 178.01it/s]Loading weights:  58%|#####8    | 693/1188 [00:03<00:02, 181.12it/s]Loading weights:  61%|######    | 721/1188 [00:04<00:02, 194.90it/s]Loading weights:  62%|######2   | 741/1188 [00:04<00:02, 183.86it/s]Loading weights:  64%|######4   | 766/1188 [00:04<00:02, 185.20it/s]Loading weights:  66%|######6   | 785/1188 [00:04<00:02, 141.69it/s]Loading weights:  67%|######7   | 801/1188 [00:04<00:03, 110.11it/s]Loading weights:  69%|######8   | 814/1188 [00:05<00:06, 55.08it/s] Loading weights:  69%|######9   | 824/1188 [00:05<00:08, 42.00it/s]Loading weights:  78%|#######7  | 921/1188 [00:05<00:01, 137.87it/s]Loading weights:  80%|########  | 956/1188 [00:06<00:01, 119.83it/s]Loading weights:  83%|########2 | 983/1188 [00:07<00:03, 61.69it/s] Loading weights:  86%|########6 | 1025/1188 [00:07<00:01, 86.20it/s]Loading weights:  93%|#########3| 1108/1188 [00:07<00:00, 145.43it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 151.08it/s]
+Model weights loaded in 9.8s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=30 modules (31.2GB static, ~0.6GB headroom), cuda:1=36 modules (34.2GB static, ~-2.5GB headroom)
+CRITICAL: Failed to load services: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 215.50 MiB is free. Including non-PyTorch memory, this process has 31.51 GiB memory in use. Of the allocated memory 31.19 GiB is allocated by PyTorch, and 19.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/main.py", line 97, in load_services_bg
+    llm_client = AcceleratedGemma4LLMClient(settings.MODEL_PATH)
+  File "/mnt/data/chatbot_model_4_31B-it/src/models/accelerate.py", line 114, in __init__
+    dispatch_model(self.model, device_map=device_map)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/big_modeling.py", line 432, in dispatch_model
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  [Previous line repeated 1 more time]
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 665, in attach_align_device_hook_on_blocks
+    add_hook_to_module(module, hook)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 183, in add_hook_to_module
+    module = hook.init_hook(module)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/hooks.py", line 305, in init_hook
+    set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/accelerate/utils/modeling.py", line 345, in set_module_tensor_to_device
+    new_value = old_value.to(device, non_blocking=non_blocking)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 215.50 MiB is free. Including non-PyTorch memory, this process has 31.51 GiB memory in use. Of the allocated memory 31.19 GiB is allocated by PyTorch, and 19.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Retrying in 15s...

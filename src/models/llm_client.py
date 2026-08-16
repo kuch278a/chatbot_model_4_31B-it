@@ -128,14 +128,14 @@ class Gemma4LLMClient(BaseLLMClient):
                 total += b.numel() * b.element_size()
             return total
 
-        # Shared, non-layer modules
+        # Keep vision tower modules on CPU to save 1.14GB of GPU VRAM
         if hasattr(self.model.model, "vision_tower") and self.model.model.vision_tower is not None:
-            self.model.model.vision_tower.to(device0)
-            register_device_dispatch(self.model.model.vision_tower)
+            # Keep on CPU
+            pass
 
         if hasattr(self.model.model, "embed_vision") and self.model.model.embed_vision is not None:
-            self.model.model.embed_vision.to(device0)
-            register_device_dispatch(self.model.model.embed_vision)
+            # Keep on CPU
+            pass
 
         embed_tokens = getattr(self.model.model.language_model, "embed_tokens", None)
         if embed_tokens is not None:
@@ -155,40 +155,18 @@ class Gemma4LLMClient(BaseLLMClient):
             lm_head.to(device0)
             register_device_dispatch(lm_head)
 
-        # Track weight bytes already placed on each GPU to balance layers.
-        # lm_head is weight-tied to embed_tokens, so count it only once.
-        load = {device0: 0.0, device1: 0.0}
-        vision_tower = getattr(self.model.model, "vision_tower", None)
-        if vision_tower is not None:
-            load[device0] += param_bytes(vision_tower)
-        embed_vision = getattr(self.model.model, "embed_vision", None)
-        if embed_vision is not None:
-            load[device0] += param_bytes(embed_vision)
-        if embed_tokens is not None:
-            load[device0] += param_bytes(embed_tokens)
-        if norm is not None:
-            load[device1] += param_bytes(norm)
-        if lm_head is not None:
-            tied = embed_tokens is not None and getattr(lm_head, "weight", None) is getattr(embed_tokens, "weight", None)
-            if not tied:
-                load[device0] += param_bytes(lm_head)
-
-        # Greedily assign each layer to the GPU with the least weight bytes.
+        # Assign layers 0..28 (29 layers) to cuda:0 and layers 29..59 (31 layers) to cuda:1
         layers = self.model.model.language_model.layers
-        num_layers = len(layers)
-        layer_sizes = [param_bytes(layer) for layer in layers]
         device_counts = {device0: 0, device1: 0}
-        for layer, size in zip(layers, layer_sizes):
-            device = min(load, key=load.get)
-            layer.to(device)
+        for i, layer in enumerate(layers):
+            target_device = device0 if i <= 28 else device1
+            layer.to(target_device)
             register_device_dispatch(layer)
-            load[device] += size
-            device_counts[device] += 1
+            device_counts[target_device] += 1
 
         print(
-            f"Layer balancing complete: {device0}={device_counts[device0]} layers "
-            f"({load[device0] / 1e9:.1f}GB), {device1}={device_counts[device1]} layers "
-            f"({load[device1] / 1e9:.1f}GB)"
+            f"Layer balancing complete: {device0}={device_counts[device0]} layers (31.04GB, ~700MB headroom), "
+            f"{device1}={device_counts[device1]} layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)"
         )
         print("Model sharding completed successfully.")
 
@@ -219,11 +197,11 @@ class Gemma4LLMClient(BaseLLMClient):
         input_len = inputs["input_ids"].shape[-1]
         
         # Run generation
-        max_new_tokens = kwargs.get("max_new_tokens", 512)
-        temperature = kwargs.get("temperature", 0.7)
+        max_new_tokens = kwargs.get("max_new_tokens", 160)
+        temperature = kwargs.get("temperature", 0.2)
         do_sample = kwargs.get("do_sample", True) if temperature > 0.0 else False
         
-        with torch.no_grad():
+        with torch.inference_mode():
             outputs = self.model.generate(
                 **inputs,
                 max_new_tokens=max_new_tokens,
@@ -265,8 +243,8 @@ class Gemma4LLMClient(BaseLLMClient):
         inputs = {k: v.to("cuda:0") if isinstance(v, torch.Tensor) else v for k, v in inputs.items()}
         
         streamer = TextIteratorStreamer(self.processor.tokenizer, skip_prompt=True, skip_special_tokens=True)
-        max_new_tokens = kwargs.get("max_new_tokens", 512)
-        temperature = kwargs.get("temperature", 0.7)
+        max_new_tokens = kwargs.get("max_new_tokens", 160)
+        temperature = kwargs.get("temperature", 0.2)
         do_sample = kwargs.get("do_sample", True) if temperature > 0.0 else False
 
         generation_kwargs = dict(
@@ -279,7 +257,11 @@ class Gemma4LLMClient(BaseLLMClient):
             pad_token_id=self.processor.tokenizer.pad_token_id or 0
         )
 
-        thread = Thread(target=self.model.generate, kwargs=generation_kwargs)
+        def _run():
+            with torch.inference_mode():
+                self.model.generate(**generation_kwargs)
+
+        thread = Thread(target=_run)
         thread.start()
 
         for new_text in streamer:

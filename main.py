@@ -2,6 +2,10 @@ import os
 import sys
 import time
 import threading
+
+# Prevent CUDA memory fragmentation
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 from flask import Flask, jsonify
 
 # Add current folder to sys.path
@@ -69,7 +73,7 @@ def load_services_bg():
             # 2. Load Local Embedding Model
             from src.models.embeddings import LocalMultilingualEmbeddings
             print("Loading local multilingual sentence embeddings model...")
-            embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cuda:1")
+            embedding_model = LocalMultilingualEmbeddings(settings.EMBEDDING_MODEL_PATH, device="cpu")
 
             # 3. Load Vector Store and RAG pipeline
             from src.db.vector_store import SQLiteVectorStore

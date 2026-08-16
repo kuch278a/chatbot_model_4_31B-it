@@ -98,6 +98,37 @@
             color: var(--primary);
             border-color: rgba(99, 102, 241, 0.3);
         }
+        .auto-voice-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            padding: 6px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            height: 38px;
+        }
+        .auto-voice-btn:hover {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border-color: #10b981;
+        }
+        .auto-voice-btn.active {
+            background: rgba(16, 185, 129, 0.18);
+            color: #10b981;
+            border-color: rgba(16, 185, 129, 0.5);
+            animation: pulse-auto-voice 2s infinite;
+        }
+        @keyframes pulse-auto-voice {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
         .mic-btn.listening {
             background: rgba(239, 68, 68, 0.2);
             color: #ef4444;
@@ -109,9 +140,9 @@
             70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
             100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
-        .mic-icon, .speaker-icon {
-            width: 20px;
-            height: 20px;
+        .mic-icon, .speaker-icon, .auto-voice-icon {
+            width: 18px;
+            height: 18px;
         }
         /* Streaming cursor blink */
         .stream-cursor {
@@ -159,25 +190,24 @@
                     <h1>አማኒ studio</h1>
                 </div>
                 <div class="header-actions">
-                    <select id="langSelect" class="lang-select" title="Toggle Chat Language">
-                        <option value="en-US">English (en-US)</option>
-                        <option value="am-ET" selected>Amharic (am-ET)</option>
+                    <select id="langSelect" class="lang-select" title="ቋንቋ ይምረጡ">
+                        <option value="am-ET" selected>አማርኛ (am-ET)</option>
                     </select>
-                    <button id="speakerBtn" onclick="toggleTTS()" class="speaker-btn active" title="Toggle Auto Text-to-Speech">
+                    <button id="speakerBtn" onclick="toggleTTS()" class="speaker-btn active" title="ድምፅ ማብሪያ/ማጥፊያ">
                         <svg class="speaker-icon" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M11,21L6,16H2V8H6L11,3V21Z" />
                         </svg>
                     </button>
-                    <button class="clear-btn" onclick="deleteCurrentChat()">Delete</button>
+                    <button class="clear-btn" onclick="deleteCurrentChat()">ሰርዝ</button>
                 </div>
             </div>
             <div class="messages" id="messages">
-                <div class="empty-state">Welcome! I am your አማኒ AI assistant. How can I help you today?</div>
+                <div class="empty-state">እንኳን ወደ አማኒ AI ረዳት በደህና መጡ! ዛሬ በምን ልርዳዎት?</div>
             </div>
             <div class="input-container">
-                <textarea id="input" placeholder="Type your message..." rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+                <textarea id="input" placeholder="መልዕክትዎን እዚህ ይጻፉ..." rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
                 <div class="input-actions">
-                    <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="Click to record Amharic speech">
+                    <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="በአማርኛ ድምፅ ለመቅዳት ይጫኑ">
                         <svg viewBox="0 0 24 24" width="20" height="20">
                             <path fill="currentColor" d="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,1 12,16A5,5 0 0,1 17,11H19Z" />
                         </svg>
@@ -455,6 +485,10 @@
             if (!content) return;
 
             // Stop any playing speech immediately on new interaction
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
             if (window.speechSynthesis) {
                 window.speechSynthesis.cancel();
             }
@@ -487,23 +521,49 @@
                     addMessageUI('assistant', 'Error: ' + (err.error || res.statusText));
                     messages.pop();
                 } else {
-                    // Buffer all tokens silently — keep typing indicator until done
                     const reader = res.body.getReader();
                     const decoder = new TextDecoder();
                     let fullText = '';
+                    let assistantDiv = null;
+                    let firstChunk = true;
+
+                    const container = document.getElementById('messages');
 
                     while (true) {
                         const { done, value } = await reader.read();
                         if (done) break;
-                        fullText += decoder.decode(value, { stream: true });
+
+                        const chunk = decoder.decode(value, { stream: true });
+                        fullText += chunk;
+
+                        if (firstChunk && fullText.trim().length > 0) {
+                            firstChunk = false;
+                            removeTypingIndicator();
+
+                            const empty = container.querySelector('.empty-state');
+                            if (empty) empty.remove();
+
+                            assistantDiv = document.createElement('div');
+                            assistantDiv.className = 'message assistant';
+                            container.appendChild(assistantDiv);
+                        }
+
+                        if (assistantDiv) {
+                            assistantDiv.innerHTML = renderMarkdown(fullText);
+                            container.scrollTop = container.scrollHeight;
+                        }
                     }
 
-                    // Stream complete — remove indicator and show full response at once
                     removeTypingIndicator();
-                    addMessageUI('assistant', fullText, true);
-                    messages.push({ role: 'assistant', content: fullText, sources: [] });
-                    saveToLocalStorage();
-                    speakText(fullText);
+                    if (!assistantDiv && fullText.trim().length > 0) {
+                        addMessageUI('assistant', fullText, true);
+                    }
+
+                    if (fullText.trim().length > 0) {
+                        messages.push({ role: 'assistant', content: fullText, sources: [] });
+                        saveToLocalStorage();
+                        speakText(fullText);
+                    }
                 }
             } catch (e) {
                 removeTypingIndicator();
@@ -652,7 +712,7 @@
                     if (rms > VAD_SILENCE_THRESHOLD) {
                         if (!speechHasStarted) {
                             speechHasStarted = true;
-                            document.getElementById("input").placeholder = "Speech detected... (listening)";
+                            document.getElementById("input").placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
                         }
                         silenceStartTime = null; // reset silence clock
                     } else if (speechHasStarted) {
@@ -662,7 +722,7 @@
                         } else if (now - silenceStartTime >= VAD_SILENCE_DURATION_MS) {
                             // Silence timeout reached! Auto-stop recording
                             console.log("[VAD] Silence detected for 1.2s — auto-stopping recording");
-                            document.getElementById("input").placeholder = "Silence detected — transcribing...";
+                            document.getElementById("input").placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
                             if (mediaRecorder && mediaRecorder.state !== "inactive") {
                                 mediaRecorder.stop();
                             }
@@ -711,14 +771,14 @@
                     }
                 });
             } catch (e) {
-                addMessageUI('assistant', '⚠️ Microphone access denied. Please allow microphone access in your browser.');
+                addMessageUI('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ።');
                 return;
             }
 
             isListening = true;
             audioChunks = [];
             document.getElementById("micBtn").classList.add("listening");
-            document.getElementById("input").placeholder = "Listening... (VAD auto-stop on silence)";
+            document.getElementById("input").placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
 
             mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
 
@@ -731,45 +791,44 @@
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
                 document.getElementById("micBtn").classList.remove("listening");
-                document.getElementById("input").placeholder = "Transcribing audio...";
+                document.getElementById("input").placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
 
-                const selectedLang = document.getElementById("langSelect")?.value || "am-ET";
+                if (audioChunks.length === 0) {
+                    document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    return;
+                }
+
                 const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
                 try {
-                    const res = await fetch(`/api/stt?lang=${encodeURIComponent(selectedLang)}`, {
+                    const res = await fetch("/api/stt", {
                         method: "POST",
                         headers: { "Content-Type": "audio/webm" },
                         body: audioBlob
                     });
                     const data = await res.json();
                     if (data.transcript && data.transcript.trim().length > 0) {
-                        // Auto-detect language and synchronize UI selector
-                        const isAmharic = Boolean(data.transcript.match(/[\u1200-\u137F]/)) || data.language === 'am-ET';
-                        const langSelect = document.getElementById("langSelect");
-                        if (langSelect) {
-                            langSelect.value = isAmharic ? "am-ET" : "en-US";
-                        }
-
                         document.getElementById("input").value = data.transcript;
-                        document.getElementById("input").placeholder = "Type your message...";
+                        document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                         sendMessage();
                     } else {
-                        document.getElementById("input").placeholder = "No speech detected. Try again.";
+                        document.getElementById("input").placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
                         setTimeout(() => {
-                            document.getElementById("input").placeholder = "Type your message...";
-                        }, 2500);
+                            document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        }, 2000);
                     }
                 } catch (e) {
                     console.error("STT error:", e);
-                    document.getElementById("input").placeholder = "Type your message...";
+                    document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                 }
             };
 
-            mediaRecorder.start(200); // 200ms timeslice chunks
+            mediaRecorder.start(200);
             startVAD(stream);
         }
 
         // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+        let currentAudio = null;
+
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const btn = document.getElementById("speakerBtn");
@@ -779,6 +838,10 @@
             } else {
                 btn.classList.remove("active");
                 btn.title = "Toggle Auto Text-to-Speech (OFF)";
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio = null;
+                }
                 if (window.speechSynthesis) {
                     window.speechSynthesis.cancel();
                 }
@@ -786,52 +849,60 @@
         }
 
         function speakText(text) {
-            if (!ttsEnabled) return;
-            
-            // Clean markdown syntax and HTML tags
+            if (!ttsEnabled || !text) return;
+
             const cleanText = text.replace(/<[^>]*>/g, '')
                                   .replace(/\*\*|__/g, '')
                                   .replace(/\*|_/g, '')
                                   .replace(/`[^`]+`/g, '')
+                                  .replace(/#+\s*/g, '')
                                   .trim();
             if (!cleanText) return;
-            
-            // Auto-detect language from text content (Amharic Fidel check)
-            const isAmharicText = Boolean(cleanText.match(/[\u1200-\u137F]/));
-            const lang = isAmharicText ? "am-ET" : (document.getElementById("langSelect")?.value || "en-US");
 
-            if ('speechSynthesis' in window) {
+            const lang = "am-ET";
+
+            // Stop any currently playing audio
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            if (window.speechSynthesis) {
                 window.speechSynthesis.cancel();
-                const voices = window.speechSynthesis.getVoices();
-                
-                let targetVoice = null;
-                if (isAmharicText) {
-                    targetVoice = voices.find(v => v.name === 'Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)') ||
-                                  voices.find(v => v.name.includes('am-ET-MekdesNeural')) ||
-                                  voices.find(v => v.name.includes('Mekdes')) ||
-                                  voices.find(v => v.lang === 'am-ET' || v.lang.startsWith('am'));
-                } else {
-                    targetVoice = voices.find(v => v.name.includes('Jenny') || v.name.includes('Natural')) ||
-                                  voices.find(v => v.lang.startsWith('en'));
-                }
-
-                if (targetVoice) {
-                    const utterance = new SpeechSynthesisUtterance(cleanText);
-                    utterance.lang = lang;
-                    utterance.voice = targetVoice;
-                    utterance.rate = 1.0;
-                    utterance.pitch = 1.0;
-                    window.speechSynthesis.speak(utterance);
-                    return;
-                }
             }
 
-            // Fallback: Stream neural voice directly from backend edge-tts service
-            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${encodeURIComponent(lang)}`;
+            // 1. High-Quality Neural TTS (Mekdes Neural for Amharic)
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=am-ET`;
             const audio = new Audio(audioUrl);
-            audio.play().catch(e => console.warn("Backend audio playback error:", e));
+            currentAudio = audio;
+
+            audio.play().catch(e => {
+                console.warn("[TTS] Backend audio stream failed, trying browser SpeechSynthesis:", e);
+                // 2. Fallback: Browser native SpeechSynthesis
+                if ('speechSynthesis' in window) {
+                    try {
+                        window.speechSynthesis.resume();
+                    } catch (err) {}
+
+                    const voices = window.speechSynthesis.getVoices();
+                    let targetVoice = voices.find(v => v.name.includes('Mekdes') || v.lang.startsWith('am'));
+
+                    const utterance = new SpeechSynthesisUtterance(cleanText);
+                    utterance.lang = "am-ET";
+                    if (targetVoice) utterance.voice = targetVoice;
+                    window.speechSynthesis.speak(utterance);
+                }
+            });
         }
 
+        // Voice loader initialization
+        if (window.speechSynthesis) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                try {
+                    window.speechSynthesis.getVoices();
+                } catch (e) {}
+            };
+            window.speechSynthesis.getVoices();
+        }
 
         init();
     </script>

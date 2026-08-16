@@ -13,41 +13,31 @@ from faster_whisper import WhisperModel
 # Global singleton instance
 _model_instance = None
 _MODEL_ID = os.environ.get("WHISPER_MODEL_ID", "distil-large-v3.5")
+_DEFAULT_DEVICE = os.environ.get("WHISPER_DEVICE", "cpu")
+_DEFAULT_COMPUTE_TYPE = os.environ.get("WHISPER_COMPUTE_TYPE", "int8")
 
 # Domain vocabulary initial prompt to guide Whisper tokenizer for Amharic and AI terminology
 DEFAULT_INITIAL_PROMPT = "የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት, አማኒ, EAII, Amani AI assistant, Gemma."
 
 
-def _get_best_device():
-    """Detect available GPU with free VRAM or fall back to CPU."""
-    if not torch.cuda.is_available():
-        return "cpu", 0, "int8"
-    
-    # Check GPU 1 first (usually has more headroom when LLM is sharded)
-    num_gpus = torch.cuda.device_count()
-    best_gpu = 1 if num_gpus > 1 else 0
-    return "cuda", best_gpu, "int8_float16"
-
-
 class FasterWhisperTranscriber:
-    """Wrapper class for faster-whisper CTranslate2 STT model with GPU acceleration & CPU fallback."""
+    """Wrapper class for faster-whisper CTranslate2 STT model."""
 
     def __init__(
         self,
         model_size_or_path: str = _MODEL_ID,
-        device: str = None,
-        device_index: int = None,
-        compute_type: str = None,
+        device: str = _DEFAULT_DEVICE,
+        device_index: int = 0,
+        compute_type: str = _DEFAULT_COMPUTE_TYPE,
         use_vad: bool = True,
         vad_parameters: dict = None,
         language: str = None,
         initial_prompt: str = DEFAULT_INITIAL_PROMPT
     ):
         self.model_size_or_path = model_size_or_path
-        default_dev, default_idx, default_comp = _get_best_device()
-        self.device = device or os.environ.get("WHISPER_DEVICE", default_dev)
-        self.device_index = device_index if device_index is not None else int(os.environ.get("WHISPER_DEVICE_INDEX", str(default_idx)))
-        self.compute_type = compute_type or os.environ.get("WHISPER_COMPUTE_TYPE", default_comp)
+        self.device = device
+        self.device_index = device_index
+        self.compute_type = compute_type
         self.use_vad = use_vad
         self.vad_parameters = vad_parameters or {
             "threshold": 0.40,
@@ -125,6 +115,37 @@ class FasterWhisperTranscriber:
         full_text = " ".join([segment.text.strip() for segment in segments]).strip()
         return full_text
 
+    def transcribe_audio_array_with_info(self, audio_array: np.ndarray, sample_rate: int = 16000, force_language: str = None) -> tuple:
+        """
+        Transcribe audio array with auto language detection.
+
+        Returns:
+            (transcript, detected_language, probability)
+        """
+        if len(audio_array) == 0:
+            return "", "en", 0.0
+
+        max_val = np.max(np.abs(audio_array))
+        if max_val > 1e-5:
+            audio_array = audio_array / max_val * 0.95
+
+        segments, info = self.model.transcribe(
+            audio_array,
+            language=force_language if force_language else self.language,
+            initial_prompt=self.initial_prompt if (force_language or self.language) == "am" else None,
+            beam_size=5,
+            best_of=5,
+            repetition_penalty=1.2,
+            condition_on_previous_text=False,
+            vad_filter=self.use_vad,
+            vad_parameters=self.vad_parameters if self.use_vad else None
+        )
+
+        full_text = " ".join([segment.text.strip() for segment in segments]).strip()
+        detected_lang = getattr(info, "language", "en") or "en"
+        prob = getattr(info, "language_probability", 1.0) or 1.0
+        return full_text, detected_lang, prob
+
 
 def _get_transcriber_instance() -> FasterWhisperTranscriber:
     """Lazy-load global singleton transcriber instance."""
@@ -158,16 +179,20 @@ def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000) -> str:
     return transcriber.transcribe_audio_array(audio_array, sample_rate=16000)
 
 
-def transcribe_webm(audio_bytes: bytes) -> str:
+def transcribe_webm(audio_bytes: bytes, force_language: str = None) -> str:
     """
-    Transcribe WebM/Opus audio blob from browser MediaRecorder.
-
-    Args:
-        audio_bytes: WebM binary audio blob.
-
-    Returns:
-        Transcribed text string.
+    Transcribe WebM/Opus audio blob from browser MediaRecorder using Distil-Whisper.
     """
+    text, _, _ = transcribe_webm_with_info(audio_bytes, force_language=force_language)
+    return text
+
+
+def transcribe_webm_with_info(audio_bytes: bytes, force_language: str = None) -> tuple:
+    """
+    Transcribe WebM/Opus audio blob and return (text, detected_lang, probability).
+    """
+    transcriber = _get_transcriber_instance()
+
     with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as webm_file:
         webm_file.write(audio_bytes)
         webm_path = webm_file.name
@@ -192,9 +217,12 @@ def transcribe_webm(audio_bytes: bytes) -> str:
             wav_data = f.read()
 
         pcm_bytes = wav_data[44:]  # Skip WAV header
-        return transcribe_audio(pcm_bytes, sample_rate=16000)
+        audio_array = np.frombuffer(pcm_bytes, dtype=np.int16).astype(np.float32) / 32768.0
+
+        return transcriber.transcribe_audio_array_with_info(audio_array, sample_rate=16000, force_language=force_language)
 
     finally:
         for p in [webm_path, wav_path]:
             if os.path.exists(p):
                 os.unlink(p)
+

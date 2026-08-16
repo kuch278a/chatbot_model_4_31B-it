@@ -18,41 +18,33 @@ class ConversationService:
             "the question. If the answer cannot be found in the context, use your general knowledge.\n"
         )
 
-    def _get_system_prompt_for_query(self, prompt: str) -> str:
-        if _is_amharic(prompt):
-            return (
-                self.base_system_prompt +
-                "\nCRITICAL INSTRUCTION: The user is asking in Amharic. You MUST write your entire response in natural, fluent Amharic script (በአማርኛ ፊደላት). Do not switch to English."
-            )
-        else:
-            return (
-                self.base_system_prompt +
-                "\nCRITICAL INSTRUCTION: The user is asking in English. You MUST write your response in clear, professional English."
-            )
+    def _get_system_prompt(self) -> str:
+        return (
+            "You are አማኒ (Amani), a helpful, highly intelligent, and polite AI assistant created by the Ethiopian Artificial Intelligence Institute (EAII).\n"
+            "CRITICAL INSTRUCTIONS:\n"
+            "1. You MUST write your entire response exclusively in natural, fluent Amharic script (በአማርኛ ፊደላት ብቻ). Do not respond in English.\n"
+            "2. If relevant context information is provided below, answer directly from the context.\n"
+            "3. If the answer is not in the context, use your own intelligence and general knowledge to give a complete and accurate answer.\n"
+            "4. CONCISENESS: Keep your answer concise, direct, and conversational (2-3 sentences max). Avoid writing unnecessarily long essays."
+        )
 
     def chat(self, session_id, prompt):
-        # Retrieve history
-        history = get_history(session_id, limit=10)
+        history = get_history(session_id, limit=6)
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=2)
         
-        # Retrieve RAG context
-        context_str, sources = self.rag_pipeline.get_context(prompt, k=3)
-        
-        # Format user prompt with context
         if context_str:
-            llm_prompt = f"Context:\n{context_str}\n\nQuestion: {prompt}"
+            llm_prompt = f"አስፈላጊ መረጃዎች (Context):\n{context_str}\n\nየተጠቃሚው ጥያቄ: {prompt}"
         else:
             llm_prompt = prompt
             
-        system_prompt = self._get_system_prompt_for_query(prompt)
+        system_prompt = self._get_system_prompt()
 
-        # Generate response using LLM
         response = self.llm_client.generate(
             prompt=llm_prompt,
             system_prompt=system_prompt,
             history=history
         )
         
-        # Save user message and assistant message to history
         add_message(session_id, "user", prompt)
         add_message(session_id, "assistant", response)
         
@@ -62,15 +54,15 @@ class ConversationService:
         }
 
     def chat_stream(self, session_id, prompt):
-        history = get_history(session_id, limit=10)
-        context_str, sources = self.rag_pipeline.get_context(prompt, k=3)
+        history = get_history(session_id, limit=6)
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=2)
         
         if context_str:
-            llm_prompt = f"Context:\n{context_str}\n\nQuestion: {prompt}"
+            llm_prompt = f"አስፈላጊ መረጃዎች (Context):\n{context_str}\n\nየተጠቃሚው ጥያቄ: {prompt}"
         else:
             llm_prompt = prompt
             
-        system_prompt = self._get_system_prompt_for_query(prompt)
+        system_prompt = self._get_system_prompt()
 
         full_response = []
         for token in self.llm_client.generate_stream(

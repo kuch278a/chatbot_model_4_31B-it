@@ -13,15 +13,7 @@ from transformers import AutoProcessor, AutoModelForCTC
 # Global singleton instance
 _model_instance = None
 _MODEL_ID = os.environ.get("AMHARIC_ASR_MODEL_ID", "badrex/Ethio-ASR-amharic")
-
-
-def _get_best_device():
-    """Detect available GPU or fall back to CPU."""
-    if not torch.cuda.is_available():
-        return "cpu"
-    num_gpus = torch.cuda.device_count()
-    best_gpu = 1 if num_gpus > 1 else 0
-    return f"cuda:{best_gpu}"
+_DEFAULT_DEVICE = os.environ.get("AMHARIC_ASR_DEVICE", "cpu")
 
 
 class EthioASRTranscriber:
@@ -30,10 +22,10 @@ class EthioASRTranscriber:
     def __init__(
         self,
         model_id: str = _MODEL_ID,
-        device: str = None,
+        device: str = _DEFAULT_DEVICE,
     ):
         self.model_id = model_id
-        self.device = device or os.environ.get("AMHARIC_ASR_DEVICE", _get_best_device())
+        self.device = device
         self._load_model()
 
     def _load_model(self):

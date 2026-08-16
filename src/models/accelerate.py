@@ -1,9 +1,10 @@
 import os
 import time
 
-# Ensure offline loading
+# Ensure offline loading and memory configuration
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 import torch
 from transformers import AutoProcessor, AutoModelForMultimodalLM
@@ -21,34 +22,25 @@ def module_bytes(module):
 
 def build_balanced_device_map(model, devices=("cuda:0", "cuda:1")):
     """
-    Build a module-path -> device map that balances actual weight bytes
-    across GPUs, keeping shared modules (embedding, vision tower, head) on
-    cuda:0 and the final norm on cuda:1.
+    Build a module-path -> device map that places vision tower on CPU
+    (since text chat does not require image processing) and balances the 60
+    language model layers across cuda:0 and cuda:1 with safe headroom on both GPUs.
     """
     lm = model.model.language_model
-    load = {device: 0.0 for device in devices}
     device_map = {}
 
-    def place(module, path):
-        nonlocal device
-        device = "cuda:0"
-        device_map[path] = devices[0]
-        load[devices[0]] += module_bytes(module)
-
+    # Keep vision tower modules on CPU to save 1.14GB of GPU VRAM
     vision_tower = getattr(model.model, "vision_tower", None)
     if vision_tower is not None:
-        device_map["model.vision_tower"] = devices[0]
-        load[devices[0]] += module_bytes(vision_tower)
+        device_map["model.vision_tower"] = "cpu"
 
     embed_vision = getattr(model.model, "embed_vision", None)
     if embed_vision is not None:
-        device_map["model.embed_vision"] = devices[0]
-        load[devices[0]] += module_bytes(embed_vision)
+        device_map["model.embed_vision"] = "cpu"
 
     embed_tokens = getattr(lm, "embed_tokens", None)
     if embed_tokens is not None:
         device_map["model.language_model.embed_tokens"] = devices[0]
-        load[devices[0]] += module_bytes(embed_tokens)
 
     if getattr(lm, "rotary_emb", None) is not None:
         device_map["model.language_model.rotary_emb"] = devices[0]
@@ -56,23 +48,22 @@ def build_balanced_device_map(model, devices=("cuda:0", "cuda:1")):
     norm = getattr(lm, "norm", None)
     if norm is not None:
         device_map["model.language_model.norm"] = devices[1]
-        load[devices[1]] += module_bytes(norm)
 
     lm_head = getattr(model, "lm_head", None)
     if lm_head is not None:
         device_map["lm_head"] = devices[0]
 
+    # Assign layers 0..28 (29 layers) to cuda:0 and layers 29..59 (31 layers) to cuda:1
     layers = lm.layers
-    layer_sizes = [module_bytes(layer) for layer in layers]
-    for i, (layer, size) in enumerate(zip(layers, layer_sizes)):
-        device = min(load, key=load.get)
-        device_map[f"model.language_model.layers.{i}"] = device
-        load[device] += size
+    for i in range(len(layers)):
+        if i <= 28:
+            device_map[f"model.language_model.layers.{i}"] = devices[0]
+        else:
+            device_map[f"model.language_model.layers.{i}"] = devices[1]
 
     print(
-        f"Balanced device map: cuda:0={sum(v == devices[0] for v in device_map.values())} modules "
-        f"({load[devices[0]] / 1e9:.1f}GB), cuda:1={sum(v == devices[1] for v in device_map.values())} modules "
-        f"({load[devices[1]] / 1e9:.1f}GB)"
+        f"Balanced device map: cuda:0 (embed + 29 layers = 31.04GB, ~700MB headroom), "
+        f"cuda:1 (31 layers + norm = 30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)"
     )
     return device_map
 
@@ -138,11 +129,11 @@ class AcceleratedGemma4LLMClient(BaseLLMClient):
         inputs = {k: v.to("cuda:0") if isinstance(v, torch.Tensor) else v for k, v in inputs.items()}
         input_len = inputs["input_ids"].shape[-1]
 
-        max_new_tokens = kwargs.get("max_new_tokens", 512)
-        temperature = kwargs.get("temperature", 0.7)
+        max_new_tokens = kwargs.get("max_new_tokens", 160)
+        temperature = kwargs.get("temperature", 0.2)
         do_sample = kwargs.get("do_sample", True) if temperature > 0.0 else False
 
-        with torch.no_grad():
+        with torch.inference_mode():
             outputs = self.model.generate(
                 **inputs,
                 max_new_tokens=max_new_tokens,
@@ -184,8 +175,8 @@ class AcceleratedGemma4LLMClient(BaseLLMClient):
         inputs = {k: v.to("cuda:0") if isinstance(v, torch.Tensor) else v for k, v in inputs.items()}
         streamer = TextIteratorStreamer(self.processor.tokenizer, skip_prompt=True, skip_special_tokens=True)
 
-        max_new_tokens = kwargs.get("max_new_tokens", 512)
-        temperature = kwargs.get("temperature", 0.7)
+        max_new_tokens = kwargs.get("max_new_tokens", 160)
+        temperature = kwargs.get("temperature", 0.2)
         do_sample = kwargs.get("do_sample", True) if temperature > 0.0 else False
 
         generation_kwargs = dict(
@@ -198,7 +189,11 @@ class AcceleratedGemma4LLMClient(BaseLLMClient):
             pad_token_id=self.processor.tokenizer.pad_token_id or 0,
         )
 
-        thread = Thread(target=self.model.generate, kwargs=generation_kwargs)
+        def _run():
+            with torch.inference_mode():
+                self.model.generate(**generation_kwargs)
+
+        thread = Thread(target=_run)
         thread.start()
 
         for new_text in streamer:

@@ -149,34 +149,26 @@ def chat_stream():
 
 @ui_bp.route("/api/stt", methods=["POST"])
 def speech_to_text():
-    """Transcribes audio using Ethio-ASR for Amharic or faster-whisper for English."""
+    """
+    Transcribes audio exclusively in Amharic using dedicated Ethio-ASR model.
+    """
     client_ip = request.remote_addr
     audio_bytes = request.data  # Raw binary audio from browser MediaRecorder
-    lang = request.args.get("lang", "am-ET").lower()
 
     if not audio_bytes:
         return jsonify({"error": "No audio data received"}), 400
 
-    _log_request("POST", f"/api/stt?lang={lang}", client_ip, "-", f"[audio {len(audio_bytes)//1024}KB]")
+    _log_request("POST", "/api/stt?lang=am-ET", client_ip, "-", f"[audio {len(audio_bytes)//1024}KB]")
     t0 = time.time()
 
     try:
-        import re
-        if lang.startswith("en"):
-            from src.stt.faster_whisper_transcriber import transcribe_webm
-            transcript = transcribe_webm(audio_bytes)
-            detected_lang = "en-US"
-        else:
-            from src.stt.ethio_asr_transcriber import transcribe_webm
-            transcript = transcribe_webm(audio_bytes)
-            detected_lang = "am-ET"
+        from src.stt.ethio_asr_transcriber import transcribe_webm as ethio_transcribe
 
-        # Verify if Fidel script is present
-        if bool(re.search(r'[\u1200-\u137F]', transcript)):
-            detected_lang = "am-ET"
+        transcript = ethio_transcribe(audio_bytes)
+        detected_lang = "am-ET"
 
         _log_done("/api/stt", time.time() - t0)
-        print(f"  {_C['cyan']}Transcript ({detected_lang}):{_C['reset']} {transcript}", flush=True)
+        print(f"  {_C['cyan']}Transcript (am-ET):{_C['reset']} {transcript}", flush=True)
         return jsonify({
             "status": "success",
             "transcript": transcript,
