@@ -12,31 +12,42 @@ from faster_whisper import WhisperModel
 
 # Global singleton instance
 _model_instance = None
-_MODEL_ID = os.environ.get("WHISPER_MODEL_ID", "large-v3")
-_DEVICE = os.environ.get("WHISPER_DEVICE", "cpu")
-_COMPUTE_TYPE = os.environ.get("WHISPER_COMPUTE_TYPE", "int8")  # 8-bit quantization for maximum CPU speed
-
+_MODEL_ID = os.environ.get("WHISPER_MODEL_ID", "distil-large-v3.5")
 
 # Domain vocabulary initial prompt to guide Whisper tokenizer for Amharic and AI terminology
 DEFAULT_INITIAL_PROMPT = "የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት, አማኒ, EAII, Amani AI assistant, Gemma."
 
 
+def _get_best_device():
+    """Detect available GPU with free VRAM or fall back to CPU."""
+    if not torch.cuda.is_available():
+        return "cpu", 0, "int8"
+    
+    # Check GPU 1 first (usually has more headroom when LLM is sharded)
+    num_gpus = torch.cuda.device_count()
+    best_gpu = 1 if num_gpus > 1 else 0
+    return "cuda", best_gpu, "int8_float16"
+
+
 class FasterWhisperTranscriber:
-    """Wrapper class for faster-whisper CTranslate2 STT model with enhanced decoding."""
+    """Wrapper class for faster-whisper CTranslate2 STT model with GPU acceleration & CPU fallback."""
 
     def __init__(
         self,
         model_size_or_path: str = _MODEL_ID,
-        device: str = _DEVICE,
-        compute_type: str = _COMPUTE_TYPE,
+        device: str = None,
+        device_index: int = None,
+        compute_type: str = None,
         use_vad: bool = True,
         vad_parameters: dict = None,
         language: str = None,
         initial_prompt: str = DEFAULT_INITIAL_PROMPT
     ):
         self.model_size_or_path = model_size_or_path
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.compute_type = compute_type or ("int8" if self.device == "cpu" else "float16")
+        default_dev, default_idx, default_comp = _get_best_device()
+        self.device = device or os.environ.get("WHISPER_DEVICE", default_dev)
+        self.device_index = device_index if device_index is not None else int(os.environ.get("WHISPER_DEVICE_INDEX", str(default_idx)))
+        self.compute_type = compute_type or os.environ.get("WHISPER_COMPUTE_TYPE", default_comp)
         self.use_vad = use_vad
         self.vad_parameters = vad_parameters or {
             "threshold": 0.40,
@@ -46,13 +57,39 @@ class FasterWhisperTranscriber:
         self.language = language
         self.initial_prompt = initial_prompt
 
-        print(f"[FasterWhisper] Loading {self.model_size_or_path} on {self.device} ({self.compute_type})...")
-        self.model = WhisperModel(
-            self.model_size_or_path,
-            device=self.device,
-            compute_type=self.compute_type
-        )
-        print("[FasterWhisper] Model loaded successfully ✔")
+        self._load_model()
+
+    def _load_model(self):
+        try:
+            if self.device == "cuda":
+                print(f"[FasterWhisper] Loading {self.model_size_or_path} on GPU cuda:{self.device_index} ({self.compute_type})...")
+                self.model = WhisperModel(
+                    self.model_size_or_path,
+                    device=self.device,
+                    device_index=self.device_index,
+                    compute_type=self.compute_type
+                )
+            else:
+                print(f"[FasterWhisper] Loading {self.model_size_or_path} on {self.device} ({self.compute_type})...")
+                self.model = WhisperModel(
+                    self.model_size_or_path,
+                    device=self.device,
+                    compute_type=self.compute_type
+                )
+            print(f"[FasterWhisper] Model loaded successfully on {self.device} ✔")
+        except Exception as e:
+            if self.device == "cuda":
+                print(f"[FasterWhisper] ⚠️ GPU load failed ({e}). Falling back to CPU (int8)...")
+                self.device = "cpu"
+                self.compute_type = "int8"
+                self.model = WhisperModel(
+                    self.model_size_or_path,
+                    device="cpu",
+                    compute_type="int8"
+                )
+                print("[FasterWhisper] CPU fallback loaded successfully ✔")
+            else:
+                raise e
 
     def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000) -> str:
         """

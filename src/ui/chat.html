@@ -731,17 +731,25 @@
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
                 document.getElementById("micBtn").classList.remove("listening");
-                document.getElementById("input").placeholder = "Transcribing with Whisper...";
+                document.getElementById("input").placeholder = "Transcribing audio...";
 
+                const selectedLang = document.getElementById("langSelect")?.value || "am-ET";
                 const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
                 try {
-                    const res = await fetch("/api/stt", {
+                    const res = await fetch(`/api/stt?lang=${encodeURIComponent(selectedLang)}`, {
                         method: "POST",
                         headers: { "Content-Type": "audio/webm" },
                         body: audioBlob
                     });
                     const data = await res.json();
                     if (data.transcript && data.transcript.trim().length > 0) {
+                        // Auto-detect language and synchronize UI selector
+                        const isAmharic = Boolean(data.transcript.match(/[\u1200-\u137F]/)) || data.language === 'am-ET';
+                        const langSelect = document.getElementById("langSelect");
+                        if (langSelect) {
+                            langSelect.value = isAmharic ? "am-ET" : "en-US";
+                        }
+
                         document.getElementById("input").value = data.transcript;
                         document.getElementById("input").placeholder = "Type your message...";
                         sendMessage();
@@ -788,17 +796,24 @@
                                   .trim();
             if (!cleanText) return;
             
-            const lang = document.getElementById("langSelect").value || "am-ET";
+            // Auto-detect language from text content (Amharic Fidel check)
+            const isAmharicText = Boolean(cleanText.match(/[\u1200-\u137F]/));
+            const lang = isAmharicText ? "am-ET" : (document.getElementById("langSelect")?.value || "en-US");
 
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
                 const voices = window.speechSynthesis.getVoices();
                 
-                // Prioritize Microsoft Mekdes Neural voice directly
-                let targetVoice = voices.find(v => v.name === 'Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)') ||
+                let targetVoice = null;
+                if (isAmharicText) {
+                    targetVoice = voices.find(v => v.name === 'Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)') ||
                                   voices.find(v => v.name.includes('am-ET-MekdesNeural')) ||
                                   voices.find(v => v.name.includes('Mekdes')) ||
                                   voices.find(v => v.lang === 'am-ET' || v.lang.startsWith('am'));
+                } else {
+                    targetVoice = voices.find(v => v.name.includes('Jenny') || v.name.includes('Natural')) ||
+                                  voices.find(v => v.lang.startsWith('en'));
+                }
 
                 if (targetVoice) {
                     const utterance = new SpeechSynthesisUtterance(cleanText);
@@ -811,7 +826,7 @@
                 }
             }
 
-            // Fallback: Stream neural Mekdes voice directly from backend edge-tts service
+            // Fallback: Stream neural voice directly from backend edge-tts service
             const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${encodeURIComponent(lang)}`;
             const audio = new Audio(audioUrl);
             audio.play().catch(e => console.warn("Backend audio playback error:", e));

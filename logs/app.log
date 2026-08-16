@@ -1632,3 +1632,126 @@ Indexed 1 files from /mnt/data/local_data
   [92m✔ /api/tts/audio done[0m in [93m1.93s[0m
 
 127.0.0.1 - - [16/Aug/2026 12:54:29] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20help%20you%20today?%20/%20ሰላም!%20ዛሬ%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [16/Aug/2026 13:01:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:01:55] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:01:55] "GET /files HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5376.90it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 3.9s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 34/1188 [00:00<00:04, 279.41it/s]Loading weights:   5%|5         | 62/1188 [00:00<00:04, 264.06it/s]Loading weights:   7%|7         | 89/1188 [00:00<00:04, 238.19it/s]Loading weights:  10%|9         | 116/1188 [00:00<00:04, 239.27it/s]Loading weights:  12%|#2        | 143/1188 [00:00<00:04, 235.51it/s]Loading weights:  14%|#4        | 167/1188 [00:00<00:04, 224.04it/s]Loading weights:  16%|#5        | 190/1188 [00:00<00:04, 217.25it/s]Loading weights:  18%|#8        | 214/1188 [00:00<00:04, 222.20it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 204.76it/s]Loading weights:  22%|##1       | 258/1188 [00:01<00:04, 196.63it/s]Loading weights:  24%|##3       | 284/1188 [00:01<00:04, 196.73it/s]Loading weights:  26%|##6       | 311/1188 [00:01<00:04, 212.56it/s]Loading weights:  28%|##8       | 334/1188 [00:01<00:04, 208.77it/s]Loading weights:  30%|###       | 361/1188 [00:01<00:03, 219.44it/s]Loading weights:  32%|###2      | 384/1188 [00:01<00:03, 218.26it/s]Loading weights:  34%|###4      | 407/1188 [00:01<00:03, 211.08it/s]Loading weights:  36%|###6      | 430/1188 [00:01<00:03, 214.70it/s]Loading weights:  39%|###8      | 458/1188 [00:02<00:03, 218.54it/s]Loading weights:  40%|####      | 480/1188 [00:02<00:03, 212.31it/s]Loading weights:  42%|####2     | 503/1188 [00:02<00:03, 208.05it/s]Loading weights:  45%|####4     | 531/1188 [00:02<00:03, 209.53it/s]Loading weights:  47%|####6     | 555/1188 [00:02<00:02, 215.73it/s]Loading weights:  49%|####8     | 577/1188 [00:02<00:02, 204.79it/s]Loading weights:  50%|#####     | 598/1188 [00:03<00:05, 110.77it/s]Loading weights:  52%|#####1    | 614/1188 [00:03<00:10, 52.54it/s] Loading weights:  54%|#####4    | 642/1188 [00:04<00:07, 73.10it/s]Loading weights:  56%|#####6    | 666/1188 [00:04<00:05, 90.52it/s]Loading weights:  58%|#####8    | 694/1188 [00:04<00:04, 116.51it/s]Loading weights:  60%|######    | 714/1188 [00:04<00:03, 130.51it/s]Loading weights:  62%|######1   | 734/1188 [00:05<00:06, 68.97it/s] Loading weights:  63%|######3   | 749/1188 [00:05<00:07, 61.88it/s]Loading weights:  64%|######4   | 761/1188 [00:05<00:06, 67.17it/s]Loading weights:  65%|######5   | 773/1188 [00:06<00:09, 45.99it/s]Loading weights:  66%|######5   | 782/1188 [00:06<00:09, 44.34it/s]Loading weights:  67%|######6   | 794/1188 [00:06<00:08, 44.25it/s]Loading weights:  68%|######7   | 804/1188 [00:06<00:08, 46.60it/s]Loading weights:  68%|######8   | 811/1188 [00:06<00:08, 45.67it/s]Loading weights:  69%|######8   | 817/1188 [00:07<00:08, 41.41it/s]Loading weights:  69%|######9   | 822/1188 [00:07<00:08, 42.19it/s]Loading weights:  70%|######9   | 827/1188 [00:07<00:09, 39.00it/s]Loading weights:  77%|#######7  | 919/1188 [00:07<00:01, 206.61it/s]Loading weights:  82%|########1 | 973/1188 [00:07<00:00, 273.83it/s]Loading weights:  87%|########6 | 1030/1188 [00:07<00:00, 327.34it/s]Loading weights:  90%|######### | 1070/1188 [00:07<00:00, 307.39it/s]Loading weights:  93%|#########3| 1106/1188 [00:07<00:00, 317.88it/s]Loading weights:  97%|#########7| 1154/1188 [00:08<00:00, 338.84it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 146.27it/s]
+Model weights loaded in 10.7s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 20.7s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 13:03:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:03:18] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 13:03:18] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[13:03:26][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 46KB]
+[FasterWhisper] Loading large-v3 on cpu (int8)...
+[FasterWhisper] Model loaded successfully ✔
+  [92m✔ /api/stt done[0m in [93m23.73s[0m
+
+  [96mTranscript:[0m Selam
+127.0.0.1 - - [16/Aug/2026 13:03:50] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:03:50][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m Selam
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:03:52] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.56s[0m | [93m27 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.61s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:03:59] "[35m[1mGET /api/tts/audio?text=Selam!%20How%20can%20I%20help%20you%20today?%20/%20ሰላም!%20ዛሬ%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[13:06:30][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 85KB]
+  [92m✔ /api/stt done[0m in [93m18.34s[0m
+
+  [96mTranscript:[0m سأل إيتوبيا أرتفاع الانتراجيس تنقرين يالش.
+127.0.0.1 - - [16/Aug/2026 13:06:48] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:06:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m سأل إيتوبيا أرتفاع الانتراجيس تنقرين يالش.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:06:49] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m32.44s[0m | [93m108 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m4.81s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:07:25] "[35m[1mGET /api/tts/audio?text=The%20question%20you%20asked%20appears%20to%20be%20written%20in%20Arabic%20script%20but%20sounds%20like%20Amharic%20("የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20መቼ%20ተመረቀ?").%0A%0ABased%20on%20the%20provided%20context:%0AThe%20Ethiopia%20Artificial%20Intelligence%20Institute%20(የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት)%20was%20inaugurated%20in%20September%202020%20by%20Prime%20Minister%20Dr.%20Abiy%20Ahmed.&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[13:08:02][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 50KB]
+
+[1m[92m▶ POST /api/stt[0m [2m[13:08:04][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 21KB]
+  [92m✔ /api/stt done[0m in [93m11.36s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [16/Aug/2026 13:08:15] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m21.59s[0m
+
+  [96mTranscript:[0m Salam.
+127.0.0.1 - - [16/Aug/2026 13:08:23] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:08:23][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m Salam.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 13:08:25] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m7.48s[0m | [93m26 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m20.75s[0m
+
+127.0.0.1 - - [16/Aug/2026 13:08:52] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20help%20you%20today?%20/%20ሰላም!%20ዛሬ%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4469.99it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model

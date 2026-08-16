@@ -9,7 +9,7 @@ import sys
 import subprocess
 import tempfile
 
-from src.stt.faster_whisper_transcriber import transcribe_audio
+from src.stt.ethio_asr_transcriber import transcribe_audio
 
 DEFAULT_AUDIO = os.path.join(os.path.dirname(__file__), "data", "amharic_sample.mp3")
 
