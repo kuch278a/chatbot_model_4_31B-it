@@ -731,7 +731,7 @@
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
                 document.getElementById("micBtn").classList.remove("listening");
-                document.getElementById("input").placeholder = "Transcribing with Ethio-ASR...";
+                document.getElementById("input").placeholder = "Transcribing with Whisper...";
 
                 const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
                 try {

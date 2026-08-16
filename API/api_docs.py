@@ -154,7 +154,7 @@ OPENAPI_SPEC = {
                 "summary": "Transcribe audio to text (speech-to-text)",
                 "description": (
                     "Raw binary audio body from the browser MediaRecorder (WebM/opus). "
-                    "Uses faster-whisper distil-large-v3.5 (int8, CPU)."
+                    "Uses faster-whisper large-v3 (int8, CPU)."
                 ),
                 "operationId": "stt",
                 "requestBody": {

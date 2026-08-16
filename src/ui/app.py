@@ -149,7 +149,7 @@ def chat_stream():
 
 @ui_bp.route("/api/stt", methods=["POST"])
 def speech_to_text():
-    """Transcribes audio using faster-whisper (distil-large-v3.5 int8 CPU)."""
+    """Transcribes audio using faster-whisper (large-v3 int8 CPU)."""
     from src.stt.faster_whisper_transcriber import transcribe_webm
 
     client_ip = request.remote_addr

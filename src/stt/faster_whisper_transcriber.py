@@ -1,6 +1,6 @@
 """
 High-performance Speech-to-Text transcriber using faster-whisper (CTranslate2).
-Model: distil-large-v3.5 with int8 CPU quantization & Silero VAD.
+Model: large-v3 with int8 CPU quantization & Silero VAD.
 """
 
 import os
@@ -12,9 +12,9 @@ from faster_whisper import WhisperModel
 
 # Global singleton instance
 _model_instance = None
-_MODEL_ID = "distil-large-v3.5"
-_DEVICE = "cpu"
-_COMPUTE_TYPE = "int8"  # 8-bit quantization for maximum CPU speed
+_MODEL_ID = os.environ.get("WHISPER_MODEL_ID", "large-v3")
+_DEVICE = os.environ.get("WHISPER_DEVICE", "cpu")
+_COMPUTE_TYPE = os.environ.get("WHISPER_COMPUTE_TYPE", "int8")  # 8-bit quantization for maximum CPU speed
 
 
 # Domain vocabulary initial prompt to guide Whisper tokenizer for Amharic and AI terminology

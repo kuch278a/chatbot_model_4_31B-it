@@ -1353,3 +1353,282 @@ All services loaded and ready!
 
 127.0.0.1 - - [14/Aug/2026 17:09:48] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?%20ማንኛውንም%20ጥያቄ%20መጠየቅ%20ይችላሉ።&lang=am-ET HTTP/1.1[0m" 206 -
 127.0.0.1 - - [14/Aug/2026 17:09:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cuda:1
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5023.52it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing AcceleratedGemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Processor loaded in 3.9s
+Loading model weights (streamed to CPU RAM)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 35/1188 [00:00<00:03, 328.45it/s]Loading weights:   6%|5         | 68/1188 [00:00<00:03, 314.18it/s]Loading weights:   8%|8         | 100/1188 [00:00<00:04, 261.54it/s]Loading weights:  11%|#         | 127/1188 [00:00<00:04, 242.56it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 236.83it/s]Loading weights:  15%|#4        | 178/1188 [00:00<00:04, 210.43it/s]Loading weights:  18%|#7        | 209/1188 [00:00<00:04, 224.43it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 223.71it/s]Loading weights:  22%|##2       | 263/1188 [00:01<00:03, 232.10it/s]Loading weights:  24%|##4       | 287/1188 [00:01<00:03, 226.37it/s]Loading weights:  26%|##6       | 310/1188 [00:01<00:03, 221.69it/s]Loading weights:  28%|##8       | 333/1188 [00:01<00:03, 222.31it/s]Loading weights:  30%|##9       | 356/1188 [00:01<00:03, 223.80it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:03, 216.20it/s]Loading weights:  34%|###4      | 407/1188 [00:01<00:03, 223.34it/s]Loading weights:  36%|###6      | 430/1188 [00:01<00:03, 208.12it/s]Loading weights:  38%|###8      | 456/1188 [00:02<00:03, 209.08it/s]Loading weights:  41%|####      | 487/1188 [00:02<00:03, 216.62it/s]Loading weights:  43%|####3     | 513/1188 [00:02<00:03, 216.74it/s]Loading weights:  46%|####5     | 541/1188 [00:02<00:02, 227.21it/s]Loading weights:  47%|####7     | 564/1188 [00:02<00:04, 154.19it/s]Loading weights:  49%|####9     | 583/1188 [00:02<00:03, 157.61it/s]Loading weights:  51%|#####1    | 610/1188 [00:02<00:03, 180.15it/s]Loading weights:  53%|#####3    | 631/1188 [00:03<00:03, 176.59it/s]Loading weights:  55%|#####5    | 658/1188 [00:03<00:02, 197.37it/s]Loading weights:  57%|#####7    | 680/1188 [00:03<00:02, 202.60it/s]Loading weights:  60%|#####9    | 710/1188 [00:03<00:02, 225.77it/s]Loading weights:  62%|######1   | 734/1188 [00:03<00:02, 221.72it/s]Loading weights:  64%|######3   | 757/1188 [00:03<00:02, 212.93it/s]Loading weights:  66%|######5   | 779/1188 [00:03<00:01, 212.96it/s]Loading weights:  67%|######7   | 801/1188 [00:04<00:03, 113.69it/s]Loading weights:  69%|######8   | 818/1188 [00:04<00:04, 74.61it/s] Loading weights:  70%|######9   | 831/1188 [00:04<00:06, 58.85it/s]Loading weights:  80%|#######9  | 947/1188 [00:05<00:01, 186.49it/s]Loading weights:  87%|########6 | 1028/1188 [00:05<00:00, 274.98it/s]Loading weights:  92%|#########2| 1097/1188 [00:05<00:00, 339.53it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 221.82it/s]
+Model weights loaded in 7.0s
+Building balanced device map and dispatching across GPUs...
+Balanced device map: cuda:0=33 modules (31.8GB), cuda:1=33 modules (30.8GB)
+Device dispatch completed in 22.8s
+All services loaded and ready!
+127.0.0.1 - - [16/Aug/2026 12:38:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:38:11] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[12:38:11][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:38:11] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:38:11] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:38:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:38:38][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 139KB]
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully ✔
+  [92m✔ /api/stt done[0m in [93m18.27s[0m
+
+  [96mTranscript:[0m Salam.
+127.0.0.1 - - [16/Aug/2026 12:38:56] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:38:56][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m Salam.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:38:58] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.34s[0m | [93m29 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.68s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:39:04] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20help%20you%20today?%20/%20ሰላም!%20ዛሬ%20በምን%20ልረዳዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:39:31][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 59KB]
+  [92m✔ /api/stt done[0m in [93m12.49s[0m
+
+  [96mTranscript:[0m Salaam, indeed.
+127.0.0.1 - - [16/Aug/2026 12:39:44] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:39:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m Salaam, indeed.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:39:45] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m16.08s[0m | [93m80 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.72s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:40:03] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20assist%20you%20today?%20Whether%20you%20have%20questions%20about%20history,%20technology,%20or%20anything%20else,%20I%20am%20here%20to%20help.%0A%0Aሰላም!%20ዛሬ%20በምን%20ልረዳዎት%20እችላለሁ?%20ስለ%20ታሪክ፣%20ስለ%20ቴክኖሎጂ%20ወይም%20ስለ%20ሌላ%20ማንኛውም%20ጉዳይ%20ጥያቄ%20ካለዎት%20ለመመለስ%20ዝግጁ%20ነኝ።&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:40:33][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 63KB]
+  [92m✔ /api/stt done[0m in [93m14.98s[0m
+
+  [96mTranscript:[0m So I'm going to show them a little bit.
+127.0.0.1 - - [16/Aug/2026 12:40:48] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:40:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m So I'm going to show them a little bit.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:40:49] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m53.07s[0m | [93m192 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.69s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:41:44] "[35m[1mGET /api/tts/audio?text=It%20seems%20like%20you%20are%20preparing%20to%20show%20someone%20information%20about%20me%20or%20the%20Ethiopian%20Artificial%20Intelligence%20Institute%20(EAII).%20Based%20on%20the%20context%20provided,%20here%20are%20the%20key%20points%20you%20can%20share:%0A%0A%20%20%20Who%20I%20am:%20I%20am%20Amani%20(አማኒ),%20an%20advanced%20bilingual%20AI%20assistant%20created%20and%20built%20by%20the%20EAII.%0A%20%20%20The%20Institute:%20The%20Ethiopian%20Artificial%20Intelligence%20Institute%20was%20inaugurated%20in%20September%202020%20by%20Prime%20Minister%20Dr.%20Abiy%20Ahmed.%0A%20%20%20The%20Goal:%20The%20initiative%20aims%20to%20foster%20innovation%20and%20capacity%20building%20among%20young%20Ethiopians,%20positioning%20Ethiopia%20as%20a%20leader%20in%20AI%20technology%20in%20Africa.%0A%20%20%20Focus%20Areas:%20The%20center%20is%20designed%20to%20provide%20IT%20services%20in%20key%20sectors%20such%20as%20agriculture,%20education,%20health,%20and%20public%20safety%20to%20improve%20productivity%20and%20economic%20growth.%0A%0AIf%20you%20need%20me%20to%20summarize%20this%20in%20Amharic%20or%20format%20it%20differently%20for%20your%20presentation,%20just%20let%20me%20know!&lang=en-US HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:42:54][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 82KB]
+  [92m✔ /api/stt done[0m in [93m17.09s[0m
+
+  [96mTranscript:[0m I'm going to go.
+127.0.0.1 - - [16/Aug/2026 12:43:11] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:43:12][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m I'm going to go.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:43:13] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m11.98s[0m | [93m59 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.03s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:43:25] "[35m[1mGET /api/tts/audio?text=Safe%20travels!%20If%20you%20have%20any%20more%20questions%20or%20need%20assistance%20in%20the%20future,%20feel%20free%20to%20come%20back%20and%20ask.%0A%0Aመልካም%20ጉዞ!%20ወደፊት%20ማንኛውም%20ጥያቄ%20ካለዎት%20ወይም%20እርዳታ%20ከፈለጉ%20በማንኛውም%20ጊዜ%20ሊመለሱ%20ይችላሉ።&lang=en-US HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:43:53][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 86KB]
+  [92m✔ /api/stt done[0m in [93m16.89s[0m
+
+  [96mTranscript:[0m Malwell.
+127.0.0.1 - - [16/Aug/2026 12:44:10] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:44:10][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m Malwell.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:44:12] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m16.76s[0m | [93m82 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.53s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:44:30] "[35m[1mGET /api/tts/audio?text=It%20seems%20like%20you%20might%20have%20meant%20"Farewell"%20or%20were%20just%20saying%20goodbye.%20%0A%0AFarewell!%20It%20was%20a%20pleasure%20assisting%20you.%20If%20you%20have%20any%20more%20questions%20in%20the%20future,%20I'll%20be%20here.%0A%0Aደህና%20ሁኑ!%20በመርዳቴ%20ደስ%20ብሎኛል።%20ወደፊት%20ማንኛውም%20ጥያቄ%20ካለዎት%20እዚህ%20አገኝኛለሁ።&lang=am-ET HTTP/1.1[0m" 206 -
+100.114.122.26 - - [16/Aug/2026 12:46:20] "GET / HTTP/1.1" 200 -
+100.114.122.26 - - [16/Aug/2026 12:46:20] "[33mGET /api/health HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:46:21][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 77KB]
+  [92m✔ /api/stt done[0m in [93m16.55s[0m
+
+  [96mTranscript:[0m I mean, he broke the balance.
+127.0.0.1 - - [16/Aug/2026 12:46:38] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:46:38][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m I mean, he broke the balance.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:46:39] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m35.73s[0m | [93m182 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m6.74s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:47:20] "[35m[1mGET /api/tts/audio?text=Based%20on%20the%20provided%20context,%20there%20is%20no%20mention%20of%20anyone%20"breaking%20the%20balance."%20The%20text%20focuses%20on:%0A%0A1.%20%20Amani%20AI:%20A%20bilingual%20assistant%20created%20by%20the%20Ethiopian%20Artificial%20Intelligence%20Institute%20(EAII).%0A2.%20%20The%20EAII:%20Its%20inauguration%20by%20Prime%20Minister%20Dr.%20Abiy%20Ahmed%20in%20September%202020,%20its%20goals%20to%20foster%20innovation%20among%20youth,%20and%20its%20focus%20on%20agriculture,%20education,%20health,%20and%20public%20safety.%0A3.%20%20Ethiopian%20History:%20The%20roles%20of%20Emperor%20Haile%20Selassie,%20the%201966%20revolution%20(which%20replaced%20the%20monarchy%20with%20the%20Derg%20regime),%20and%20the%20subsequent%20transition%20to%20a%20federal%20system%20after%20the%20Derg%20was%20removed%20in%201983.%0A%0AIf%20you%20are%20referring%20to%20a%20specific%20historical%20event%20or%20a%20person%20mentioned%20in%20the%20text,%20please%20provide%20more%20details%20so%20I%20can%20better%20assist%20you.&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:50:01][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 47KB]
+  [92m✔ /api/stt done[0m in [93m12.22s[0m
+
+  [96mTranscript:[0m Salam.
+127.0.0.1 - - [16/Aug/2026 12:50:13] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:50:13][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m Salam.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:50:15] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.49s[0m | [93m29 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.87s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:50:22] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20help%20you%20today?%0A%0Aሰላም!%20ዛሬ%20በምን%20ልረዳዎት%20እችላለሁ?&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:50:38][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 47KB]
+  [92m✔ /api/stt done[0m in [93m13.98s[0m
+
+  [96mTranscript:[0m Summa.
+127.0.0.1 - - [16/Aug/2026 12:50:52] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:50:52][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m Summa.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:50:54] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m91.42s[0m | [93m513 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m13.76s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:52:37] "[35m[1mGET /api/tts/audio?text=Based%20on%20the%20provided%20text,%20here%20is%20a%20summary%20divided%20into%20two%20main%20parts:%0A%0A1.%20Amani%20AI%20and%20the%20EAII%0AAmani%20(አማኒ)%20is%20a%20bilingual%20AI%20assistant%20(Amharic%20and%20English)%20developed%20by%20the%20Ethiopian%20Artificial%20Intelligence%20Institute%20(EAII).%20The%20institute%20was%20inaugurated%20in%20September%202020%20by%20Prime%20Minister%20Dr.%20Abiy%20Ahmed%20to%20make%20Ethiopia%20a%20leader%20in%20African%20technology,%20focusing%20on%20providing%20IT%20services%20for%20agriculture,%20education,%20health,%20and%20public%20safety.%0A%0A2.%20Ethiopian%20History%0A%20%20%20Medieval%20Era:%20Following%20the%20fall%20of%20Aksum,%20the%20Zagwe%20dynasty%20(12th%20century)%20advanced%20architecture,%20most%20notably%20the%2011%20rock-hewn%20churches%20of%20King%20Lalibela.%20This%20was%20followed%20by%20the%20Solomonic%20dynasty%20and%20the%20Gondar%20period,%20known%20for%20arts%20and%20literature.%0A%20%20%20Conflict%20and%20Transition:%20The%20country%20faced%20division%20during%20the%20"Zemene%20Mesafint"%20(Era%20of%20the%20Princes)%20starting%20in%20the%20mid-18th%20century.%0A%20%20%20Modern%20Era:%20Emperor%20Haile%20Selassie%20modernized%20the%20country%20and%20helped%20establish%20the%20Organization%20of%20African%20Unity.%20However,%20a%20revolution%20in%201966%20E.C.%20replaced%20the%20monarchy%20with%20the%20military%20Derg%20regime.%20After%20the%20Derg%20was%20removed%20in%201983%20E.C.%20by%20EPRDF%20forces,%20Ethiopia%20transitioned%20to%20a%20federal%20system.%0A%0A%0A%0Aማጠቃለያ%20(በአማርኛ)%0A%0A፩.%20አማኒ%20AI%20እና%20የኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%0Aአማኒ%20(Amani)%20በሁለቱ%20ቋንቋዎች%20(አማርኛ%20እና%20እንግሊዝኛ)%20የሚያገለግል%20አርቴፊሻል%20ኢንተለጀንስ%20ሲሆን፣%20የተገነባው%20በኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20ነው።%20ኢንስቲትዩቱ%20በሴፕቴምበር%202020%20በጠቅላይ%20ዶ/ር%20አብይ%20አህመድ%20ተመርቋል።%20ዋና%20ዓላማውም%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20ግንባር%20ቀደም%20ማድረግ%20ሲሆን፣%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20ላይ%20የአይቲ%20አገልግሎቶችን%20መስጠት%20ነው።%0A%0A��&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /clear[0m [2m[12:53:32][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786873082342
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:53:32] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[12:53:32][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874003165
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:53:32] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[12:53:33][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:53:33] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[12:53:37][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m0.04s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:53:37] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:53:38] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:53:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:53:39] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 12:53:39] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt[0m [2m[12:54:01][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 39KB]
+
+[1m[92m▶ POST /api/stt[0m [2m[12:54:03][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 35KB]
+  [92m✔ /api/stt done[0m in [93m11.25s[0m
+
+  [96mTranscript:[0m 
+127.0.0.1 - - [16/Aug/2026 12:54:14] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m20.34s[0m
+
+  [96mTranscript:[0m Salam.
+127.0.0.1 - - [16/Aug/2026 12:54:21] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:54:21][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786874004619
+  [96mPrompt :[0m Salam.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [16/Aug/2026 12:54:22] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m6.15s[0m | [93m26 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.93s[0m
+
+127.0.0.1 - - [16/Aug/2026 12:54:29] "[35m[1mGET /api/tts/audio?text=Salam!%20How%20can%20I%20help%20you%20today?%20/%20ሰላም!%20ዛሬ%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
