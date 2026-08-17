@@ -3649,3 +3649,97 @@ All services loaded and ready!
   [92m✔ /clear done[0m in [93m0.02s[0m
 
 127.0.0.1 - - [16/Aug/2026 15:09:54] "POST /clear HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1423.96it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:04<41:02,  2.08s/it]Loading weights:   6%|6         | 75/1188 [00:04<00:50, 22.19it/s]Loading weights:   7%|7         | 85/1188 [00:05<00:49, 22.08it/s]Loading weights:   8%|7         | 92/1188 [00:05<00:50, 21.60it/s]Loading weights:   8%|8         | 98/1188 [00:05<00:47, 22.99it/s]Loading weights:   9%|8         | 103/1188 [00:06<00:55, 19.60it/s]Loading weights:  10%|9         | 113/1188 [00:06<00:42, 25.13it/s]Loading weights:  10%|9         | 118/1188 [00:06<00:50, 21.04it/s]Loading weights:  11%|#         | 126/1188 [00:06<00:45, 23.40it/s]Loading weights:  11%|#         | 130/1188 [00:07<00:51, 20.43it/s]Loading weights:  12%|#1        | 140/1188 [00:07<00:41, 25.11it/s]Loading weights:  12%|#2        | 144/1188 [00:07<00:59, 17.60it/s]Loading weights:  13%|#3        | 155/1188 [00:08<00:41, 24.93it/s]Loading weights:  13%|#3        | 159/1188 [00:08<00:54, 18.74it/s]Loading weights:  14%|#4        | 168/1188 [00:09<00:54, 18.87it/s]Loading weights:  14%|#4        | 172/1188 [00:09<00:48, 20.93it/s]Loading weights:  15%|#5        | 179/1188 [00:09<00:40, 25.12it/s]Loading weights:  16%|#5        | 185/1188 [00:09<00:47, 20.90it/s]Loading weights:  16%|#5        | 188/1188 [00:09<00:45, 21.84it/s]Loading weights:  17%|#6        | 199/1188 [00:10<00:42, 23.17it/s]Loading weights:  18%|#7        | 209/1188 [00:10<00:34, 28.75it/s]Loading weights:  18%|#7        | 213/1188 [00:10<00:47, 20.66it/s]Loading weights:  19%|#8        | 223/1188 [00:11<00:36, 26.49it/s]Loading weights:  19%|#9        | 227/1188 [00:11<01:03, 15.08it/s]Loading weights:  19%|#9        | 230/1188 [00:12<00:59, 16.21it/s]Loading weights:  20%|#9        | 235/1188 [00:12<00:51, 18.37it/s]Loading weights:  20%|##        | 241/1188 [00:12<00:51, 18.45it/s]Loading weights:  21%|##        | 244/1188 [00:12<00:57, 16.50it/s]Loading weights:  21%|##1       | 251/1188 [00:12<00:43, 21.34it/s]Loading weights:  21%|##1       | 254/1188 [00:13<00:48, 19.20it/s]Loading weights:  22%|##2       | 262/1188 [00:13<00:33, 27.92it/s]Loading weights:  23%|##2       | 268/1188 [00:13<00:45, 20.14it/s]Loading weights:  23%|##3       | 278/1188 [00:13<00:32, 27.69it/s]Loading weights:  24%|##3       | 282/1188 [00:14<00:46, 19.69it/s]Loading weights:  25%|##4       | 292/1188 [00:14<00:32, 27.52it/s]Loading weights:  25%|##4       | 296/1188 [00:15<00:44, 19.90it/s]Loading weights:  26%|##5       | 306/1188 [00:15<00:37, 23.34it/s]Loading weights:  26%|##6       | 310/1188 [00:15<00:38, 22.99it/s]Loading weights:  26%|##6       | 313/1188 [00:15<00:40, 21.66it/s]Loading weights:  27%|##7       | 324/1188 [00:16<00:36, 23.51it/s]Loading weights:  28%|##7       | 327/1188 [00:16<00:38, 22.54it/s]Loading weights:  28%|##8       | 334/1188 [00:16<00:45, 18.77it/s]Loading weights:  29%|##8       | 339/1188 [00:16<00:39, 21.37it/s]Loading weights:  29%|##9       | 348/1188 [00:17<00:29, 28.62it/s]Loading weights:  30%|##9       | 352/1188 [00:17<00:41, 20.24it/s]Loading weights:  30%|###       | 362/1188 [00:17<00:28, 28.79it/s]Loading weights:  31%|###       | 367/1188 [00:18<00:38, 21.44it/s]Loading weights:  32%|###1      | 379/1188 [00:18<00:36, 22.07it/s]Loading weights:  33%|###2      | 389/1188 [00:18<00:28, 27.69it/s]Loading weights:  33%|###3      | 393/1188 [00:19<00:36, 21.91it/s]Loading weights:  34%|###3      | 403/1188 [00:19<00:26, 29.28it/s]Loading weights:  34%|###4      | 408/1188 [00:19<00:33, 23.38it/s]Loading weights:  35%|###4      | 412/1188 [00:19<00:30, 25.23it/s]Loading weights:  35%|###5      | 417/1188 [00:20<00:37, 20.70it/s]Loading weights:  36%|###5      | 422/1188 [00:20<00:33, 23.05it/s]Loading weights:  36%|###6      | 431/1188 [00:20<00:25, 29.54it/s]Loading weights:  37%|###6      | 435/1188 [00:20<00:33, 22.38it/s]Loading weights:  37%|###7      | 445/1188 [00:20<00:23, 31.01it/s]Loading weights:  38%|###7      | 449/1188 [00:21<00:31, 23.40it/s]Loading weights:  38%|###8      | 453/1188 [00:21<00:31, 23.54it/s]Loading weights:  39%|###8      | 462/1188 [00:22<00:34, 20.91it/s]Loading weights:  39%|###9      | 465/1188 [00:22<00:34, 21.18it/s]Loading weights:  40%|###9      | 473/1188 [00:22<00:25, 27.86it/s]Loading weights:  40%|####      | 477/1188 [00:22<00:34, 20.67it/s]Loading weights:  41%|####      | 486/1188 [00:22<00:26, 26.29it/s]Loading weights:  41%|####1     | 490/1188 [00:23<00:34, 20.34it/s]Loading weights:  41%|####1     | 493/1188 [00:23<00:33, 20.53it/s]Loading weights:  42%|####1     | 498/1188 [00:23<00:30, 22.96it/s]Loading weights:  42%|####2     | 501/1188 [00:23<00:40, 16.85it/s]Loading weights:  43%|####2     | 505/1188 [00:24<00:38, 17.76it/s]Loading weights:  44%|####3     | 517/1188 [00:24<00:34, 19.44it/s]Loading weights:  44%|####4     | 525/1188 [00:24<00:26, 25.35it/s]Loading weights:  45%|####4     | 529/1188 [00:24<00:27, 24.18it/s]Loading weights:  45%|####4     | 532/1188 [00:25<00:33, 19.40it/s]Loading weights:  46%|####5     | 541/1188 [00:25<00:25, 25.62it/s]Loading weights:  46%|####5     | 545/1188 [00:25<00:30, 21.02it/s]Loading weights:  47%|####6     | 553/1188 [00:25<00:22, 28.06it/s]Loading weights:  47%|####7     | 559/1188 [00:26<00:30, 20.90it/s]Loading weights:  48%|####7     | 569/1188 [00:26<00:22, 27.85it/s]Loading weights:  48%|####8     | 573/1188 [00:26<00:25, 23.69it/s]Loading weights:  48%|####8     | 576/1188 [00:27<00:28, 21.75it/s]Loading weights:  49%|####8     | 581/1188 [00:27<00:27, 21.88it/s]Loading weights:  49%|####9     | 584/1188 [00:27<00:26, 22.71it/s]Loading weights:  49%|####9     | 587/1188 [00:27<00:28, 20.94it/s]Loading weights:  50%|####9     | 590/1188 [00:27<00:31, 18.90it/s]Loading weights:  51%|#####     | 600/1188 [00:28<00:22, 26.71it/s]Loading weights:  51%|#####     | 603/1188 [00:28<00:24, 24.13it/s]Loading weights:  52%|#####1    | 614/1188 [00:28<00:26, 21.43it/s]Loading weights:  53%|#####2    | 624/1188 [00:28<00:19, 28.43it/s]Loading weights:  53%|#####2    | 628/1188 [00:29<00:24, 22.90it/s]Loading weights:  53%|#####3    | 631/1188 [00:29<00:25, 22.07it/s]Loading weights:  54%|#####4    | 642/1188 [00:29<00:23, 22.99it/s]Loading weights:  55%|#####4    | 648/1188 [00:29<00:19, 27.47it/s]Loading weights:  55%|#####4    | 653/1188 [00:30<00:18, 28.32it/s]Loading weights:  55%|#####5    | 657/1188 [00:30<00:21, 24.33it/s]Loading weights:  56%|#####5    | 660/1188 [00:30<00:24, 21.96it/s]Loading weights:  56%|#####6    | 669/1188 [00:30<00:18, 27.49it/s]Loading weights:  57%|#####6    | 672/1188 [00:31<00:23, 22.30it/s]Loading weights:  57%|#####7    | 683/1188 [00:31<00:22, 22.10it/s]Loading weights:  58%|#####8    | 693/1188 [00:31<00:18, 26.92it/s]Loading weights:  59%|#####8    | 697/1188 [00:32<00:19, 25.37it/s]Loading weights:  59%|#####8    | 700/1188 [00:32<00:20, 23.99it/s]Loading weights:  60%|#####9    | 711/1188 [00:32<00:21, 21.95it/s]Loading weights:  61%|######    | 721/1188 [00:32<00:16, 27.75it/s]Loading weights:  61%|######1   | 725/1188 [00:33<00:21, 21.80it/s]Loading weights:  62%|######1   | 736/1188 [00:33<00:14, 31.83it/s]Loading weights:  62%|######2   | 741/1188 [00:33<00:20, 21.53it/s]Loading weights:  63%|######2   | 747/1188 [00:34<00:17, 25.54it/s]Loading weights:  63%|######3   | 752/1188 [00:34<00:23, 18.70it/s]Loading weights:  64%|######3   | 760/1188 [00:34<00:18, 22.90it/s]Loading weights:  64%|######4   | 766/1188 [00:35<00:20, 20.49it/s]Loading weights:  65%|######5   | 776/1188 [00:35<00:14, 28.23it/s]Loading weights:  66%|######5   | 780/1188 [00:35<00:20, 20.37it/s]Loading weights:  66%|######6   | 790/1188 [00:35<00:13, 29.46it/s]Loading weights:  67%|######6   | 795/1188 [00:36<00:16, 23.60it/s]Loading weights:  68%|######7   | 804/1188 [00:36<00:14, 25.70it/s]Loading weights:  68%|######8   | 808/1188 [00:36<00:21, 17.79it/s]Loading weights:  69%|######9   | 822/1188 [00:37<00:18, 19.66it/s]Loading weights:  70%|######9   | 830/1188 [00:37<00:14, 24.18it/s]Loading weights:  72%|#######2  | 857/1188 [00:37<00:06, 50.42it/s]Loading weights:  74%|#######3  | 875/1188 [00:37<00:04, 67.67it/s]Loading weights:  76%|#######5  | 897/1188 [00:38<00:03, 91.76it/s]Loading weights:  78%|#######7  | 924/1188 [00:38<00:02, 119.28it/s]Loading weights:  80%|#######9  | 949/1188 [00:38<00:01, 145.41it/s]Loading weights:  82%|########2 | 975/1188 [00:38<00:01, 165.60it/s]Loading weights:  84%|########4 | 1001/1188 [00:38<00:01, 186.50it/s]Loading weights:  87%|########6 | 1030/1188 [00:38<00:00, 212.32it/s]Loading weights:  89%|########8 | 1054/1188 [00:38<00:00, 213.78it/s]Loading weights:  91%|######### | 1078/1188 [00:38<00:00, 213.40it/s]Loading weights:  93%|#########3| 1109/1188 [00:38<00:00, 228.56it/s]Loading weights:  97%|#########7| 1155/1188 [00:39<00:00, 290.84it/s]Loading weights: 100%|#########9| 1186/1188 [00:39<00:00, 294.95it/s]Loading weights: 100%|##########| 1188/1188 [00:39<00:00, 30.34it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:48:33][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786689671582
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m6.38s[0m | [93m27 tokens[0m
+
+[2026-08-17 08:48:40,156] ERROR in app: Exception on /api/tts/audio [GET]
+Traceback (most recent call last):
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/data/chatbot_model_4_31B-it/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/mnt/data/chatbot_model_4_31B-it/src/ui/app.py", line 217, in stream_speech_audio
+    from src.tts.synthesizer import VoiceSynthesizer
+  File "/mnt/data/chatbot_model_4_31B-it/src/tts/synthesizer.py", line 3, in <module>
+    import edge_tts
+ModuleNotFoundError: No module named 'edge_tts'
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5492.11it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:02, 416.87it/s]Loading weights:   7%|7         | 89/1188 [00:00<00:04, 273.70it/s]Loading weights:  10%|#         | 119/1188 [00:00<00:04, 262.80it/s]Loading weights:  12%|#2        | 147/1188 [00:00<00:04, 247.68it/s]Loading weights:  15%|#4        | 173/1188 [00:00<00:04, 231.15it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 228.01it/s]Loading weights:  19%|#9        | 227/1188 [00:00<00:04, 221.32it/s]Loading weights:  21%|##1       | 250/1188 [00:01<00:04, 221.93it/s]Loading weights:  23%|##2       | 273/1188 [00:01<00:04, 222.58it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 218.96it/s]Loading weights:  27%|##7       | 321/1188 [00:01<00:03, 221.93it/s]Loading weights:  29%|##8       | 344/1188 [00:01<00:03, 222.96it/s]Loading weights:  31%|###       | 367/1188 [00:01<00:03, 211.35it/s]Loading weights:  33%|###2      | 390/1188 [00:01<00:03, 209.61it/s]Loading weights:  35%|###4      | 412/1188 [00:01<00:03, 210.56it/s]Loading weights:  37%|###6      | 435/1188 [00:01<00:03, 200.72it/s]Loading weights:  39%|###8      | 463/1188 [00:02<00:03, 221.36it/s]Loading weights:  41%|####1     | 490/1188 [00:02<00:03, 215.24it/s]Loading weights:  43%|####3     | 513/1188 [00:02<00:03, 218.01it/s]Loading weights:  45%|####5     | 539/1188 [00:02<00:02, 224.45it/s]Loading weights:  47%|####7     | 562/1188 [00:02<00:02, 219.95it/s]Loading weights:  49%|####9     | 585/1188 [00:02<00:02, 216.11it/s]Loading weights:  52%|#####1    | 614/1188 [00:02<00:02, 216.24it/s]Loading weights:  54%|#####3    | 636/1188 [00:02<00:02, 215.25it/s]Loading weights:  56%|#####5    | 663/1188 [00:02<00:02, 230.22it/s]Loading weights:  58%|#####7    | 687/1188 [00:03<00:02, 222.52it/s]Loading weights:  60%|#####9    | 710/1188 [00:03<00:02, 217.18it/s]Loading weights:  62%|######1   | 736/1188 [00:03<00:02, 218.97it/s]Loading weights:  64%|######4   | 762/1188 [00:03<00:01, 220.59it/s]Loading weights:  66%|######6   | 785/1188 [00:03<00:01, 221.46it/s]Loading weights:  68%|######8   | 808/1188 [00:03<00:01, 215.99it/s]Loading weights:  73%|#######2  | 863/1188 [00:03<00:01, 308.73it/s]Loading weights:  91%|######### | 1080/1188 [00:03<00:00, 837.32it/s]Loading weights: 100%|##########| 1188/1188 [00:03<00:00, 307.85it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:56:09][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m stream_check
+  [96mPrompt :[0m Hi
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('Hi') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m10.64s[0m | [93m58 tokens[0m
+
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5273.64it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:43, 11.51it/s]Loading weights:   5%|5         | 62/1188 [00:00<00:04, 270.43it/s]Loading weights:   8%|8         | 96/1188 [00:00<00:04, 252.83it/s]Loading weights:  11%|#         | 126/1188 [00:00<00:04, 238.63it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 234.51it/s]Loading weights:  15%|#5        | 179/1188 [00:00<00:04, 234.92it/s]Loading weights:  17%|#7        | 204/1188 [00:00<00:04, 225.09it/s]Loading weights:  19%|#9        | 228/1188 [00:01<00:04, 214.66it/s]Loading weights:  21%|##1       | 250/1188 [00:01<00:04, 213.61it/s]Loading weights:  23%|##3       | 276/1188 [00:01<00:04, 225.79it/s]Loading weights:  25%|##5       | 299/1188 [00:01<00:04, 215.02it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 212.81it/s]Loading weights:  29%|##9       | 350/1188 [00:01<00:03, 214.15it/s]Loading weights:  31%|###1      | 373/1188 [00:01<00:03, 216.23it/s]Loading weights:  33%|###3      | 395/1188 [00:01<00:03, 204.90it/s]Loading weights:  35%|###5      | 419/1188 [00:01<00:03, 214.29it/s]Loading weights:  37%|###7      | 444/1188 [00:02<00:03, 216.91it/s]Loading weights:  40%|###9      | 470/1188 [00:02<00:03, 217.11it/s]Loading weights:  41%|####1     | 492/1188 [00:02<00:03, 214.22it/s]Loading weights:  44%|####3     | 517/1188 [00:02<00:03, 218.25it/s]Loading weights:  46%|####5     | 545/1188 [00:02<00:02, 219.75it/s]Loading weights:  48%|####8     | 573/1188 [00:02<00:02, 222.06it/s]Loading weights:  50%|#####     | 597/1188 [00:02<00:02, 216.50it/s]Loading weights:  52%|#####2    | 619/1188 [00:02<00:02, 214.92it/s]Loading weights:  54%|#####4    | 643/1188 [00:02<00:02, 219.94it/s]Loading weights:  56%|#####6    | 666/1188 [00:03<00:02, 219.55it/s]Loading weights:  58%|#####8    | 693/1188 [00:03<00:02, 209.15it/s]Loading weights:  61%|######    | 721/1188 [00:03<00:02, 217.61it/s]Loading weights:  63%|######3   | 749/1188 [00:03<00:02, 212.29it/s]Loading weights:  65%|######5   | 776/1188 [00:03<00:01, 223.47it/s]Loading weights:  67%|######7   | 799/1188 [00:03<00:01, 214.59it/s]Loading weights:  69%|######9   | 821/1188 [00:03<00:01, 215.70it/s]Loading weights:  71%|#######   | 843/1188 [00:03<00:01, 195.45it/s]Loading weights:  79%|#######8  | 937/1188 [00:04<00:00, 387.34it/s]Loading weights:  87%|########6 | 1030/1188 [00:04<00:00, 527.06it/s]Loading weights:  92%|#########2| 1095/1188 [00:04<00:00, 560.80it/s]Loading weights:  97%|#########7| 1154/1188 [00:04<00:00, 497.44it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 268.46it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[92m▶ POST /clear[0m [2m[12:00:27][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786957227121
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+

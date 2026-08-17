@@ -1,0 +1,48 @@
+================================================================================
+                    PROCESS TERMINATION CHEAT SHEET
+================================================================================
+
+1. FOREGROUND PROCESS TERMINATION (Terminal)
+--------------------------------------------------------------------------------
+Ctrl + C          : Graceful interrupt (SIGINT)
+Ctrl + \          : Force quit with core dump (SIGQUIT)
+Ctrl + Z          : Suspend / background process (SIGTSTP)
+
+
+2. KILL BY APPLICATION / PROCESS NAME
+--------------------------------------------------------------------------------
+# Gracefully kill all Gunicorn instances:
+pkill -f gunicorn
+
+# Force kill all Gunicorn instances:
+pkill -9 -f gunicorn
+
+# Gracefully kill any process running main.py:
+pkill -f main.py
+
+# Force kill any process running main.py:
+pkill -9 -f main.py
+
+# Kill all python processes for current user (use with caution):
+pkill -f python
+
+
+3. KILL BY PORT
+--------------------------------------------------------------------------------
+# Kill any process listening on port 5000:
+fuser -k 5000/tcp
+
+# Alternatively, find PID and kill:
+lsof -ti:5000 | xargs kill -9
+
+
+4. KILL BY PROCESS ID (PID)
+--------------------------------------------------------------------------------
+# Find running python/gunicorn PIDs:
+ps aux | grep -E "python|gunicorn" | grep -v grep
+
+# Graceful termination (SIGTERM):
+kill <PID>
+
+# Force kill (SIGKILL):
+kill -9 <PID>
