@@ -3743,3 +3743,85 @@ All services loaded and ready!
   [96mPrompt :[0m [clear history]
   [92m✔ /clear done[0m in [93m0.01s[0m
 
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5080.99it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<05:43,  3.46it/s]Loading weights:  13%|#2        | 151/1188 [00:00<00:03, 297.81it/s]Loading weights:  20%|##        | 239/1188 [00:01<00:03, 252.51it/s]Loading weights:  25%|##5       | 297/1188 [00:01<00:03, 234.65it/s]Loading weights:  29%|##8       | 340/1188 [00:01<00:03, 226.19it/s]Loading weights:  32%|###1      | 375/1188 [00:01<00:03, 225.18it/s]Loading weights:  34%|###4      | 406/1188 [00:01<00:03, 227.51it/s]Loading weights:  37%|###6      | 435/1188 [00:02<00:03, 213.89it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 212.00it/s]Loading weights:  41%|####      | 487/1188 [00:02<00:03, 216.56it/s]Loading weights:  43%|####3     | 511/1188 [00:02<00:03, 221.18it/s]Loading weights:  45%|####5     | 535/1188 [00:02<00:03, 208.18it/s]Loading weights:  47%|####7     | 559/1188 [00:02<00:03, 207.84it/s]Loading weights:  49%|####9     | 583/1188 [00:02<00:02, 211.62it/s]Loading weights:  51%|#####1    | 610/1188 [00:02<00:02, 210.42it/s]Loading weights:  54%|#####3    | 636/1188 [00:03<00:02, 207.26it/s]Loading weights:  55%|#####5    | 658/1188 [00:03<00:02, 203.39it/s]Loading weights:  57%|#####7    | 683/1188 [00:03<00:02, 200.17it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 215.38it/s]Loading weights:  62%|######2   | 738/1188 [00:03<00:02, 220.34it/s]Loading weights:  64%|######4   | 761/1188 [00:03<00:02, 206.11it/s]Loading weights:  66%|######5   | 782/1188 [00:03<00:01, 206.91it/s]Loading weights:  68%|######8   | 808/1188 [00:03<00:02, 175.45it/s]Loading weights:  70%|######9   | 827/1188 [00:04<00:05, 67.58it/s] Loading weights:  78%|#######7  | 923/1188 [00:04<00:01, 163.08it/s]Loading weights:  87%|########6 | 1030/1188 [00:04<00:00, 285.17it/s]Loading weights:  93%|#########3| 1106/1188 [00:05<00:00, 345.61it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 232.25it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+10.100.9.209 - - [17/Aug/2026 15:18:47] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [17/Aug/2026 15:18:47] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [17/Aug/2026 15:18:48] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:18:56][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786187734487
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:18:56] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:19:02][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786109346749
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:19:02] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:19:07][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786081412031
+  [96mPrompt :[0m [clear history]
+
+[1m[92m▶ POST /clear[0m [2m[15:19:07][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786969147031
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:19:07] "POST /clear HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:19:07] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:19:08][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786969148208
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:19:08] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:19:10][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786969148208
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [17/Aug/2026 15:19:10] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 15:19:26] "GET /API/openapi.json HTTP/1.1" 200 -
