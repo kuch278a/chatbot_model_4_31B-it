@@ -4287,3 +4287,174 @@ Indexed 1 files from /mnt/data/local_data
 127.0.0.1 - - [18/Aug/2026 16:11:48] "POST /clear HTTP/1.1" 200 -
 127.0.0.1 - - [18/Aug/2026 16:11:48] "GET /files HTTP/1.1" 200 -
 127.0.0.1 - - [18/Aug/2026 16:11:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5499.20it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:19,  8.51it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:05, 221.81it/s]Loading weights:   8%|7         | 94/1188 [00:00<00:04, 228.03it/s]Loading weights:  10%|#         | 123/1188 [00:00<00:04, 222.86it/s]Loading weights:  13%|#2        | 149/1188 [00:00<00:04, 216.59it/s]Loading weights:  15%|#4        | 173/1188 [00:00<00:05, 193.06it/s]Loading weights:  16%|#6        | 196/1188 [00:01<00:04, 200.69it/s]Loading weights:  19%|#8        | 221/1188 [00:01<00:04, 206.40it/s]Loading weights:  20%|##        | 243/1188 [00:01<00:04, 191.00it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 204.72it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 200.09it/s]Loading weights:  26%|##6       | 313/1188 [00:01<00:04, 181.31it/s]Loading weights:  29%|##9       | 345/1188 [00:01<00:04, 209.89it/s]Loading weights:  31%|###       | 367/1188 [00:01<00:04, 202.66it/s]Loading weights:  33%|###3      | 393/1188 [00:01<00:03, 205.53it/s]Loading weights:  35%|###4      | 414/1188 [00:02<00:03, 204.52it/s]Loading weights:  37%|###6      | 435/1188 [00:02<00:04, 184.78it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 204.30it/s]Loading weights:  41%|####      | 486/1188 [00:02<00:03, 204.78it/s]Loading weights:  43%|####2     | 507/1188 [00:02<00:03, 197.45it/s]Loading weights:  44%|####4     | 528/1188 [00:02<00:03, 196.35it/s]Loading weights:  47%|####6     | 556/1188 [00:02<00:02, 219.00it/s]Loading weights:  49%|####8     | 579/1188 [00:02<00:03, 201.32it/s]Loading weights:  51%|#####     | 600/1188 [00:03<00:03, 181.78it/s]Loading weights:  53%|#####2    | 624/1188 [00:03<00:02, 195.93it/s]Loading weights:  54%|#####4    | 645/1188 [00:03<00:02, 186.25it/s]Loading weights:  56%|#####5    | 665/1188 [00:03<00:02, 189.08it/s]Loading weights:  58%|#####7    | 685/1188 [00:03<00:02, 187.50it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 194.40it/s]Loading weights:  62%|######2   | 739/1188 [00:03<00:02, 199.25it/s]Loading weights:  64%|######4   | 762/1188 [00:03<00:02, 195.99it/s]Loading weights:  66%|######5   | 782/1188 [00:06<00:14, 28.96it/s] Loading weights:  67%|######7   | 797/1188 [00:07<00:18, 21.32it/s]Loading weights:  68%|######8   | 808/1188 [00:08<00:19, 19.82it/s]Loading weights:  69%|######8   | 816/1188 [00:08<00:16, 22.59it/s]Loading weights:  69%|######9   | 824/1188 [00:08<00:16, 22.32it/s]Loading weights:  79%|#######8  | 936/1188 [00:08<00:02, 98.78it/s]Loading weights:  82%|########2 | 975/1188 [00:08<00:01, 123.78it/s]Loading weights:  85%|########5 | 1013/1188 [00:09<00:01, 152.73it/s]Loading weights:  88%|########8 | 1050/1188 [00:09<00:00, 180.62it/s]Loading weights:  91%|#########1| 1086/1188 [00:09<00:00, 201.18it/s]Loading weights:  94%|#########4| 1120/1188 [00:09<00:00, 156.62it/s]Loading weights:  97%|#########6| 1147/1188 [00:10<00:00, 121.57it/s]Loading weights:  98%|#########8| 1168/1188 [00:10<00:00, 129.41it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 132.79it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 115.21it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+10.100.9.209 - - [18/Aug/2026 16:16:11] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:16:11] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:16:11] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:16:14][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787058974957
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 16:16:14] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:16:19][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787057565959
+  [96mPrompt :[0m fff
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+10.100.9.209 - - [18/Aug/2026 16:16:21] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m8.84s[0m | [93m27 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.82s[0m
+
+10.100.9.209 - - [18/Aug/2026 16:16:29] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ልረዳዎት%20እችላለሁ?%20ማንኛውንም%20ጥያቄ%20መጠየቅ%20ይችላሉ።&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /clear[0m [2m[16:16:36][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787057565959
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+10.100.9.209 - - [18/Aug/2026 16:16:36] "POST /clear HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:17:16] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:17:16] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:17:16] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:16] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:16] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:16] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:19:57] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:20:00][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787058974957
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 16:20:00] "POST /clear HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:56] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:56] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:56] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:20:57] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:21:05][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787059265478
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 16:21:05] "POST /clear HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:27] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:28] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:28] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:28] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:22:43] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:10] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:25:11] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:26:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:26:50] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:26:50][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787059610877
+  [96mPrompt :[0m [clear history]
+127.0.0.1 - - [18/Aug/2026 16:26:50] "GET /files HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [18/Aug/2026 16:26:50] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:26:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+10.100.9.209 - - [18/Aug/2026 16:26:58] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:58] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:58] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:26:59] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:27:05] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:27:05] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 16:27:05] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:27:35] "GET /?theme=light HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:27:35] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:27:36][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787059656145
+  [96mPrompt :[0m [clear history]
+127.0.0.1 - - [18/Aug/2026 16:27:36] "GET /files HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [18/Aug/2026 16:27:36] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:27:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [18/Aug/2026 16:28:21] "GET /?theme=light HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:28:21] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:28:21][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787059701864
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [18/Aug/2026 16:28:21] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:28:21] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:28:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

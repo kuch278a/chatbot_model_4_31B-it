@@ -5,13 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    /* Dark Theme Color Palette */
+    /* Dark Theme Color Palette (Default) */
     --gemini-bg: #131314;
+    --gemini-bg-fade: rgba(19, 19, 20, 0.85);
     --gemini-surface: #1e1f20;
     --gemini-surface-variant: #282a2c;
     --gemini-surface-hover: #333537;
     --gemini-border: #3c4043;
     --gemini-border-subtle: rgba(255, 255, 255, 0.08);
+    --gemini-shadow: rgba(0, 0, 0, 0.45);
     
     /* Text Hierarchy */
     --text-primary: #e3e3e3;
@@ -35,6 +37,31 @@
     --bubble-radius: 22px;
 }
 
+[data-theme="light"] {
+    /* Light Theme Color Palette */
+    --gemini-bg: #f8fafd;
+    --gemini-bg-fade: rgba(248, 250, 253, 0.88);
+    --gemini-surface: #f0f4f9;
+    --gemini-surface-variant: #e1e7f0;
+    --gemini-surface-hover: #d7e1ed;
+    --gemini-border: #d4dbe4;
+    --gemini-border-subtle: rgba(0, 0, 0, 0.08);
+    --gemini-shadow: rgba(0, 0, 0, 0.08);
+    
+    /* Text Hierarchy */
+    --text-primary: #1f1f1f;
+    --text-secondary: #444746;
+    --text-muted: #6f757b;
+    --text-dim: #9aa0a6;
+    
+    /* Accents */
+    --gemini-blue: #1a73e8;
+    --gemini-purple: #8430ce;
+    --gemini-pink: #c5221f;
+    --gemini-cyan: #129aa6;
+    --gemini-emerald: #0d904f;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -50,6 +77,11 @@ body {
     height: 100vh;
     overflow: hidden;
     display: flex;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body, .sidebar, .main-chat-viewport, .gemini-topbar, .input-capsule-box, .new-chat-pill, .chat-history-item, .pill-select, .action-pill-btn, .user-bubble, .assistant-bubble {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* ─── Main App Shell ───────────────────────────────────────────────────────── */
@@ -437,6 +469,70 @@ body {
     border-color: rgba(66, 133, 244, 0.4);
 }
 
+/* ─── Theme Toggle Button & Light Mode Overrides ─────────────────────────── */
+.theme-icon-sun {
+    display: block;
+    color: #f59e0b;
+}
+
+.theme-icon-moon {
+    display: none;
+    color: #818cf8;
+}
+
+[data-theme="light"] .theme-icon-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-icon-moon {
+    display: block;
+}
+
+[data-theme="light"] .welcome-title {
+    background: linear-gradient(135deg, #1e293b 25%, #2563eb 65%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .new-chat-pill {
+    background-color: var(--gemini-surface-variant);
+    color: var(--text-primary);
+    border-color: var(--gemini-border-subtle);
+}
+
+[data-theme="light"] .new-chat-pill:hover {
+    background-color: var(--gemini-surface-hover);
+}
+
+[data-theme="light"] .gemini-send-btn {
+    background-color: #e2e8f0;
+    color: var(--text-muted);
+}
+
+[data-theme="light"] .gemini-send-btn.active {
+    background-color: var(--gemini-blue);
+    color: #ffffff;
+}
+
+[data-theme="light"] .assistant-bubble h1,
+[data-theme="light"] .assistant-bubble h2,
+[data-theme="light"] .assistant-bubble h3,
+[data-theme="light"] .assistant-bubble strong {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .source-chunk-card {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .sources-body {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .rag-status-chip {
+    background: rgba(0, 0, 0, 0.05);
+}
+
 .user-avatar-circle {
     width: 34px;
     height: 34px;
@@ -803,7 +899,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 0 16px 20px 16px;
-    background: linear-gradient(to top, var(--gemini-bg) 60%, rgba(19, 19, 20, 0.8) 85%, transparent 100%);
+    background: linear-gradient(to top, var(--gemini-bg) 60%, var(--gemini-bg-fade) 85%, transparent 100%);
     pointer-events: none;
     z-index: 50;
 }
@@ -818,8 +914,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px var(--gemini-shadow);
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
     pointer-events: auto;
 }
 

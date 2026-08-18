@@ -17,6 +17,8 @@ class TestUIRoutes(unittest.TestCase):
         self.assertIn("userInput", html)
         self.assertIn("sendBtn", html)
         self.assertIn("micBtn", html)
+        self.assertIn("themeToggleBtn", html)
+        self.assertIn("toggleTheme", html)
         self.assertIn("ሰላም፣ እንዴት ልርዳዎት?", html)
         # Verify Gemini logo & welcome landing page cards were removed
         self.assertNotIn("sparkle-icon", html)
@@ -28,6 +30,7 @@ class TestUIRoutes(unittest.TestCase):
         self.assertEqual(response.mimetype, "text/css")
         css = response.get_data(as_text=True)
         self.assertIn("--gemini-bg", css)
+        self.assertIn("data-theme", css)
         self.assertIn(".brand-icon", css)
 
 if __name__ == "__main__":
