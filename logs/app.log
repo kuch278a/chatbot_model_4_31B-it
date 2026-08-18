@@ -3944,3 +3944,35 @@ All services loaded and ready!
 
   [92m✔ /api/tts/audio done[0m in [93m3.85s[0m
 
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5324.12it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:32,  7.76it/s]Loading weights:   6%|6         | 72/1188 [00:00<00:04, 242.36it/s]Loading weights:   9%|9         | 109/1188 [00:00<00:04, 234.98it/s]Loading weights:  12%|#1        | 140/1188 [00:00<00:04, 225.44it/s]Loading weights:  14%|#4        | 167/1188 [00:00<00:04, 219.83it/s]Loading weights:  16%|#6        | 193/1188 [00:00<00:04, 227.72it/s]Loading weights:  18%|#8        | 218/1188 [00:01<00:04, 224.28it/s]Loading weights:  20%|##        | 242/1188 [00:01<00:04, 220.73it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 225.14it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 218.60it/s]Loading weights:  27%|##6       | 315/1188 [00:01<00:03, 219.24it/s]Loading weights:  28%|##8       | 338/1188 [00:01<00:04, 211.02it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:03, 210.97it/s]Loading weights:  33%|###2      | 389/1188 [00:01<00:03, 216.09it/s]Loading weights:  35%|###4      | 411/1188 [00:01<00:03, 216.70it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:03, 197.65it/s]Loading weights:  39%|###8      | 463/1188 [00:02<00:03, 213.16it/s]Loading weights:  41%|####1     | 490/1188 [00:02<00:03, 214.88it/s]Loading weights:  43%|####3     | 512/1188 [00:02<00:03, 214.34it/s]Loading weights:  45%|####5     | 539/1188 [00:02<00:03, 215.28it/s]Loading weights:  48%|####7     | 569/1188 [00:02<00:02, 221.91it/s]Loading weights:  50%|####9     | 592/1188 [00:02<00:02, 223.66it/s]Loading weights:  52%|#####1    | 615/1188 [00:02<00:02, 209.87it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:02, 220.73it/s]Loading weights:  56%|#####6    | 669/1188 [00:03<00:02, 216.48it/s]Loading weights:  59%|#####8    | 697/1188 [00:03<00:02, 216.93it/s]Loading weights:  61%|######    | 722/1188 [00:03<00:02, 218.08it/s]Loading weights:  63%|######2   | 747/1188 [00:03<00:01, 224.94it/s]Loading weights:  65%|######4   | 770/1188 [00:03<00:02, 207.79it/s]Loading weights:  67%|######6   | 794/1188 [00:03<00:01, 208.75it/s]Loading weights:  69%|######8   | 819/1188 [00:03<00:01, 208.26it/s]Loading weights:  83%|########2 | 986/1188 [00:03<00:00, 595.54it/s]Loading weights:  88%|########8 | 1051/1188 [00:04<00:00, 537.81it/s]Loading weights:  93%|#########3| 1110/1188 [00:04<00:00, 487.46it/s]Loading weights:  99%|#########8| 1171/1188 [00:04<00:00, 511.20it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 270.38it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 6046.05it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:04, 284.99it/s]Loading weights:   5%|5         | 62/1188 [00:00<00:04, 255.28it/s]Loading weights:   7%|7         | 88/1188 [00:00<00:04, 237.22it/s]Loading weights:   9%|9         | 112/1188 [00:00<00:04, 237.05it/s]Loading weights:  12%|#1        | 140/1188 [00:00<00:04, 228.76it/s]Loading weights:  14%|#4        | 168/1188 [00:00<00:04, 223.60it/s]Loading weights:  16%|#6        | 193/1188 [00:00<00:04, 230.09it/s]Loading weights:  18%|#8        | 217/1188 [00:01<00:07, 132.98it/s]Loading weights:  20%|##        | 242/1188 [00:01<00:06, 154.67it/s]Loading weights:  23%|##2       | 270/1188 [00:01<00:05, 180.61it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 189.00it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 205.63it/s]Loading weights:  29%|##9       | 348/1188 [00:01<00:04, 203.18it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:03, 214.31it/s]Loading weights:  34%|###4      | 404/1188 [00:01<00:03, 213.61it/s]Loading weights:  36%|###6      | 429/1188 [00:02<00:03, 221.00it/s]Loading weights:  38%|###8      | 452/1188 [00:02<00:03, 216.31it/s]Loading weights:  40%|###9      | 475/1188 [00:02<00:03, 218.71it/s]Loading weights:  42%|####2     | 500/1188 [00:02<00:03, 209.31it/s]Loading weights:  45%|####4     | 531/1188 [00:02<00:03, 216.59it/s]Loading weights:  47%|####6     | 555/1188 [00:02<00:02, 221.21it/s]Loading weights:  49%|####8     | 578/1188 [00:02<00:02, 214.43it/s]Loading weights:  51%|#####     | 600/1188 [00:02<00:02, 214.77it/s]Loading weights:  53%|#####2    | 624/1188 [00:03<00:02, 214.29it/s]Loading weights:  55%|#####4    | 652/1188 [00:03<00:02, 224.25it/s]Loading weights:  57%|#####6    | 675/1188 [00:03<00:02, 219.73it/s]Loading weights:  59%|#####8    | 699/1188 [00:03<00:02, 219.41it/s]Loading weights:  61%|######1   | 725/1188 [00:03<00:02, 223.35it/s]Loading weights:  63%|######3   | 749/1188 [00:03<00:02, 212.76it/s]Loading weights:  65%|######5   | 776/1188 [00:03<00:01, 220.27it/s]Loading weights:  67%|######7   | 799/1188 [00:03<00:01, 218.61it/s]Loading weights:  69%|######9   | 823/1188 [00:03<00:01, 215.98it/s]Loading weights:  88%|########7 | 1045/1188 [00:04<00:00, 766.06it/s]Loading weights:  95%|#########4| 1127/1188 [00:04<00:00, 714.54it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 268.55it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
