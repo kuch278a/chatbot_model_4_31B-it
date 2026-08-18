@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=2.1">
     <script>
         (function() {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
@@ -90,6 +90,15 @@
                     <select id="langSelect" class="pill-select" title="Language Selector">
                         <option value="am-ET" selected>አማርኛ (am-ET)</option>
                     </select>
+
+                    <!-- Speaker / TTS Toggle Switch (Commented out)
+                    <button id="speakerBtn" onclick="toggleTTS()" class="action-pill-btn active" title="ድምፅ ማብሪያ/ማጥፊያ (በርቷል)">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                        <span>ድምፅ</span>
+                    </button>
+                    -->
 
                     <!-- Theme Toggle Switch -->
                     <button id="themeToggleBtn" onclick="toggleTheme()" class="action-pill-btn" title="Toggle Light / Dark Theme">
@@ -518,9 +527,11 @@
                             <button class="action-icon-btn" onclick="copyMessageText(this)" title="Copy to clipboard">
                                 <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                             </button>
+                            <!-- Read Aloud (TTS) Voice Button (Commented out)
                             <button class="action-icon-btn" onclick="speakSingleMessage(this)" title="Read Aloud (TTS)">
                                 <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
                             </button>
+                            -->
                         </div>
                     </div>
                 `;
@@ -577,7 +588,7 @@
             saveToLocalStorage();
 
             const statusDot = document.getElementById('statusDot');
-            statusDot.classList.add('loading');
+            if (statusDot) statusDot.classList.add('loading');
             showTypingIndicator();
 
             try {
@@ -638,13 +649,14 @@
                     }
                 }
             } catch (e) {
+                console.error("Chat error:", e);
                 removeTypingIndicator();
                 appendMessageNode('assistant', '⚠️ ከአገልጋዩ ጋር መገናኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።');
                 messages.pop();
+            } finally {
+                input.focus();
+                if (statusDot) statusDot.classList.remove('loading');
             }
-
-            input.focus();
-            statusDot.classList.remove('loading');
         }
 
         // ─── File Indexing (RAG) ───────────────────────────────────────────
@@ -673,7 +685,7 @@
 
         async function refreshFiles() {
             const statusDot = document.getElementById('statusDot');
-            statusDot.classList.add('loading');
+            if (statusDot) statusDot.classList.add('loading');
             try {
                 await fetch('/refresh', { method: 'POST' });
                 await loadFileList();
@@ -681,7 +693,7 @@
             } catch (e) {
                 appendMessageNode('assistant', '⚠️ የመረጃ ቋት ሰነዶችን ማደስ አልተቻለም።');
             } finally {
-                statusDot.classList.remove('loading');
+                if (statusDot) statusDot.classList.remove('loading');
             }
         }
 
@@ -699,8 +711,9 @@
         const MAX_RECORDING_MS = 15000;
 
         function initSpeechRecognition() {
-            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                document.getElementById("micBtn").style.display = "none";
+            const micBtn = document.getElementById("micBtn");
+            if (micBtn && (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)) {
+                micBtn.style.display = "none";
             }
         }
 
@@ -803,7 +816,7 @@
             isListening = true;
             audioChunks = [];
             const micBtn = document.getElementById("micBtn");
-            micBtn.classList.add("listening");
+            if (micBtn) micBtn.classList.add("listening");
             const input = document.getElementById("userInput");
             input.placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
 
@@ -817,7 +830,7 @@
                 stopVAD();
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
-                micBtn.classList.remove("listening");
+                if (micBtn) micBtn.classList.remove("listening");
                 input.placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
 
                 if (audioChunks.length === 0) {
@@ -858,12 +871,16 @@
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const btn = document.getElementById("speakerBtn");
-            if (ttsEnabled) {
-                btn.classList.add("active");
-                btn.title = "ድምፅ ማብሪያ/ማጥፊያ (በርቷል)";
-            } else {
-                btn.classList.remove("active");
-                btn.title = "ድምፅ ማብሪያ/ማጥፊያ (ጠፍቷል)";
+            if (btn) {
+                if (ttsEnabled) {
+                    btn.classList.add("active");
+                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (በርቷል)";
+                } else {
+                    btn.classList.remove("active");
+                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (ጠፍቷል)";
+                }
+            }
+            if (!ttsEnabled) {
                 if (currentAudio) {
                     currentAudio.pause();
                     currentAudio = null;
