@@ -4,230 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amani AI Assistant — a bilingual Amharic/English AI chat powered by Gemma 4 with document-aware RAG.">
-    <title>Amani AI Assistant</title>
+    <meta name="description" content="Amani AI — Bilingual Amharic/English Conversational Assistant powered by Gemma 4 31B-it.">
+    <title>Amani AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <style>
-        /* Custom UI additions */
-        .sidebar-section {
-            padding: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-dim);
-            font-weight: 700;
-        }
-        .icon-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-dim);
-            cursor: pointer;
-            font-size: 14px;
-            transition: color 0.2s;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        .icon-btn:hover {
-            color: var(--primary);
-            background: rgba(255,255,255,0.05);
-        }
-        .file-list {
-            max-height: 150px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .file-item {
-            font-size: 12px;
-            color: var(--text-main);
-            background: rgba(0, 0, 0, 0.15);
-            padding: 6px 10px;
-            border-radius: 6px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .lang-select {
-            background: var(--input-bg);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 6px 10px;
-            font-size: 12px;
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-        .lang-select:focus {
-            border-color: var(--primary);
-        }
-        .speaker-btn, .mic-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-dim);
-            padding: 8px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            height: 48px;
-            width: 48px;
-        }
-        .speaker-btn:hover, .mic-btn:hover {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-        .speaker-btn.active {
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--primary);
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-        .auto-voice-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-dim);
-            padding: 6px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s;
-            height: 38px;
-        }
-        .auto-voice-btn:hover {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-            border-color: #10b981;
-        }
-        .auto-voice-btn.active {
-            background: rgba(16, 185, 129, 0.18);
-            color: #10b981;
-            border-color: rgba(16, 185, 129, 0.5);
-            animation: pulse-auto-voice 2s infinite;
-        }
-        @keyframes pulse-auto-voice {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-        .mic-btn.listening {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border-color: #ef4444;
-            animation: pulse-mic 1.5s infinite;
-        }
-        @keyframes pulse-mic {
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-        }
-        .mic-icon, .speaker-icon, .auto-voice-icon {
-            width: 18px;
-            height: 18px;
-        }
-        /* Streaming cursor blink */
-        .stream-cursor {
-            display: inline-block;
-            animation: blink 0.7s step-end infinite;
-            color: var(--primary, #6366f1);
-            font-weight: bold;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
-        }
-    </style>
 </head>
 
 <body>
     <!-- Mobile sidebar overlay -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
-    <div class="main-wrapper">
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <button class="new-chat-btn" onclick="startNewChat()">
-                    <span>+</span> New Chat
+    <div class="app-container">
+        <!-- ─── Collapsible Sidebar ───────────────────────────────────────────── -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-brand-row">
+                    <div class="brand-group">
+                        <div class="brand-icon">አ</div>
+                        <span class="brand-text">Amani AI</span>
+                    </div>
+                    <button class="icon-button" onclick="toggleSidebar()" title="Collapse menu">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <button class="new-chat-pill" onclick="startNewChat()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    <span>New chat</span>
                 </button>
             </div>
-            <div class="chat-list" id="chatList">
-                <!-- Chat items will be injected here -->
+
+            <div class="sidebar-section-title">Recent</div>
+            <div class="chat-history-list" id="chatList">
+                <!-- Injected chat history items -->
             </div>
-            <div class="sidebar-section">
-                <div class="section-header">
-                    <span>Knowledge Base</span>
-                    <button class="icon-btn" onclick="refreshFiles()" title="Refresh Knowledge Index">↻</button>
+
+            <!-- Knowledge Base Drawer -->
+            <div class="sidebar-kb-section">
+                <div class="sidebar-kb-header">
+                    <span>Knowledge Base (RAG)</span>
+                    <button class="kb-refresh-btn" onclick="refreshFiles()" title="Rescan local documents">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </svg>
+                    </button>
                 </div>
-                <div class="file-list" id="indexedFiles">
-                    <!-- Files will be injected here -->
+                <div class="kb-files-list" id="indexedFiles">
+                    <div style="font-size:11px;color:var(--text-muted);text-align:center;padding:4px 0;">Loading documents...</div>
                 </div>
             </div>
-        </div>
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">☰</button>
-                    <div class="status" id="status"></div>
-                    <h1>አማኒ studio</h1>
+        </aside>
+
+        <!-- ─── Main Chat Viewport ───────────────────────────────────────────── -->
+        <main class="main-chat-viewport">
+            <!-- Top Bar -->
+            <header class="gemini-topbar">
+                <div class="topbar-left">
+                    <button class="icon-button" id="menuToggle" onclick="toggleSidebar()" title="Toggle sidebar">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        </svg>
+                    </button>
+                    <div class="model-badge">
+                        <div class="model-dot" id="statusDot"></div>
+                        <span>Gemma 4 31B-it</span>
+                    </div>
                 </div>
-                <div class="header-actions">
-                    <select id="langSelect" class="lang-select" title="ቋንቋ ይምረጡ">
+
+                <div class="topbar-right">
+                    <select id="langSelect" class="pill-select" title="Language Selector">
+                        <option value="en-US">English (en-US)</option>
                         <option value="am-ET" selected>አማርኛ (am-ET)</option>
                     </select>
-                    <button id="speakerBtn" onclick="toggleTTS()" class="speaker-btn active" title="ድምፅ ማብሪያ/ማጥፊያ">
-                        <svg class="speaker-icon" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M11,21L6,16H2V8H6L11,3V21Z" />
+
+                    <button id="speakerBtn" onclick="toggleTTS()" class="action-pill-btn active" title="Toggle Voice (TTS)">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-4 2.77L5 10H1v4h4l5 4V6zm3 6c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
                         </svg>
+                        <span>Voice</span>
                     </button>
-                    <button class="clear-btn" onclick="deleteCurrentChat()">ሰርዝ</button>
+
+                    <button class="action-pill-btn" onclick="deleteCurrentChat()" title="Clear this chat">
+                        <span>Clear</span>
+                    </button>
+
+                    <div class="user-avatar-circle" title="User">EA</div>
+                </div>
+            </header>
+
+            <!-- Chat Scroll Area -->
+            <div class="chat-scroll-container" id="chatScrollContainer">
+                <div class="conversation-inner" id="messages">
+                    <div class="welcome-hero" id="welcomeHero">
+                        <div class="welcome-badge-icon">አ</div>
+                        <h1 class="welcome-title">ሰላም፣ እንዴት ልርዳዎት?</h1>
+                    </div>
                 </div>
             </div>
-            <div class="messages" id="messages">
-                <div class="empty-state">እንኳን ወደ አማኒ AI ረዳት በደህና መጡ! ዛሬ በምን ልርዳዎት?</div>
-            </div>
-            <div class="input-container">
-                <textarea id="input" placeholder="መልዕክትዎን እዚህ ይጻፉ..." rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
-                <div class="input-actions">
-                    <button id="micBtn" onclick="toggleSpeechRecognition()" class="mic-btn" title="በአማርኛ ድምፅ ለመቅዳት ይጫኑ">
-                        <svg viewBox="0 0 24 24" width="20" height="20">
-                            <path fill="currentColor" d="M12,2A3,3 0 0,0 9,5V11A3,3 0 0,0 12,14A3,3 0 0,0 15,11V5A3,3 0 0,0 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,1 12,16A5,5 0 0,1 17,11H19Z" />
-                        </svg>
-                        <span class="mic-label">Mic</span>
-                    </button>
-                    <button id="sendBtn" onclick="sendMessage()">Send</button>
+
+            <!-- ─── Floating Input Capsule ──────────────────────────────────── -->
+            <div class="floating-input-wrapper">
+                <div class="input-capsule-box">
+                    <textarea 
+                        id="userInput" 
+                        class="gemini-textarea" 
+                        placeholder="ሰላም፣ እንዴት ልርዳዎት? መልዕክትዎን እዚህ ይጻፉ..." 
+                        rows="1" 
+                        onkeydown="handleKeyDown(event)" 
+                        oninput="handleInput(this)"
+                    ></textarea>
+
+                    <div class="input-bottom-row">
+                        <div class="input-tools-left">
+                            <div class="rag-status-chip" title="Local RAG Semantic Search is active">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <span>RAG Active</span>
+                            </div>
+                        </div>
+
+                        <div class="input-actions-right">
+                            <!-- Mic Button with Ethio-ASR Voice Recognition -->
+                            <button id="micBtn" onclick="toggleSpeechRecognition()" class="gemini-mic-btn" title="Click to record speech (English / Amharic)">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                                </svg>
+                            </button>
+
+                            <!-- Send Button with Dynamic Active Glow -->
+                            <button id="sendBtn" onclick="sendMessage()" class="gemini-send-btn" title="Send / ላክ" disabled>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gemini-disclaimer-footer">
+                    Amani AI may produce inaccurate information. Please verify important details.
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
+    <!-- ─── Application JavaScript ───────────────────────────────────────────── -->
     <script>
         let messages = [];
         let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
         let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
-        
         let isListening = false;
         let ttsEnabled = true;
+        let currentAudio = null;
 
-        // ─── Init ──────────────────────────────────────────────────────────
+        // ─── Initializer ───────────────────────────────────────────────────
         function init() {
             if (!currentChatId || !chats.find(c => c.id === currentChatId)) {
                 startNewChat(false);
@@ -235,46 +172,38 @@
                 loadChat(currentChatId);
             }
             renderChatList();
-            checkHealth();
-            setInterval(checkHealth, 5000);
             loadFileList();
             initSpeechRecognition();
-            
-            // Prime speech synthesis voices loading
+
             if (window.speechSynthesis) {
                 window.speechSynthesis.getVoices();
             }
         }
 
-        // ─── Health Check ──────────────────────────────────────────────────
-        async function checkHealth() {
-            try {
-                // Return dummy true for server health check
-                document.getElementById('status').classList.remove('loading');
-            } catch {
-                document.getElementById('status').classList.add('loading');
+        // ─── Sidebar Toggle ────────────────────────────────────────────────
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('active');
+            } else {
+                sidebar.classList.toggle('collapsed');
             }
         }
 
-        // ─── Sidebar Toggle (mobile) ───────────────────────────────────────
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-            document.getElementById('sidebarOverlay').classList.toggle('active');
-        }
-
-        // ─── Chat Management ──────────────────────────────────────────────
+        // ─── Chat Management ───────────────────────────────────────────────
         function startNewChat(shouldConfirm = true) {
             if (shouldConfirm && messages.length > 0) {
-                if (!confirm("Start a new chat?")) return;
+                if (!confirm("አዲስ ውይይት መጀመር ይፈልጋሉ?")) return;
             }
-            
-            // Clear backend history for the new session
+
             const newId = Date.now().toString();
             fetch('/clear', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ session_id: newId })
-            });
+            }).catch(() => {});
 
             const newChat = {
                 id: newId,
@@ -282,11 +211,11 @@
                 messages: [],
                 timestamp: Date.now()
             };
-            
+
             chats.unshift(newChat);
             currentChatId = newId;
             messages = [];
-            
+
             saveToLocalStorage();
             renderChatList();
             displayMessages();
@@ -296,11 +225,11 @@
             const chat = chats.find(c => c.id === id);
             if (chat) {
                 currentChatId = id;
-                messages = chat.messages;
+                messages = chat.messages || [];
                 displayMessages();
                 renderChatList();
                 saveToLocalStorage();
-                // Close sidebar on mobile after selecting a chat
+
                 if (window.innerWidth <= 768) {
                     document.getElementById('sidebar').classList.remove('open');
                     document.getElementById('sidebarOverlay').classList.remove('active');
@@ -311,12 +240,12 @@
         function saveToLocalStorage() {
             const chat = chats.find(c => c.id === currentChatId);
             if (chat) {
-                chat.messages = JSON.parse(JSON.stringify(messages)); // Deep copy
+                chat.messages = JSON.parse(JSON.stringify(messages));
                 chat.timestamp = Date.now();
                 if (chat.title === 'New Chat' && messages.length > 0) {
                     let firstMsg = messages[0].content;
-                    if (firstMsg.length > 30) {
-                        const truncated = firstMsg.substring(0, 30);
+                    if (firstMsg.length > 28) {
+                        const truncated = firstMsg.substring(0, 28);
                         const lastSpace = truncated.lastIndexOf(' ');
                         chat.title = (lastSpace > 10 ? truncated.substring(0, lastSpace) : truncated) + '...';
                     } else {
@@ -332,38 +261,37 @@
         function renderChatList() {
             const list = document.getElementById('chatList');
             list.innerHTML = '';
-            
+
             chats.forEach(chat => {
                 const div = document.createElement('div');
-                div.className = `chat-item ${chat.id === currentChatId ? 'active' : ''}`;
+                div.className = `chat-history-item ${chat.id === currentChatId ? 'active' : ''}`;
                 div.onclick = () => loadChat(chat.id);
-                
-                const title = document.createElement('span');
-                title.className = 'chat-item-title';
-                title.textContent = chat.title;
-                
-                const delBtn = document.createElement('button');
-                delBtn.className = 'delete-chat-btn';
-                delBtn.innerHTML = '&times;';
-                delBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    deleteChat(chat.id);
-                };
-                
-                div.appendChild(title);
-                div.appendChild(delBtn);
+
+                div.innerHTML = `
+                    <div class="chat-item-title-wrapper">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                        </svg>
+                        <span class="chat-item-title-text">${escapeHtml(chat.title)}</span>
+                    </div>
+                    <button class="chat-item-delete" onclick="event.stopPropagation(); deleteChat('${chat.id}')" title="Delete chat">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                    </button>
+                `;
                 list.appendChild(div);
             });
         }
 
         function deleteChat(id) {
-            if (!confirm("Delete this chat?")) return;
-            
+            if (!confirm("ይህንን ውይይት መሰረዝ እርግጠኛ ነዎት?")) return;
+
             fetch('/clear', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ session_id: id })
-            });
+            }).catch(() => {});
 
             chats = chats.filter(c => c.id !== id);
             if (currentChatId === id) {
@@ -381,47 +309,34 @@
             deleteChat(currentChatId);
         }
 
-        // ─── Display Messages ─────────────────────────────────────────────
+        // ─── Welcome Landing Hero ──────────────────────────────────────────
+        function getWelcomeHtml() {
+            return `
+                <div class="welcome-hero" id="welcomeHero">
+                    <div class="welcome-badge-icon">አ</div>
+                    <h1 class="welcome-title">ሰላም፣ እንዴት ልርዳዎት?</h1>
+                </div>
+            `;
+        }
+
+        // ─── Display Messages ──────────────────────────────────────────────
         function displayMessages() {
             const container = document.getElementById('messages');
             container.innerHTML = '';
-            
+
             if (messages.length === 0) {
-                container.innerHTML = '<div class="empty-state">Welcome! I am your አማኒ AI assistant. How can I help you today?</div>';
+                container.innerHTML = getWelcomeHtml();
                 return;
             }
-            
+
             messages.forEach(msg => {
-                addMessageUI(msg.role, msg.content, false, msg.sources);
+                appendMessageNode(msg.role, msg.content, false, msg.sources);
             });
-            container.scrollTop = container.scrollHeight;
+
+            scrollToBottom();
         }
 
-        // ─── File List ────────────────────────────────────────────────────
-        async function loadFileList() {
-            try {
-                const res = await fetch('/files');
-                const data = await res.json();
-                const container = document.getElementById('indexedFiles');
-                if (container) {
-                    container.innerHTML = '';
-                    if (data.files && data.files.length > 0) {
-                        data.files.forEach(name => {
-                            const div = document.createElement('div');
-                            div.className = 'file-item';
-                            div.textContent = '✓ ' + name;
-                            container.appendChild(div);
-                        });
-                    } else {
-                        container.innerHTML = '<div style="font-size:11px;color:var(--text-dim);text-align:center;">No files indexed</div>';
-                    }
-                }
-            } catch (e) {
-                console.error("Failed to load file list");
-            }
-        }
-
-        // ─── Input Handling ───────────────────────────────────────────────
+        // ─── Input Handling ────────────────────────────────────────────────
         function handleKeyDown(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -429,20 +344,46 @@
             }
         }
 
-        function autoResize(el) {
+        function handleInput(el) {
             el.style.height = 'auto';
             el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+
+            const sendBtn = document.getElementById('sendBtn');
+            if (el.value.trim().length > 0) {
+                sendBtn.classList.add('active');
+                sendBtn.disabled = false;
+            } else {
+                sendBtn.classList.remove('active');
+                sendBtn.disabled = true;
+            }
         }
 
-        // ─── Typing Indicator ─────────────────────────────────────────────
+        function scrollToBottom() {
+            const scrollContainer = document.getElementById('chatScrollContainer');
+            scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        }
+
+        // ─── Typing Indicator ──────────────────────────────────────────────
         function showTypingIndicator() {
             const container = document.getElementById('messages');
+
             const indicator = document.createElement('div');
-            indicator.className = 'typing-indicator';
+            indicator.className = 'message-row assistant';
             indicator.id = 'typingIndicator';
-            indicator.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+            indicator.innerHTML = `
+                <div class="avatar-assistant">
+                    <div class="avatar-badge">አ</div>
+                </div>
+                <div class="assistant-content-wrapper">
+                    <div class="gemini-typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
             container.appendChild(indicator);
-            container.scrollTop = container.scrollHeight;
+            scrollToBottom();
         }
 
         function removeTypingIndicator() {
@@ -450,41 +391,134 @@
             if (indicator) indicator.remove();
         }
 
-        // ─── Markdown Rendering ───────────────────────────────────────────
+        // ─── Markdown Parser ───────────────────────────────────────────────
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return (text || '').replace(/[&<>"']/g, m => map[m]);
+        }
+
         function renderMarkdown(text) {
-            let html = text
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-            
+            let html = escapeHtml(text);
+
+            // Code blocks
+            html = html.replace(/```([a-zA-Z0-9_-]*)\n([\s\S]*?)```/g, (match, lang, code) => {
+                return `<pre><code class="language-${lang}">${code}</code></pre>`;
+            });
+
+            // Inline code
             html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-            html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+            // Bold & Italics
+            html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+            // Unordered list items
             html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li>$1</li>');
             html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
-            
+
+            // Ordered list items
             html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
             html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, function(match) {
                 if (match.startsWith('<ul>')) return match;
                 return '<ol>' + match + '</ol>';
             });
-            
+
+            // Paragraphs and Line breaks
             html = html.replace(/\n\n+/g, '</p><p>');
             html = html.replace(/\n/g, '<br>');
             html = '<p>' + html + '</p>';
             html = html.replace(/<p>\s*<\/p>/g, '');
+
             return html;
         }
 
-        // ─── Send Message (streaming) ──────────────────────────────────────
+        // ─── Message Node Creation ─────────────────────────────────────────
+        function appendMessageNode(role, content, scroll = true, sources = null) {
+            const container = document.getElementById('messages');
+            const welcomeHero = document.getElementById('welcomeHero');
+            if (welcomeHero) {
+                welcomeHero.remove();
+            }
+
+            const row = document.createElement('div');
+            row.className = `message-row ${role}`;
+
+            if (role === 'user') {
+                row.innerHTML = `
+                    <div class="user-bubble">${escapeHtml(content)}</div>
+                `;
+            } else {
+                let sourcesHtml = '';
+                if (sources && sources.length > 0) {
+                    let chunkItems = sources.map(s => `
+                        <div class="source-chunk-card">
+                            <strong>${escapeHtml(s.document_name)}</strong> (Match: ${(s.score * 100).toFixed(1)}%)<br>
+                            ${escapeHtml(s.text)}
+                        </div>
+                    `).join('');
+
+                    sourcesHtml = `
+                        <div class="sources-pill-accordion">
+                            <div class="sources-pill-toggle" onclick="this.nextElementSibling.classList.toggle('open')">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                                <span>📚 ${sources.length} Retrieved Source(s)</span>
+                            </div>
+                            <div class="sources-body">${chunkItems}</div>
+                        </div>
+                    `;
+                }
+
+                row.innerHTML = `
+                    <div class="avatar-assistant">
+                        <div class="avatar-badge">አ</div>
+                    </div>
+                    <div class="assistant-content-wrapper">
+                        <div class="assistant-bubble">${renderMarkdown(content)}</div>
+                        ${sourcesHtml}
+                        <div class="message-actions-toolbar">
+                            <button class="action-icon-btn" onclick="copyMessageText(this)" title="Copy to clipboard">
+                                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            </button>
+                            <button class="action-icon-btn" onclick="speakSingleMessage(this)" title="Read Aloud (TTS)">
+                                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.appendChild(row);
+            if (scroll) scrollToBottom();
+            return row;
+        }
+
+        function copyMessageText(btn) {
+            const wrapper = btn.closest('.assistant-content-wrapper');
+            const bubble = wrapper.querySelector('.assistant-bubble');
+            const text = bubble.innerText;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = `<span style="font-size:11px;color:var(--gemini-emerald);">✓ Copied</span>`;
+                setTimeout(() => { btn.innerHTML = originalHtml; }, 1800);
+            });
+        }
+
+        function speakSingleMessage(btn) {
+            const wrapper = btn.closest('.assistant-content-wrapper');
+            const bubble = wrapper.querySelector('.assistant-bubble');
+            speakText(bubble.innerText);
+        }
+
+        // ─── Real-time Streaming Send Message ───────────────────────────────
         async function sendMessage() {
-            const input = document.getElementById('input');
+            const input = document.getElementById('userInput');
             const sendBtn = document.getElementById('sendBtn');
             const content = input.value.trim();
 
             if (!content) return;
 
-            // Stop any playing speech immediately on new interaction
+            // Stop any playing audio
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio = null;
@@ -494,15 +528,17 @@
             }
 
             messages.push({ role: 'user', content });
-            addMessageUI('user', content);
+            appendMessageNode('user', content);
+
             input.value = '';
             input.style.height = 'auto';
+            sendBtn.classList.remove('active');
+            sendBtn.disabled = true;
 
             saveToLocalStorage();
 
-            input.disabled = true;
-            sendBtn.disabled = true;
-            document.getElementById('status').classList.add('loading');
+            const statusDot = document.getElementById('statusDot');
+            statusDot.classList.add('loading');
             showTypingIndicator();
 
             try {
@@ -518,16 +554,15 @@
                 if (!res.ok) {
                     const err = await res.json().catch(() => ({ error: 'Server error' }));
                     removeTypingIndicator();
-                    addMessageUI('assistant', 'Error: ' + (err.error || res.statusText));
+                    appendMessageNode('assistant', 'Error: ' + (err.error || res.statusText));
                     messages.pop();
                 } else {
                     const reader = res.body.getReader();
                     const decoder = new TextDecoder();
                     let fullText = '';
-                    let assistantDiv = null;
+                    let assistantRow = null;
+                    let bubble = null;
                     let firstChunk = true;
-
-                    const container = document.getElementById('messages');
 
                     while (true) {
                         const { done, value } = await reader.read();
@@ -540,23 +575,21 @@
                             firstChunk = false;
                             removeTypingIndicator();
 
-                            const empty = container.querySelector('.empty-state');
-                            if (empty) empty.remove();
-
-                            assistantDiv = document.createElement('div');
-                            assistantDiv.className = 'message assistant';
-                            container.appendChild(assistantDiv);
+                            assistantRow = appendMessageNode('assistant', '', false);
+                            bubble = assistantRow.querySelector('.assistant-bubble');
                         }
 
-                        if (assistantDiv) {
-                            assistantDiv.innerHTML = renderMarkdown(fullText);
-                            container.scrollTop = container.scrollHeight;
+                        if (bubble) {
+                            bubble.innerHTML = renderMarkdown(fullText) + '<span class="gemini-stream-cursor"></span>';
+                            scrollToBottom();
                         }
                     }
 
                     removeTypingIndicator();
-                    if (!assistantDiv && fullText.trim().length > 0) {
-                        addMessageUI('assistant', fullText, true);
+                    if (bubble) {
+                        bubble.innerHTML = renderMarkdown(fullText);
+                    } else if (fullText.trim().length > 0) {
+                        appendMessageNode('assistant', fullText, true);
                     }
 
                     if (fullText.trim().length > 0) {
@@ -567,93 +600,53 @@
                 }
             } catch (e) {
                 removeTypingIndicator();
-                addMessageUI('assistant', 'Connection error. Make sure the server is running.');
+                appendMessageNode('assistant', '⚠️ ከአገልጋዩ ጋር መገናኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።');
                 messages.pop();
             }
 
-            input.disabled = false;
-            sendBtn.disabled = false;
             input.focus();
-            document.getElementById('status').classList.remove('loading');
+            statusDot.classList.remove('loading');
         }
 
-
-        function addMessageUI(role, content, scroll = true, sources = null) {
-            const container = document.getElementById('messages');
-            const empty = container.querySelector('.empty-state');
-            if (empty) empty.remove();
-
-            const div = document.createElement('div');
-            div.className = `message ${role}`;
-            
-            if (role === 'assistant') {
-                div.innerHTML = renderMarkdown(content);
-                
-                if (sources && sources.length > 0) {
-                    const contextPanel = document.createElement('div');
-                    contextPanel.className = 'context-panel';
-                    
-                    const toggleDiv = document.createElement('div');
-                    toggleDiv.className = 'context-toggle';
-                    toggleDiv.innerHTML = `📚 View ${sources.length} retrieved source(s)`;
-                    
-                    const bodyDiv = document.createElement('div');
-                    bodyDiv.className = 'context-body';
-                    
-                    sources.forEach(src => {
-                        const chunkDiv = document.createElement('div');
-                        chunkDiv.className = 'context-chunk';
-                        chunkDiv.innerHTML = `<strong>File: ${src.document_name} (Score: ${(src.score * 100).toFixed(1)}%)</strong>\n${src.text}`;
-                        bodyDiv.appendChild(chunkDiv);
-                    });
-                    
-                    toggleDiv.onclick = () => {
-                        bodyDiv.classList.toggle('open');
-                    };
-                    
-                    contextPanel.appendChild(toggleDiv);
-                    contextPanel.appendChild(bodyDiv);
-                    
-                    const wrapper = document.createElement('div');
-                    wrapper.style.display = 'flex';
-                    wrapper.style.flexDirection = 'column';
-                    wrapper.style.alignSelf = 'flex-start';
-                    wrapper.style.maxWidth = '80%';
-                    wrapper.style.gap = '8px';
-                    
-                    div.style.maxWidth = '100%';
-                    contextPanel.style.maxWidth = '100%';
-                    contextPanel.style.alignSelf = 'stretch';
-                    
-                    wrapper.appendChild(div);
-                    wrapper.appendChild(contextPanel);
-                    container.appendChild(wrapper);
-                } else {
-                    container.appendChild(div);
+        // ─── File Indexing (RAG) ───────────────────────────────────────────
+        async function loadFileList() {
+            try {
+                const res = await fetch('/files');
+                const data = await res.json();
+                const container = document.getElementById('indexedFiles');
+                if (container) {
+                    container.innerHTML = '';
+                    if (data.files && data.files.length > 0) {
+                        data.files.forEach(name => {
+                            const div = document.createElement('div');
+                            div.className = 'kb-file-pill';
+                            div.innerHTML = `<span>✓</span> ${escapeHtml(name)}`;
+                            container.appendChild(div);
+                        });
+                    } else {
+                        container.innerHTML = '<div style="font-size:11px;color:var(--text-muted);text-align:center;">No files indexed</div>';
+                    }
                 }
-            } else {
-                div.textContent = content;
-                container.appendChild(div);
+            } catch (e) {
+                console.error("Failed to load file list");
             }
-            
-            if (scroll) container.scrollTop = container.scrollHeight;
         }
 
         async function refreshFiles() {
-            const status = document.getElementById('status');
-            status.classList.add('loading');
+            const statusDot = document.getElementById('statusDot');
+            statusDot.classList.add('loading');
             try {
-                const res = await fetch('/refresh', { method: 'POST' });
+                await fetch('/refresh', { method: 'POST' });
                 await loadFileList();
-                addMessageUI('assistant', 'Index refreshed! Accessing your local files now.');
+                appendMessageNode('assistant', '✓ የመረጃ ቋት ሰነዶች በተሳካ ሁኔታ ታድሰዋል!');
             } catch (e) {
-                addMessageUI('assistant', 'Failed to refresh index.');
+                appendMessageNode('assistant', '⚠️ የመረጃ ቋት ሰነዶችን ማደስ አልተቻለም።');
             } finally {
-                status.classList.remove('loading');
+                statusDot.classList.remove('loading');
             }
         }
 
-        // ─── Speech Recognition (STT) + VAD (Voice Activity Detection) ──────
+        // ─── Ethio-ASR Speech-to-Text & VAD ─────────────────────────────────
         let mediaRecorder = null;
         let audioChunks = [];
         let audioContext = null;
@@ -662,9 +655,9 @@
         let silenceStartTime = null;
         let speechHasStarted = false;
 
-        const VAD_SILENCE_THRESHOLD = 0.015; // RMS threshold for speech vs silence
-        const VAD_SILENCE_DURATION_MS = 1200; // 1.2s silence auto-stops recording
-        const MAX_RECORDING_MS = 15000;       // 15s max fallback limit
+        const VAD_SILENCE_THRESHOLD = 0.015;
+        const VAD_SILENCE_DURATION_MS = 1200;
+        const MAX_RECORDING_MS = 15000;
 
         function initSpeechRecognition() {
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -705,24 +698,19 @@
                         sum += pcmData[i] * pcmData[i];
                     }
                     const rms = Math.sqrt(sum / pcmData.length);
-
                     const now = Date.now();
 
-                    // Check for speech
                     if (rms > VAD_SILENCE_THRESHOLD) {
                         if (!speechHasStarted) {
                             speechHasStarted = true;
-                            document.getElementById("input").placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
+                            document.getElementById("userInput").placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
                         }
-                        silenceStartTime = null; // reset silence clock
+                        silenceStartTime = null;
                     } else if (speechHasStarted) {
-                        // Volume dropped below threshold after speech started
                         if (!silenceStartTime) {
                             silenceStartTime = now;
                         } else if (now - silenceStartTime >= VAD_SILENCE_DURATION_MS) {
-                            // Silence timeout reached! Auto-stop recording
-                            console.log("[VAD] Silence detected for 1.2s — auto-stopping recording");
-                            document.getElementById("input").placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
+                            document.getElementById("userInput").placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
                             if (mediaRecorder && mediaRecorder.state !== "inactive") {
                                 mediaRecorder.stop();
                             }
@@ -731,9 +719,7 @@
                         }
                     }
 
-                    // Max duration safeguard
                     if (now - recordingStartTime >= MAX_RECORDING_MS) {
-                        console.log("[VAD] Max recording duration reached (15s)");
                         if (mediaRecorder && mediaRecorder.state !== "inactive") {
                             mediaRecorder.stop();
                         }
@@ -771,14 +757,16 @@
                     }
                 });
             } catch (e) {
-                addMessageUI('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ።');
+                appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ።');
                 return;
             }
 
             isListening = true;
             audioChunks = [];
-            document.getElementById("micBtn").classList.add("listening");
-            document.getElementById("input").placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
+            const micBtn = document.getElementById("micBtn");
+            micBtn.classList.add("listening");
+            const input = document.getElementById("userInput");
+            input.placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
 
             mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
 
@@ -790,11 +778,11 @@
                 stopVAD();
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
-                document.getElementById("micBtn").classList.remove("listening");
-                document.getElementById("input").placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
+                micBtn.classList.remove("listening");
+                input.placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
 
                 if (audioChunks.length === 0) {
-                    document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                     return;
                 }
 
@@ -807,18 +795,19 @@
                     });
                     const data = await res.json();
                     if (data.transcript && data.transcript.trim().length > 0) {
-                        document.getElementById("input").value = data.transcript;
-                        document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        input.value = data.transcript;
+                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        handleInput(input);
                         sendMessage();
                     } else {
-                        document.getElementById("input").placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
+                        input.placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
                         setTimeout(() => {
-                            document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                            input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                         }, 2000);
                     }
                 } catch (e) {
                     console.error("STT error:", e);
-                    document.getElementById("input").placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                 }
             };
 
@@ -827,17 +816,15 @@
         }
 
         // ─── Speech Synthesis (TTS) ────────────────────────────────────────
-        let currentAudio = null;
-
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const btn = document.getElementById("speakerBtn");
             if (ttsEnabled) {
                 btn.classList.add("active");
-                btn.title = "Toggle Auto Text-to-Speech (ON)";
+                btn.title = "ድምፅ ማብሪያ/ማጥፊያ (በርቷል)";
             } else {
                 btn.classList.remove("active");
-                btn.title = "Toggle Auto Text-to-Speech (OFF)";
+                btn.title = "ድምፅ ማብሪያ/ማጥፊያ (ጠፍቷል)";
                 if (currentAudio) {
                     currentAudio.pause();
                     currentAudio = null;
@@ -859,9 +846,6 @@
                                   .trim();
             if (!cleanText) return;
 
-            const lang = "am-ET";
-
-            // Stop any currently playing audio
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio = null;
@@ -870,38 +854,22 @@
                 window.speechSynthesis.cancel();
             }
 
-            // 1. High-Quality Neural TTS (Mekdes Neural for Amharic)
             const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=am-ET`;
             const audio = new Audio(audioUrl);
             currentAudio = audio;
 
             audio.play().catch(e => {
-                console.warn("[TTS] Backend audio stream failed, trying browser SpeechSynthesis:", e);
-                // 2. Fallback: Browser native SpeechSynthesis
+                console.warn("[TTS] Backend audio stream failed, fallback to browser SpeechSynthesis:", e);
                 if ('speechSynthesis' in window) {
-                    try {
-                        window.speechSynthesis.resume();
-                    } catch (err) {}
-
+                    try { window.speechSynthesis.resume(); } catch (err) {}
                     const voices = window.speechSynthesis.getVoices();
                     let targetVoice = voices.find(v => v.name.includes('Mekdes') || v.lang.startsWith('am'));
-
                     const utterance = new SpeechSynthesisUtterance(cleanText);
                     utterance.lang = "am-ET";
                     if (targetVoice) utterance.voice = targetVoice;
                     window.speechSynthesis.speak(utterance);
                 }
             });
-        }
-
-        // Voice loader initialization
-        if (window.speechSynthesis) {
-            window.speechSynthesis.onvoiceschanged = () => {
-                try {
-                    window.speechSynthesis.getVoices();
-                } catch (e) {}
-            };
-            window.speechSynthesis.getVoices();
         }
 
         init();

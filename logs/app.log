@@ -3976,3 +3976,314 @@ Partitioning model layers across GPU 0 and GPU 1...
 Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
 Model sharding completed successfully.
 All services loaded and ready!
+
+[1m[92m▶ POST /clear[0m [2m[15:27:59][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787056079694
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+127.0.0.1 - - [18/Aug/2026 15:29:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:29:10] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5784.48it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   2%|2         | 29/1188 [00:00<00:04, 268.42it/s]Loading weights:   5%|4         | 57/1188 [00:00<00:04, 251.12it/s]Loading weights:   7%|6         | 83/1188 [00:00<00:05, 214.97it/s]Loading weights:   9%|8         | 105/1188 [00:00<00:05, 195.83it/s]Loading weights:  11%|#1        | 132/1188 [00:00<00:04, 212.77it/s]Loading weights:  13%|#3        | 158/1188 [00:00<00:04, 216.71it/s]Loading weights:  15%|#5        | 180/1188 [00:00<00:04, 213.46it/s]Loading weights:  17%|#7        | 202/1188 [00:00<00:04, 202.85it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 200.90it/s]Loading weights:  21%|##        | 244/1188 [00:01<00:04, 196.96it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 207.68it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 201.25it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:04, 210.17it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:03, 211.75it/s]Loading weights:  31%|###       | 364/1188 [00:01<00:03, 208.44it/s]Loading weights:  33%|###2      | 387/1188 [00:01<00:03, 206.93it/s]Loading weights:  34%|###4      | 408/1188 [00:01<00:04, 192.47it/s]Loading weights:  36%|###6      | 432/1188 [00:02<00:03, 199.69it/s]Loading weights:  39%|###8      | 458/1188 [00:02<00:03, 213.63it/s]Loading weights:  40%|####      | 480/1188 [00:02<00:03, 208.14it/s]Loading weights:  42%|####2     | 503/1188 [00:02<00:03, 204.38it/s]Loading weights:  44%|####4     | 527/1188 [00:02<00:03, 199.89it/s]Loading weights:  46%|####6     | 548/1188 [00:02<00:03, 189.43it/s]Loading weights:  48%|####8     | 573/1188 [00:02<00:03, 202.25it/s]Loading weights:  50%|#####     | 596/1188 [00:02<00:02, 201.01it/s]Loading weights:  52%|#####1    | 617/1188 [00:02<00:02, 200.96it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:02, 212.16it/s]Loading weights:  56%|#####5    | 664/1188 [00:03<00:02, 205.66it/s]Loading weights:  58%|#####7    | 685/1188 [00:03<00:02, 200.21it/s]Loading weights:  60%|#####9    | 707/1188 [00:03<00:02, 197.21it/s]Loading weights:  62%|######1   | 735/1188 [00:03<00:02, 208.13it/s]Loading weights:  64%|######3   | 756/1188 [00:03<00:02, 200.25it/s]Loading weights:  65%|######5   | 777/1188 [00:03<00:02, 198.31it/s]Loading weights:  67%|######7   | 797/1188 [00:03<00:01, 196.42it/s]Loading weights:  69%|######9   | 822/1188 [00:04<00:01, 202.15it/s]Loading weights:  82%|########1 | 973/1188 [00:04<00:00, 470.80it/s]Loading weights:  89%|########9 | 1058/1188 [00:04<00:00, 531.04it/s]Loading weights:  93%|#########3| 1107/1188 [00:04<00:00, 398.87it/s]Loading weights:  98%|#########7| 1159/1188 [00:04<00:00, 367.88it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 248.96it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+127.0.0.1 - - [18/Aug/2026 15:38:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:38:59] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+127.0.0.1 - - [18/Aug/2026 15:39:02] "GET / HTTP/1.1" 200 -
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+127.0.0.1 - - [18/Aug/2026 15:39:02] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4744.17it/s]
+Indexing file: amani_info.txt
+127.0.0.1 - - [18/Aug/2026 15:39:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:39:02] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+127.0.0.1 - - [18/Aug/2026 15:39:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:39:04] "GET /files HTTP/1.1" 200 -
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:12,  8.93it/s]Loading weights:   6%|5         | 71/1188 [00:00<00:04, 272.90it/s]Loading weights:   9%|9         | 112/1188 [00:00<00:04, 230.12it/s]Loading weights:  12%|#2        | 143/1188 [00:00<00:04, 221.88it/s]Loading weights:  14%|#4        | 170/1188 [00:00<00:04, 220.73it/s]Loading weights:  16%|#6        | 196/1188 [00:00<00:04, 211.06it/s]Loading weights:  19%|#8        | 221/1188 [00:01<00:04, 219.14it/s]Loading weights:  21%|##        | 245/1188 [00:01<00:04, 208.23it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 208.98it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 215.62it/s]Loading weights:  27%|##6       | 315/1188 [00:01<00:06, 129.02it/s]Loading weights:  30%|##9       | 353/1188 [00:01<00:04, 175.62it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:04, 186.56it/s]Loading weights:  34%|###3      | 403/1188 [00:02<00:03, 197.82it/s]Loading weights:  36%|###5      | 427/1188 [00:02<00:03, 201.41it/s]Loading weights:  38%|###7      | 450/1188 [00:02<00:03, 191.09it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 199.54it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 202.20it/s]Loading weights:  44%|####3     | 520/1188 [00:02<00:03, 204.95it/s]Loading weights:  46%|####5     | 545/1188 [00:02<00:03, 201.84it/s]Loading weights:  48%|####7     | 570/1188 [00:02<00:02, 208.74it/s]Loading weights:  50%|#####     | 596/1188 [00:03<00:02, 205.51it/s]Loading weights:  53%|#####2    | 625/1188 [00:03<00:02, 218.03it/s]Loading weights:  55%|#####4    | 648/1188 [00:03<00:02, 208.66it/s]Loading weights:  56%|#####6    | 670/1188 [00:03<00:02, 199.50it/s]Loading weights:  59%|#####8    | 697/1188 [00:03<00:02, 215.33it/s]Loading weights:  61%|######    | 721/1188 [00:03<00:02, 207.91it/s]Loading weights:  63%|######2   | 743/1188 [00:03<00:02, 210.82it/s]Loading weights:  64%|######4   | 766/1188 [00:03<00:02, 202.00it/s]Loading weights:  67%|######6   | 791/1188 [00:03<00:01, 210.01it/s]Loading weights:  69%|######8   | 818/1188 [00:04<00:01, 217.63it/s]Loading weights:  71%|#######   | 840/1188 [00:05<00:05, 59.26it/s] Loading weights:  73%|#######2  | 863/1188 [00:05<00:04, 74.74it/s]Loading weights:  79%|#######9  | 939/1188 [00:05<00:01, 154.02it/s]Loading weights:  86%|########6 | 1027/1188 [00:05<00:00, 237.52it/s]Loading weights:  92%|#########2| 1095/1188 [00:05<00:00, 303.14it/s]Loading weights:  97%|#########6| 1149/1188 [00:05<00:00, 336.05it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 204.51it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+
+[1m[92m▶ POST /clear[0m [2m[15:39:15][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787056755613
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:39:15] "POST /clear HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 6413.96it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<03:15,  6.06it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:14, 77.36it/s]Loading weights:   4%|3         | 43/1188 [00:00<00:14, 78.18it/s]Loading weights:   4%|4         | 53/1188 [00:00<00:15, 71.66it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:18, 62.19it/s]Loading weights:   6%|6         | 75/1188 [00:01<00:15, 70.57it/s]Loading weights:   7%|6         | 83/1188 [00:01<00:16, 65.42it/s]Loading weights:   8%|7         | 90/1188 [00:01<00:20, 53.62it/s]Loading weights:   9%|9         | 112/1188 [00:01<00:12, 83.91it/s]Loading weights:  10%|#         | 122/1188 [00:01<00:13, 77.62it/s]Loading weights:  11%|#1        | 131/1188 [00:01<00:15, 67.85it/s]Loading weights:  12%|#1        | 141/1188 [00:02<00:14, 73.30it/s]Loading weights:  13%|#2        | 150/1188 [00:02<00:13, 75.30it/s]Loading weights:  13%|#3        | 159/1188 [00:02<00:17, 58.89it/s]Loading weights:  14%|#4        | 171/1188 [00:02<00:18, 53.73it/s]Loading weights:  15%|#5        | 181/1188 [00:02<00:18, 55.17it/s]Loading weights:  16%|#5        | 188/1188 [00:02<00:17, 55.61it/s]Loading weights:  16%|#6        | 194/1188 [00:03<00:21, 46.62it/s]Loading weights:  17%|#6        | 200/1188 [00:03<00:21, 46.12it/s]Loading weights:  18%|#7        | 213/1188 [00:03<00:21, 45.20it/s]Loading weights:  18%|#8        | 218/1188 [00:03<00:23, 41.47it/s]Loading weights:  19%|#9        | 227/1188 [00:04<00:25, 37.38it/s]Loading weights:  20%|#9        | 237/1188 [00:04<00:23, 40.68it/s]Loading weights:  20%|##        | 242/1188 [00:04<00:24, 38.65it/s]Loading weights:  21%|##        | 249/1188 [00:04<00:22, 41.35it/s]Loading weights:  21%|##1       | 254/1188 [00:04<00:23, 39.58it/s]Loading weights:  22%|##2       | 265/1188 [00:04<00:22, 41.38it/s]Loading weights:  23%|##2       | 270/1188 [00:05<00:21, 41.91it/s]Loading weights:  24%|##3       | 282/1188 [00:05<00:22, 40.08it/s]Loading weights:  24%|##4       | 290/1188 [00:05<00:20, 44.31it/s]Loading weights:  25%|##4       | 296/1188 [00:05<00:20, 44.24it/s]Loading weights:  25%|##5       | 301/1188 [00:05<00:20, 43.80it/s]Loading weights:  26%|##6       | 310/1188 [00:05<00:18, 46.29it/s]Loading weights:  27%|##6       | 320/1188 [00:06<00:17, 51.03it/s]Loading weights:  27%|##7       | 326/1188 [00:06<00:19, 45.05it/s]Loading weights:  28%|##8       | 337/1188 [00:06<00:15, 54.51it/s]Loading weights:  29%|##9       | 347/1188 [00:06<00:14, 59.02it/s]Loading weights:  30%|##9       | 354/1188 [00:07<00:24, 34.14it/s]Loading weights:  30%|###       | 361/1188 [00:07<00:23, 35.03it/s]Loading weights:  31%|###       | 366/1188 [00:07<00:41, 19.84it/s]Loading weights:  32%|###1      | 375/1188 [00:08<00:35, 23.01it/s]Loading weights:  32%|###1      | 379/1188 [00:08<00:45, 17.89it/s]Loading weights:  32%|###2      | 382/1188 [00:08<00:43, 18.57it/s]Loading weights:  33%|###2      | 389/1188 [00:08<00:33, 24.21it/s]Loading weights:  33%|###3      | 394/1188 [00:09<00:48, 16.53it/s]Loading weights:  33%|###3      | 397/1188 [00:09<00:46, 17.07it/s]Loading weights:  34%|###4      | 404/1188 [00:09<00:33, 23.24it/s]Loading weights:  35%|###4      | 414/1188 [00:09<00:23, 33.17it/s]Loading weights:  35%|###5      | 419/1188 [00:10<00:30, 25.42it/s]Loading weights:  36%|###5      | 423/1188 [00:10<00:46, 16.36it/s]Loading weights:  36%|###6      | 428/1188 [00:10<00:39, 19.29it/s]Loading weights:  36%|###6      | 432/1188 [00:11<00:41, 18.05it/s]Loading weights:  37%|###6      | 435/1188 [00:11<01:00, 12.40it/s]Loading weights:  37%|###6      | 437/1188 [00:11<00:58, 12.86it/s]Loading weights:  38%|###7      | 448/1188 [00:12<00:53, 13.78it/s]Loading weights:  38%|###7      | 450/1188 [00:12<00:52, 14.13it/s]Loading weights:  39%|###8      | 458/1188 [00:13<00:45, 15.93it/s]Loading weights:  39%|###8      | 462/1188 [00:13<00:52, 13.93it/s]Loading weights:  40%|###9      | 470/1188 [00:13<00:38, 18.69it/s]Loading weights:  40%|####      | 476/1188 [00:13<00:32, 21.74it/s]Loading weights:  40%|####      | 479/1188 [00:14<00:48, 14.66it/s]Loading weights:  41%|####      | 486/1188 [00:14<00:34, 20.17it/s]Loading weights:  41%|####1     | 491/1188 [00:14<00:29, 23.61it/s]Loading weights:  42%|####1     | 495/1188 [00:14<00:26, 26.05it/s]Loading weights:  42%|####2     | 500/1188 [00:14<00:28, 24.19it/s]Loading weights:  42%|####2     | 504/1188 [00:15<00:38, 17.84it/s]Loading weights:  43%|####3     | 514/1188 [00:15<00:33, 19.86it/s]Loading weights:  44%|####3     | 517/1188 [00:16<00:35, 18.84it/s]Loading weights:  44%|####3     | 520/1188 [00:16<00:34, 19.62it/s]Loading weights:  44%|####4     | 525/1188 [00:16<00:27, 23.84it/s]Loading weights:  44%|####4     | 528/1188 [00:16<00:31, 20.85it/s]Loading weights:  45%|####4     | 531/1188 [00:16<00:46, 14.25it/s]Loading weights:  45%|####4     | 533/1188 [00:17<00:45, 14.52it/s]Loading weights:  46%|####5     | 542/1188 [00:17<00:25, 25.06it/s]Loading weights:  46%|####5     | 546/1188 [00:17<00:47, 13.59it/s]Loading weights:  47%|####6     | 555/1188 [00:18<00:31, 19.96it/s]Loading weights:  47%|####7     | 559/1188 [00:18<00:34, 18.42it/s]Loading weights:  47%|####7     | 562/1188 [00:18<00:48, 12.94it/s]Loading weights:  48%|####8     | 573/1188 [00:19<00:29, 20.80it/s]Loading weights:  48%|####8     | 576/1188 [00:19<00:32, 18.67it/s]Loading weights:  49%|####9     | 586/1188 [00:19<00:35, 16.87it/s]Loading weights:  50%|####9     | 589/1188 [00:20<00:36, 16.42it/s]Loading weights:  51%|#####     | 600/1188 [00:20<00:35, 16.77it/s]Loading weights:  51%|#####1    | 607/1188 [00:20<00:27, 21.25it/s]Loading weights:  51%|#####1    | 611/1188 [00:21<00:28, 20.54it/s]Loading weights:  52%|#####1    | 614/1188 [00:21<00:36, 15.55it/s]Loading weights:  52%|#####1    | 617/1188 [00:21<00:36, 15.69it/s]Loading weights:  53%|#####2    | 624/1188 [00:21<00:29, 19.36it/s]Loading weights:  53%|#####2    | 628/1188 [00:22<00:36, 15.43it/s]Loading weights:  53%|#####3    | 630/1188 [00:22<00:36, 15.33it/s]Loading weights:  54%|#####4    | 642/1188 [00:23<00:29, 18.33it/s]Loading weights:  54%|#####4    | 644/1188 [00:23<00:35, 15.42it/s]Loading weights:  55%|#####4    | 653/1188 [00:23<00:24, 21.51it/s]Loading weights:  55%|#####5    | 656/1188 [00:24<00:47, 11.17it/s]Loading weights:  55%|#####5    | 658/1188 [00:25<01:08,  7.77it/s]Loading weights:  56%|#####5    | 660/1188 [00:25<01:27,  6.04it/s]Loading weights:  56%|#####6    | 666/1188 [00:26<00:58,  8.95it/s]Loading weights:  56%|#####6    | 669/1188 [00:26<00:49, 10.44it/s]Loading weights:  56%|#####6    | 671/1188 [00:26<01:02,  8.33it/s]Loading weights:  57%|#####7    | 679/1188 [00:26<00:34, 14.57it/s]Loading weights:  57%|#####7    | 683/1188 [00:31<02:58,  2.84it/s]Loading weights:  58%|#####7    | 685/1188 [00:31<02:37,  3.19it/s]Loading weights:  59%|#####8    | 697/1188 [00:32<01:16,  6.41it/s]Loading weights:  60%|#####9    | 707/1188 [00:32<00:47, 10.13it/s]Loading weights:  60%|#####9    | 711/1188 [00:32<00:53,  8.94it/s]Loading weights:  61%|######    | 721/1188 [00:33<00:40, 11.48it/s]Loading weights:  61%|######1   | 726/1188 [00:33<00:41, 11.09it/s]Loading weights:  61%|######1   | 728/1188 [00:34<00:41, 11.11it/s]Loading weights:  62%|######1   | 735/1188 [00:34<00:28, 15.93it/s]Loading weights:  62%|######2   | 739/1188 [00:34<00:31, 14.18it/s]Loading weights:  62%|######2   | 742/1188 [00:35<01:05,  6.86it/s]Loading weights:  63%|######2   | 747/1188 [00:36<00:47,  9.19it/s]Loading weights:  63%|######3   | 752/1188 [00:36<00:43,  9.98it/s]Loading weights:  63%|######3   | 754/1188 [00:36<00:40, 10.61it/s]Loading weights:  64%|######4   | 763/1188 [00:36<00:26, 16.11it/s]Loading weights:  64%|######4   | 766/1188 [00:37<00:34, 12.27it/s]Loading weights:  65%|######4   | 769/1188 [00:37<00:29, 14.05it/s]Loading weights:  65%|######5   | 776/1188 [00:37<00:22, 17.96it/s]Loading weights:  66%|######5   | 780/1188 [00:38<00:31, 12.95it/s]Loading weights:  66%|######5   | 782/1188 [00:38<00:30, 13.25it/s]Loading weights:  67%|######6   | 794/1188 [00:39<00:29, 13.22it/s]Loading weights:  68%|######7   | 804/1188 [00:39<00:19, 20.11it/s]Loading weights:  68%|######8   | 808/1188 [00:40<00:25, 14.70it/s]Loading weights:  68%|######8   | 811/1188 [00:40<00:28, 13.18it/s]Loading weights:  69%|######8   | 818/1188 [00:40<00:21, 17.17it/s]Loading weights:  69%|######9   | 822/1188 [00:41<00:28, 12.69it/s]Loading weights:  70%|######9   | 830/1188 [00:41<00:20, 17.68it/s]Loading weights:  73%|#######2  | 862/1188 [00:41<00:06, 50.71it/s]Loading weights:  76%|#######5  | 897/1188 [00:41<00:03, 90.92it/s]Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  81%|########1 | 110/135 [00:00<00:00, 1098.51it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1293.99it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:03<36:19,  1.84s/it]Loading weights:   7%|6         | 83/1188 [00:04<00:40, 27.41it/s]Loading weights:   8%|7         | 95/1188 [00:04<00:40, 27.14it/s]Loading weights:   9%|8         | 103/1188 [00:05<00:45, 23.63it/s]Loading weights:   9%|9         | 112/1188 [00:05<00:41, 26.21it/s]Loading weights:  10%|9         | 117/1188 [00:05<00:46, 23.01it/s]Loading weights:  10%|#         | 121/1188 [00:05<00:44, 23.92it/s]Loading weights:  11%|#         | 130/1188 [00:06<00:48, 21.66it/s]Loading weights:  12%|#1        | 140/1188 [00:06<00:37, 27.62it/s]Loading weights:  12%|#2        | 145/1188 [00:06<00:44, 23.48it/s]Loading weights:  13%|#2        | 154/1188 [00:07<00:35, 29.32it/s]Loading weights:  13%|#3        | 159/1188 [00:07<00:43, 23.77it/s]Loading weights:  14%|#3        | 166/1188 [00:07<00:39, 25.66it/s]Loading weights:  14%|#4        | 171/1188 [00:07<00:41, 24.32it/s]Loading weights:  15%|#4        | 174/1188 [00:07<00:41, 24.23it/s]Loading weights:  16%|#5        | 185/1188 [00:08<00:33, 29.98it/s]Loading weights:  17%|#6        | 201/1188 [00:08<00:26, 37.39it/s]Loading weights:  18%|#7        | 213/1188 [00:09<00:30, 31.87it/s]Loading weights:  19%|#8        | 223/1188 [00:09<00:26, 36.55it/s]Loading weights:  19%|#9        | 228/1188 [00:09<00:33, 29.01it/s]Loading weights:  20%|##        | 242/1188 [00:09<00:22, 41.83it/s]Loading weights:  21%|##        | 249/1188 [00:09<00:23, 39.67it/s]Loading weights:  26%|##5       | 304/1188 [00:10<00:08, 100.84it/s]Loading weights:  27%|##6       | 316/1188 [00:10<00:11, 72.74it/s] Loading weights:  27%|##7       | 325/1188 [00:10<00:13, 65.28it/s]Loading weights:  28%|##8       | 333/1188 [00:10<00:15, 55.08it/s]Loading weights:  30%|##9       | 353/1188 [00:11<00:11, 72.49it/s]Loading weights:  31%|###       | 365/1188 [00:11<00:16, 49.74it/s]Loading weights:  32%|###1      | 375/1188 [00:11<00:16, 48.26it/s]Loading weights:  32%|###2      | 382/1188 [00:12<00:21, 37.57it/s]Loading weights:  33%|###2      | 389/1188 [00:12<00:22, 35.97it/s]Loading weights:  33%|###3      | 394/1188 [00:12<00:25, 30.62it/s]Loading weights:  34%|###3      | 401/1188 [00:12<00:23, 33.32it/s]Loading weights:  34%|###4      | 407/1188 [00:13<00:26, 29.18it/s]Loading weights:  35%|###4      | 411/1188 [00:13<00:33, 23.11it/s]Loading weights:  35%|###5      | 417/1188 [00:13<00:35, 21.83it/s]Loading weights:  35%|###5      | 420/1188 [00:13<00:35, 21.56it/s]Loading weights:  36%|###5      | 423/1188 [00:14<00:35, 21.47it/s]Loading weights:  36%|###6      | 430/1188 [00:14<00:28, 26.61it/s]Loading weights:  37%|###6      | 434/1188 [00:14<00:39, 18.99it/s]Loading weights:  37%|###7      | 444/1188 [00:14<00:26, 27.66it/s]Loading weights:  38%|###7      | 448/1188 [00:15<00:41, 17.98it/s]Loading weights:  39%|###8      | 458/1188 [00:15<00:29, 24.47it/s]Loading weights:  39%|###8      | 462/1188 [00:15<00:36, 20.10it/s]Loading weights:  39%|###9      | 465/1188 [00:15<00:36, 20.03it/s]Loading weights:  40%|####      | 476/1188 [00:16<00:33, 21.39it/s]Loading weights:  41%|####      | 486/1188 [00:16<00:26, 26.59it/s]Loading weights:  41%|####1     | 490/1188 [00:16<00:28, 24.84it/s]Loading weights:  41%|####1     | 493/1188 [00:17<00:34, 20.19it/s]Loading weights:  42%|####2     | 500/1188 [00:17<00:26, 25.71it/s]Loading weights:  42%|####2     | 504/1188 [00:17<00:29, 22.91it/s]Loading weights:  43%|####3     | 513/1188 [00:17<00:20, 32.32it/s]Loading weights:  44%|####3     | 518/1188 [00:18<00:28, 23.79it/s]Loading weights:  44%|####4     | 527/1188 [00:18<00:20, 32.60it/s]Loading weights:  45%|####4     | 532/1188 [00:18<00:27, 24.29it/s]Loading weights:  45%|####5     | 536/1188 [00:18<00:24, 26.24it/s]Loading weights:  46%|####5     | 541/1188 [00:18<00:23, 27.92it/s]Loading weights:  46%|####5     | 545/1188 [00:19<00:32, 19.84it/s]Loading weights:  47%|####6     | 555/1188 [00:19<00:24, 25.34it/s]Loading weights:  47%|####7     | 559/1188 [00:19<00:28, 22.23it/s]Loading weights:  48%|####7     | 567/1188 [00:19<00:22, 27.29it/s]Loading weights:  48%|####8     | 573/1188 [00:20<00:25, 23.93it/s]Loading weights:  48%|####8     | 576/1188 [00:20<00:26, 22.97it/s]Loading weights:  49%|####8     | 581/1188 [00:20<00:28, 21.44it/s]Loading weights:  49%|####9     | 584/1188 [00:20<00:27, 21.91it/s]Loading weights:  49%|####9     | 588/1188 [00:21<00:29, 20.34it/s]Loading weights:  51%|#####     | 600/1188 [00:21<00:26, 21.82it/s]Loading weights:  51%|#####     | 603/1188 [00:21<00:26, 22.25it/s]Loading weights:  51%|#####1    | 610/1188 [00:21<00:23, 24.69it/s]Loading weights:  52%|#####1    | 614/1188 [00:22<00:23, 24.74it/s]Loading weights:  52%|#####1    | 617/1188 [00:22<00:27, 20.68it/s]Loading weights:  53%|#####2    | 628/1188 [00:22<00:24, 22.44it/s]Loading weights:  54%|#####3    | 638/1188 [00:22<00:19, 28.75it/s]Loading weights:  54%|#####4    | 642/1188 [00:23<00:22, 23.84it/s]Loading weights:  55%|#####4    | 652/1188 [00:23<00:19, 27.33it/s]Loading weights:  55%|#####5    | 656/1188 [00:23<00:24, 22.05it/s]Loading weights:  55%|#####5    | 659/1188 [00:24<00:27, 19.51it/s]Loading weights:  56%|#####5    | 664/1188 [00:24<00:24, 21.65it/s]Loading weights:  56%|#####6    | 667/1188 [00:24<00:30, 17.14it/s]Loading weights:  56%|#####6    | 671/1188 [00:24<00:29, 17.42it/s]Loading weights:  57%|#####7    | 680/1188 [00:24<00:19, 26.51it/s]Loading weights:  58%|#####7    | 684/1188 [00:25<00:31, 15.92it/s]Loading weights:  58%|#####8    | 693/1188 [00:25<00:23, 20.83it/s]Loading weights:  59%|#####8    | 697/1188 [00:26<00:30, 16.29it/s]Loading weights:  59%|#####8    | 700/1188 [00:26<00:28, 17.16it/s]Loading weights:  60%|#####9    | 711/1188 [00:26<00:25, 19.08it/s]Loading weights:  61%|######    | 721/1188 [00:27<00:20, 23.22it/s]Loading weights:  61%|######1   | 725/1188 [00:27<00:21, 21.70it/s]Loading weights:  62%|######1   | 733/1188 [00:27<00:16, 27.68it/s]Loading weights:  62%|######2   | 737/1188 [00:27<00:15, 28.75it/s]Loading weights:  62%|######2   | 741/1188 [00:28<00:23, 18.92it/s]Loading weights:  63%|######3   | 749/1188 [00:28<00:20, 21.91it/s]Loading weights:  63%|######3   | 753/1188 [00:28<00:19, 22.85it/s]Loading weights:  64%|######4   | 762/1188 [00:28<00:18, 22.46it/s]Loading weights:  64%|######4   | 766/1188 [00:29<00:17, 23.99it/s]Loading weights:  65%|######4   | 769/1188 [00:29<00:17, 24.58it/s]Loading weights:  65%|######5   | 776/1188 [00:29<00:15, 26.72it/s]Loading weights:  66%|######5   | 780/1188 [00:29<00:21, 18.84it/s]Loading weights:  67%|######6   | 791/1188 [00:30<00:15, 26.19it/s]Loading weights:  67%|######6   | 794/1188 [00:30<00:20, 19.70it/s]Loading weights:  68%|######7   | 804/1188 [00:30<00:14, 26.70it/s]Loading weights:  68%|######8   | 808/1188 [00:30<00:18, 20.55it/s]Loading weights:  69%|######8   | 818/1188 [00:31<00:12, 28.77it/s]Loading weights:  77%|#######7  | 920/1188 [00:31<00:01, 171.72it/s]Loading weights:  80%|########  | 953/1188 [00:31<00:01, 195.28it/s]Loading weights:  83%|########2 | 986/1188 [00:31<00:00, 219.77it/s]Loading weights:  86%|########5 | 1018/1188 [00:31<00:00, 234.09it/s]Loading weights:  89%|########9 | 1063/1188 [00:31<00:00, 283.43it/s]Loading weights:  92%|#########2| 1098/1188 [00:31<00:00, 298.70it/s]Loading weights:  95%|#########5| 1134/1188 [00:31<00:00, 311.78it/s]Loading weights:  98%|#########8| 1170/1188 [00:31<00:00, 319.54it/s]Loading weights: 100%|##########| 1188/1188 [00:32<00:00, 37.07it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [18/Aug/2026 15:48:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:48:37] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:48:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:48:42] "GET /files HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 15:49:02] "GET / HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 15:49:02] "GET /style.css HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 15:49:08] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:49:33][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786969147031
+  [96mPrompt :[0m hello
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('hello') — bypassing RAG context injection.
+10.100.9.209 - - [18/Aug/2026 15:49:35] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m11.99s[0m | [93m58 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.86s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:49:46] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20እኔ%20አማኒ%20ነኝ፤%20በኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20የተገነባሁ%20ረዳት%20ነኝ።%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /clear[0m [2m[15:49:56][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787057396564
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:49:56] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:50:01][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787057396564
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:50:01] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[15:50:07][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m0.71s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:50:08] "POST /refresh HTTP/1.1" 200 -
+10.100.9.209 - - [18/Aug/2026 15:50:08] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:50:24][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1786969147031
+  [96mPrompt :[0m who are you
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+10.100.9.209 - - [18/Aug/2026 15:50:25] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m15.45s[0m | [93m87 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.87s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:50:42] "[35m[1mGET /api/tts/audio?text=እኔ%20አማኒ%20እባላለሁ፤%20በኢትዮጵያ%20አርቲፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)%20የተገነባሁ%20ብልህ%20እና%20ትሁት%20የሰው%20ሰራሽ%20አስተውሎት%20(AI)%20ረዳት%20ነኝ።%20በማንኛውም%20ጥያቄ%20ወይም%20ጉዳይ%20ላይ%20ልረዳዎት%20ዝግጁ%20ነኝ።&lang=am-ET HTTP/1.1[0m" 206 -
+127.0.0.1 - - [18/Aug/2026 15:51:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:51:19] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:51:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:51:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:52:45][0m
+  [96mClient :[0m 10.100.9.209
+  [96mSession:[0m 1787057565959
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+10.100.9.209 - - [18/Aug/2026 15:52:45] "POST /clear HTTP/1.1" 200 -
+[2026-08-18 15:57:31] [INFO] [test_module]: Test log entry for Amani AI assistant
+
+[1m[92m▶ POST /chat[0m [2m[15:57:31][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m perf_test
+  [96mPrompt :[0m What is the capital of Ethiopia?
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+  [92m✔ /chat done[0m in [93m3.56s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:57:34] "POST /chat HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat[0m [2m[15:57:34][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m perf_test
+  [96mPrompt :[0m Hi, who are you and what can you help me with?
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.484).
+  [92m✔ /chat done[0m in [93m18.35s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:57:53] "POST /chat HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat[0m [2m[15:57:53][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m perf_test
+  [96mPrompt :[0m የኢትዮጵያ ታላቅ ህዳሴ ግድብ የት ይገኛል?
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+  [92m✔ /chat done[0m in [93m8.17s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:01] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:01] "GET /api/voices?lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/tts/audio[0m [2m[15:58:01][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም
+  [92m✔ /api/tts/audio done[0m in [93m0.75s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:02] "POST /api/tts/audio HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/tts/audio[0m [2m[15:58:02][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m እንኳን ወደ አማኒ ረዳት በደህና መጡ! ዛሬ እንዴት ልረዳዎት እችላለሁ?
+  [92m✔ /api/tts/audio done[0m in [93m0.77s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:02] "POST /api/tts/audio HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /api/voices?lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /health HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/tts/audio[0m [2m[15:58:03][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m እንኳን ወደ አማኒ ረዳት በደህና መጡ
+  [92m✔ /api/tts/audio done[0m in [93m0.76s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:03] "POST /api/tts/audio HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:03] "GET /health HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat[0m [2m[15:58:03][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_perf_1
+  [96mPrompt :[0m What is the capital of Ethiopia?
+  [92m✔ /chat done[0m in [93m3.57s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:07] "POST /chat HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 15:58:07] "GET /health HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat[0m [2m[15:58:07][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_perf_2
+  [96mPrompt :[0m ሰላም! እባክዎን ስለ ኢትዮጵያ በአጭሩ ይንገሩኝ::
+  [92m✔ /chat done[0m in [93m15.89s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:23] "POST /chat HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat[0m [2m[15:58:23][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m accel_test_1
+  [96mPrompt :[0m Tell me about the history of Ethiopia in detail.
+  [92m✔ /chat done[0m in [93m28.99s[0m
+
+127.0.0.1 - - [18/Aug/2026 15:58:52] "POST /chat HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:58:52][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m accel_test_2
+  [96mPrompt :[0m Tell me about the history of Ethiopia in detail.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [18/Aug/2026 15:58:53] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m38.13s[0m | [93m153 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:59:30][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m unit_test_stream
+  [96mPrompt :[0m Hello! Introduce yourself.
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [18/Aug/2026 15:59:31] "POST /chat/stream HTTP/1.1" 200 -
+[2026-08-18 15:59:54] [INFO] [test_module]: Test log entry for Amani AI assistant
+127.0.0.1 - - [18/Aug/2026 16:00:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:02:00] "GET / HTTP/1.1" 200 -
+[2026-08-18 16:02:28] [INFO] [test_module]: Test log entry for Amani AI assistant
+127.0.0.1 - - [18/Aug/2026 16:04:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:07:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:09:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:11:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:11:48] "GET /style.css HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:11:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787058708875
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [18/Aug/2026 16:11:48] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:11:48] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [18/Aug/2026 16:11:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
