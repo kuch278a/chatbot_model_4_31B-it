@@ -3825,3 +3825,122 @@ All services loaded and ready!
 
 10.100.9.209 - - [17/Aug/2026 15:19:10] "POST /clear HTTP/1.1" 200 -
 127.0.0.1 - - [17/Aug/2026 15:19:26] "GET /API/openapi.json HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:00:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:00:35] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:00:35] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:01:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:01:19] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [17/Aug/2026 17:01:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4940.98it/s]
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 1 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<06:11,  3.19it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:03, 273.39it/s]Loading weights:  19%|#9        | 228/1188 [00:01<00:05, 174.86it/s]Loading weights:  23%|##3       | 274/1188 [00:01<00:04, 203.58it/s]Loading weights:  27%|##6       | 316/1188 [00:01<00:04, 209.09it/s]Loading weights:  30%|##9       | 352/1188 [00:01<00:03, 209.10it/s]Loading weights:  32%|###2      | 383/1188 [00:01<00:03, 220.57it/s]Loading weights:  35%|###4      | 413/1188 [00:02<00:03, 216.68it/s]Loading weights:  37%|###7      | 440/1188 [00:02<00:03, 214.80it/s]Loading weights:  39%|###9      | 465/1188 [00:02<00:03, 219.44it/s]Loading weights:  41%|####1     | 490/1188 [00:02<00:03, 223.72it/s]Loading weights:  43%|####3     | 515/1188 [00:02<00:03, 223.78it/s]Loading weights:  45%|####5     | 539/1188 [00:02<00:02, 225.18it/s]Loading weights:  47%|####7     | 563/1188 [00:02<00:02, 217.82it/s]Loading weights:  49%|####9     | 586/1188 [00:02<00:02, 215.37it/s]Loading weights:  51%|#####1    | 610/1188 [00:03<00:02, 215.53it/s]Loading weights:  53%|#####3    | 632/1188 [00:03<00:02, 212.67it/s]Loading weights:  55%|#####5    | 657/1188 [00:03<00:02, 216.32it/s]Loading weights:  57%|#####7    | 683/1188 [00:03<00:02, 219.28it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 218.67it/s]Loading weights:  62%|######2   | 739/1188 [00:03<00:01, 227.27it/s]Loading weights:  64%|######4   | 763/1188 [00:03<00:01, 224.09it/s]Loading weights:  66%|######6   | 788/1188 [00:03<00:01, 231.13it/s]Loading weights:  68%|######8   | 812/1188 [00:03<00:01, 220.44it/s]Loading weights:  75%|#######4  | 887/1188 [00:04<00:00, 365.04it/s]Loading weights:  93%|#########3| 1105/1188 [00:04<00:00, 873.07it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 284.11it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:37:50][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m11.61s[0m | [93m58 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.27s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:38:33][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m6.00s[0m | [93m32 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.95s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:39:51][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m5.04s[0m | [93m29 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.04s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:40:51][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m3.66s[0m | [93m21 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.41s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:44:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m5.03s[0m | [93m29 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.76s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:45:08][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m4.38s[0m | [93m24 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.33s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:45:37][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('ሰላም') — bypassing RAG context injection.
+  [92m✔ /chat/stream done[0m in [93m5.01s[0m | [93m29 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:45:58][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m ሰላም! በምን ላግዝዎት እችላለሁ? ማንኛውንም ጥያቄ መጠየቅ ይችላሉ
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+  [92m✔ /chat/stream done[0m in [93m8.54s[0m | [93m50 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.48s[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[08:46:39][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1786370655196
+  [96mPrompt :[0m በኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ኢንስቲትዩት
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.783).
+  [92m✔ /chat/stream done[0m in [93m24.81s[0m | [93m125 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.85s[0m
+

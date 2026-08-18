@@ -17,11 +17,9 @@ cp "$CONF_SRC" "$CONF_DEST"
 echo "==> [3/5] Ensuring enabled site symlink exists..."
 ln -sf "$CONF_DEST" "$LINK_DEST"
 
-# Remove default site if it conflicts on port 80
-if [ -f /etc/nginx/sites-enabled/default ]; then
-    echo "==> Removing default conflicting site..."
-    rm -f /etc/nginx/sites-enabled/default
-fi
+# Remove duplicate or conflicting site configs in sites-enabled
+rm -f /etc/nginx/sites-enabled/default
+rm -f /etc/nginx/sites-enabled/amani_nginx.conf
 
 echo "==> [4/5] Testing Nginx configuration..."
 nginx -t
@@ -36,14 +34,9 @@ systemctl reload nginx
 
 echo ""
 echo "=========================================================================="
-echo " SUCCESS: Nginx is running as:"
-echo "   [1] Reverse Proxy : Forwarding requests to Gunicorn backend"
-echo "   [2] Load Balancer : Upstream pool with least_conn algorithm"
-echo "   [3] Content Cache : 1GB cache zone at $CACHE_DIR"
-echo "   [4] API Gateway   : Rate limiting, security headers, route filtering"
+echo " SUCCESS: Nginx is ready for access across all networks!"
 echo ""
-echo " Public HTTP  : http://196.188.240.106/"
-echo " Public HTTPS : https://196.188.240.106/"
-echo " API Docs     : http://196.188.240.106/API/docs"
-echo " Health Check : http://196.188.240.106/health"
+echo " [1] Same WiFi / LAN     : http://10.100.9.209/"
+echo " [2] Via Tailscale VPN    : http://100.114.122.26/"
+echo " [3] Public IP (Internet) : http://196.188.240.106/"
 echo "=========================================================================="
