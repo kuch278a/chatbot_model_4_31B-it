@@ -14,7 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/style.css?v=2.1">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
             if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -87,26 +87,32 @@
                 </div>
 
                 <div class="topbar-right">
-                    <select id="langSelect" class="pill-select" title="Language Selector">
+                    <!-- <select id="langSelect" class="pill-select" title="Language Selector">
                         <option value="am-ET" selected>አማርኛ (am-ET)</option>
-                    </select>
+                    </select>-->
 
-                    <!-- Speaker / TTS Toggle Switch (Commented out)
-                    <button id="speakerBtn" onclick="toggleTTS()" class="action-pill-btn active" title="ድምፅ ማብሪያ/ማጥፊያ (በርቷል)">
+                    <!-- Hands-Free / Auto-Listen Mode Toggle Button -->
+                    <button id="autoListenBtn" type="button" onclick="toggleAutoListen()" class="action-pill-btn"
+                        title="ቀጣይነት ያለው ውይይት / Hands-Free Voice Mode">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                            <path
+                                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
                         </svg>
-                        <span>ድምፅ</span>
+                        <span id="autoListenText">Auto-Listen</span>
                     </button>
-                    -->
 
                     <!-- Theme Toggle Switch -->
-                    <button id="themeToggleBtn" onclick="toggleTheme()" class="action-pill-btn" title="Toggle Light / Dark Theme">
-                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                    <button id="themeToggleBtn" onclick="toggleTheme()" class="action-pill-btn"
+                        title="Toggle Light / Dark Theme">
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="16" height="16"
+                            fill="currentColor">
+                            <path
+                                d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
                         </svg>
-                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-8.49.75.75 0 0 0-.82-.86 8 8 0 0 1-8.88-8.88.75.75 0 0 0-.86-.82 10.15 10.15 0 0 0-.14-.95z"/>
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="16" height="16"
+                            fill="currentColor">
+                            <path
+                                d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-8.49.75.75 0 0 0-.82-.86 8 8 0 0 1-8.88-8.88.75.75 0 0 0-.86-.82 10.15 10.15 0 0 0-.14-.95z" />
                         </svg>
                         <span class="theme-text">Dark</span>
                     </button>
@@ -142,7 +148,7 @@
 
                         <div class="input-actions-right">
                             <!-- Mic Button with Ethio-ASR Voice Recognition -->
-                            <button id="micBtn" onclick="toggleSpeechRecognition()" class="gemini-mic-btn"
+                            <button type="button" id="micBtn" onclick="toggleSpeechRecognition()" class="gemini-mic-btn"
                                 title="Click to record speech (English / Amharic)">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                                     <path
@@ -151,8 +157,8 @@
                             </button>
 
                             <!-- Send Button with Dynamic Active Glow -->
-                            <button id="sendBtn" onclick="sendMessage()" class="gemini-send-btn" title="Send / ላክ"
-                                disabled>
+                            <button type="button" id="sendBtn" onclick="sendMessage()" class="gemini-send-btn"
+                                title="Send / ላክ" disabled>
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                                 </svg>
@@ -174,6 +180,8 @@
         let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
         let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
         let isListening = false;
+        let isStreaming = false;
+        let autoListenMode = false;
         let ttsEnabled = true;
         let currentAudio = null;
 
@@ -577,6 +585,7 @@
                 window.speechSynthesis.cancel();
             }
 
+            isStreaming = true;
             messages.push({ role: 'user', content });
             appendMessageNode('user', content);
 
@@ -654,8 +663,16 @@
                 appendMessageNode('assistant', '⚠️ ከአገልጋዩ ጋር መገናኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።');
                 messages.pop();
             } finally {
+                isStreaming = false;
                 input.focus();
                 if (statusDot) statusDot.classList.remove('loading');
+                if (autoListenMode && !ttsEnabled && !isListening) {
+                    setTimeout(() => {
+                        if (autoListenMode && !isListening && !isStreaming) {
+                            toggleSpeechRecognition();
+                        }
+                    }, 500);
+                }
             }
         }
 
@@ -703,21 +720,57 @@
         let audioContext = null;
         let vadAnalyser = null;
         let vadAnimationId = null;
+        let recordingTimeoutId = null;
         let silenceStartTime = null;
         let speechHasStarted = false;
+        let webSpeechRec = null;
 
-        const VAD_SILENCE_THRESHOLD = 0.015;
-        const VAD_SILENCE_DURATION_MS = 1200;
-        const MAX_RECORDING_MS = 15000;
+        const VAD_SILENCE_THRESHOLD = 0.006;
+        const VAD_SILENCE_DURATION_MS = 1800;
+        const MAX_RECORDING_MS = 25000;
+
+        function getSupportedAudioMimeType() {
+            const candidates = [
+                'audio/webm;codecs=opus',
+                'audio/webm',
+                'audio/ogg;codecs=opus',
+                'audio/ogg',
+                'audio/mp4',
+                'audio/aac',
+                'audio/wav'
+            ];
+            if (typeof MediaRecorder === 'undefined' || !MediaRecorder.isTypeSupported) return '';
+            for (const type of candidates) {
+                if (MediaRecorder.isTypeSupported(type)) {
+                    return type;
+                }
+            }
+            return '';
+        }
 
         function initSpeechRecognition() {
             const micBtn = document.getElementById("micBtn");
-            if (micBtn && (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)) {
-                micBtn.style.display = "none";
+            if (micBtn) {
+                micBtn.title = "ድምፅ ማዳመጫ / ንግግር ወደ ጽሑፍ (Ethio-ASR)";
             }
+
+            // Automatically stop recording if user switches away from the tab
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && isListening) {
+                    if (mediaRecorder && mediaRecorder.state === "recording") {
+                        try { mediaRecorder.requestData(); } catch (e) { }
+                        mediaRecorder.stop();
+                    }
+                    stopVAD();
+                }
+            });
         }
 
         function stopVAD() {
+            if (recordingTimeoutId) {
+                clearTimeout(recordingTimeoutId);
+                recordingTimeoutId = null;
+            }
             if (vadAnimationId) {
                 cancelAnimationFrame(vadAnimationId);
                 vadAnimationId = null;
@@ -733,21 +786,25 @@
         async function startVAD(stream) {
             try {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioContext.state === 'suspended') {
+                    await audioContext.resume();
+                }
                 const source = audioContext.createMediaStreamSource(stream);
                 vadAnalyser = audioContext.createAnalyser();
                 vadAnalyser.fftSize = 512;
                 source.connect(vadAnalyser);
 
-                const pcmData = new Float32Array(vadAnalyser.fftSize);
+                const pcmData = new Uint8Array(vadAnalyser.fftSize);
                 const recordingStartTime = Date.now();
 
                 function monitorVAD() {
                     if (!isListening) return;
 
-                    vadAnalyser.getFloatTimeDomainData(pcmData);
+                    vadAnalyser.getByteTimeDomainData(pcmData);
                     let sum = 0;
                     for (let i = 0; i < pcmData.length; i++) {
-                        sum += pcmData[i] * pcmData[i];
+                        const val = (pcmData[i] - 128) / 128.0;
+                        sum += val * val;
                     }
                     const rms = Math.sqrt(sum / pcmData.length);
                     const now = Date.now();
@@ -755,15 +812,18 @@
                     if (rms > VAD_SILENCE_THRESHOLD) {
                         if (!speechHasStarted) {
                             speechHasStarted = true;
-                            document.getElementById("userInput").placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
+                            const input = document.getElementById("userInput");
+                            if (input) input.placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
                         }
                         silenceStartTime = null;
                     } else if (speechHasStarted) {
                         if (!silenceStartTime) {
                             silenceStartTime = now;
                         } else if (now - silenceStartTime >= VAD_SILENCE_DURATION_MS) {
-                            document.getElementById("userInput").placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
-                            if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                            const input = document.getElementById("userInput");
+                            if (input) input.placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
+                            if (mediaRecorder && mediaRecorder.state === "recording") {
+                                try { mediaRecorder.requestData(); } catch (e) { }
                                 mediaRecorder.stop();
                             }
                             stopVAD();
@@ -772,7 +832,8 @@
                     }
 
                     if (now - recordingStartTime >= MAX_RECORDING_MS) {
-                        if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                        if (mediaRecorder && mediaRecorder.state === "recording") {
+                            try { mediaRecorder.requestData(); } catch (e) { }
                             mediaRecorder.stop();
                         }
                         stopVAD();
@@ -784,88 +845,268 @@
 
                 vadAnimationId = requestAnimationFrame(monitorVAD);
             } catch (e) {
-                console.warn("[VAD] Could not initialize Web Audio VAD:", e);
+                console.warn("[VAD] Web Audio VAD note:", e);
+            }
+        }
+
+        function startWebSpeechFallback() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                appendMessageNode('assistant', '⚠️ ማይክሮፎን ደህንነቱ በተጠበቀ ግንኙነት (HTTPS) ወይም በ `http://localhost:5000` / `http://127.0.0.1:5000` ብቻ ነው የሚሰራው። እባክዎ በ localhost ይክፈቱ ወይም HTTPS ይጠቀሙ።');
+                return;
+            }
+
+            if (isListening && webSpeechRec) {
+                try { webSpeechRec.stop(); } catch (e) { }
+                isListening = false;
+                const micBtn = document.getElementById("micBtn");
+                if (micBtn) micBtn.classList.remove("listening");
+                return;
+            }
+
+            try {
+                webSpeechRec = new SpeechRec();
+                webSpeechRec.lang = 'am-ET';
+                webSpeechRec.continuous = false;
+                webSpeechRec.interimResults = true;
+
+                const micBtn = document.getElementById("micBtn");
+                const input = document.getElementById("userInput");
+
+                webSpeechRec.onstart = () => {
+                    isListening = true;
+                    if (micBtn) micBtn.classList.add("listening");
+                    if (input) input.placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
+                };
+
+                webSpeechRec.onresult = (event) => {
+                    let transcript = '';
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        transcript += event.results[i][0].transcript;
+                    }
+                    if (transcript && input) {
+                        input.value = transcript;
+                        handleInput(input);
+                    }
+                };
+
+                webSpeechRec.onend = () => {
+                    isListening = false;
+                    if (micBtn) micBtn.classList.remove("listening");
+                    if (input) {
+                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        if (input.value && input.value.trim().length > 0) {
+                            sendMessage();
+                        }
+                    }
+                };
+
+                webSpeechRec.onerror = (e) => {
+                    console.warn("Web Speech error:", e);
+                    isListening = false;
+                    if (micBtn) micBtn.classList.remove("listening");
+                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    if (e.error === 'not-allowed') {
+                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ ውስጥ ፈቃድ ይስጡ (Allow Microphone)።');
+                    }
+                };
+
+                webSpeechRec.start();
+            } catch (err) {
+                console.error("WebSpeech start failed:", err);
+                appendMessageNode('assistant', '⚠️ ማይክሮፎን መክፈት አልተቻለም። እባክዎ በ HTTPS ወይም localhost ይሞክሩ።');
+            }
+        }
+
+        // ─── Hands-Free Continuous Voice Mode ─────────────────────────────────
+        function toggleAutoListen() {
+            autoListenMode = !autoListenMode;
+            const btn = document.getElementById("autoListenBtn");
+            const label = document.getElementById("autoListenText");
+            if (btn) {
+                if (autoListenMode) {
+                    btn.classList.add("active");
+                    btn.title = "ቀጣይነት ያለው ውይይት (በርቷል - ራስ-ሰር ያዳምጣል)";
+                    if (label) label.textContent = "Auto-Listen (ON)";
+                    if (!isListening && !isStreaming) {
+                        toggleSpeechRecognition();
+                    }
+                } else {
+                    btn.classList.remove("active");
+                    btn.title = "ቀጣይነት ያለው ውይይት (ጠፍቷል)";
+                    if (label) label.textContent = "Auto-Listen";
+                    if (isListening) {
+                        toggleSpeechRecognition();
+                    }
+                }
             }
         }
 
         async function toggleSpeechRecognition() {
+            const micBtn = document.getElementById("micBtn");
+            const input = document.getElementById("userInput");
+
             if (isListening) {
                 stopVAD();
-                if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                if (mediaRecorder && mediaRecorder.state === "recording") {
+                    try { mediaRecorder.requestData(); } catch (e) { }
                     mediaRecorder.stop();
                 }
+                if (webSpeechRec) {
+                    try { webSpeechRec.stop(); } catch (e) { }
+                }
+                return;
+            }
+
+            // Automatically turn on continuous auto-listen mode when mic is activated
+            if (!autoListenMode) {
+                autoListenMode = true;
+                const autoBtn = document.getElementById("autoListenBtn");
+                const autoLabel = document.getElementById("autoListenText");
+                if (autoBtn) {
+                    autoBtn.classList.add("active");
+                    autoBtn.title = "ቀጣይነት ያለው ውይይት (በርቷል - ራስ-ሰር ያዳምጣል)";
+                    if (autoLabel) autoLabel.textContent = "Auto-Listen (ON)";
+                }
+            }
+
+            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
+                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+
+            if (!getUserMedia) {
+                if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                    startWebSpeechFallback();
+                    return;
+                }
+                appendMessageNode('assistant', '⚠️ ማይክሮፎን ደህንነቱ በተጠበቀ ገጽ (HTTPS) ወይም በ `http://localhost:5000` / `http://127.0.0.1:5000` ብቻ ነው የሚሰራው። እባክዎ በ localhost ይክፈቱ ወይም HTTPS ይጠቀሙ።');
                 return;
             }
 
             let stream;
             try {
-                stream = await navigator.mediaDevices.getUserMedia({
+                stream = await getUserMedia({
                     audio: {
                         echoCancellation: true,
                         noiseSuppression: true,
-                        autoGainControl: true,
-                        sampleRate: 16000,
-                        channelCount: 1
+                        autoGainControl: true
                     }
                 });
-            } catch (e) {
-                appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ።');
-                return;
+            } catch (firstErr) {
+                try {
+                    stream = await getUserMedia({ audio: true });
+                } catch (e) {
+                    console.error("Microphone access failed:", e);
+                    if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
+                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።');
+                    } else if (e.name === 'NotFoundError' || e.name === 'DevicesNotFoundError') {
+                        appendMessageNode('assistant', '⚠️ ምንም የተገናኘ ማይክሮፎን አልተገኘም። እባክዎ ማይክሮፎንዎን ያገናኙ።');
+                    } else {
+                        if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                            startWebSpeechFallback();
+                            return;
+                        }
+                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ ወይም በ `http://localhost:5000` ይክፈቱ።');
+                    }
+                    return;
+                }
             }
 
             isListening = true;
             audioChunks = [];
-            const micBtn = document.getElementById("micBtn");
-            if (micBtn) micBtn.classList.add("listening");
-            const input = document.getElementById("userInput");
-            input.placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
+            if (micBtn) {
+                micBtn.classList.add("listening");
+                micBtn.title = "ድምፅ በመቅረጽ ላይ... ለማቆም እና ለመላክ ይጫኑ";
+            }
+            if (input) {
+                input.placeholder = "🎙️ እያዳመጥኩ ነው... (ለመላክ እዚህ ወይም ማይክሮፎኑን ይጫኑ)";
+            }
 
-            mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+            const supportedMime = getSupportedAudioMimeType();
+            const recorderOptions = supportedMime ? { mimeType: supportedMime } : {};
+
+            try {
+                mediaRecorder = new MediaRecorder(stream, recorderOptions);
+            } catch (recErr) {
+                console.warn("MediaRecorder init with options fallback:", recErr);
+                try {
+                    mediaRecorder = new MediaRecorder(stream);
+                } catch (recErr2) {
+                    console.error("MediaRecorder failed entirely, falling back to Web Speech:", recErr2);
+                    stream.getTracks().forEach(t => t.stop());
+                    isListening = false;
+                    if (micBtn) micBtn.classList.remove("listening");
+                    startWebSpeechFallback();
+                    return;
+                }
+            }
 
             mediaRecorder.ondataavailable = (e) => {
-                if (e.data.size > 0) audioChunks.push(e.data);
+                if (e.data && e.data.size > 0) audioChunks.push(e.data);
             };
 
             mediaRecorder.onstop = async () => {
                 stopVAD();
                 stream.getTracks().forEach(t => t.stop());
                 isListening = false;
-                if (micBtn) micBtn.classList.remove("listening");
-                input.placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
+                if (micBtn) {
+                    micBtn.classList.remove("listening");
+                    micBtn.title = "ድምፅ ማዳመጫ / ንግግር ወደ ጽሑፍ (Ethio-ASR)";
+                }
+                if (input) input.placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
 
                 if (audioChunks.length === 0) {
-                    input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                     return;
                 }
 
-                const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+                const finalMime = mediaRecorder.mimeType || supportedMime || 'audio/webm';
+                const audioBlob = new Blob(audioChunks, { type: finalMime });
+
                 try {
                     const res = await fetch("/api/stt", {
                         method: "POST",
-                        headers: { "Content-Type": "audio/webm" },
+                        headers: { "Content-Type": finalMime },
                         body: audioBlob
                     });
                     const data = await res.json();
                     if (data.transcript && data.transcript.trim().length > 0) {
-                        input.value = data.transcript;
-                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
-                        handleInput(input);
-                        sendMessage();
-                    } else {
-                        input.placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
-                        setTimeout(() => {
+                        if (input) {
+                            input.value = data.transcript;
                             input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
-                        }, 2000);
+                            handleInput(input);
+                            sendMessage();
+                        }
+                    } else {
+                        if (input) {
+                            input.placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
+                            setTimeout(() => {
+                                input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                            }, 2500);
+                        }
                     }
                 } catch (e) {
                     console.error("STT error:", e);
-                    input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                 }
             };
+
+            if (recordingTimeoutId) {
+                clearTimeout(recordingTimeoutId);
+            }
+            recordingTimeoutId = setTimeout(() => {
+                if (mediaRecorder && mediaRecorder.state === "recording") {
+                    try { mediaRecorder.requestData(); } catch (e) { }
+                    mediaRecorder.stop();
+                }
+                stopVAD();
+            }, MAX_RECORDING_MS);
 
             mediaRecorder.start(200);
             startVAD(stream);
         }
+
+
 
         // ─── Speech Synthesis (TTS) ────────────────────────────────────────
         function toggleTTS() {
@@ -892,7 +1133,20 @@
         }
 
         function speakText(text) {
-            if (!ttsEnabled || !text) return;
+            const triggerAutoListen = () => {
+                if (autoListenMode && !isListening && !isStreaming) {
+                    setTimeout(() => {
+                        if (autoListenMode && !isListening && !isStreaming) {
+                            toggleSpeechRecognition();
+                        }
+                    }, 400);
+                }
+            };
+
+            if (!ttsEnabled || !text) {
+                triggerAutoListen();
+                return;
+            }
 
             const cleanText = text.replace(/<[^>]*>/g, '')
                 .replace(/\*\*|__/g, '')
@@ -900,7 +1154,10 @@
                 .replace(/`[^`]+`/g, '')
                 .replace(/#+\s*/g, '')
                 .trim();
-            if (!cleanText) return;
+            if (!cleanText) {
+                triggerAutoListen();
+                return;
+            }
 
             if (currentAudio) {
                 currentAudio.pause();
@@ -914,6 +1171,16 @@
             const audio = new Audio(audioUrl);
             currentAudio = audio;
 
+            audio.onended = () => {
+                currentAudio = null;
+                triggerAutoListen();
+            };
+
+            audio.onerror = () => {
+                currentAudio = null;
+                triggerAutoListen();
+            };
+
             audio.play().catch(e => {
                 console.warn("[TTS] Backend audio stream failed, fallback to browser SpeechSynthesis:", e);
                 if ('speechSynthesis' in window) {
@@ -923,7 +1190,11 @@
                     const utterance = new SpeechSynthesisUtterance(cleanText);
                     utterance.lang = "am-ET";
                     if (targetVoice) utterance.voice = targetVoice;
+                    utterance.onend = triggerAutoListen;
+                    utterance.onerror = triggerAutoListen;
                     window.speechSynthesis.speak(utterance);
+                } else {
+                    triggerAutoListen();
                 }
             });
         }

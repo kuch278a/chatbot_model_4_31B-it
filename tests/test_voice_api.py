@@ -66,7 +66,22 @@ class TestVoiceAPI(unittest.TestCase):
         # Check audio header / valid non-empty stream
         self.assertGreater(len(response.data), 1000)
 
+    def test_post_stt_empty_data(self):
+        """Test POST /api/stt handles empty audio gracefully with 400 status."""
+        response = self.client.post("/api/stt", data=b"")
+        self.assertEqual(response.status_code, 400)
+        data = response.get_json()
+        self.assertIn("error", data)
+
+    def test_post_stt_dummy_audio(self):
+        """Test POST /api/stt with small audio blob returns structured JSON response."""
+        response = self.client.post("/api/stt", data=b"\x00" * 100, headers={"Content-Type": "audio/webm"})
+        self.assertIn(response.status_code, [200, 400, 500])
+        data = response.get_json()
+        self.assertIsInstance(data, dict)
+
 if __name__ == "__main__":
     unittest.main()
+
 
 

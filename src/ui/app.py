@@ -151,18 +151,24 @@ def chat_stream():
 def speech_to_text():
     """
     Transcribes audio exclusively in Amharic using dedicated Ethio-ASR model.
+    Accepts raw audio binary streams (WebM, MP4, OGG, WAV) or multipart uploads.
     """
     client_ip = request.remote_addr
     audio_bytes = request.data  # Raw binary audio from browser MediaRecorder
 
-    if not audio_bytes:
-        return jsonify({"error": "No audio data received"}), 400
+    if not audio_bytes and request.files:
+        audio_file = request.files.get("audio") or request.files.get("file")
+        if audio_file:
+            audio_bytes = audio_file.read()
 
-    _log_request("POST", "/api/stt?lang=am-ET", client_ip, "-", f"[audio {len(audio_bytes)//1024}KB]")
+    if not audio_bytes:
+        return jsonify({"error": "No audio data received", "transcript": ""}), 400
+
+    _log_request("POST", "/api/stt?lang=am-ET", client_ip, "-", f"[audio {max(1, len(audio_bytes)//1024)}KB]")
     t0 = time.time()
 
     try:
-        from src.stt.ethio_asr_transcriber import transcribe_webm as ethio_transcribe
+        from src.stt.ethio_asr_transcriber import transcribe_audio_blob as ethio_transcribe
 
         transcript = ethio_transcribe(audio_bytes)
         detected_lang = "am-ET"
@@ -176,7 +182,8 @@ def speech_to_text():
         })
     except Exception as e:
         print(f"  {_C['red']}✘ /api/stt error: {e}{_C['reset']}", flush=True)
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": str(e), "transcript": ""}), 500
+
 
 @ui_bp.route("/api/voices", methods=["GET"])
 def list_voices():

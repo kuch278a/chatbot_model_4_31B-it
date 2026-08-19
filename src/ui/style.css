@@ -469,6 +469,12 @@ body, .sidebar, .main-chat-viewport, .gemini-topbar, .input-capsule-box, .new-ch
     border-color: rgba(66, 133, 244, 0.4);
 }
 
+.action-pill-btn#autoListenBtn.active {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
 /* ─── Theme Toggle Button & Light Mode Overrides ─────────────────────────── */
 .theme-icon-sun {
     display: block;
