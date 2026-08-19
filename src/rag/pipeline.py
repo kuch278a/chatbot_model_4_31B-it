@@ -10,7 +10,7 @@ class RAGPipeline:
         from .retriever import Retriever
         from .context_filter import ContextFilter
         self.retriever = retriever or Retriever(self.embeddings_model, self.vector_store)
-        self.context_filter = ContextFilter(min_score_threshold=0.48, max_context_length=1200)
+        self.context_filter = ContextFilter(min_score_threshold=0.25, max_context_length=1500)
 
     def index_file(self, filepath):
         if not os.path.exists(filepath):
@@ -81,7 +81,7 @@ class RAGPipeline:
         print(f"Indexed {indexed_count} files from {directory_path}")
 
 
-    def get_context(self, query, k=3, min_score_threshold=None):
+    def get_context(self, query, k=4, min_score_threshold=None):
         """
         Retrieves and filters context for the given user query.
         Discards low-relevance documents, greetings, and duplicate chunks.

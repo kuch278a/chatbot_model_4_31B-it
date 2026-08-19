@@ -23,8 +23,8 @@ class ContextFilter:
 
     def __init__(
         self,
-        min_score_threshold: float = 0.48,
-        max_context_length: int = 1200,
+        min_score_threshold: float = 0.25,
+        max_context_length: int = 1500,
         filter_greetings: bool = True
     ):
         self.min_score_threshold = min_score_threshold

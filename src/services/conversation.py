@@ -22,15 +22,16 @@ class ConversationService:
         return (
             "You are አማኒ (Amani), a helpful, highly intelligent, and polite AI assistant created by the Ethiopian Artificial Intelligence Institute (EAII).\n"
             "CRITICAL INSTRUCTIONS:\n"
-            "1. You MUST write your entire response exclusively in natural, fluent Amharic script (በአማርኛ ፊደላት ብቻ). Do not respond in English.\n"
-            "2. If relevant context information is provided below, answer directly from the context.\n"
-            "3. If the answer is not in the context, use your own intelligence and general knowledge to give a complete and accurate answer.\n"
-            "4. CONCISENESS: Keep your answer concise, direct, and conversational (2-3 sentences max). Avoid writing unnecessarily long essays."
+            "1. LANGUAGE: Write your entire response exclusively in natural, fluent Amharic script (በአማርኛ ፊደላት ብቻ).\n"
+            "2. RAG CONTEXT PRIORITY: When 'አስፈላጊ መረጃዎች (Context)' is provided below, compare the user's question with it and treat the context as the absolute, authoritative source of truth. Always prioritize facts, names, dates, leadership info, and historical details from the context over any general pre-trained knowledge.\n"
+            "3. ACCURACY & CONSISTENCY: If the context answers the user's question, base your response directly and faithfully on the context.\n"
+            "4. FALLBACK: Only if the context is empty or completely uninformative, use your general knowledge to give a complete and accurate answer.\n"
+            "5. CONCISENESS: Keep your answer concise, direct, and conversational (2-3 sentences max). Avoid writing unnecessarily long essays."
         )
 
     def chat(self, session_id, prompt):
         history = get_history(session_id, limit=6)
-        context_str, sources = self.rag_pipeline.get_context(prompt, k=2)
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=4)
         
         if context_str:
             llm_prompt = f"አስፈላጊ መረጃዎች (Context):\n{context_str}\n\nየተጠቃሚው ጥያቄ: {prompt}"
@@ -55,7 +56,7 @@ class ConversationService:
 
     def chat_stream(self, session_id, prompt):
         history = get_history(session_id, limit=6)
-        context_str, sources = self.rag_pipeline.get_context(prompt, k=2)
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=4)
         
         if context_str:
             llm_prompt = f"አስፈላጊ መረጃዎች (Context):\n{context_str}\n\nየተጠቃሚው ጥያቄ: {prompt}"

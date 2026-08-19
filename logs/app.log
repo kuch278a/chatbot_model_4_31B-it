@@ -5476,3 +5476,307 @@ All services loaded and ready!
 127.0.0.1 - - [19/Aug/2026 15:57:05] "POST /api/stt HTTP/1.1" 200 -
 127.0.0.1 - - [19/Aug/2026 16:04:41] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [19/Aug/2026 16:04:41] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:17:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:17:55] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[16:17:57][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 2 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m0.53s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:17:57] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:17:58] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:18:58][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787142128784
+  [96mPrompt :[0m ሰለ ኢትዮጵያ ታሪክ ንገሪኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.494).
+127.0.0.1 - - [19/Aug/2026 16:19:01] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m26.33s[0m | [93m132 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.99s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:19:28] "GET /api/tts/audio?text=የኢትዮጵያ%20ታሪክ%20ከሰው%20ልጅ%20መገኛ%20(ሉሲ)%20ጀምሮ%20እስከ%20ዘመናዊቷ%20ኢትዮጵያ%20ድረስ%20የሚዘልቅ%20ጥንታዊና%20ቀጣይነት%20ያለው%20ታሪክ%20ነው።%20በተለይም%20የአክሱም%20ሥልጣኔ%20በንግድ፣%20በሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20የሰለጠነች%20ሀገር%20እንደነበረች%20እንዲሁም%20ለክርስትና%20እና%20ለኢስላም%20ሃይማኖቶች%20መጠጊያ%20በመሆን%20መንፈሳዊ%20ጥንካሬዋን%20አሳይታለች።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:19:51][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787142128784
+  [96mPrompt :[0m አክሱም ሥልጣኔ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.696).
+127.0.0.1 - - [19/Aug/2026 16:19:52] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m21.18s[0m | [93m119 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.76s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:20:15] "GET /api/tts/audio?text=የአክሱም%20ሥልጣኔ%20በዓለም%20አቀፍ%20ንግድ፣%20በራሷ%20ሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20ረገድ%20የሰለጠነች%20ጥንታዊት%20ሀገር%20ነበረች።%20በተጨማሪም%20በ4ኛው%20ክፍለ%20ዘመን%20ክርስትና%20ይፋዊ%20የሆነባት%20እና%20በ7ኛው%20ክፍለ%20ዘመን%20ነጃሺ%20ለሙስሊሞች%20መጠጊያ%20የሰጡባት%20መንፈሳዊ%20ጥንካሬ%20ያላት%20ሥልጣኔ%20ነበረች።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:20:32][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:20:32] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:20:34][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m አክሱም ሥልጣኔ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.696).
+127.0.0.1 - - [19/Aug/2026 16:20:35] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m19.28s[0m | [93m108 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m4.32s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:20:58] "GET /api/tts/audio?text=የአክሱም%20ሥልጣኔ%20በዓለም%20አቀፍ%20ንግድ፣%20በራሷ%20ሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20የሰለጠነች%20ጥንታዊት%20ሀገር%20ነበረች።%20በ4ኛው%20ክፍለ%20ዘመን%20ክርስትና%20ይፋዊ%20የሆነባት%20ሲሆን፣%20በ7ኛው%20ክፍለ%20ዘመን%20ደግሞ%20ነጃሺ%20ለሙስሊሞች%20መጠጊያ%20በመስጠታቸው%20ይታወቃሉ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:22:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m 100- 940 ዒ.ም
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:22:44] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m18.76s[0m | [93m109 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m2.97s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:23:05] "GET /api/tts/audio?text=ይህ%20የዘመን%20ገደብ%20የአክሱም%20ሥልጣኔ%20በከፍተኛ%20ደረጃ%20የነገሠችበትን%20እና%20ቀስ%20በቀስ%20ወደ%20ውድቀት%20የገባችበትን%20የሥር%20የሰደደ%20ታሪካዊ%20ወቅት%20ያመለክታል።%20በዚህ%20ጊዜ%20ውስጥ%20አክሱም%20በንግድ፣%20በሥነ-ሕንጻ%20(እንደ%20ሐውልቶቹ)%20እና%20በሃይማኖት%20ረገድ%20ትልቅ%20ተጽዕኖ%20ፈጣሪ%20ነበረች።&lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:25:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:25:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:25:58] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:01] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:07] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:26:12][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145973049
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:26:12] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:16] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:29] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[16:26:31][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 17 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m1.10s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:26:32] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:32] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:26:43] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:27:04][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m who is the president of ethiopia
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:27:04] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.10s[0m | [93m28 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.10s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:27:10] "GET /api/tts/audio?text=የኢትዮጵያ%20ፕሬዝዳንት%20ሣህለወርቅ%20ዘዳነህ%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:27:29][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m who is the president of ethiopia now
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:27:30] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.13s[0m | [93m28 tokens[0m
+
+127.0.0.1 - - [19/Aug/2026 16:28:26] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:29:29] "[33mPOST /files/refresh HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /refresh[0m [2m[16:29:49][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 17 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m1.19s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:29:51] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:30:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:31:00] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:31:09][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m who is the president of ethiopia now
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:31:09] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.03s[0m | [93m28 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.89s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:31:15] "GET /api/tts/audio?text=የኢትዮጵያ%20ፕሬዝዳንት%20ሣህለወርቅ%20ዘዳነህ%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+[2026-08-19 16:35:40] [INFO] [test_module]: Test log entry for Amani AI assistant
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:36:06][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m who is the president of ethiopia now
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:36:07] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.40s[0m | [93m28 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.80s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:13] "GET /api/tts/audio?text=የኢትዮጵያ%20ፕሬዝዳንት%20ሣህለወርቅ%20ዘዳነህ%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:36:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:36:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:36:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Aug/2026 16:36:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:26][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146586778
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:26] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:36:28][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146586778
+  [96mPrompt :[0m who is the president of ethiopia now
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:36:28] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m4.42s[0m | [93m24 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.04s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:34] "GET /api/tts/audio?text=የኢትዮጵያ%20ፕሬዝዳንት%20ታይቱ%20ገብreselassie%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:40][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146586778
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:40] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:43][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145973049
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:43] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:45][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787145633146
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:45] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787142128784
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:48] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:36:48][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146609230
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:36:48] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:36:51][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146609230
+  [96mPrompt :[0m who is the president of ethiopia now
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:36:51] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m4.36s[0m | [93m24 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[16:37:27][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146609230
+  [96mPrompt :[0m who is the president of ethiopia now in 2024
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.48) — no context injected.
+127.0.0.1 - - [19/Aug/2026 16:37:28] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.92s[0m | [93m32 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.21s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:37:35] "GET /api/tts/audio?text=በአሁኑ%20ወቅት%20የኢትዮጵያ%20ፕሬዝዳንት%20ሣህለወርቅ%20ዘውዴ%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[16:40:06][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787146806745
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [19/Aug/2026 16:40:06] "POST /clear HTTP/1.1" 200 -
+[2026-08-19 16:41:09] [INFO] [test_module]: Test log entry for Amani AI assistant
+[2026-08-19 16:43:20] [INFO] [test_module]: Test log entry for Amani AI assistant
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4454.72it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 17 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 34/1188 [00:00<00:06, 172.92it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:06, 179.68it/s]Loading weights:   7%|6         | 83/1188 [00:00<00:05, 191.26it/s]Loading weights:   9%|8         | 103/1188 [00:00<00:05, 191.37it/s]Loading weights:  11%|#         | 127/1188 [00:00<00:05, 198.30it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 219.71it/s]Loading weights:  15%|#4        | 177/1188 [00:00<00:04, 209.40it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 208.27it/s]Loading weights:  19%|#8        | 221/1188 [00:01<00:04, 209.59it/s]Loading weights:  20%|##        | 243/1188 [00:01<00:04, 204.78it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 210.55it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 204.33it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:03, 224.15it/s]Loading weights:  29%|##8       | 343/1188 [00:01<00:03, 216.64it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:03, 206.69it/s]Loading weights:  33%|###2      | 389/1188 [00:01<00:03, 212.56it/s]Loading weights:  35%|###4      | 411/1188 [00:02<00:03, 198.45it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:03, 204.02it/s]Loading weights:  39%|###8      | 458/1188 [00:02<00:03, 208.53it/s]Loading weights:  40%|####      | 480/1188 [00:02<00:03, 198.76it/s]Loading weights:  42%|####2     | 501/1188 [00:02<00:03, 189.72it/s]Loading weights:  44%|####3     | 521/1188 [00:02<00:03, 185.17it/s]Loading weights:  46%|####5     | 541/1188 [00:02<00:03, 185.70it/s]Loading weights:  48%|####7     | 567/1188 [00:02<00:03, 200.49it/s]Loading weights:  49%|####9     | 588/1188 [00:02<00:03, 196.20it/s]Loading weights:  51%|#####1    | 611/1188 [00:03<00:02, 197.98it/s]Loading weights:  54%|#####3    | 638/1188 [00:03<00:02, 210.14it/s]Loading weights:  56%|#####5    | 660/1188 [00:03<00:02, 206.33it/s]Loading weights:  57%|#####7    | 683/1188 [00:03<00:02, 200.74it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 205.49it/s]Loading weights:  62%|######1   | 735/1188 [00:03<00:02, 208.72it/s]Loading weights:  64%|######4   | 765/1188 [00:03<00:01, 225.86it/s]Loading weights:  66%|######6   | 788/1188 [00:03<00:01, 200.16it/s]Loading weights:  68%|######8   | 810/1188 [00:03<00:01, 203.32it/s]Loading weights:  70%|######9   | 831/1188 [00:05<00:07, 46.84it/s] Loading weights:  75%|#######4  | 887/1188 [00:05<00:03, 87.23it/s]Loading weights:  78%|#######7  | 924/1188 [00:05<00:02, 115.57it/s]Loading weights:  81%|########1 | 966/1188 [00:05<00:01, 152.94it/s]Loading weights:  87%|########6 | 1029/1188 [00:05<00:00, 219.20it/s]Loading weights:  94%|#########4| 1118/1188 [00:05<00:00, 297.62it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 197.57it/s]
