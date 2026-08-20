@@ -39,9 +39,10 @@ class SQLiteVectorStore:
         finally:
             conn.close()
 
-    def similarity_search(self, query_embedding, k=3):
+    def similarity_search(self, query_embedding, keywords=None, k=4):
         """
         query_embedding: list of floats or numpy array
+        keywords: optional list or set of search tokens for lexical hybrid weighting
         """
         conn = get_db_connection()
         try:
@@ -68,14 +69,29 @@ class SQLiteVectorStore:
                 emb_norm = 1.0
                 
             # Cosine similarity
-            similarity = np.dot(query_vec, emb_vec) / (query_norm * emb_norm)
+            cosine = float(np.dot(query_vec, emb_vec) / (query_norm * emb_norm))
+            
+            # Lexical keyword boost
+            lexical_score = 0.0
+            if keywords:
+                text_lower = row["text"].lower()
+                matched_count = 0
+                for kw in keywords:
+                    if kw in text_lower:
+                        matched_count += 1
+                    elif kw.endswith('s') and kw[:-1] in text_lower:
+                        matched_count += 1
+                lexical_score = (matched_count / len(keywords)) * 0.40
+
+            combined_score = min(1.0, cosine + lexical_score)
             
             results.append({
                 "id": row["id"],
                 "document_name": row["document_name"],
                 "text": row["text"],
                 "metadata": json.loads(row["metadata"]),
-                "score": float(similarity)
+                "score": float(combined_score),
+                "cosine": float(cosine)
             })
             
         # Sort by similarity score descending

@@ -44,7 +44,16 @@ class Retriever:
         expanded_query = self._expand_query(query)
         # Compute query embedding
         query_emb = self.embeddings_model.embed_query(expanded_query)
-        # Query vector store
-        results = self.vector_store.similarity_search(query_emb, k=k)
+
+        # Extract keywords for lexical hybrid scoring
+        q_lower = expanded_query.lower()
+        keywords = set()
+        stop_words = {'who', 'is', 'the', 'of', 'in', 'and', 'what', 'a', 'an', 'are', 'now', 'to', 'for', 'ማን', 'ነው', 'ናቸው', 'ምን', 'እና'}
+        for w in re.findall(r'[\w\u1200-\u137F]+', q_lower):
+            if len(w) >= 2 and w not in stop_words:
+                keywords.add(w)
+
+        # Query vector store with hybrid dense + lexical matching
+        results = self.vector_store.similarity_search(query_emb, keywords=keywords, k=k)
         return results
 

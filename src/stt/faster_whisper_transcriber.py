@@ -17,7 +17,7 @@ _DEFAULT_DEVICE = os.environ.get("WHISPER_DEVICE", "cpu")
 _DEFAULT_COMPUTE_TYPE = os.environ.get("WHISPER_COMPUTE_TYPE", "int8")
 
 # Domain vocabulary initial prompt to guide Whisper tokenizer for Amharic and AI terminology
-DEFAULT_INITIAL_PROMPT = "የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት, አማኒ, EAII, Amani AI assistant, Gemma."
+DEFAULT_INITIAL_PROMPT = "የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት, አማኒ, Amani AI assistant."
 
 
 class FasterWhisperTranscriber:

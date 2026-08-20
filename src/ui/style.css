@@ -555,21 +555,43 @@ body, .sidebar, .main-chat-viewport, .gemini-topbar, .input-capsule-box, .new-ch
 
 /* ─── Chat Scroll Area ────────────────────────────────────────────────────── */
 .chat-scroll-container {
-    flex: 1;
+    flex: 1 1 0%;
+    min-height: 0;
+    width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 16px 160px 16px;
+    padding: 0 16px 200px 16px;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .chat-scroll-container::-webkit-scrollbar {
     width: 8px;
 }
+.chat-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
 .chat-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 4px;
+}
+.chat-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="light"] .chat-scroll-container {
+    scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+[data-theme="light"] .chat-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+}
+[data-theme="light"] .chat-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .conversation-inner {
@@ -579,8 +601,8 @@ body, .sidebar, .main-chat-viewport, .gemini-topbar, .input-capsule-box, .new-ch
     flex-direction: column;
     gap: 28px;
     padding-top: 20px;
-    flex: 1;
-    min-height: 100%;
+    flex-grow: 1;
+    min-height: min-content;
 }
 
 /* ─── Welcome Hero Landing Section ────────────────────────────────────────── */

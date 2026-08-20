@@ -39,6 +39,11 @@ class ContextFilter:
             return True
         return False
 
+    def is_fragment_or_too_short(self, query: str) -> bool:
+        """Checks if a user query is a fragmented syllable, single character, or empty punctuation."""
+        cleaned = re.sub(r'[^\w\u1200-\u137F]', '', query.strip())
+        return len(cleaned) < 2
+
     def filter_contexts(
         self,
         query: str,
@@ -53,7 +58,12 @@ class ContextFilter:
         if not retrieved_chunks:
             return "", []
 
-        # 1. If query is a greeting or pleasantry, bypass context
+        # 1. If query is a single fragment or too short, bypass context
+        if self.is_fragment_or_too_short(query):
+            print(f"  [Context Filter] Short fragment query ('{query}') — bypassing RAG context injection.")
+            return "", []
+
+        # 2. If query is a greeting or pleasantry, bypass context
         if self.filter_greetings and self.is_greeting(query):
             print(f"  [Context Filter] Greeting detected ('{query}') — bypassing RAG context injection.")
             return "", []
