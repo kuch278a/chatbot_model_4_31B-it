@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=2.7">
+    <link rel="stylesheet" href="/style.css?v=3.1">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
@@ -158,7 +158,7 @@
 
                             <!-- ChatGPT-Style Live Voice Mode Start Button -->
                             <button type="button" id="voiceModeBtn" onclick="startVoiceMode()" class="chatgpt-voice-btn"
-                                title="Live Voice Chat / ቀጥታ የድምፅ ውይይት (ChatGPT Mode)">
+                                title="Live Voice Chat / ቀጥታ የድምፅ ውይይት ">
                                 <div class="voice-wave-bars">
                                     <span class="bar"></span>
                                     <span class="bar"></span>
@@ -167,13 +167,7 @@
                                 </div>
                             </button>
 
-                            <!-- Send Button with Dynamic Active Glow -->
-                            <!-- <button type="button" id="sendBtn" onclick="sendMessage()" class="gemini-send-btn"
-                                title="Send / ላክ" disabled>
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                                </svg>
-                            </button>-->
+
                         </div>
                     </div>
                 </div>
@@ -424,12 +418,14 @@
             el.style.height = Math.min(el.scrollHeight, 160) + 'px';
 
             const sendBtn = document.getElementById('sendBtn');
-            if (el.value.trim().length > 0) {
-                sendBtn.classList.add('active');
-                sendBtn.disabled = false;
-            } else {
-                sendBtn.classList.remove('active');
-                sendBtn.disabled = true;
+            if (sendBtn) {
+                if (el.value.trim().length > 0) {
+                    sendBtn.classList.add('active');
+                    sendBtn.disabled = false;
+                } else {
+                    sendBtn.classList.remove('active');
+                    sendBtn.disabled = true;
+                }
             }
         }
 
@@ -610,8 +606,10 @@
 
             input.value = '';
             input.style.height = 'auto';
-            sendBtn.classList.remove('active');
-            sendBtn.disabled = true;
+            if (sendBtn) {
+                sendBtn.classList.remove('active');
+                sendBtn.disabled = true;
+            }
 
             saveToLocalStorage();
 
@@ -977,28 +975,29 @@
                 return;
             }
 
-            // Automatically turn on continuous auto-listen mode when mic is activated
-            if (!autoListenMode) {
-                autoListenMode = true;
-                const autoBtn = document.getElementById("autoListenBtn");
-                const autoLabel = document.getElementById("autoListenText");
-                if (autoBtn) {
-                    autoBtn.classList.add("active");
-                    autoBtn.title = "ቀጣይነት ያለው ውይይት (በርቷል - ራስ-ሰር ያዳምጣል)";
-                    if (autoLabel) autoLabel.textContent = "Auto-Listen (ON)";
-                }
-            }
+
 
             const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
                 ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
                 : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
 
             if (!getUserMedia) {
-                if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                if (autoListenMode) toggleAutoListen();
+                if (!isSecureOrigin()) {
+                    showPermModal(
+                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
+                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ይፈልጋል። ወደ HTTPS ለመቀየር ከታች ያለውን ቁልፍ ይጫኑ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require an HTTPS connection to prompt for microphone permissions. Click below to switch to HTTPS and allow microphone access.</span>",
+                        true
+                    );
+                } else if (window.webkitSpeechRecognition || window.SpeechRecognition) {
                     startWebSpeechFallback();
-                    return;
+                } else {
+                    showPermModal(
+                        "ማይክሮፎን አልተገኘም / Microphone Unavailable",
+                        "እባክዎ ማይክሮፎንዎ በትክክል መገናኘቱን እና በብሮውዘርዎ ውስጥ መፈቀዱን ያረጋግጡ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Please ensure your microphone is connected and allowed in browser settings.</span>",
+                        false
+                    );
                 }
-                appendMessageNode('assistant', '⚠️ ማይክሮፎን ደህንነቱ በተጠበቀ ገጽ (HTTPS) ወይም በ `http://localhost:5000` / `http://127.0.0.1:5000` ብቻ ነው የሚሰራው። እባክዎ በ localhost ይክፈቱ ወይም HTTPS ይጠቀሙ።');
                 return;
             }
 
@@ -1016,6 +1015,7 @@
                     stream = await getUserMedia({ audio: true });
                 } catch (e) {
                     console.error("Microphone access failed:", e);
+                    if (autoListenMode) toggleAutoListen();
                     if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
                         appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።');
                     } else if (e.name === 'NotFoundError' || e.name === 'DevicesNotFoundError') {
@@ -1301,12 +1301,19 @@
                 : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
 
             if (!getUserMedia) {
-                if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                if (!isSecureOrigin()) {
+                    closeVoiceMode();
+                    showPermModal(
+                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
+                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ይፈልጋል። ወደ HTTPS ለመቀየር ከታች ያለውን ቁልፍ ይጫኑ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require an HTTPS connection to prompt for microphone permissions. Click below to switch to HTTPS and allow microphone access.</span>",
+                        true
+                    );
+                } else if (window.webkitSpeechRecognition || window.SpeechRecognition) {
                     startVoiceModeWebSpeechFallback();
-                    return;
+                } else {
+                    setVoiceModeState("muted", "Microphone unavailable / ማይክሮፎን አልተገኘም");
+                    updateVoiceSubtitle("System", "⚠️ ማይክሮፎን በ HTTPS ወይም በ http://localhost:5000 ብቻ ነው የሚሰራው።", false);
                 }
-                setVoiceModeState("muted", "Microphone unavailable / ማይክሮፎን አልተገኘም");
-                updateVoiceSubtitle("System", "⚠️ ማይክሮፎን በ HTTPS ወይም በ http://localhost:5000 ብቻ ነው የሚሰራው።", false);
                 return;
             }
 
@@ -1534,7 +1541,7 @@
                         saveToLocalStorage();
                         generateVoiceModeResponse(transcript);
                     } else if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
-                        try { vmWebSpeechRec.start(); } catch (e) {}
+                        try { vmWebSpeechRec.start(); } catch (e) { }
                     }
                 };
 
@@ -1543,7 +1550,7 @@
                     if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
                         setTimeout(() => {
                             if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
-                                try { vmWebSpeechRec.start(); } catch (err) {}
+                                try { vmWebSpeechRec.start(); } catch (err) { }
                             }
                         }, 600);
                     }
@@ -1727,7 +1734,7 @@
                             setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                             updateVoiceSubtitle("Amani AI", "Listening for your response... / እያዳመጥኩ ነው...", true);
                             if (vmWebSpeechRec) {
-                                try { vmWebSpeechRec.start(); } catch (e) {}
+                                try { vmWebSpeechRec.start(); } catch (e) { }
                             } else {
                                 startVoiceModeRecording();
                             }
@@ -1747,7 +1754,7 @@
             audio.onerror = (e) => {
                 console.warn("[VoiceMode] Backend TTS audio stream failed, fallback to SpeechSynthesis:", e);
                 if ("speechSynthesis" in window) {
-                    try { window.speechSynthesis.resume(); } catch (err) {}
+                    try { window.speechSynthesis.resume(); } catch (err) { }
                     const voices = window.speechSynthesis.getVoices();
                     let targetVoice = voices.find(v => v.name.includes("Mekdes") || v.lang.startsWith("am"));
                     const utterance = new SpeechSynthesisUtterance(cleanText);
@@ -1787,7 +1794,7 @@
                     try { vmMediaRecorder.stop(); } catch (e) { }
                 }
                 if (vmWebSpeechRec) {
-                    try { vmWebSpeechRec.stop(); } catch (e) {}
+                    try { vmWebSpeechRec.stop(); } catch (e) { }
                 }
             } else {
                 if (muteBtn) muteBtn.classList.remove("active");
@@ -1797,7 +1804,7 @@
                 setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                 updateVoiceSubtitle("Amani AI", "Listening... / እያዳመጥኩ ነው...", true);
                 if (vmWebSpeechRec) {
-                    try { vmWebSpeechRec.start(); } catch (e) {}
+                    try { vmWebSpeechRec.start(); } catch (e) { }
                 } else {
                     startVoiceModeRecording();
                 }
@@ -1826,7 +1833,7 @@
             vmActive = false;
             stopVoiceModeVAD();
             if (vmWebSpeechRec) {
-                try { vmWebSpeechRec.stop(); } catch (e) {}
+                try { vmWebSpeechRec.stop(); } catch (e) { }
                 vmWebSpeechRec = null;
             }
             const overlay = document.getElementById('voiceModeOverlay');
@@ -1882,12 +1889,17 @@
 
             <div class="vm-topbar-controls">
                 <!-- Theme Toggle Button in Live Voice Mode -->
-                <button class="vm-control-btn vm-theme-btn" id="vmThemeToggleBtn" onclick="toggleTheme()" title="Toggle Light / Dark Theme">
-                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                <button class="vm-control-btn vm-theme-btn" id="vmThemeToggleBtn" onclick="toggleTheme()"
+                    title="Toggle Light / Dark Theme">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18"
+                        fill="currentColor">
+                        <path
+                            d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
                     </svg>
-                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-8.49.75.75 0 0 0-.82-.86 8 8 0 0 1-8.88-8.88.75.75 0 0 0-.86-.82 10.15 10.15 0 0 0-.14-.95z"/>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18"
+                        fill="currentColor">
+                        <path
+                            d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-8.49.75.75 0 0 0-.82-.86 8 8 0 0 1-8.88-8.88.75.75 0 0 0-.86-.82 10.15 10.15 0 0 0-.14-.95z" />
                     </svg>
                 </button>
 
@@ -1935,13 +1947,41 @@
             </button>
 
             <!-- End Voice Session Button -->
-            <button class="vm-dock-btn end-btn" id="vmEndBtn" onclick="closeVoiceMode()"
-                title="Exit Voice Mode / ውጣ">
+            <button class="vm-dock-btn end-btn" id="vmEndBtn" onclick="closeVoiceMode()" title="Exit Voice Mode / ውጣ">
                 <svg viewBox="0 0 24 24">
                     <path
                         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                 </svg>
             </button>
+        </div>
+    </div>
+
+
+    <!-- ─── Microphone & HTTPS Permission Modal ──────────────────────────── -->
+    <div class="permission-modal-overlay" id="permModalOverlay" onclick="closePermModal(event)">
+        <div class="permission-modal-card" onclick="event.stopPropagation()">
+            <div class="perm-modal-icon-badge">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+                </svg>
+            </div>
+            <h3 class="perm-modal-title" id="permModalTitle">የማይክሮፎን ፈቃድ / Microphone Permission</h3>
+            <p class="perm-modal-desc" id="permModalDesc">
+                ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ይፈልጋል። ወደ HTTPS ለመቀየር ከታች ያለውን ቁልፍ ይጫኑ።
+                <br><br>
+                <span style="font-size: 13px; color: var(--text-secondary);">Browsers require an HTTPS connection to prompt for microphone permissions. Click below to switch to HTTPS and enable voice chat.</span>
+            </p>
+            <div class="perm-modal-actions">
+                <button type="button" class="perm-btn perm-btn-primary" id="permActionBtn" onclick="switchToHttps()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                    </svg>
+                    <span>ወደ HTTPS ቀይር / Switch to HTTPS</span>
+                </button>
+                <button type="button" class="perm-btn perm-btn-secondary" onclick="closePermModal()">
+                    ዝጋ / Dismiss
+                </button>
+            </div>
         </div>
     </div>
 

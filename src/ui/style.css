@@ -1708,3 +1708,121 @@ body, .sidebar, .main-chat-viewport, .gemini-topbar, .input-capsule-box, .new-ch
 [data-theme="light"] .vm-wave-ring {
     border-color: rgba(37, 99, 235, 0.28);
 }
+
+
+/* ─── Microphone & HTTPS Permission Modal ─────────────────────────────────── */
+.permission-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.permission-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.permission-modal-card {
+    background: var(--gemini-surface);
+    border: 1px solid var(--gemini-border);
+    border-radius: 24px;
+    max-width: 480px;
+    width: 100%;
+    padding: 32px 28px 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.94);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.permission-modal-overlay.active .permission-modal-card {
+    transform: scale(1);
+}
+
+.perm-modal-icon-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(66, 133, 244, 0.15);
+    color: var(--gemini-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: 0 0 24px rgba(66, 133, 244, 0.3);
+}
+
+.perm-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.perm-modal-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.perm-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+}
+
+.perm-btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.perm-btn-primary:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.perm-btn-secondary {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--gemini-border-subtle);
+}
+
+.perm-btn-secondary:hover {
+    background: var(--gemini-surface-hover);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .permission-modal-card {
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
