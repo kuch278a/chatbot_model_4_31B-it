@@ -7110,3 +7110,13 @@ Partitioning model layers across GPU 0 and GPU 1...
 Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
 Model sharding completed successfully.
 All services loaded and ready!
+100.69.252.86 - - [21/Aug/2026 11:35:20] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:35:20] "GET /style.css?v=2.5 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:35:21] "GET /files HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:35:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+100.69.252.86 - - [21/Aug/2026 11:38:32] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:38:33] "GET /style.css?v=2.5 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:38:34] "GET /files HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:43:48] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:43:48] "GET /style.css?v=2.5 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 11:43:49] "GET /files HTTP/1.1" 200 -

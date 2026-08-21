@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=2.5">
+    <link rel="stylesheet" href="/style.css?v=2.7">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
@@ -1220,7 +1220,7 @@
 
 
         // ==============================================================================
-        // ─── ChatGPT-Style Live Voice Mode Engine ─────────────────────────────────────
+        // ─── Unified Live Voice Chat Engine (Auto-Listen Powered) ────────────────────
         // ==============================================================================
         let vmActive = false;
         let vmAudioContext = null;
@@ -1229,29 +1229,32 @@
         let vmMediaRecorder = null;
         let vmAudioChunks = [];
         let vmAnimFrameId = null;
+        let vmVadAnimId = null;
         let vmSpeechStarted = false;
-        let vmSilenceTimer = null;
+        let vmSilenceStartTime = null;
         let vmMuted = false;
         let vmCurrentTTSAudio = null;
-        let vmCurrentVoice = 'am-ET-MekdesNeural';
+        let vmCurrentVoice = "am-ET-MekdesNeural";
         let vmAbortController = null;
         let vmIsSpeaking = false;
         let vmIsProcessing = false;
         let vmSmoothedAudioLevel = 0;
+        let vmWebSpeechRec = null;
 
-        const VM_VAD_THRESHOLD = 0.0075;
-        const VM_SILENCE_DURATION_MS = 1400;
-        const VM_MAX_RECORDING_MS = 30000;
+        // Synchronized with Auto-Listen parameters
+        const VM_VAD_THRESHOLD = 0.006;
+        const VM_SILENCE_DURATION_MS = 1800;
+        const VM_MAX_RECORDING_MS = 25000;
 
         function setVoiceModeState(state, label) {
-            const overlay = document.getElementById('voiceModeOverlay');
-            const pill = document.getElementById('vmStatusPill');
-            const statusLabel = document.getElementById('vmStatusLabel');
+            const overlay = document.getElementById("voiceModeOverlay");
+            const pill = document.getElementById("vmStatusPill");
+            const statusLabel = document.getElementById("vmStatusLabel");
 
             if (!overlay || !pill || !statusLabel) return;
 
-            overlay.classList.remove('listening', 'thinking', 'speaking', 'muted');
-            pill.classList.remove('listening', 'thinking', 'speaking', 'muted');
+            overlay.classList.remove("listening", "thinking", "speaking", "muted");
+            pill.classList.remove("listening", "thinking", "speaking", "muted");
 
             overlay.classList.add(state);
             pill.classList.add(state);
@@ -1260,7 +1263,7 @@
 
         function changeVoiceModeVoice(voiceName) {
             vmCurrentVoice = voiceName;
-            console.log('[VoiceMode] Voice switched to:', voiceName);
+            console.log("[VoiceMode] Voice switched to:", voiceName);
         }
 
         async function startVoiceMode() {
@@ -1278,28 +1281,32 @@
                 window.speechSynthesis.cancel();
             }
 
-            const overlay = document.getElementById('voiceModeOverlay');
+            const overlay = document.getElementById("voiceModeOverlay");
             if (!overlay) return;
 
-            overlay.classList.add('active');
+            overlay.classList.add("active");
             vmActive = true;
             vmMuted = false;
             vmIsSpeaking = false;
             vmIsProcessing = false;
 
-            const muteBtn = document.getElementById('vmMuteBtn');
-            if (muteBtn) muteBtn.classList.remove('active');
+            const muteBtn = document.getElementById("vmMuteBtn");
+            if (muteBtn) muteBtn.classList.remove("active");
 
-            setVoiceModeState('listening', 'Connecting mic... / ማይክሮፎን በማገናኘት ላይ...');
-            updateVoiceSubtitle('Amani AI', 'Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...', true);
+            setVoiceModeState("listening", "Connecting mic... / ማይክሮፎን በማገናኘት ላይ...");
+            updateVoiceSubtitle("Amani AI", "Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...", true);
 
             const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
                 ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
                 : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
 
             if (!getUserMedia) {
-                setVoiceModeState('muted', 'Microphone unavailable / ማይክሮፎን አልተገኘም');
-                updateVoiceSubtitle('System', '⚠️ ማይክሮፎን በ HTTPS ወይም በ localhost ብቻ ነው የሚሰራው።', false);
+                if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                    startVoiceModeWebSpeechFallback();
+                    return;
+                }
+                setVoiceModeState("muted", "Microphone unavailable / ማይክሮፎን አልተገኘም");
+                updateVoiceSubtitle("System", "⚠️ ማይክሮፎን በ HTTPS ወይም በ http://localhost:5000 ብቻ ነው የሚሰራው።", false);
                 return;
             }
 
@@ -1315,9 +1322,13 @@
                 try {
                     vmMediaStream = await getUserMedia({ audio: true });
                 } catch (e2) {
-                    console.error('[VoiceMode] Mic access failed:', e2);
-                    setVoiceModeState('muted', 'Permission Denied / ፈቃድ ተከልክሏል');
-                    updateVoiceSubtitle('System', '⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ Address Bar ላይ ፈቃድ ይስጡ።', false);
+                    console.error("[VoiceMode] Mic access failed:", e2);
+                    if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                        startVoiceModeWebSpeechFallback();
+                        return;
+                    }
+                    setVoiceModeState("muted", "Permission Denied / ፈቃድ ተከልክሏል");
+                    updateVoiceSubtitle("System", "⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ Address Bar ላይ ፈቃድ ይስጡ።", false);
                     return;
                 }
             }
@@ -1325,7 +1336,7 @@
             // Initialize AudioContext & Visualizer
             try {
                 vmAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-                if (vmAudioContext.state === 'suspended') {
+                if (vmAudioContext.state === "suspended") {
                     await vmAudioContext.resume();
                 }
                 const source = vmAudioContext.createMediaStreamSource(vmMediaStream);
@@ -1335,11 +1346,11 @@
 
                 startVoiceOrbAnimationLoop();
             } catch (acErr) {
-                console.warn('[VoiceMode] AudioContext visualizer init warning:', acErr);
+                console.warn("[VoiceMode] AudioContext visualizer init warning:", acErr);
             }
 
-            setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
-            updateVoiceSubtitle('Amani AI', 'Start speaking in Amharic or English... / መናገር ይጀምሩ...', true);
+            setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
+            updateVoiceSubtitle("Amani AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
 
             startVoiceModeRecording();
         }
@@ -1347,7 +1358,7 @@
         function startVoiceOrbAnimationLoop() {
             if (!vmActive) return;
 
-            const overlay = document.getElementById('voiceModeOverlay');
+            const overlay = document.getElementById("voiceModeOverlay");
             const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 256);
 
             function renderFrame() {
@@ -1365,16 +1376,14 @@
                     const rms = Math.sqrt(sum / pcmData.length);
                     targetLevel = Math.min(rms * 12.0, 1.6);
                 } else if (vmIsSpeaking) {
-                    // Organic talking fluctuation when assistant speaks
                     targetLevel = 0.35 + Math.sin(Date.now() / 120) * 0.25 + Math.cos(Date.now() / 80) * 0.15;
                 } else if (vmIsProcessing) {
-                    // Gentle breathing while thinking
                     targetLevel = 0.15 + Math.sin(Date.now() / 300) * 0.1;
                 }
 
                 vmSmoothedAudioLevel = vmSmoothedAudioLevel * 0.8 + targetLevel * 0.2;
                 if (overlay) {
-                    overlay.style.setProperty('--vm-audio-level', vmSmoothedAudioLevel.toFixed(3));
+                    overlay.style.setProperty("--vm-audio-level", vmSmoothedAudioLevel.toFixed(3));
                 }
 
                 vmAnimFrameId = requestAnimationFrame(renderFrame);
@@ -1383,15 +1392,22 @@
             vmAnimFrameId = requestAnimationFrame(renderFrame);
         }
 
+        function stopVoiceModeVAD() {
+            if (vmVadAnimId) {
+                cancelAnimationFrame(vmVadAnimId);
+                vmVadAnimId = null;
+            }
+            vmSpeechStarted = false;
+            vmSilenceStartTime = null;
+        }
+
         function startVoiceModeRecording() {
-            if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing) return;
+            if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing || !vmMediaStream) return;
 
             vmAudioChunks = [];
             vmSpeechStarted = false;
-            if (vmSilenceTimer) {
-                clearTimeout(vmSilenceTimer);
-                vmSilenceTimer = null;
-            }
+            vmSilenceStartTime = null;
+            stopVoiceModeVAD();
 
             const supportedMime = getSupportedAudioMimeType();
             const recorderOpts = supportedMime ? { mimeType: supportedMime } : {};
@@ -1402,7 +1418,7 @@
                 try {
                     vmMediaRecorder = new MediaRecorder(vmMediaStream);
                 } catch (e2) {
-                    console.error('[VoiceMode] MediaRecorder failed:', e2);
+                    console.error("[VoiceMode] MediaRecorder failed:", e2);
                     return;
                 }
             }
@@ -1414,22 +1430,23 @@
             };
 
             vmMediaRecorder.onstop = () => {
+                stopVoiceModeVAD();
                 if (!vmActive) return;
                 if (vmAudioChunks.length > 0 && vmSpeechStarted) {
                     processVoiceModeSpeech();
                 } else if (!vmMuted && !vmIsSpeaking && !vmIsProcessing) {
-                    // Restart listening if no valid speech chunk
                     startVoiceModeRecording();
                 }
             };
 
             vmMediaRecorder.start(200);
 
-            // VAD Monitor Loop
+            // Precision 60FPS VAD monitor matching Auto-Listen
             const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 256);
-            const vadCheckInterval = setInterval(() => {
-                if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing || !vmMediaRecorder || vmMediaRecorder.state !== 'recording') {
-                    clearInterval(vadCheckInterval);
+            const recordingStartTime = Date.now();
+
+            function monitorVoiceVAD() {
+                if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing || !vmMediaRecorder || vmMediaRecorder.state !== "recording") {
                     return;
                 }
 
@@ -1441,74 +1458,146 @@
                         sum += val * val;
                     }
                     const rms = Math.sqrt(sum / pcmData.length);
+                    const now = Date.now();
 
                     if (rms > VM_VAD_THRESHOLD) {
                         if (!vmSpeechStarted) {
                             vmSpeechStarted = true;
-                            updateVoiceSubtitle('You', 'Listening to your voice... / እያዳመጥኩ ነው...', false);
+                            updateVoiceSubtitle("You", "Listening to your voice... / እያዳመጥኩ ነው...", false);
                         }
-                        if (vmSilenceTimer) {
-                            clearTimeout(vmSilenceTimer);
-                            vmSilenceTimer = null;
-                        }
+                        vmSilenceStartTime = null;
                     } else if (vmSpeechStarted) {
-                        if (!vmSilenceTimer) {
-                            vmSilenceTimer = setTimeout(() => {
-                                clearInterval(vadCheckInterval);
-                                if (vmMediaRecorder && vmMediaRecorder.state === 'recording') {
-                                    try { vmMediaRecorder.requestData(); } catch (err) { }
-                                    vmMediaRecorder.stop();
-                                }
-                            }, VM_SILENCE_DURATION_MS);
+                        if (!vmSilenceStartTime) {
+                            vmSilenceStartTime = now;
+                        } else if (now - vmSilenceStartTime >= VM_SILENCE_DURATION_MS) {
+                            updateVoiceSubtitle("Ethio-ASR", "Processing speech... / ወደ ጽሑፍ በመቀየር ላይ...", true);
+                            if (vmMediaRecorder && vmMediaRecorder.state === "recording") {
+                                try { vmMediaRecorder.requestData(); } catch (err) { }
+                                vmMediaRecorder.stop();
+                            }
+                            stopVoiceModeVAD();
+                            return;
                         }
                     }
+
+                    if (now - recordingStartTime >= VM_MAX_RECORDING_MS) {
+                        if (vmMediaRecorder && vmMediaRecorder.state === "recording") {
+                            try { vmMediaRecorder.requestData(); } catch (err) { }
+                            vmMediaRecorder.stop();
+                        }
+                        stopVoiceModeVAD();
+                        return;
+                    }
                 }
-            }, 100);
+
+                vmVadAnimId = requestAnimationFrame(monitorVoiceVAD);
+            }
+
+            vmVadAnimId = requestAnimationFrame(monitorVoiceVAD);
+        }
+
+        function startVoiceModeWebSpeechFallback() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                setVoiceModeState("muted", "Microphone blocked / ማይክሮፎን አልተፈቀደም");
+                updateVoiceSubtitle("System", "⚠️ ማይክሮፎን በ HTTPS ወይም በ http://localhost:5000 ብቻ ነው የሚሰራው።", false);
+                return;
+            }
+
+            try {
+                vmWebSpeechRec = new SpeechRec();
+                vmWebSpeechRec.lang = vmCurrentVoice.startsWith("en") ? "en-US" : "am-ET";
+                vmWebSpeechRec.continuous = false;
+                vmWebSpeechRec.interimResults = true;
+
+                vmWebSpeechRec.onstart = () => {
+                    setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
+                    updateVoiceSubtitle("Amani AI", "Start speaking... / መናገር ይጀምሩ...", true);
+                };
+
+                vmWebSpeechRec.onresult = (event) => {
+                    let transcript = "";
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        transcript += event.results[i][0].transcript;
+                    }
+                    if (transcript) {
+                        updateVoiceSubtitle("You", `"${transcript}"`, false);
+                    }
+                };
+
+                vmWebSpeechRec.onend = () => {
+                    const currentSub = document.getElementById("vmSubtitlesText");
+                    let transcript = currentSub ? currentSub.textContent.replace(/^"|"$/g, "").trim() : "";
+                    if (transcript && transcript !== "Start speaking... / መናገር ይጀምሩ..." && !transcript.startsWith("Listening")) {
+                        messages.push({ role: "user", content: transcript });
+                        appendMessageNode("user", transcript);
+                        saveToLocalStorage();
+                        generateVoiceModeResponse(transcript);
+                    } else if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                        try { vmWebSpeechRec.start(); } catch (e) {}
+                    }
+                };
+
+                vmWebSpeechRec.onerror = (e) => {
+                    console.warn("[VoiceMode] Web Speech error:", e);
+                    if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                        setTimeout(() => {
+                            if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                                try { vmWebSpeechRec.start(); } catch (err) {}
+                            }
+                        }, 600);
+                    }
+                };
+
+                vmWebSpeechRec.start();
+            } catch (err) {
+                console.error("[VoiceMode] Web Speech start failed:", err);
+            }
         }
 
         async function processVoiceModeSpeech() {
             if (!vmActive || vmAudioChunks.length === 0) return;
 
             vmIsProcessing = true;
-            setVoiceModeState('thinking', 'Transcribing... / ድምፅ በመተርጎም ላይ...');
-            updateVoiceSubtitle('Ethio-ASR', 'Transcribing Amharic speech... / ንግግርዎን ወደ ጽሑፍ በመቀየር ላይ...', true);
+            setVoiceModeState("thinking", "Transcribing... / ድምፅ በመተርጎም ላይ...");
+            updateVoiceSubtitle("Ethio-ASR", "Transcribing speech... / ንግግርዎን ወደ ጽሑፍ በመቀየር ላይ...", true);
 
-            const finalMime = (vmMediaRecorder && vmMediaRecorder.mimeType) || getSupportedAudioMimeType() || 'audio/webm';
+            const finalMime = (vmMediaRecorder && vmMediaRecorder.mimeType) || getSupportedAudioMimeType() || "audio/webm";
             const audioBlob = new Blob(vmAudioChunks, { type: finalMime });
 
             try {
-                const res = await fetch('/api/stt', {
-                    method: 'POST',
-                    headers: { 'Content-Type': finalMime },
+                const res = await fetch("/api/stt", {
+                    method: "POST",
+                    headers: { "Content-Type": finalMime },
                     body: audioBlob
                 });
 
                 const data = await res.json();
-                const transcript = (data.transcript || '').trim();
+                const transcript = (data.transcript || "").trim();
 
                 if (!transcript) {
-                    console.log('[VoiceMode] No transcript detected');
+                    console.log("[VoiceMode] No transcript detected");
                     vmIsProcessing = false;
                     if (vmActive && !vmMuted) {
-                        setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
-                        updateVoiceSubtitle('Amani AI', 'Start speaking in Amharic or English... / መናገር ይጀምሩ...', true);
+                        setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
+                        updateVoiceSubtitle("Amani AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
                         startVoiceModeRecording();
                     }
                     return;
                 }
 
                 // Add to main chat messages and display
-                updateVoiceSubtitle('You', `"${transcript}"`, false);
-                messages.push({ role: 'user', content: transcript });
-                appendMessageNode('user', transcript);
+                updateVoiceSubtitle("You", `"${transcript}"`, false);
+                messages.push({ role: "user", content: transcript });
+                appendMessageNode("user", transcript);
                 saveToLocalStorage();
 
                 await generateVoiceModeResponse(transcript);
             } catch (err) {
-                console.error('[VoiceMode] STT error:', err);
+                console.error("[VoiceMode] STT error:", err);
                 vmIsProcessing = false;
                 if (vmActive && !vmMuted) {
-                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                     startVoiceModeRecording();
                 }
             }
@@ -1517,15 +1606,15 @@
         async function generateVoiceModeResponse(promptText) {
             if (!vmActive) return;
 
-            setVoiceModeState('thinking', 'Thinking... / በማሰብ ላይ...');
-            updateVoiceSubtitle('Amani AI', 'Thinking... / በማሰብ ላይ...', true);
+            setVoiceModeState("thinking", "Thinking... / በማሰብ ላይ...");
+            updateVoiceSubtitle("Amani AI", "Thinking... / በማሰብ ላይ...", true);
 
             vmAbortController = new AbortController();
 
             try {
-                const res = await fetch('/chat/stream', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                const res = await fetch("/chat/stream", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         prompt: promptText,
                         session_id: currentChatId
@@ -1534,12 +1623,12 @@
                 });
 
                 if (!res.ok) {
-                    throw new Error('Chat stream error');
+                    throw new Error("Chat stream error");
                 }
 
                 const reader = res.body.getReader();
                 const decoder = new TextDecoder();
-                let fullText = '';
+                let fullText = "";
                 let assistantRow = null;
                 let bubble = null;
                 let firstChunk = true;
@@ -1553,8 +1642,8 @@
 
                     if (firstChunk && fullText.trim().length > 0) {
                         firstChunk = false;
-                        assistantRow = appendMessageNode('assistant', '', false);
-                        bubble = assistantRow.querySelector('.assistant-bubble');
+                        assistantRow = appendMessageNode("assistant", "", false);
+                        bubble = assistantRow.querySelector(".assistant-bubble");
                     }
 
                     if (bubble) {
@@ -1562,7 +1651,7 @@
                         scrollToBottom();
                     }
 
-                    updateVoiceSubtitle('Amani AI', fullText, false);
+                    updateVoiceSubtitle("Amani AI", fullText, false);
                 }
 
                 if (bubble) {
@@ -1570,7 +1659,7 @@
                 }
 
                 if (fullText.trim().length > 0) {
-                    messages.push({ role: 'assistant', content: fullText, sources: [] });
+                    messages.push({ role: "assistant", content: fullText, sources: [] });
                     saveToLocalStorage();
 
                     if (vmActive) {
@@ -1579,19 +1668,19 @@
                 } else {
                     vmIsProcessing = false;
                     if (vmActive && !vmMuted) {
-                        setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                        setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                         startVoiceModeRecording();
                     }
                 }
             } catch (err) {
-                if (err.name === 'AbortError') {
-                    console.log('[VoiceMode] Generation interrupted by user');
+                if (err.name === "AbortError") {
+                    console.log("[VoiceMode] Generation interrupted");
                 } else {
-                    console.error('[VoiceMode] LLM Generation error:', err);
+                    console.error("[VoiceMode] LLM Generation error:", err);
                 }
                 vmIsProcessing = false;
                 if (vmActive && !vmMuted) {
-                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                     startVoiceModeRecording();
                 }
             }
@@ -1606,19 +1695,19 @@
 
             vmIsProcessing = false;
             vmIsSpeaking = true;
-            setVoiceModeState('speaking', 'Speaking... / በመናገር ላይ...');
+            setVoiceModeState("speaking", "Speaking... / በመናገር ላይ...");
 
-            const cleanText = text.replace(/<[^>]*>/g, '')
-                .replace(/\*\*|__/g, '')
-                .replace(/\*|_/g, '')
-                .replace(/`[^`]+`/g, '')
-                .replace(/#+\s*/g, '')
+            const cleanText = text.replace(/<[^>]*>/g, "")
+                .replace(/\*\*|__/g, "")
+                .replace(/\*|_/g, "")
+                .replace(/`[^`]+`/g, "")
+                .replace(/#+\s*/g, "")
                 .trim();
 
             if (!cleanText) {
                 vmIsSpeaking = false;
                 if (vmActive && !vmMuted) {
-                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
                     startVoiceModeRecording();
                 }
                 return;
@@ -1629,90 +1718,97 @@
                 vmCurrentTTSAudio = null;
             }
 
-            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${vmCurrentVoice.startsWith('en') ? 'en-US' : 'am-ET'}`;
+            const triggerVmReListen = () => {
+                vmIsSpeaking = false;
+                vmCurrentTTSAudio = null;
+                if (vmActive && !vmMuted) {
+                    setTimeout(() => {
+                        if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                            setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
+                            updateVoiceSubtitle("Amani AI", "Listening for your response... / እያዳመጥኩ ነው...", true);
+                            if (vmWebSpeechRec) {
+                                try { vmWebSpeechRec.start(); } catch (e) {}
+                            } else {
+                                startVoiceModeRecording();
+                            }
+                        }
+                    }, 400);
+                }
+            };
+
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${vmCurrentVoice.startsWith("en") ? "en-US" : "am-ET"}`;
             const audio = new Audio(audioUrl);
             vmCurrentTTSAudio = audio;
 
             audio.onended = () => {
-                vmIsSpeaking = false;
-                vmCurrentTTSAudio = null;
-                if (vmActive && !vmMuted) {
-                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
-                    updateVoiceSubtitle('Amani AI', 'Listening for your response... / እያዳመጥኩ ነው...', true);
-                    startVoiceModeRecording();
-                }
+                triggerVmReListen();
             };
 
             audio.onerror = (e) => {
-                console.warn('[VoiceMode] Backend TTS failed, fallback to SpeechSynthesis:', e);
-                vmIsSpeaking = false;
-                vmCurrentTTSAudio = null;
-                if (vmActive && !vmMuted) {
-                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
-                    startVoiceModeRecording();
+                console.warn("[VoiceMode] Backend TTS audio stream failed, fallback to SpeechSynthesis:", e);
+                if ("speechSynthesis" in window) {
+                    try { window.speechSynthesis.resume(); } catch (err) {}
+                    const voices = window.speechSynthesis.getVoices();
+                    let targetVoice = voices.find(v => v.name.includes("Mekdes") || v.lang.startsWith("am"));
+                    const utterance = new SpeechSynthesisUtterance(cleanText);
+                    utterance.lang = vmCurrentVoice.startsWith("en") ? "en-US" : "am-ET";
+                    if (targetVoice) utterance.voice = targetVoice;
+                    utterance.onend = triggerVmReListen;
+                    utterance.onerror = triggerVmReListen;
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    triggerVmReListen();
                 }
             };
 
             try {
                 await audio.play();
             } catch (playErr) {
-                console.warn('[VoiceMode] Audio play error:', playErr);
+                console.warn("[VoiceMode] Audio play error:", playErr);
                 audio.onerror(playErr);
-            }
-        }
-
-        function interruptVoiceMode() {
-            console.log('[VoiceMode] User triggered interrupt');
-            if (vmCurrentTTSAudio) {
-                vmCurrentTTSAudio.pause();
-                vmCurrentTTSAudio = null;
-            }
-            if (vmAbortController) {
-                vmAbortController.abort();
-                vmAbortController = null;
-            }
-            vmIsSpeaking = false;
-            vmIsProcessing = false;
-
-            if (vmActive && !vmMuted) {
-                setVoiceModeState('listening', 'Interrupted / ተቋርጧል — Listening...');
-                updateVoiceSubtitle('Amani AI', 'Interrupted. Listening... / ንግግር ተቋርጧል — እያዳመጥኩ ነው...', true);
-                startVoiceModeRecording();
             }
         }
 
         function toggleVoiceModeMute() {
             vmMuted = !vmMuted;
-            const muteBtn = document.getElementById('vmMuteBtn');
-            const micIcon = document.getElementById('vmMicIcon');
+            const muteBtn = document.getElementById("vmMuteBtn");
+            const micIcon = document.getElementById("vmMicIcon");
 
             if (vmMuted) {
-                if (muteBtn) muteBtn.classList.add('active');
+                if (muteBtn) muteBtn.classList.add("active");
                 if (micIcon) {
                     micIcon.innerHTML = '<path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.24-5.3-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c1.09-.16 2.09-.58 2.95-1.19l3.78 3.78L21 19.23 4.27 3z"/>';
                 }
-                setVoiceModeState('muted', 'Microphone Muted / ድምፅ ጠፍቷል');
-                updateVoiceSubtitle('System', 'Microphone is muted. Click mic icon to unmute. / ማይክሮፎኑ ጠፍቷል', true);
+                setVoiceModeState("muted", "Microphone Muted / ድምፅ ጠፍቷል");
+                updateVoiceSubtitle("System", "Microphone is muted. Click mic icon to unmute. / ማይክሮፎኑ ጠፍቷል", true);
 
-                if (vmMediaRecorder && vmMediaRecorder.state === 'recording') {
+                stopVoiceModeVAD();
+                if (vmMediaRecorder && vmMediaRecorder.state === "recording") {
                     try { vmMediaRecorder.stop(); } catch (e) { }
                 }
+                if (vmWebSpeechRec) {
+                    try { vmWebSpeechRec.stop(); } catch (e) {}
+                }
             } else {
-                if (muteBtn) muteBtn.classList.remove('active');
+                if (muteBtn) muteBtn.classList.remove("active");
                 if (micIcon) {
                     micIcon.innerHTML = '<path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>';
                 }
-                setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
-                updateVoiceSubtitle('Amani AI', 'Listening... / እያዳመጥኩ ነው...', true);
-                startVoiceModeRecording();
+                setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
+                updateVoiceSubtitle("Amani AI", "Listening... / እያዳመጥኩ ነው...", true);
+                if (vmWebSpeechRec) {
+                    try { vmWebSpeechRec.start(); } catch (e) {}
+                } else {
+                    startVoiceModeRecording();
+                }
             }
         }
 
         function updateVoiceSubtitle(speaker, text, isPlaceholder = false) {
-            const card = document.getElementById('vmSubtitlesCard');
-            const speakerEl = document.getElementById('vmSubtitleSpeaker');
-            const speakerName = document.getElementById('vmSpeakerName');
-            const textEl = document.getElementById('vmSubtitlesText');
+            const card = document.getElementById("vmSubtitlesCard");
+            const speakerEl = document.getElementById("vmSubtitleSpeaker");
+            const speakerName = document.getElementById("vmSpeakerName");
+            const textEl = document.getElementById("vmSubtitlesText");
 
             if (!textEl) return;
 
@@ -1720,14 +1816,19 @@
             textEl.textContent = text;
 
             if (isPlaceholder) {
-                textEl.classList.add('placeholder');
+                textEl.classList.add("placeholder");
             } else {
-                textEl.classList.remove('placeholder');
+                textEl.classList.remove("placeholder");
             }
         }
 
         function closeVoiceMode() {
             vmActive = false;
+            stopVoiceModeVAD();
+            if (vmWebSpeechRec) {
+                try { vmWebSpeechRec.stop(); } catch (e) {}
+                vmWebSpeechRec = null;
+            }
             const overlay = document.getElementById('voiceModeOverlay');
             if (overlay) overlay.classList.remove('active');
 
