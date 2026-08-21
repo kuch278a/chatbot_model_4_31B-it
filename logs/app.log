@@ -7602,3 +7602,330 @@ All services loaded and ready!
 100.69.252.86 - - [21/Aug/2026 15:02:10] "GET / HTTP/1.1" 200 -
 100.69.252.86 - - [21/Aug/2026 15:02:10] "GET /style.css?v=3.1 HTTP/1.1" 200 -
 100.69.252.86 - - [21/Aug/2026 15:02:11] "GET /files HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:03:33] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:03:33] "GET /style.css?v=3.1 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:03:34] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:17:00][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:17:00] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.91s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:17:01] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:20:24][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m ሰለ ኢትዮጵያ ታሪክ ንገሪኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.794).
+100.69.252.86 - - [21/Aug/2026 15:20:32] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m31.56s[0m | [93m130 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.83s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:21:00] "[35m[1mGET /api/tts/audio?text=የኢትዮጵያ%20ታሪክ%20በዓለም%20መድረክ%20ላይ%20ካሉ%20ጥንታዊና%20ቀጣይነት%20ካላቸው%20ታሪኮችአንዱ%20ሲሆን፣%20በዋናነት%20በሚከተሉት%20ነጥቦች%20ሊጠቃለል%20ይችላል፦%0A%0A%20%20%20የሰው%20ዘር%20መገኛ፦%20ኢትዮጵያ%20የሰው%20ልጅ%20መገኛ%20ተብላ%20ትታወቃለች።%20ለዚህም%20ማረጋገጫ%20የሚሆኑ%20እንደ%20"ድንቅነሽ"%20(3.2%20ሚሊዮን%20ዓመታት)%20እና%20"አርዲ"%20(4.4%20ሚሊዮን%20ዓመታት)%20ያሉ%20የቅድመ-ሰው%20ቅሪተ-አካላት%20በአፋር%20ስምጥ%20ሸለቆ%20ውስጥ%20ተገኝተዋል።&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:22:12][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m ሰለ ኢትዮጵያ ንገሪኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.554).
+100.69.252.86 - - [21/Aug/2026 15:22:20] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m30.40s[0m | [93m131 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m3.53s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:22:46] "[35m[1mGET /api/tts/audio?text=ኢትዮጵያ%20የሰው%20ልጅ%20መገኛ%20ተብላ%20ትታወቃለች፤%20ለዚህም%20ማረጋገጫ%20የሚሆነውበአፋር%20ውስጥ%20የተገኘው%20የድንቅነሽ%20(ሉሲ)%20ቅሪተ%20አካል%20ነው።%20በታሪኳም%20እንደ%20አክሱም%20ሥልጣኔ%20ያሉ%20በዓለም%20አቀፍ%20ንግድ፣%20በሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20የሰለጠኑ%20ሥልጣኔዎች%20የነበሯት%20ሀገር%20ናት።%20በተጨማሪም%20በ4ኛው%20ክፍለ%20ዘመን%20የክርስትና%20ሃይማኖት%20ይፋዊ%20መሆን%20እና%20በ7ኛው%20ክፍለ%20ዘመን%20ነጃሺ%20ለሙስሊሞች%20መጠጊያ%20መስ&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:23:35][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m who is the current president of ethiopia
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.744).
+100.69.252.86 - - [21/Aug/2026 15:23:39] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m5.65s[0m | [93m10 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.50s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:23:43] "[35m[1mGET /api/tts/audio?text=The%20current%20President%20of%20Ethiopia%20is%20His%20ExcellencyAmbassador%20Taye%20Atske%20Selassie.&lang=am-ET HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:29:28][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m hello
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:29:28] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.23s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:29:29] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+100.69.252.86 - - [21/Aug/2026 15:36:41] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:36:41] "GET /style.css?v=3.1 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:36:42] "GET /files HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:37:24] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:37:24] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:37:25] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:37:31][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_en
+  [96mPrompt :[0m What is Artificial Intelligence in simple terms?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.741).
+127.0.0.1 - - [21/Aug/2026 15:37:35] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m13.55s[0m | [93m52 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:37:45][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_am
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ንገረኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.977).
+127.0.0.1 - - [21/Aug/2026 15:37:54] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m32.26s[0m | [93m123 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:38:17][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_greet
+  [96mPrompt :[0m hello there
+  [2m[queued — lock acquired][0m
+  [Context Filter] Greeting detected ('hello there') — bypassing RAG context injection.
+127.0.0.1 - - [21/Aug/2026 15:38:20] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m3.08s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:39:13][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_mixed
+  [96mPrompt :[0m Machine learning ምንድን ነው?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.475).
+127.0.0.1 - - [21/Aug/2026 15:39:20] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m23.45s[0m | [93m101 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:39:37][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_mixed
+  [96mPrompt :[0m ስለ computer vision እና robotics በኢትዮጵያ ንገረኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.526).
+127.0.0.1 - - [21/Aug/2026 15:39:44] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m29.83s[0m | [93m135 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:40:07][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m test_mixed
+  [96mPrompt :[0m What is the role of EAII በኢትዮጵያ ውስጥ?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.550).
+127.0.0.1 - - [21/Aug/2026 15:40:10] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m8.36s[0m | [93m28 tokens[0m
+
+100.69.252.86 - - [21/Aug/2026 15:41:03] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:41:03] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:41:04] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:41:10][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m hello
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:41:10] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.91s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:41:11] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+100.69.252.86 - - [21/Aug/2026 15:41:22] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:41:23] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:41:24] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:41:30][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m hello
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:41:30] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.17s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:41:31] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 7833.86it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   2%|2         | 28/1188 [00:00<00:04, 267.37it/s]Loading weights:   5%|4         | 55/1188 [00:00<00:05, 221.71it/s]Loading weights:   7%|6         | 78/1188 [00:00<00:06, 178.97it/s]Loading weights:  10%|9         | 114/1188 [00:00<00:04, 227.97it/s]Loading weights:  12%|#1        | 139/1188 [00:00<00:04, 213.99it/s]Loading weights:  14%|#3        | 162/1188 [00:00<00:04, 205.93it/s]Loading weights:  15%|#5        | 184/1188 [00:00<00:04, 208.77it/s]Loading weights:  17%|#7        | 206/1188 [00:00<00:04, 209.91it/s]Loading weights:  19%|#9        | 228/1188 [00:01<00:04, 195.94it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:04, 191.49it/s]Loading weights:  23%|##2       | 269/1188 [00:01<00:04, 193.17it/s]Loading weights:  24%|##4       | 290/1188 [00:01<00:04, 187.40it/s]Loading weights:  27%|##6       | 318/1188 [00:01<00:04, 210.34it/s]Loading weights:  29%|##8       | 340/1188 [00:01<00:04, 202.07it/s]Loading weights:  30%|###       | 362/1188 [00:01<00:04, 205.24it/s]Loading weights:  32%|###2      | 383/1188 [00:01<00:04, 196.23it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:03, 198.07it/s]Loading weights:  36%|###6      | 428/1188 [00:02<00:03, 193.19it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:03, 190.67it/s]Loading weights:  40%|###9      | 472/1188 [00:02<00:03, 202.63it/s]Loading weights:  41%|####1     | 493/1188 [00:02<00:03, 198.85it/s]Loading weights:  44%|####3     | 517/1188 [00:02<00:03, 197.60it/s]Loading weights:  46%|####5     | 541/1188 [00:02<00:03, 199.90it/s]Loading weights:  47%|####7     | 562/1188 [00:02<00:03, 197.62it/s]Loading weights:  49%|####8     | 582/1188 [00:02<00:03, 197.81it/s]Loading weights:  51%|#####     | 602/1188 [00:03<00:03, 195.27it/s]Loading weights:  53%|#####2    | 624/1188 [00:03<00:02, 200.29it/s]Loading weights:  55%|#####4    | 649/1188 [00:03<00:02, 214.40it/s]Loading weights:  56%|#####6    | 671/1188 [00:03<00:02, 186.17it/s]Loading weights:  59%|#####8    | 697/1188 [00:03<00:02, 195.56it/s]Loading weights:  61%|######1   | 725/1188 [00:03<00:02, 204.58it/s]Loading weights:  63%|######2   | 747/1188 [00:03<00:02, 203.10it/s]Loading weights:  65%|######4   | 768/1188 [00:03<00:02, 196.98it/s]Loading weights:  66%|######6   | 788/1188 [00:04<00:03, 119.89it/s]Loading weights:  68%|######7   | 804/1188 [00:04<00:03, 98.77it/s] Loading weights:  69%|######8   | 817/1188 [00:04<00:04, 84.42it/s]Loading weights:  70%|######9   | 828/1188 [00:04<00:05, 68.70it/s]Loading weights:  71%|#######1  | 848/1188 [00:05<00:03, 86.51it/s]Loading weights:  74%|#######3  | 874/1188 [00:05<00:02, 116.64it/s]Loading weights:  82%|########2 | 975/1188 [00:05<00:00, 286.30it/s]Loading weights:  88%|########8 | 1051/1188 [00:05<00:00, 389.09it/s]Loading weights:  94%|#########4| 1122/1188 [00:05<00:00, 464.74it/s]Loading weights:  99%|#########9| 1178/1188 [00:05<00:00, 473.77it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 211.96it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+CRITICAL: Failed to load services: unterminated string literal (detected at line 112) (conversation.py, line 112)
+Traceback (most recent call last):
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/main.py", line 104, in load_services_bg
+    from src.services.conversation import ConversationService
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/services/__init__.py", line 1, in <module>
+    from .conversation import ConversationService
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/services/conversation.py", line 112
+    llm_prompt = f"አስፈላጊ መረጃዎች (Context):
+                 ^
+SyntaxError: unterminated string literal (detected at line 112)
+Retrying in 15s...
+Starting background service initialization (attempt 2/5)...
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4725.33it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:29, 13.26it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:13, 83.48it/s]Loading weights:   7%|7         | 88/1188 [00:00<00:05, 202.14it/s]Loading weights:  10%|9         | 116/1188 [00:00<00:04, 219.05it/s]Loading weights:  12%|#2        | 143/1188 [00:00<00:04, 229.71it/s]Loading weights:  14%|#4        | 169/1188 [00:00<00:04, 210.13it/s]Loading weights:  16%|#6        | 195/1188 [00:01<00:04, 222.26it/s]Loading weights:  18%|#8        | 219/1188 [00:01<00:04, 225.50it/s]Loading weights:  20%|##        | 243/1188 [00:01<00:04, 215.18it/s]Loading weights:  22%|##2       | 266/1188 [00:01<00:06, 139.17it/s]Loading weights:  24%|##3       | 284/1188 [00:02<00:10, 86.59it/s] Loading weights:  26%|##5       | 307/1188 [00:02<00:08, 106.22it/s]Loading weights:  27%|##7       | 325/1188 [00:02<00:07, 116.33it/s]Loading weights:  29%|##9       | 347/1188 [00:02<00:06, 134.99it/s]Loading weights:  32%|###1      | 376/1188 [00:02<00:05, 161.71it/s]Loading weights:  33%|###3      | 396/1188 [00:02<00:04, 166.91it/s]Loading weights:  35%|###5      | 417/1188 [00:02<00:04, 172.97it/s]Loading weights:  37%|###7      | 442/1188 [00:02<00:03, 188.02it/s]Loading weights:  39%|###8      | 463/1188 [00:02<00:03, 184.32it/s]Loading weights:  41%|####1     | 490/1188 [00:03<00:03, 193.40it/s]Loading weights:  43%|####3     | 513/1188 [00:03<00:03, 200.64it/s]Loading weights:  45%|####4     | 534/1188 [00:03<00:03, 195.62it/s]Loading weights:  47%|####7     | 559/1188 [00:03<00:03, 195.31it/s]Loading weights:  49%|####8     | 581/1188 [00:03<00:03, 198.00it/s]Loading weights:  51%|#####     | 602/1188 [00:03<00:03, 193.70it/s]Loading weights:  53%|#####2    | 628/1188 [00:03<00:02, 205.16it/s]Loading weights:  55%|#####5    | 656/1188 [00:03<00:02, 210.64it/s]Loading weights:  57%|#####7    | 678/1188 [00:03<00:02, 209.14it/s]Loading weights:  59%|#####8    | 699/1188 [00:04<00:02, 201.57it/s]Loading weights:  61%|######1   | 725/1188 [00:04<00:02, 207.98it/s]Loading weights:  63%|######2   | 746/1188 [00:04<00:02, 205.68it/s]Loading weights:  65%|######4   | 767/1188 [00:04<00:02, 197.34it/s]Loading weights:  66%|######6   | 790/1188 [00:04<00:01, 202.89it/s]Loading weights:  68%|######8   | 811/1188 [00:06<00:12, 29.38it/s] Loading weights:  70%|######9   | 826/1188 [00:07<00:11, 31.12it/s]Loading weights:  73%|#######3  | 872/1188 [00:07<00:05, 57.64it/s]Loading weights:  82%|########2 | 978/1188 [00:07<00:01, 139.20it/s]Loading weights:  90%|########9 | 1066/1188 [00:07<00:00, 215.78it/s]Loading weights:  96%|#########6| 1141/1188 [00:07<00:00, 283.57it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 156.01it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+CRITICAL: Failed to load services: CUDA out of memory. Tried to allocate 2.62 GiB. GPU 0 has a total capacity of 31.73 GiB of which 2.52 GiB is free. Including non-PyTorch memory, this process has 29.21 GiB memory in use. Of the allocated memory 28.91 GiB is allocated by PyTorch, and 1.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/main.py", line 100, in load_services_bg
+    llm_client = Gemma4LLMClient(settings.MODEL_PATH)
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 121, in __init__
+    self._shard_model()
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 145, in _shard_model
+    embed_tokens.to(device0)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.62 GiB. GPU 0 has a total capacity of 31.73 GiB of which 2.52 GiB is free. Including non-PyTorch memory, this process has 29.21 GiB memory in use. Of the allocated memory 28.91 GiB is allocated by PyTorch, and 1.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Retrying in 15s...
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4763.77it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   2%|2         | 29/1188 [00:00<00:04, 273.43it/s]Loading weights:   5%|4         | 57/1188 [00:00<00:05, 213.69it/s]Loading weights:   7%|6         | 83/1188 [00:00<00:04, 227.80it/s]Loading weights:   9%|9         | 107/1188 [00:00<00:04, 223.25it/s]Loading weights:  11%|#         | 130/1188 [00:00<00:04, 212.52it/s]Loading weights:  13%|#2        | 152/1188 [00:00<00:04, 208.23it/s]Loading weights:  15%|#4        | 175/1188 [00:00<00:04, 214.69it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 204.30it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 211.84it/s]Loading weights:  21%|##        | 245/1188 [00:01<00:04, 203.33it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 197.83it/s]Loading weights:  25%|##4       | 293/1188 [00:01<00:04, 198.29it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 185.86it/s]Loading weights:  30%|##9       | 351/1188 [00:01<00:04, 202.74it/s]Loading weights:  32%|###1      | 376/1188 [00:01<00:03, 209.35it/s]Loading weights:  34%|###3      | 401/1188 [00:01<00:03, 203.24it/s]Loading weights:  36%|###5      | 422/1188 [00:02<00:09, 83.78it/s] Loading weights:  37%|###6      | 438/1188 [00:03<00:15, 49.92it/s]Loading weights:  38%|###7      | 450/1188 [00:04<00:19, 38.07it/s]Loading weights:  39%|###8      | 459/1188 [00:04<00:17, 40.94it/s]Loading weights:  39%|###9      | 467/1188 [00:04<00:16, 43.65it/s]Loading weights:  43%|####3     | 511/1188 [00:04<00:07, 91.45it/s]Loading weights:  45%|####4     | 532/1188 [00:04<00:06, 107.00it/s]Loading weights:  47%|####7     | 559/1188 [00:04<00:04, 129.78it/s]Loading weights:  49%|####9     | 583/1188 [00:04<00:04, 148.92it/s]Loading weights:  51%|#####     | 604/1188 [00:04<00:03, 159.45it/s]Loading weights:  53%|#####2    | 628/1188 [00:04<00:03, 174.81it/s]Loading weights:  55%|#####5    | 654/1188 [00:05<00:02, 193.51it/s]Loading weights:  57%|#####6    | 676/1188 [00:05<00:02, 181.74it/s]Loading weights:  59%|#####8    | 697/1188 [00:05<00:02, 167.56it/s]Loading weights:  61%|######    | 721/1188 [00:05<00:02, 180.58it/s]Loading weights:  63%|######2   | 747/1188 [00:05<00:02, 188.50it/s]Loading weights:  65%|######4   | 767/1188 [00:05<00:02, 187.40it/s]Loading weights:  67%|######6   | 791/1188 [00:05<00:01, 198.69it/s]Loading weights:  69%|######8   | 816/1188 [00:05<00:01, 203.29it/s]Loading weights:  77%|#######7  | 915/1188 [00:06<00:00, 414.13it/s]Loading weights:  89%|########8 | 1057/1188 [00:06<00:00, 691.54it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 191.88it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+100.69.252.86 - - [21/Aug/2026 15:51:29] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:51:29] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:51:30] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:51:36][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m hello
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:51:36] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.11s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:51:37] "[35m[1mGET /api/tts/audio?text=Hello!%20How%20can%20I%20assist%20you%20today?&lang=en-US HTTP/1.1[0m" 206 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:51:47][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787311312877
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+100.69.252.86 - - [21/Aug/2026 15:51:47] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m1.13s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:51:48] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -
+100.69.252.86 - - [21/Aug/2026 15:53:20] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:53:20] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[15:53:21][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787316800551
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:53:21] "POST /clear HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:53:21] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[15:53:47][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m0.87s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:53:48] "POST /refresh HTTP/1.1" 200 -
+100.69.252.86 - - [21/Aug/2026 15:53:48] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:54:02][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787316800551
+  [96mPrompt :[0m ህይ
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+100.69.252.86 - - [21/Aug/2026 15:54:07] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /chat/stream done[0m in [93m4.86s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/tts/audio done[0m in [93m0.81s[0m
+
+100.69.252.86 - - [21/Aug/2026 15:54:09] "[35m[1mGET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1[0m" 206 -

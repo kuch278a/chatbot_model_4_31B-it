@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=3.1">
+    <link rel="stylesheet" href="/style.css?v=3.2">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
@@ -1186,7 +1186,9 @@
                 window.speechSynthesis.cancel();
             }
 
-            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=am-ET`;
+            const isAmharic = /[\u1200-\u137F]/.test(cleanText);
+            const detectedLang = isAmharic ? "am-ET" : "en-US";
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${detectedLang}`;
             const audio = new Audio(audioUrl);
             currentAudio = audio;
 
@@ -1205,9 +1207,11 @@
                 if ('speechSynthesis' in window) {
                     try { window.speechSynthesis.resume(); } catch (err) { }
                     const voices = window.speechSynthesis.getVoices();
-                    let targetVoice = voices.find(v => v.name.includes('Mekdes') || v.lang.startsWith('am'));
+                    let targetVoice = isAmharic
+                        ? voices.find(v => v.name.includes('Mekdes') || v.lang.startsWith('am'))
+                        : voices.find(v => v.name.includes('Jenny') || v.lang.startsWith('en'));
                     const utterance = new SpeechSynthesisUtterance(cleanText);
-                    utterance.lang = "am-ET";
+                    utterance.lang = detectedLang;
                     if (targetVoice) utterance.voice = targetVoice;
                     utterance.onend = triggerAutoListen;
                     utterance.onerror = triggerAutoListen;
@@ -1743,7 +1747,9 @@
                 }
             };
 
-            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${vmCurrentVoice.startsWith("en") ? "en-US" : "am-ET"}`;
+            const isAmharic = /[\u1200-\u137F]/.test(cleanText);
+            const targetLang = vmCurrentVoice === "en-US-JennyNeural" ? "en-US" : (vmCurrentVoice.startsWith("am") ? "am-ET" : (isAmharic ? "am-ET" : "en-US"));
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${targetLang}`;
             const audio = new Audio(audioUrl);
             vmCurrentTTSAudio = audio;
 

@@ -164,17 +164,41 @@ def speech_to_text():
     if not audio_bytes:
         return jsonify({"error": "No audio data received", "transcript": ""}), 400
 
-    _log_request("POST", "/api/stt?lang=am-ET", client_ip, "-", f"[audio {max(1, len(audio_bytes)//1024)}KB]")
+    target_lang = request.args.get("lang") or request.form.get("lang") or "auto"
+    _log_request("POST", f"/api/stt?lang={target_lang}", client_ip, "-", f"[audio {max(1, len(audio_bytes)//1024)}KB]")
     t0 = time.time()
 
     try:
-        from src.stt.ethio_asr_transcriber import transcribe_audio_blob as ethio_transcribe
-
-        transcript = ethio_transcribe(audio_bytes)
+        transcript = ""
         detected_lang = "am-ET"
 
+        if target_lang.startswith("en"):
+            try:
+                from src.stt.faster_whisper_transcriber import transcribe_webm
+                transcript = transcribe_webm(audio_bytes, force_language="en")
+                detected_lang = "en-US"
+            except Exception as w_err:
+                print(f"  {_C['yellow']}Whisper EN fallback to Ethio-ASR: {w_err}{_C['reset']}", flush=True)
+                from src.stt.ethio_asr_transcriber import transcribe_audio_blob
+                transcript = transcribe_audio_blob(audio_bytes)
+        else:
+            from src.stt.ethio_asr_transcriber import transcribe_audio_blob
+            transcript = transcribe_audio_blob(audio_bytes)
+            detected_lang = "am-ET"
+
+            # If empty and target_lang was auto, attempt Whisper fallback
+            if not transcript.strip() and target_lang == "auto":
+                try:
+                    from src.stt.faster_whisper_transcriber import transcribe_webm_with_info
+                    whisper_text, w_lang, _ = transcribe_webm_with_info(audio_bytes)
+                    if whisper_text.strip():
+                        transcript = whisper_text
+                        detected_lang = "en-US" if w_lang == "en" else "am-ET"
+                except Exception:
+                    pass
+
         _log_done("/api/stt", time.time() - t0)
-        print(f"  {_C['cyan']}Transcript (am-ET):{_C['reset']} {transcript}", flush=True)
+        print(f"  {_C['cyan']}Transcript ({detected_lang}):{_C['reset']} {transcript}", flush=True)
         return jsonify({
             "status": "success",
             "transcript": transcript,
