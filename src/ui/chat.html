@@ -744,7 +744,7 @@
 
         const VAD_SILENCE_THRESHOLD = 0.006;
         const VAD_SILENCE_DURATION_MS = 1800;
-        const MAX_RECORDING_MS = 25000;
+        const MAX_RECORDING_MS = 60000;
 
         function getSupportedAudioMimeType() {
             const candidates = [
@@ -1248,7 +1248,7 @@
         // Synchronized with Auto-Listen parameters
         const VM_VAD_THRESHOLD = 0.006;
         const VM_SILENCE_DURATION_MS = 1800;
-        const VM_MAX_RECORDING_MS = 25000;
+        const VM_MAX_RECORDING_MS = 60000;
 
         function setVoiceModeState(state, label) {
             const overlay = document.getElementById("voiceModeOverlay");
@@ -1352,7 +1352,7 @@
                 }
                 const source = vmAudioContext.createMediaStreamSource(vmMediaStream);
                 vmAnalyser = vmAudioContext.createAnalyser();
-                vmAnalyser.fftSize = 256;
+                vmAnalyser.fftSize = 512;
                 source.connect(vmAnalyser);
 
                 startVoiceOrbAnimationLoop();
@@ -1418,7 +1418,10 @@
             vmAudioChunks = [];
             vmSpeechStarted = false;
             vmSilenceStartTime = null;
-            stopVoiceModeVAD();
+            if (vmVadAnimId) {
+                cancelAnimationFrame(vmVadAnimId);
+                vmVadAnimId = null;
+            }
 
             const supportedMime = getSupportedAudioMimeType();
             const recorderOpts = supportedMime ? { mimeType: supportedMime } : {};
@@ -1441,9 +1444,16 @@
             };
 
             vmMediaRecorder.onstop = () => {
-                stopVoiceModeVAD();
+                const hadSpeech = vmSpeechStarted || vmAudioChunks.length > 0;
+                if (vmVadAnimId) {
+                    cancelAnimationFrame(vmVadAnimId);
+                    vmVadAnimId = null;
+                }
+                vmSpeechStarted = false;
+                vmSilenceStartTime = null;
+
                 if (!vmActive) return;
-                if (vmAudioChunks.length > 0 && vmSpeechStarted) {
+                if (vmAudioChunks.length > 0 && hadSpeech) {
                     processVoiceModeSpeech();
                 } else if (!vmMuted && !vmIsSpeaking && !vmIsProcessing) {
                     startVoiceModeRecording();
@@ -1453,7 +1463,7 @@
             vmMediaRecorder.start(200);
 
             // Precision 60FPS VAD monitor matching Auto-Listen
-            const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 256);
+            const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 512);
             const recordingStartTime = Date.now();
 
             function monitorVoiceVAD() {
@@ -1486,7 +1496,6 @@
                                 try { vmMediaRecorder.requestData(); } catch (err) { }
                                 vmMediaRecorder.stop();
                             }
-                            stopVoiceModeVAD();
                             return;
                         }
                     }
@@ -1496,7 +1505,6 @@
                             try { vmMediaRecorder.requestData(); } catch (err) { }
                             vmMediaRecorder.stop();
                         }
-                        stopVoiceModeVAD();
                         return;
                     }
                 }
@@ -1879,6 +1887,36 @@
             // Sync chat display
             displayMessages();
             scrollToBottom();
+        }
+
+        function isSecureOrigin() {
+            return window.isSecureContext || location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        }
+
+        function showPermModal(title, desc, showHttpsBtn = true) {
+            const overlay = document.getElementById('permModalOverlay');
+            const titleEl = document.getElementById('permModalTitle');
+            const descEl = document.getElementById('permModalDesc');
+            const actionBtn = document.getElementById('permActionBtn');
+            if (titleEl && title) titleEl.textContent = title;
+            if (descEl && desc) descEl.innerHTML = desc;
+            if (actionBtn) {
+                actionBtn.style.display = showHttpsBtn ? 'inline-flex' : 'none';
+            }
+            if (overlay) overlay.classList.add('active');
+        }
+
+        function closePermModal(event) {
+            if (event && event.target && event.target.id !== 'permModalOverlay' && !event.target.classList.contains('perm-btn-secondary')) {
+                return;
+            }
+            const overlay = document.getElementById('permModalOverlay');
+            if (overlay) overlay.classList.remove('active');
+        }
+
+        function switchToHttps() {
+            const port = (location.port === '80' || location.port === '' || location.port === '8000') ? '' : ':' + location.port;
+            location.href = 'https://' + location.hostname + port + location.pathname + location.search;
         }
 
         init();

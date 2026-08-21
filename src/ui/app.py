@@ -94,6 +94,7 @@ def chat():
                 torch.cuda.empty_cache()
             except Exception:
                 pass
+        _log_response(result.get("response", ""))
         _log_done("/chat", time.time() - t0)
         return jsonify({
             "response": result["response"],
@@ -132,9 +133,11 @@ def chat_stream():
 
     def generate():
         token_count = 0
+        response_tokens = []
         try:
             for token in conv_service.chat_stream(session_id, prompt):
                 token_count += 1
+                response_tokens.append(token)
                 yield token
         finally:
             _llm_lock.release()
@@ -143,6 +146,8 @@ def chat_stream():
                 torch.cuda.empty_cache()
             except Exception:
                 pass
+        full_reply = "".join(response_tokens)
+        _log_response(full_reply)
         _log_done("/chat/stream", time.time() - t0, token_count)
 
     return Response(stream_with_context(generate()), mimetype="text/plain")
@@ -250,11 +255,12 @@ def stream_speech_audio():
     if request.method == "GET":
         text = request.args.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
         lang = request.args.get("lang", "am-ET")
+        _log_request("GET", f"/api/tts/audio?lang={lang}", request.remote_addr, "-", text)
     else:
         data = request.get_json() or {}
         text = data.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
         lang = data.get("lang", "am-ET")
-        _log_request("POST", "/api/tts/audio", request.remote_addr, "-", text)
+        _log_request("POST", f"/api/tts/audio?lang={lang}", request.remote_addr, "-", text)
 
     if not text.strip():
         return jsonify({"error": "Text cannot be empty"}), 400
