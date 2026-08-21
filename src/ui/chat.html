@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=2.3">
+    <link rel="stylesheet" href="/style.css?v=2.5">
     <script>
         (function () {
             const savedTheme = localStorage.getItem('amani_theme') || 'dark';
@@ -156,13 +156,24 @@
                                 </svg>
                             </button>
 
+                            <!-- ChatGPT-Style Live Voice Mode Start Button -->
+                            <button type="button" id="voiceModeBtn" onclick="startVoiceMode()" class="chatgpt-voice-btn"
+                                title="Live Voice Chat / ቀጥታ የድምፅ ውይይት (ChatGPT Mode)">
+                                <div class="voice-wave-bars">
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                </div>
+                            </button>
+
                             <!-- Send Button with Dynamic Active Glow -->
-                            <button type="button" id="sendBtn" onclick="sendMessage()" class="gemini-send-btn"
+                            <!-- <button type="button" id="sendBtn" onclick="sendMessage()" class="gemini-send-btn"
                                 title="Send / ላክ" disabled>
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                                 </svg>
-                            </button>
+                            </button>-->
                         </div>
                     </div>
                 </div>
@@ -213,6 +224,7 @@
 
         function setTheme(theme) {
             const themeBtn = document.getElementById('themeToggleBtn');
+            const vmThemeBtn = document.getElementById('vmThemeToggleBtn');
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 if (themeBtn) {
@@ -220,12 +232,18 @@
                     if (text) text.textContent = 'Light';
                     themeBtn.title = 'Switch to Dark Theme';
                 }
+                if (vmThemeBtn) {
+                    vmThemeBtn.title = 'Switch to Dark Theme';
+                }
             } else {
                 document.documentElement.removeAttribute('data-theme');
                 if (themeBtn) {
                     const text = themeBtn.querySelector('.theme-text');
                     if (text) text.textContent = 'Dark';
                     themeBtn.title = 'Switch to Light Theme';
+                }
+                if (vmThemeBtn) {
+                    vmThemeBtn.title = 'Switch to Light Theme';
                 }
             }
             localStorage.setItem('amani_theme', theme);
@@ -1200,8 +1218,632 @@
             });
         }
 
+
+        // ==============================================================================
+        // ─── ChatGPT-Style Live Voice Mode Engine ─────────────────────────────────────
+        // ==============================================================================
+        let vmActive = false;
+        let vmAudioContext = null;
+        let vmAnalyser = null;
+        let vmMediaStream = null;
+        let vmMediaRecorder = null;
+        let vmAudioChunks = [];
+        let vmAnimFrameId = null;
+        let vmSpeechStarted = false;
+        let vmSilenceTimer = null;
+        let vmMuted = false;
+        let vmCurrentTTSAudio = null;
+        let vmCurrentVoice = 'am-ET-MekdesNeural';
+        let vmAbortController = null;
+        let vmIsSpeaking = false;
+        let vmIsProcessing = false;
+        let vmSmoothedAudioLevel = 0;
+
+        const VM_VAD_THRESHOLD = 0.0075;
+        const VM_SILENCE_DURATION_MS = 1400;
+        const VM_MAX_RECORDING_MS = 30000;
+
+        function setVoiceModeState(state, label) {
+            const overlay = document.getElementById('voiceModeOverlay');
+            const pill = document.getElementById('vmStatusPill');
+            const statusLabel = document.getElementById('vmStatusLabel');
+
+            if (!overlay || !pill || !statusLabel) return;
+
+            overlay.classList.remove('listening', 'thinking', 'speaking', 'muted');
+            pill.classList.remove('listening', 'thinking', 'speaking', 'muted');
+
+            overlay.classList.add(state);
+            pill.classList.add(state);
+            statusLabel.textContent = label;
+        }
+
+        function changeVoiceModeVoice(voiceName) {
+            vmCurrentVoice = voiceName;
+            console.log('[VoiceMode] Voice switched to:', voiceName);
+        }
+
+        async function startVoiceMode() {
+            if (vmActive) return;
+
+            // Stop standard chat speech or mic recording if running
+            if (isListening) {
+                toggleSpeechRecognition();
+            }
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
+
+            const overlay = document.getElementById('voiceModeOverlay');
+            if (!overlay) return;
+
+            overlay.classList.add('active');
+            vmActive = true;
+            vmMuted = false;
+            vmIsSpeaking = false;
+            vmIsProcessing = false;
+
+            const muteBtn = document.getElementById('vmMuteBtn');
+            if (muteBtn) muteBtn.classList.remove('active');
+
+            setVoiceModeState('listening', 'Connecting mic... / ማይክሮፎን በማገናኘት ላይ...');
+            updateVoiceSubtitle('Amani AI', 'Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...', true);
+
+            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
+                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+
+            if (!getUserMedia) {
+                setVoiceModeState('muted', 'Microphone unavailable / ማይክሮፎን አልተገኘም');
+                updateVoiceSubtitle('System', '⚠️ ማይክሮፎን በ HTTPS ወይም በ localhost ብቻ ነው የሚሰራው።', false);
+                return;
+            }
+
+            try {
+                vmMediaStream = await getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true
+                    }
+                });
+            } catch (err) {
+                try {
+                    vmMediaStream = await getUserMedia({ audio: true });
+                } catch (e2) {
+                    console.error('[VoiceMode] Mic access failed:', e2);
+                    setVoiceModeState('muted', 'Permission Denied / ፈቃድ ተከልክሏል');
+                    updateVoiceSubtitle('System', '⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ Address Bar ላይ ፈቃድ ይስጡ።', false);
+                    return;
+                }
+            }
+
+            // Initialize AudioContext & Visualizer
+            try {
+                vmAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+                if (vmAudioContext.state === 'suspended') {
+                    await vmAudioContext.resume();
+                }
+                const source = vmAudioContext.createMediaStreamSource(vmMediaStream);
+                vmAnalyser = vmAudioContext.createAnalyser();
+                vmAnalyser.fftSize = 256;
+                source.connect(vmAnalyser);
+
+                startVoiceOrbAnimationLoop();
+            } catch (acErr) {
+                console.warn('[VoiceMode] AudioContext visualizer init warning:', acErr);
+            }
+
+            setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+            updateVoiceSubtitle('Amani AI', 'Start speaking in Amharic or English... / መናገር ይጀምሩ...', true);
+
+            startVoiceModeRecording();
+        }
+
+        function startVoiceOrbAnimationLoop() {
+            if (!vmActive) return;
+
+            const overlay = document.getElementById('voiceModeOverlay');
+            const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 256);
+
+            function renderFrame() {
+                if (!vmActive) return;
+
+                let targetLevel = 0;
+
+                if (vmAnalyser && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                    vmAnalyser.getByteTimeDomainData(pcmData);
+                    let sum = 0;
+                    for (let i = 0; i < pcmData.length; i++) {
+                        const val = (pcmData[i] - 128) / 128.0;
+                        sum += val * val;
+                    }
+                    const rms = Math.sqrt(sum / pcmData.length);
+                    targetLevel = Math.min(rms * 12.0, 1.6);
+                } else if (vmIsSpeaking) {
+                    // Organic talking fluctuation when assistant speaks
+                    targetLevel = 0.35 + Math.sin(Date.now() / 120) * 0.25 + Math.cos(Date.now() / 80) * 0.15;
+                } else if (vmIsProcessing) {
+                    // Gentle breathing while thinking
+                    targetLevel = 0.15 + Math.sin(Date.now() / 300) * 0.1;
+                }
+
+                vmSmoothedAudioLevel = vmSmoothedAudioLevel * 0.8 + targetLevel * 0.2;
+                if (overlay) {
+                    overlay.style.setProperty('--vm-audio-level', vmSmoothedAudioLevel.toFixed(3));
+                }
+
+                vmAnimFrameId = requestAnimationFrame(renderFrame);
+            }
+
+            vmAnimFrameId = requestAnimationFrame(renderFrame);
+        }
+
+        function startVoiceModeRecording() {
+            if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing) return;
+
+            vmAudioChunks = [];
+            vmSpeechStarted = false;
+            if (vmSilenceTimer) {
+                clearTimeout(vmSilenceTimer);
+                vmSilenceTimer = null;
+            }
+
+            const supportedMime = getSupportedAudioMimeType();
+            const recorderOpts = supportedMime ? { mimeType: supportedMime } : {};
+
+            try {
+                vmMediaRecorder = new MediaRecorder(vmMediaStream, recorderOpts);
+            } catch (e) {
+                try {
+                    vmMediaRecorder = new MediaRecorder(vmMediaStream);
+                } catch (e2) {
+                    console.error('[VoiceMode] MediaRecorder failed:', e2);
+                    return;
+                }
+            }
+
+            vmMediaRecorder.ondataavailable = (e) => {
+                if (e.data && e.data.size > 0) {
+                    vmAudioChunks.push(e.data);
+                }
+            };
+
+            vmMediaRecorder.onstop = () => {
+                if (!vmActive) return;
+                if (vmAudioChunks.length > 0 && vmSpeechStarted) {
+                    processVoiceModeSpeech();
+                } else if (!vmMuted && !vmIsSpeaking && !vmIsProcessing) {
+                    // Restart listening if no valid speech chunk
+                    startVoiceModeRecording();
+                }
+            };
+
+            vmMediaRecorder.start(200);
+
+            // VAD Monitor Loop
+            const pcmData = new Uint8Array(vmAnalyser ? vmAnalyser.fftSize : 256);
+            const vadCheckInterval = setInterval(() => {
+                if (!vmActive || vmMuted || vmIsSpeaking || vmIsProcessing || !vmMediaRecorder || vmMediaRecorder.state !== 'recording') {
+                    clearInterval(vadCheckInterval);
+                    return;
+                }
+
+                if (vmAnalyser) {
+                    vmAnalyser.getByteTimeDomainData(pcmData);
+                    let sum = 0;
+                    for (let i = 0; i < pcmData.length; i++) {
+                        const val = (pcmData[i] - 128) / 128.0;
+                        sum += val * val;
+                    }
+                    const rms = Math.sqrt(sum / pcmData.length);
+
+                    if (rms > VM_VAD_THRESHOLD) {
+                        if (!vmSpeechStarted) {
+                            vmSpeechStarted = true;
+                            updateVoiceSubtitle('You', 'Listening to your voice... / እያዳመጥኩ ነው...', false);
+                        }
+                        if (vmSilenceTimer) {
+                            clearTimeout(vmSilenceTimer);
+                            vmSilenceTimer = null;
+                        }
+                    } else if (vmSpeechStarted) {
+                        if (!vmSilenceTimer) {
+                            vmSilenceTimer = setTimeout(() => {
+                                clearInterval(vadCheckInterval);
+                                if (vmMediaRecorder && vmMediaRecorder.state === 'recording') {
+                                    try { vmMediaRecorder.requestData(); } catch (err) { }
+                                    vmMediaRecorder.stop();
+                                }
+                            }, VM_SILENCE_DURATION_MS);
+                        }
+                    }
+                }
+            }, 100);
+        }
+
+        async function processVoiceModeSpeech() {
+            if (!vmActive || vmAudioChunks.length === 0) return;
+
+            vmIsProcessing = true;
+            setVoiceModeState('thinking', 'Transcribing... / ድምፅ በመተርጎም ላይ...');
+            updateVoiceSubtitle('Ethio-ASR', 'Transcribing Amharic speech... / ንግግርዎን ወደ ጽሑፍ በመቀየር ላይ...', true);
+
+            const finalMime = (vmMediaRecorder && vmMediaRecorder.mimeType) || getSupportedAudioMimeType() || 'audio/webm';
+            const audioBlob = new Blob(vmAudioChunks, { type: finalMime });
+
+            try {
+                const res = await fetch('/api/stt', {
+                    method: 'POST',
+                    headers: { 'Content-Type': finalMime },
+                    body: audioBlob
+                });
+
+                const data = await res.json();
+                const transcript = (data.transcript || '').trim();
+
+                if (!transcript) {
+                    console.log('[VoiceMode] No transcript detected');
+                    vmIsProcessing = false;
+                    if (vmActive && !vmMuted) {
+                        setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                        updateVoiceSubtitle('Amani AI', 'Start speaking in Amharic or English... / መናገር ይጀምሩ...', true);
+                        startVoiceModeRecording();
+                    }
+                    return;
+                }
+
+                // Add to main chat messages and display
+                updateVoiceSubtitle('You', `"${transcript}"`, false);
+                messages.push({ role: 'user', content: transcript });
+                appendMessageNode('user', transcript);
+                saveToLocalStorage();
+
+                await generateVoiceModeResponse(transcript);
+            } catch (err) {
+                console.error('[VoiceMode] STT error:', err);
+                vmIsProcessing = false;
+                if (vmActive && !vmMuted) {
+                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    startVoiceModeRecording();
+                }
+            }
+        }
+
+        async function generateVoiceModeResponse(promptText) {
+            if (!vmActive) return;
+
+            setVoiceModeState('thinking', 'Thinking... / በማሰብ ላይ...');
+            updateVoiceSubtitle('Amani AI', 'Thinking... / በማሰብ ላይ...', true);
+
+            vmAbortController = new AbortController();
+
+            try {
+                const res = await fetch('/chat/stream', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        prompt: promptText,
+                        session_id: currentChatId
+                    }),
+                    signal: vmAbortController.signal
+                });
+
+                if (!res.ok) {
+                    throw new Error('Chat stream error');
+                }
+
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                let fullText = '';
+                let assistantRow = null;
+                let bubble = null;
+                let firstChunk = true;
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done || !vmActive) break;
+
+                    const chunk = decoder.decode(value, { stream: true });
+                    fullText += chunk;
+
+                    if (firstChunk && fullText.trim().length > 0) {
+                        firstChunk = false;
+                        assistantRow = appendMessageNode('assistant', '', false);
+                        bubble = assistantRow.querySelector('.assistant-bubble');
+                    }
+
+                    if (bubble) {
+                        bubble.innerHTML = renderMarkdown(fullText) + '<span class="gemini-stream-cursor"></span>';
+                        scrollToBottom();
+                    }
+
+                    updateVoiceSubtitle('Amani AI', fullText, false);
+                }
+
+                if (bubble) {
+                    bubble.innerHTML = renderMarkdown(fullText);
+                }
+
+                if (fullText.trim().length > 0) {
+                    messages.push({ role: 'assistant', content: fullText, sources: [] });
+                    saveToLocalStorage();
+
+                    if (vmActive) {
+                        await playVoiceModeTTS(fullText);
+                    }
+                } else {
+                    vmIsProcessing = false;
+                    if (vmActive && !vmMuted) {
+                        setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                        startVoiceModeRecording();
+                    }
+                }
+            } catch (err) {
+                if (err.name === 'AbortError') {
+                    console.log('[VoiceMode] Generation interrupted by user');
+                } else {
+                    console.error('[VoiceMode] LLM Generation error:', err);
+                }
+                vmIsProcessing = false;
+                if (vmActive && !vmMuted) {
+                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    startVoiceModeRecording();
+                }
+            }
+        }
+
+        async function playVoiceModeTTS(text) {
+            if (!vmActive || !text) {
+                vmIsProcessing = false;
+                vmIsSpeaking = false;
+                return;
+            }
+
+            vmIsProcessing = false;
+            vmIsSpeaking = true;
+            setVoiceModeState('speaking', 'Speaking... / በመናገር ላይ...');
+
+            const cleanText = text.replace(/<[^>]*>/g, '')
+                .replace(/\*\*|__/g, '')
+                .replace(/\*|_/g, '')
+                .replace(/`[^`]+`/g, '')
+                .replace(/#+\s*/g, '')
+                .trim();
+
+            if (!cleanText) {
+                vmIsSpeaking = false;
+                if (vmActive && !vmMuted) {
+                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    startVoiceModeRecording();
+                }
+                return;
+            }
+
+            if (vmCurrentTTSAudio) {
+                vmCurrentTTSAudio.pause();
+                vmCurrentTTSAudio = null;
+            }
+
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${vmCurrentVoice.startsWith('en') ? 'en-US' : 'am-ET'}`;
+            const audio = new Audio(audioUrl);
+            vmCurrentTTSAudio = audio;
+
+            audio.onended = () => {
+                vmIsSpeaking = false;
+                vmCurrentTTSAudio = null;
+                if (vmActive && !vmMuted) {
+                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    updateVoiceSubtitle('Amani AI', 'Listening for your response... / እያዳመጥኩ ነው...', true);
+                    startVoiceModeRecording();
+                }
+            };
+
+            audio.onerror = (e) => {
+                console.warn('[VoiceMode] Backend TTS failed, fallback to SpeechSynthesis:', e);
+                vmIsSpeaking = false;
+                vmCurrentTTSAudio = null;
+                if (vmActive && !vmMuted) {
+                    setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                    startVoiceModeRecording();
+                }
+            };
+
+            try {
+                await audio.play();
+            } catch (playErr) {
+                console.warn('[VoiceMode] Audio play error:', playErr);
+                audio.onerror(playErr);
+            }
+        }
+
+        function interruptVoiceMode() {
+            console.log('[VoiceMode] User triggered interrupt');
+            if (vmCurrentTTSAudio) {
+                vmCurrentTTSAudio.pause();
+                vmCurrentTTSAudio = null;
+            }
+            if (vmAbortController) {
+                vmAbortController.abort();
+                vmAbortController = null;
+            }
+            vmIsSpeaking = false;
+            vmIsProcessing = false;
+
+            if (vmActive && !vmMuted) {
+                setVoiceModeState('listening', 'Interrupted / ተቋርጧል — Listening...');
+                updateVoiceSubtitle('Amani AI', 'Interrupted. Listening... / ንግግር ተቋርጧል — እያዳመጥኩ ነው...', true);
+                startVoiceModeRecording();
+            }
+        }
+
+        function toggleVoiceModeMute() {
+            vmMuted = !vmMuted;
+            const muteBtn = document.getElementById('vmMuteBtn');
+            const micIcon = document.getElementById('vmMicIcon');
+
+            if (vmMuted) {
+                if (muteBtn) muteBtn.classList.add('active');
+                if (micIcon) {
+                    micIcon.innerHTML = '<path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.24-5.3-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c1.09-.16 2.09-.58 2.95-1.19l3.78 3.78L21 19.23 4.27 3z"/>';
+                }
+                setVoiceModeState('muted', 'Microphone Muted / ድምፅ ጠፍቷል');
+                updateVoiceSubtitle('System', 'Microphone is muted. Click mic icon to unmute. / ማይክሮፎኑ ጠፍቷል', true);
+
+                if (vmMediaRecorder && vmMediaRecorder.state === 'recording') {
+                    try { vmMediaRecorder.stop(); } catch (e) { }
+                }
+            } else {
+                if (muteBtn) muteBtn.classList.remove('active');
+                if (micIcon) {
+                    micIcon.innerHTML = '<path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>';
+                }
+                setVoiceModeState('listening', 'Listening... / እያዳመጥኩ ነው...');
+                updateVoiceSubtitle('Amani AI', 'Listening... / እያዳመጥኩ ነው...', true);
+                startVoiceModeRecording();
+            }
+        }
+
+        function updateVoiceSubtitle(speaker, text, isPlaceholder = false) {
+            const card = document.getElementById('vmSubtitlesCard');
+            const speakerEl = document.getElementById('vmSubtitleSpeaker');
+            const speakerName = document.getElementById('vmSpeakerName');
+            const textEl = document.getElementById('vmSubtitlesText');
+
+            if (!textEl) return;
+
+            if (speakerName) speakerName.textContent = speaker;
+            textEl.textContent = text;
+
+            if (isPlaceholder) {
+                textEl.classList.add('placeholder');
+            } else {
+                textEl.classList.remove('placeholder');
+            }
+        }
+
+        function closeVoiceMode() {
+            vmActive = false;
+            const overlay = document.getElementById('voiceModeOverlay');
+            if (overlay) overlay.classList.remove('active');
+
+            if (vmAnimFrameId) {
+                cancelAnimationFrame(vmAnimFrameId);
+                vmAnimFrameId = null;
+            }
+            if (vmSilenceTimer) {
+                clearTimeout(vmSilenceTimer);
+                vmSilenceTimer = null;
+            }
+            if (vmMediaRecorder && vmMediaRecorder.state === 'recording') {
+                try { vmMediaRecorder.stop(); } catch (e) { }
+            }
+            if (vmMediaStream) {
+                vmMediaStream.getTracks().forEach(t => t.stop());
+                vmMediaStream = null;
+            }
+            if (vmAudioContext && vmAudioContext.state !== 'closed') {
+                vmAudioContext.close().catch(() => { });
+                vmAudioContext = null;
+            }
+            if (vmCurrentTTSAudio) {
+                vmCurrentTTSAudio.pause();
+                vmCurrentTTSAudio = null;
+            }
+            if (vmAbortController) {
+                vmAbortController.abort();
+                vmAbortController = null;
+            }
+
+            vmIsSpeaking = false;
+            vmIsProcessing = false;
+
+            // Sync chat display
+            displayMessages();
+            scrollToBottom();
+        }
+
         init();
     </script>
+
+    <!-- ─── ChatGPT-Style Immersive Live Voice Mode Overlay ──────────────── -->
+    <div class="voice-mode-overlay" id="voiceModeOverlay">
+        <!-- Top Bar: Status, Voice Selector, Close Button -->
+        <div class="vm-topbar">
+            <div class="vm-status-pill listening" id="vmStatusPill">
+                <span class="vm-status-dot"></span>
+                <span id="vmStatusLabel">Listening... / እያዳመጥኩ ነው...</span>
+            </div>
+
+            <div class="vm-topbar-controls">
+                <!-- Theme Toggle Button in Live Voice Mode -->
+                <button class="vm-control-btn vm-theme-btn" id="vmThemeToggleBtn" onclick="toggleTheme()" title="Toggle Light / Dark Theme">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                    </svg>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-8.49.75.75 0 0 0-.82-.86 8 8 0 0 1-8.88-8.88.75.75 0 0 0-.86-.82 10.15 10.15 0 0 0-.14-.95z"/>
+                    </svg>
+                </button>
+
+                <select class="vm-voice-select" id="vmVoiceSelect" onchange="changeVoiceModeVoice(this.value)"
+                    title="Choose Voice">
+                    <option value="am-ET-MekdesNeural">Mekdes Neural (Amharic Female)</option>
+                    <option value="am-ET-AmehaNeural">Ameha Neural (Amharic Male)</option>
+                    <option value="en-US-JennyNeural">Jenny Neural (English Female)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Center Stage: Fluid Glowing Morphing Audio Orb -->
+        <div class="vm-center-stage">
+            <div class="vm-orb-wrapper">
+                <div class="vm-orb-ambient-glow"></div>
+                <div class="vm-wave-ring ring-1"></div>
+                <div class="vm-wave-ring ring-2"></div>
+                <div class="vm-orb-core" id="vmOrbCore"></div>
+            </div>
+
+            <!-- Live Subtitles & Transcripts -->
+            <div class="vm-subtitles-card" id="vmSubtitlesCard">
+                <div class="vm-subtitles-speaker" id="vmSubtitleSpeaker">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+                    </svg>
+                    <span id="vmSpeakerName">Amani AI</span>
+                </div>
+                <div class="vm-subtitles-text placeholder" id="vmSubtitlesText">
+                    Start speaking in Amharic or English... / መናገር ይጀምሩ...
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Control Dock: Mute & End Session -->
+        <div class="vm-bottom-dock">
+            <!-- Mute / Unmute Button -->
+            <button class="vm-dock-btn mute-btn" id="vmMuteBtn" onclick="toggleVoiceModeMute()"
+                title="Mute Microphone / ድምፅ አጥፋ">
+                <svg id="vmMicIcon" viewBox="0 0 24 24">
+                    <path
+                        d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+                </svg>
+            </button>
+
+            <!-- End Voice Session Button -->
+            <button class="vm-dock-btn end-btn" id="vmEndBtn" onclick="closeVoiceMode()"
+                title="Exit Voice Mode / ውጣ">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
 </body>
 
 </html>
