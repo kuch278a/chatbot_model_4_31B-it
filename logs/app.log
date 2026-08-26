@@ -11291,3 +11291,49 @@ All services loaded and ready!
   [96mClient :[0m 127.0.0.1
   [96mSession:[0m default_session | lang=auto
 127.0.0.1 - - [26/Aug/2026 11:44:20] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 400 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5798.70it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<03:06,  6.34it/s]Loading weights:   8%|7         | 90/1188 [00:00<00:04, 272.63it/s]Loading weights:  12%|#1        | 139/1188 [00:00<00:03, 269.27it/s]Loading weights:  15%|#4        | 178/1188 [00:00<00:04, 239.55it/s]Loading weights:  18%|#7        | 210/1188 [00:00<00:04, 222.00it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 218.24it/s]Loading weights:  22%|##2       | 262/1188 [00:01<00:04, 200.52it/s]Loading weights:  24%|##3       | 284/1188 [00:01<00:04, 203.59it/s]Loading weights:  26%|##5       | 306/1188 [00:01<00:04, 204.89it/s]Loading weights:  28%|##7       | 328/1188 [00:01<00:04, 202.17it/s]Loading weights:  30%|##9       | 351/1188 [00:01<00:04, 190.84it/s]Loading weights:  31%|###1      | 373/1188 [00:01<00:04, 196.75it/s]Loading weights:  33%|###3      | 395/1188 [00:01<00:03, 198.76it/s]Loading weights:  35%|###5      | 416/1188 [00:02<00:03, 201.46it/s]Loading weights:  37%|###6      | 437/1188 [00:02<00:03, 196.99it/s]Loading weights:  38%|###8      | 457/1188 [00:02<00:03, 190.38it/s]Loading weights:  40%|####      | 477/1188 [00:02<00:03, 191.50it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 193.11it/s]Loading weights:  44%|####4     | 527/1188 [00:02<00:03, 199.95it/s]Loading weights:  46%|####6     | 547/1188 [00:02<00:03, 193.77it/s]Loading weights:  48%|####8     | 573/1188 [00:02<00:03, 199.92it/s]Loading weights:  50%|#####     | 599/1188 [00:02<00:02, 215.96it/s]Loading weights:  52%|#####2    | 621/1188 [00:03<00:02, 203.06it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:02, 194.26it/s]Loading weights:  56%|#####5    | 664/1188 [00:03<00:02, 195.91it/s]Loading weights:  58%|#####7    | 684/1188 [00:03<00:02, 191.49it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 198.23it/s]Loading weights:  62%|######1   | 735/1188 [00:03<00:02, 199.32it/s]Loading weights:  64%|######3   | 755/1188 [00:03<00:02, 178.95it/s]Loading weights:  66%|######5   | 781/1188 [00:03<00:02, 193.76it/s]Loading weights:  68%|######8   | 808/1188 [00:04<00:01, 210.88it/s]Loading weights:  74%|#######3  | 874/1188 [00:04<00:00, 331.51it/s]Loading weights:  88%|########7 | 1042/1188 [00:04<00:00, 391.06it/s]Loading weights:  93%|#########3| 1105/1188 [00:04<00:00, 426.19it/s]Loading weights:  97%|#########6| 1149/1188 [00:05<00:00, 195.38it/s]Loading weights:  99%|#########9| 1182/1188 [00:05<00:00, 160.12it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 209.02it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
