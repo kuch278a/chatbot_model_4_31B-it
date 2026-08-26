@@ -1,19 +1,33 @@
-# አማኒ (Amani) AI — Multimodal Amharic/English Conversational Assistant
+<div align="center">
 
-Amani AI is a modular, high-performance, multimodal conversational AI platform built for Amharic-first and English enterprise workflows. The system is specifically engineered for resource-optimized multi-GPU execution (e.g., dual-GPU NVIDIA workstations like Tesla V100/A100) running the **Gemma 4 31B-it** model with dynamic layer sharding.
+# 🤖 Amani AI — High-Performance Bilingual Chatbot (Gemma 4 31B)
+### Enterprise-Grade Neural Inference, Native Ge'ez STT, Neural TTS, Local Semantic RAG & Nginx Gateway
 
-The platform integrates real-time token-by-token streaming, neural Speech-to-Text (STT), high-fidelity Text-to-Speech (TTS), local multilingual RAG (Retrieval-Augmented Generation), an interactive Swagger UI, and a 4-in-1 enterprise Nginx Gateway.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org)
+[![Nginx](https://img.shields.io/badge/Nginx-1.18%2B-009639.svg?logo=nginx&logoColor=white)](https://nginx.org)
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg)]()
+
+</div>
 
 ---
 
-## 🌟 Core Highlights
+## 📖 Overview
 
-* **Dynamic GPU-Sharded LLM Inference**: Custom layer partitioner that splits the 60-layer Gemma 4 visual-language model across two GPUs (`cuda:0` and `cuda:1`). Vision tower modules remain on CPU, preserving GPU VRAM for extended context windows and high-throughput generation (~6.4 tok/s).
+**Amani AI** is an enterprise-grade conversational AI platform engineered specifically for **Amharic and English** bilingual environments. It delivers end-to-end voice and text processing with ultra-low latency by coupling a layer-sharded **Gemma 4 (31B)** model with native Ge'ez Automatic Speech Recognition, high-fidelity neural Text-to-Speech, an offline Semantic Retrieval-Augmented Generation (RAG) system, and a hardened 4-in-1 Nginx Gateway.
+
+---
+
+## ✨ Key Features
+
+* **Layer-Sharded Gemma 4 (31B) LLM**: Custom multi-GPU device distribution (2x GPUs) for large-scale multilingual generative inference without quantization quality loss.
 * **Real-Time Token Streaming**: Server-Sent Events (SSE) `/chat/stream` endpoint with zero buffer latency, delivering word-by-word typing responses.
 * **Native Ge'ez Speech Recognition (STT)**:
   * **Primary:** `badrex/Ethio-ASR-amharic` (w2v-bert-2.0) producing 100% native Ge'ez Fidel script.
   * **Secondary:** `faster-whisper` (CTranslate2 `distil-large-v3.5` with int8 quantization).
-* **Neural Text-to-Speech (TTS)**: Server-side high-fidelity voice synthesis powered by `edge-tts` featuring Microsoft Mekdes Neural (`am-ET-MekdesNeural`) and Ameha Neural (`am-ET-AmehaNeural`) voices, with browser-native Web Speech API fallback.
+  * **VAD:** Silero Neural Voice Activity Detector (V5) for instant silence filtering.
+* **Neural Text-to-Speech (TTS)**: Server-side high-fidelity voice synthesis powered by `edge-tts` featuring Microsoft Mekdes Neural (`am-ET-MekdesNeural`) and Ameha Neural (`am-ET-AmehaNeural`) voices.
+* **End-to-End Voice API (`/tesfansh-api/api/v1/chat/talk`)**: Single-shot voice-in / audio-out endpoint chaining STT ➔ Gemma-4 LLM + RAG ➔ Neural TTS into a single low-latency MP3 stream.
 * **Local Semantic RAG Pipeline**: Fully offline sentence embedding pipeline (`rasyosef/bert-amharic-text-embedding-medium`) coupled with a lightweight NumPy/SQLite vector database for instant cosine similarity document search.
 * **Enterprise Nginx Gateway**:
   * **Reverse Proxy:** Full TLS/SSL termination with SSE streaming pass-through (`X-Accel-Buffering: no`).
@@ -32,12 +46,21 @@ chatbot_model_4_31B-it/
 ├── amani_nginx.conf            # 4-in-1 Nginx Gateway configuration
 ├── apply_nginx_config.sh       # Automated Nginx & firewall deployment script
 ├── requirements.txt            # Python dependencies
+├── kill_commands.txt           # Process termination cheat sheet
 │
 ├── config/
 │   └── settings.py             # Environment configuration & .env dynamic loader
 │
 ├── data/
 │   └── db.sqlite               # Vector embeddings store & chat history database
+│
+├── local_data/                 # RAG document knowledge base
+│   └── system_prompt.txt       # Persona & instruction prompt definitions
+│
+├── endpoints/
+│   ├── __init__.py
+│   ├── README.md               # Endpoints reference guide
+│   └── talk.py                 # Single-shot audio-in / audio-out voice API
 │
 ├── API/
 │   └── api_docs.py             # OpenAPI 3.0 specification & Swagger UI blueprint
@@ -58,7 +81,7 @@ chatbot_model_4_31B-it/
 │   ├── stt/
 │   │   ├── ethio_asr_transcriber.py      # Native Amharic ASR (w2v-bert-2.0)
 │   │   ├── faster_whisper_transcriber.py # CTranslate2 int8 quantized Whisper
-│   │   └── vad.py                        # Voice activity detection
+│   │   └── vad.py                        # Silero neural Voice Activity Detection (V5)
 │   │
 │   ├── tts/
 │   │   └── synthesizer.py      # Neural voice synthesizer & audio generator
@@ -90,7 +113,7 @@ chatbot_model_4_31B-it/
 ### 1. Environment Requirements
 * **OS:** Linux (Ubuntu 20.04/22.04 LTS recommended)
 * **Python:** 3.10+
-* **Hardware:** 2x GPUs with $\ge$ 32GB VRAM each (or 1x 80GB GPU)
+* **Hardware:** 2x GPUs with ≥ 32GB VRAM each (or 1x 80GB GPU)
 * **Web Server:** Nginx 1.18+
 
 ### 2. Installation
@@ -119,7 +142,9 @@ LLM_BACKEND=manual
 
 ### Option A: Interactive Development Mode
 ```bash
-python3 main.py
+./scripts/start_server.sh
+# or
+source .venv/bin/activate && python3 main.py
 ```
 
 ### Option B: Production with Gunicorn
@@ -128,16 +153,16 @@ python3 main.py
 ```
 
 ### Option C: Production 24/7 Background Daemon (Systemd)
-Install the systemd service unit:
+Install and enable the systemd service:
 ```bash
-sudo cp scripts/amani_backend.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable --now amani_backend
+sudo systemctl enable --now amani-ai
 ```
 
-Check status:
+Check service status or stop it:
 ```bash
-sudo systemctl status amani_backend
+sudo systemctl status amani-ai
+sudo systemctl stop amani-ai
 ```
 
 ---
@@ -164,6 +189,7 @@ Once applied, the application will be accessible via:
 | **`/`** | `GET` | `text/html` | Interactive Web Chat Interface |
 | **`/chat/stream`** | `POST` | `application/json` | Real-time SSE token-by-token streaming |
 | **`/chat`** | `POST` | `application/json` | Synchronous blocking chat response |
+| **`/tesfansh-api/api/v1/chat/talk`** | `POST` | `multipart/form-data` | **Single-shot Voice Conversation** (Audio In ➔ STT ➔ LLM ➔ TTS MP3 Out) |
 | **`/api/stt`** | `POST` | `multipart/form-data` | Transcribes audio files to Amharic Ge'ez text |
 | **`/api/tts/audio`** | `GET` | `audio/mpeg` | Synthesizes speech from text (12h Nginx cache) |
 | **`/api/voices`** | `GET` | `application/json` | Returns list of available neural voices |
@@ -184,13 +210,22 @@ curl -N -X POST http://127.0.0.1:5000/chat/stream \
   -d '{"prompt": "ሰላም! አማኒ ማን ነው?", "session_id": "user_001"}'
 ```
 
-#### 2. Speech-to-Text (STT)
+#### 2. End-to-End Voice Conversation (Talk API)
+```bash
+curl -X POST http://127.0.0.1:5000/tesfansh-api/api/v1/chat/talk \
+  -F "audio=@recording.wav" \
+  -F "session_id=user_001" \
+  -F "lang=auto" \
+  --output reply.mp3
+```
+
+#### 3. Speech-to-Text (STT)
 ```bash
 curl -X POST http://127.0.0.1:5000/api/stt \
   -F "audio=@recording.wav"
 ```
 
-#### 3. Text-to-Speech (TTS)
+#### 4. Text-to-Speech (TTS)
 ```bash
 curl "http://127.0.0.1:5000/api/tts/audio?text=ሰላም&lang=am-ET" --output speech.mp3
 ```
