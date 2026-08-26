@@ -37,11 +37,15 @@ sys.stderr = sys.stdout
 
 from config import settings
 from src.ui.app import create_ui_app
+from endpoints.talk import talk_bp
 
 app = Flask(__name__)
 
 # Register UI blueprints
 create_ui_app(app)
+
+# Register voice talk endpoint
+app.register_blueprint(talk_bp)
 
 # Global services container
 services = {
