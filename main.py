@@ -149,8 +149,15 @@ loading_thread.daemon = True
 loading_thread.start()
 
 def main():
-    # Start Flask development server
-    print(f"Starting Amani AI server on {settings.HOST}:{settings.PORT}...")
+    public_ip = "196.188.240.106"
+    print("=" * 64)
+    print("  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)")
+    print(f"  • Web Chat UI    : http://{public_ip}")
+    print(f"  • API Swagger UI : http://{public_ip}/API/docs")
+    print(f"  • Health Status  : http://{public_ip}/health")
+    print(f"  • Talk Voice API : http://{public_ip}/tesfansh-api/api/v1/chat/talk")
+    print(f"  • Internal Proxy : http://{settings.HOST}:{settings.PORT}")
+    print("=" * 64, flush=True)
     app.run(host=settings.HOST, port=settings.PORT, debug=False, threaded=True)
 
 if __name__ == "__main__":
