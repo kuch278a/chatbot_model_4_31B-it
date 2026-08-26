@@ -91,15 +91,7 @@
                         <option value="am-ET" selected>አማርኛ (am-ET)</option>
                     </select>-->
 
-                    <!-- Hands-Free / Auto-Listen Mode Toggle Button -->
-                    <button id="autoListenBtn" type="button" onclick="toggleAutoListen()" class="action-pill-btn"
-                        title="ቀጣይነት ያለው ውይይት / Hands-Free Voice Mode">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path
-                                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
-                        </svg>
-                        <span id="autoListenText">Auto-Listen</span>
-                    </button>
+                    <!-- Auto-Listen button removed: VAD handles voice activation automatically -->
 
                     <!-- Theme Toggle Switch -->
                     <button id="themeToggleBtn" onclick="toggleTheme()" class="action-pill-btn"
@@ -129,7 +121,7 @@
                 </div>
             </div>
 
-            <!-- ─── Floating Input Capsule ──────────────────────────────────── -->
+                        <!-- ─── Floating Input Capsule ──────────────────────────────────── -->
             <div class="floating-input-wrapper">
                 <div class="input-capsule-box">
                     <textarea id="userInput" class="gemini-textarea" placeholder="ሰላም፣ እንዴት ልርዳዎት? መልዕክትዎን እዚህ ይጻፉ..."
@@ -147,9 +139,9 @@
                         </div>
 
                         <div class="input-actions-right">
-                            <!-- Mic Button with Ethio-ASR Voice Recognition -->
+                            <!-- Mic Button with Ethio-ASR Voice Recognition & VAD -->
                             <button type="button" id="micBtn" onclick="toggleSpeechRecognition()" class="gemini-mic-btn"
-                                title="Click to record speech (English / Amharic)">
+                                title="ድምፅ ማዳመጫ / ንግግር ወደ ጽሑፍ (Ethio-ASR & VAD)">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                                     <path
                                         d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
@@ -166,8 +158,6 @@
                                     <span class="bar"></span>
                                 </div>
                             </button>
-
-
                         </div>
                     </div>
                 </div>
@@ -186,8 +176,9 @@
         let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
         let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
         let isListening = false;
+        let vadContinuousMode = true;
         let isStreaming = false;
-        let autoListenMode = false;
+        // autoListenMode removed: VAD handles voice activity automatically
         let ttsEnabled = true;
         let currentAudio = null;
 
@@ -683,12 +674,12 @@
                 isStreaming = false;
                 input.focus();
                 if (statusDot) statusDot.classList.remove('loading');
-                if (autoListenMode && !ttsEnabled && !isListening) {
+                if (vadContinuousMode && !ttsEnabled && !isListening) {
                     setTimeout(() => {
-                        if (autoListenMode && !isListening && !isStreaming) {
-                            toggleSpeechRecognition();
+                        if (vadContinuousMode && !isListening && !isStreaming) {
+                            startListeningAuto();
                         }
-                    }, 500);
+                    }, 400);
                 }
             }
         }
@@ -731,20 +722,23 @@
             }
         }
 
-        // ─── Ethio-ASR Speech-to-Text & VAD ─────────────────────────────────
-        let mediaRecorder = null;
-        let audioChunks = [];
-        let audioContext = null;
+        // ─── Always-On Auto Voice Detection (VAD) Engine ────────────────────
+        let vadStream = null;
+        let vadAudioContext = null;
         let vadAnalyser = null;
         let vadAnimationId = null;
-        let recordingTimeoutId = null;
-        let silenceStartTime = null;
-        let speechHasStarted = false;
+        let vadRecorder = null;
+        let vadChunks = [];
+        let vadIsCapturing = false;
+        let vadSilenceStart = null;
+        let vadSpeechDetected = false;
+        let vadRecordingStartTime = null;
+        let vadCaptureTimeoutId = null;
         let webSpeechRec = null;
 
-        const VAD_SILENCE_THRESHOLD = 0.006;
-        const VAD_SILENCE_DURATION_MS = 1800;
-        const MAX_RECORDING_MS = 60000;
+        const VAD_SILENCE_THRESHOLD = 0.0025;  // Highly sensitive threshold for human voice
+        const VAD_SILENCE_DURATION_MS = 700;   // 700ms of quiet before sending utterance
+        const VAD_MAX_RECORDING_MS = 30000;    // 30s safety limit per sentence
 
         function getSupportedAudioMimeType() {
             const candidates = [
@@ -765,58 +759,115 @@
             return '';
         }
 
+        
+        function triggerVadAutoListen() {
+            // Always-on VAD automatically continues in _runVadMonitorLoop
+        }
+        function startListeningAuto() {
+            startAlwaysOnVAD();
+        }
+
         function initSpeechRecognition() {
             const micBtn = document.getElementById("micBtn");
             if (micBtn) {
-                micBtn.title = "ድምፅ ማዳመጫ / ንግግር ወደ ጽሑፍ (Ethio-ASR)";
+                micBtn.title = "ድምፅ ማዳመጫ ሁሌ ያዳምጣል (Auto Voice Detection Always-On)";
             }
 
-            // Automatically stop recording if user switches away from the tab
+            // Automatically stop active capture if user switches tabs
             document.addEventListener('visibilitychange', () => {
-                if (document.hidden && isListening) {
-                    if (mediaRecorder && mediaRecorder.state === "recording") {
-                        try { mediaRecorder.requestData(); } catch (e) { }
-                        mediaRecorder.stop();
-                    }
-                    stopVAD();
+                if (document.hidden && vadIsCapturing) {
+                    stopVadCapture(false);
                 }
             });
+
+            // Start always-on VAD immediately on page load
+            startAlwaysOnVAD();
+
+            // Browser policy backup: start on first interaction if blocked before user gesture
+            const triggerOnInteraction = () => {
+                if (!vadStream || (vadAudioContext && vadAudioContext.state === 'suspended')) {
+                    startAlwaysOnVAD();
+                }
+            };
+            window.addEventListener('click', triggerOnInteraction, { once: true });
+            window.addEventListener('keydown', triggerOnInteraction, { once: true });
         }
 
-        function stopVAD() {
-            if (recordingTimeoutId) {
-                clearTimeout(recordingTimeoutId);
-                recordingTimeoutId = null;
+        async function startAlwaysOnVAD() {
+            if (vadStream && vadAudioContext && vadAudioContext.state === 'running') {
+                return; // Already initialized and running
             }
+
+            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
+                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+
+            if (!getUserMedia) {
+                return;
+            }
+
+            try {
+                if (!vadStream) {
+                    vadStream = await getUserMedia({
+                        audio: {
+                            echoCancellation: true,
+                            noiseSuppression: true,
+                            autoGainControl: true
+                        }
+                    });
+                }
+
+                if (!vadAudioContext || vadAudioContext.state === 'closed') {
+                    vadAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (vadAudioContext.state === 'suspended') {
+                    await vadAudioContext.resume();
+                }
+
+                if (!vadAnalyser) {
+                    const source = vadAudioContext.createMediaStreamSource(vadStream);
+                    vadAnalyser = vadAudioContext.createAnalyser();
+                    vadAnalyser.fftSize = 512;
+                    source.connect(vadAnalyser);
+                }
+
+                _runVadMonitorLoop();
+            } catch (e) {
+                console.warn("[VAD] Microphone initialization failed:", e);
+                const input = document.getElementById("userInput");
+                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
+                    appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።');
+                } else if (!isSecureOrigin()) {
+                    showPermModal(
+                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
+                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ወይም localhost ይፈልጋል።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require HTTPS or localhost to access the microphone.</span>",
+                        true
+                    );
+                }
+            }
+        }
+
+        let vadAmbientNoiseFloor = 0.001;
+
+        function _runVadMonitorLoop() {
             if (vadAnimationId) {
                 cancelAnimationFrame(vadAnimationId);
-                vadAnimationId = null;
             }
-            if (audioContext && audioContext.state !== "closed") {
-                audioContext.close().catch(() => { });
-                audioContext = null;
-            }
-            speechHasStarted = false;
-            silenceStartTime = null;
-        }
+            if (!vadAnalyser || !vadAudioContext) return;
 
-        async function startVAD(stream) {
-            try {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                if (audioContext.state === 'suspended') {
-                    await audioContext.resume();
+            const fftSize = vadAnalyser.fftSize;
+            const pcmData = new Uint8Array(fftSize);
+
+            function monitor() {
+                // Auto-resume audio context if suspended by browser
+                if (vadAudioContext && vadAudioContext.state === 'suspended') {
+                    vadAudioContext.resume().catch(() => {});
                 }
-                const source = audioContext.createMediaStreamSource(stream);
-                vadAnalyser = audioContext.createAnalyser();
-                vadAnalyser.fftSize = 512;
-                source.connect(vadAnalyser);
 
-                const pcmData = new Uint8Array(vadAnalyser.fftSize);
-                const recordingStartTime = Date.now();
+                // If assistant is currently speaking TTS or streaming response, pause detection to avoid echo
+                const isAssistantSpeaking = !!currentAudio || isStreaming;
 
-                function monitorVAD() {
-                    if (!isListening) return;
-
+                if (!isAssistantSpeaking && vadAnalyser) {
                     vadAnalyser.getByteTimeDomainData(pcmData);
                     let sum = 0;
                     for (let i = 0; i < pcmData.length; i++) {
@@ -826,261 +877,87 @@
                     const rms = Math.sqrt(sum / pcmData.length);
                     const now = Date.now();
 
-                    if (rms > VAD_SILENCE_THRESHOLD) {
-                        if (!speechHasStarted) {
-                            speechHasStarted = true;
-                            const input = document.getElementById("userInput");
-                            if (input) input.placeholder = "ድምፅ ተገኝቷል... (እያዳመጥኩ ነው)";
-                        }
-                        silenceStartTime = null;
-                    } else if (speechHasStarted) {
-                        if (!silenceStartTime) {
-                            silenceStartTime = now;
-                        } else if (now - silenceStartTime >= VAD_SILENCE_DURATION_MS) {
-                            const input = document.getElementById("userInput");
-                            if (input) input.placeholder = "ድምፅ አቁሟል — ወደ ጽሑፍ በመቀየር ላይ...";
-                            if (mediaRecorder && mediaRecorder.state === "recording") {
-                                try { mediaRecorder.requestData(); } catch (e) { }
-                                mediaRecorder.stop();
-                            }
-                            stopVAD();
-                            return;
-                        }
+                    // Smooth ambient noise floor tracking when not actively capturing
+                    if (!vadIsCapturing) {
+                        vadAmbientNoiseFloor = (vadAmbientNoiseFloor * 0.95) + (rms * 0.05);
                     }
 
-                    if (now - recordingStartTime >= MAX_RECORDING_MS) {
-                        if (mediaRecorder && mediaRecorder.state === "recording") {
-                            try { mediaRecorder.requestData(); } catch (e) { }
-                            mediaRecorder.stop();
-                        }
-                        stopVAD();
-                        return;
-                    }
+                    // Voice presence detection (energy above threshold and distinct from background room noise)
+                    const voicePresent = (rms > VAD_SILENCE_THRESHOLD) && (rms > vadAmbientNoiseFloor * 1.4);
 
-                    vadAnimationId = requestAnimationFrame(monitorVAD);
+                    if (voicePresent) {
+                        // ── Human Voice energy detected ──
+                        vadSilenceStart = null;
+
+                        if (!vadIsCapturing) {
+                            console.log(`[VAD] 🎤 Voice detected (RMS: ${rms.toFixed(4)}, Floor: ${vadAmbientNoiseFloor.toFixed(4)})`);
+                            startVadCapture();
+                        }
+                    } else if (vadIsCapturing && vadSpeechDetected) {
+                        // ── Silence detected while recording ──
+                        if (!vadSilenceStart) {
+                            vadSilenceStart = now;
+                        } else if (now - vadSilenceStart >= VAD_SILENCE_DURATION_MS) {
+                            // Silence duration reached — finish capture and send
+                            console.log("[VAD] ⏹️ Speech ended (silence detected) — submitting audio...");
+                            stopVadCapture(true);
+                        }
+                    }
                 }
 
-                vadAnimationId = requestAnimationFrame(monitorVAD);
-            } catch (e) {
-                console.warn("[VAD] Web Audio VAD note:", e);
+                vadAnimationId = requestAnimationFrame(monitor);
             }
+
+            vadAnimationId = requestAnimationFrame(monitor);
         }
 
-        function startWebSpeechFallback() {
-            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRec) {
-                appendMessageNode('assistant', '⚠️ ማይክሮፎን ደህንነቱ በተጠበቀ ግንኙነት (HTTPS) ወይም በ `http://localhost:5000` / `http://127.0.0.1:5000` ብቻ ነው የሚሰራው። እባክዎ በ localhost ይክፈቱ ወይም HTTPS ይጠቀሙ።');
-                return;
-            }
+        function startVadCapture() {
+            if (!vadStream || vadIsCapturing) return;
 
-            if (isListening && webSpeechRec) {
-                try { webSpeechRec.stop(); } catch (e) { }
-                isListening = false;
-                const micBtn = document.getElementById("micBtn");
-                if (micBtn) micBtn.classList.remove("listening");
-                return;
-            }
+            vadIsCapturing = true;
+            vadSpeechDetected = true;
+            vadSilenceStart = null;
+            vadChunks = [];
+            vadRecordingStartTime = Date.now();
 
-            try {
-                webSpeechRec = new SpeechRec();
-                webSpeechRec.lang = 'am-ET';
-                webSpeechRec.continuous = false;
-                webSpeechRec.interimResults = true;
-
-                const micBtn = document.getElementById("micBtn");
-                const input = document.getElementById("userInput");
-
-                webSpeechRec.onstart = () => {
-                    isListening = true;
-                    if (micBtn) micBtn.classList.add("listening");
-                    if (input) input.placeholder = "እያዳመጥኩ ነው... (ሲያቆሙ በራሱ ይልካል)";
-                };
-
-                webSpeechRec.onresult = (event) => {
-                    let transcript = '';
-                    for (let i = event.resultIndex; i < event.results.length; ++i) {
-                        transcript += event.results[i][0].transcript;
-                    }
-                    if (transcript && input) {
-                        input.value = transcript;
-                        handleInput(input);
-                    }
-                };
-
-                webSpeechRec.onend = () => {
-                    isListening = false;
-                    if (micBtn) micBtn.classList.remove("listening");
-                    if (input) {
-                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
-                        if (input.value && input.value.trim().length > 0) {
-                            sendMessage();
-                        }
-                    }
-                };
-
-                webSpeechRec.onerror = (e) => {
-                    console.warn("Web Speech error:", e);
-                    isListening = false;
-                    if (micBtn) micBtn.classList.remove("listening");
-                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
-                    if (e.error === 'not-allowed') {
-                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ ውስጥ ፈቃድ ይስጡ (Allow Microphone)።');
-                    }
-                };
-
-                webSpeechRec.start();
-            } catch (err) {
-                console.error("WebSpeech start failed:", err);
-                appendMessageNode('assistant', '⚠️ ማይክሮፎን መክፈት አልተቻለም። እባክዎ በ HTTPS ወይም localhost ይሞክሩ።');
-            }
-        }
-
-        // ─── Hands-Free Continuous Voice Mode ─────────────────────────────────
-        function toggleAutoListen() {
-            autoListenMode = !autoListenMode;
-            const btn = document.getElementById("autoListenBtn");
-            const label = document.getElementById("autoListenText");
-            if (btn) {
-                if (autoListenMode) {
-                    btn.classList.add("active");
-                    btn.title = "ቀጣይነት ያለው ውይይት (በርቷል - ራስ-ሰር ያዳምጣል)";
-                    if (label) label.textContent = "Auto-Listen (ON)";
-                    if (!isListening && !isStreaming) {
-                        toggleSpeechRecognition();
-                    }
-                } else {
-                    btn.classList.remove("active");
-                    btn.title = "ቀጣይነት ያለው ውይይት (ጠፍቷል)";
-                    if (label) label.textContent = "Auto-Listen";
-                    if (isListening) {
-                        toggleSpeechRecognition();
-                    }
-                }
-            }
-        }
-
-        async function toggleSpeechRecognition() {
             const micBtn = document.getElementById("micBtn");
             const input = document.getElementById("userInput");
 
-            if (isListening) {
-                stopVAD();
-                if (mediaRecorder && mediaRecorder.state === "recording") {
-                    try { mediaRecorder.requestData(); } catch (e) { }
-                    mediaRecorder.stop();
-                }
-                if (webSpeechRec) {
-                    try { webSpeechRec.stop(); } catch (e) { }
-                }
-                return;
-            }
-
-
-
-            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
-                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
-
-            if (!getUserMedia) {
-                if (autoListenMode) toggleAutoListen();
-                if (!isSecureOrigin()) {
-                    showPermModal(
-                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
-                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ይፈልጋል። ወደ HTTPS ለመቀየር ከታች ያለውን ቁልፍ ይጫኑ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require an HTTPS connection to prompt for microphone permissions. Click below to switch to HTTPS and allow microphone access.</span>",
-                        true
-                    );
-                } else if (window.webkitSpeechRecognition || window.SpeechRecognition) {
-                    startWebSpeechFallback();
-                } else {
-                    showPermModal(
-                        "ማይክሮፎን አልተገኘም / Microphone Unavailable",
-                        "እባክዎ ማይክሮፎንዎ በትክክል መገናኘቱን እና በብሮውዘርዎ ውስጥ መፈቀዱን ያረጋግጡ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Please ensure your microphone is connected and allowed in browser settings.</span>",
-                        false
-                    );
-                }
-                return;
-            }
-
-            let stream;
-            try {
-                stream = await getUserMedia({
-                    audio: {
-                        echoCancellation: true,
-                        noiseSuppression: true,
-                        autoGainControl: true
-                    }
-                });
-            } catch (firstErr) {
-                try {
-                    stream = await getUserMedia({ audio: true });
-                } catch (e) {
-                    console.error("Microphone access failed:", e);
-                    if (autoListenMode) toggleAutoListen();
-                    if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
-                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ ተከልክሏል። እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።');
-                    } else if (e.name === 'NotFoundError' || e.name === 'DevicesNotFoundError') {
-                        appendMessageNode('assistant', '⚠️ ምንም የተገናኘ ማይክሮፎን አልተገኘም። እባክዎ ማይክሮፎንዎን ያገናኙ።');
-                    } else {
-                        if (window.webkitSpeechRecognition || window.SpeechRecognition) {
-                            startWebSpeechFallback();
-                            return;
-                        }
-                        appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተገኘም። እባክዎ በብሮውዘርዎ ማይክሮፎን ይፍቀዱ ወይም በ `http://localhost:5000` ይክፈቱ።');
-                    }
-                    return;
-                }
-            }
-
-            isListening = true;
-            audioChunks = [];
-            if (micBtn) {
-                micBtn.classList.add("listening");
-                micBtn.title = "ድምፅ በመቅረጽ ላይ... ለማቆም እና ለመላክ ይጫኑ";
-            }
-            if (input) {
-                input.placeholder = "🎙️ እያዳመጥኩ ነው... (ለመላክ እዚህ ወይም ማይክሮፎኑን ይጫኑ)";
-            }
+            if (micBtn) micBtn.classList.add("listening");
+            if (input) input.placeholder = "🎙️ እያዳመጥኩ ነው... (ተናገሩ)";
 
             const supportedMime = getSupportedAudioMimeType();
             const recorderOptions = supportedMime ? { mimeType: supportedMime } : {};
 
             try {
-                mediaRecorder = new MediaRecorder(stream, recorderOptions);
-            } catch (recErr) {
-                console.warn("MediaRecorder init with options fallback:", recErr);
+                vadRecorder = new MediaRecorder(vadStream, recorderOptions);
+            } catch (e) {
                 try {
-                    mediaRecorder = new MediaRecorder(stream);
-                } catch (recErr2) {
-                    console.error("MediaRecorder failed entirely, falling back to Web Speech:", recErr2);
-                    stream.getTracks().forEach(t => t.stop());
-                    isListening = false;
-                    if (micBtn) micBtn.classList.remove("listening");
-                    startWebSpeechFallback();
+                    vadRecorder = new MediaRecorder(vadStream);
+                } catch (e2) {
+                    console.error("[VAD] MediaRecorder start error:", e2);
+                    vadIsCapturing = false;
                     return;
                 }
             }
 
-            mediaRecorder.ondataavailable = (e) => {
-                if (e.data && e.data.size > 0) audioChunks.push(e.data);
+            vadRecorder.ondataavailable = (e) => {
+                if (e.data && e.data.size > 0) vadChunks.push(e.data);
             };
 
-            mediaRecorder.onstop = async () => {
-                stopVAD();
-                stream.getTracks().forEach(t => t.stop());
-                isListening = false;
-                if (micBtn) {
-                    micBtn.classList.remove("listening");
-                    micBtn.title = "ድምፅ ማዳመጫ / ንግግር ወደ ጽሑፍ (Ethio-ASR)";
-                }
-                if (input) input.placeholder = "በEthio-ASR ወደ አማርኛ ጽሑፍ በመቀየር ላይ...";
+            vadRecorder.onstop = async () => {
+                const chunksToProcess = [...vadChunks];
+                vadChunks = [];
+                const finalMime = (vadRecorder && vadRecorder.mimeType) || supportedMime || 'audio/webm';
 
-                if (audioChunks.length === 0) {
-                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                if (chunksToProcess.length === 0) {
+                    if (input && input.value === '') input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                     return;
                 }
 
-                const finalMime = mediaRecorder.mimeType || supportedMime || 'audio/webm';
-                const audioBlob = new Blob(audioChunks, { type: finalMime });
+                if (input) input.placeholder = "በEthio-ASR ወደ ጽሑፍ በመቀየር ላይ...";
+
+                const audioBlob = new Blob(chunksToProcess, { type: finalMime });
 
                 try {
                     const res = await fetch("/api/stt", {
@@ -1098,36 +975,67 @@
                         }
                     } else {
                         if (input) {
-                            input.placeholder = "ምንም ድምፅ አልተሰማም። እባክዎ እንደገና ይሞክሩ።";
-                            setTimeout(() => {
-                                input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
-                            }, 2500);
+                            input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                         }
                     }
-                } catch (e) {
-                    console.error("STT error:", e);
+                } catch (err) {
+                    console.error("[VAD] STT error:", err);
                     if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                 }
             };
 
-            if (recordingTimeoutId) {
-                clearTimeout(recordingTimeoutId);
-            }
-            recordingTimeoutId = setTimeout(() => {
-                if (mediaRecorder && mediaRecorder.state === "recording") {
-                    try { mediaRecorder.requestData(); } catch (e) { }
-                    mediaRecorder.stop();
+            if (vadCaptureTimeoutId) clearTimeout(vadCaptureTimeoutId);
+            vadCaptureTimeoutId = setTimeout(() => {
+                if (vadIsCapturing) {
+                    stopVadCapture(true);
                 }
-                stopVAD();
-            }, MAX_RECORDING_MS);
+            }, VAD_MAX_RECORDING_MS);
 
-            mediaRecorder.start(200);
-            startVAD(stream);
+            vadRecorder.start(200);
+        }
+
+        function stopVadCapture(shouldSubmit = true) {
+            if (!vadIsCapturing) return;
+
+            vadIsCapturing = false;
+            vadSpeechDetected = false;
+            vadSilenceStart = null;
+
+            if (vadCaptureTimeoutId) {
+                clearTimeout(vadCaptureTimeoutId);
+                vadCaptureTimeoutId = null;
+            }
+
+            const micBtn = document.getElementById("micBtn");
+            const input = document.getElementById("userInput");
+
+            if (micBtn) micBtn.classList.remove("listening");
+            if (input && input.value === '') input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+
+            if (vadRecorder && vadRecorder.state === "recording") {
+                try { vadRecorder.requestData(); } catch (e) { }
+                vadRecorder.stop();
+            }
+        }
+
+        // ─── Manual Mic Button Click Support ─────────────────────────────────
+        async function toggleSpeechRecognition() {
+            if (vadIsCapturing) {
+                // If already capturing, clicking immediately finishes and sends
+                stopVadCapture(true);
+            } else {
+                // If not capturing, ensure VAD is running and force start capture
+                await startAlwaysOnVAD();
+                startVadCapture();
+            }
+        }
+
+        function stopVAD() {
+            stopVadCapture(false);
         }
 
 
-
-        // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+                // ─── Speech Synthesis (TTS) ────────────────────────────────────────
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const btn = document.getElementById("speakerBtn");
@@ -1152,18 +1060,8 @@
         }
 
         function speakText(text) {
-            const triggerAutoListen = () => {
-                if (autoListenMode && !isListening && !isStreaming) {
-                    setTimeout(() => {
-                        if (autoListenMode && !isListening && !isStreaming) {
-                            toggleSpeechRecognition();
-                        }
-                    }, 400);
-                }
-            };
-
             if (!ttsEnabled || !text) {
-                triggerAutoListen();
+                triggerVadAutoListen();
                 return;
             }
 
@@ -1174,7 +1072,7 @@
                 .replace(/#+\s*/g, '')
                 .trim();
             if (!cleanText) {
-                triggerAutoListen();
+                triggerVadAutoListen();
                 return;
             }
 
@@ -1194,12 +1092,12 @@
 
             audio.onended = () => {
                 currentAudio = null;
-                triggerAutoListen();
+                triggerVadAutoListen();
             };
 
             audio.onerror = () => {
                 currentAudio = null;
-                triggerAutoListen();
+                triggerVadAutoListen();
             };
 
             audio.play().catch(e => {
@@ -1213,11 +1111,11 @@
                     const utterance = new SpeechSynthesisUtterance(cleanText);
                     utterance.lang = detectedLang;
                     if (targetVoice) utterance.voice = targetVoice;
-                    utterance.onend = triggerAutoListen;
-                    utterance.onerror = triggerAutoListen;
+                    utterance.onend = () => { triggerVadAutoListen(); };
+                    utterance.onerror = () => { triggerVadAutoListen(); };
                     window.speechSynthesis.speak(utterance);
                 } else {
-                    triggerAutoListen();
+                    triggerVadAutoListen();
                 }
             });
         }
@@ -1247,7 +1145,7 @@
 
         // Synchronized with Auto-Listen parameters
         const VM_VAD_THRESHOLD = 0.006;
-        const VM_SILENCE_DURATION_MS = 1800;
+        const VM_SILENCE_DURATION_MS = 700;    // ms of silence before auto-sending (was 1800)
         const VM_MAX_RECORDING_MS = 60000;
 
         function setVoiceModeState(state, label) {

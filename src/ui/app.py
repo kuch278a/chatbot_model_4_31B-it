@@ -2,7 +2,7 @@ import os
 import time
 import threading
 from datetime import datetime
-from flask import Blueprint, Response, request, jsonify, current_app
+from flask import Blueprint, Response, request, jsonify, current_app, after_this_request, redirect
 from src.ui.components import UIComponents
 
 ui_bp = Blueprint("ui", __name__)
@@ -26,10 +26,18 @@ def _ts():
     """Current timestamp string."""
     return datetime.now().strftime("%H:%M:%S")
 
+def _get_client_ip():
+    """Extracts real client IP address even when behind Nginx reverse proxy."""
+    if request.headers.get("X-Forwarded-For"):
+        return request.headers.get("X-Forwarded-For").split(",")[0].strip()
+    if request.headers.get("X-Real-IP"):
+        return request.headers.get("X-Real-IP").strip()
+    return request.remote_addr or "127.0.0.1"
+
 def _log_request(method, path, client_ip, session_id, prompt):
     preview = prompt[:80] + ('...' if len(prompt) > 80 else '')
     print(
-        f"\n{_C['bold']}{_C['green']}▶ POST {path}{_C['reset']} "
+        f"\n{_C['bold']}{_C['green']}▶ {method} {path}{_C['reset']} "
         f"{_C['dim']}[{_ts()}]{_C['reset']}\n"
         f"  {_C['cyan']}Client :{_C['reset']} {client_ip}\n"
         f"  {_C['cyan']}Session:{_C['reset']} {session_id}\n"
@@ -37,8 +45,16 @@ def _log_request(method, path, client_ip, session_id, prompt):
         flush=True
     )
 
+def _log_response(response_text):
+    """Logs a brief preview of the generated response."""
+    if not response_text:
+        return
+    cleaned = response_text.replace("\n", " ").strip()
+    preview = cleaned[:120] + ('...' if len(cleaned) > 120 else '')
+    print(f"  {_C['green']}Response:{_C['reset']} {preview}", flush=True)
+
 def _log_done(path, elapsed, token_count=None):
-    extra = f" | {_C['yellow']}{token_count} tokens{_C['reset']}" if token_count else ""
+    extra = f" | {_C['yellow']}{token_count} tokens{_C['reset']}" if token_count is not None else ""
     print(
         f"  {_C['green']}✔ {path} done{_C['reset']} in "
         f"{_C['yellow']}{elapsed:.2f}s{_C['reset']}{extra}\n",
@@ -64,6 +80,11 @@ def serve_css():
     """Serves the CSS styling file for the chat interface."""
     return Response(UIComponents.render_styles(), mimetype="text/css")
 
+@ui_bp.route("/api/docs")
+def api_docs_alias():
+    """Redirects lowercase /api/docs to canonical /API/docs OpenAPI explorer."""
+    return redirect("/API/docs", code=302)
+
 @ui_bp.route("/chat", methods=["POST"])
 def chat():
     """Endpoint for generating chatbot responses (blocking)."""
@@ -74,7 +95,7 @@ def chat():
     data = request.get_json() or {}
     prompt = data.get("prompt", "")
     session_id = data.get("session_id", "default_session")
-    client_ip = request.remote_addr
+    client_ip = _get_client_ip()
 
     if not prompt.strip():
         return jsonify({"error": "Prompt cannot be empty"}), 400
@@ -117,7 +138,7 @@ def chat_stream():
     data = request.get_json() or {}
     prompt = data.get("prompt", "")
     session_id = data.get("session_id", "default_session")
-    client_ip = request.remote_addr
+    client_ip = _get_client_ip()
 
     if not prompt.strip():
         return jsonify({"error": "Prompt cannot be empty"}), 400
@@ -139,6 +160,9 @@ def chat_stream():
                 token_count += 1
                 response_tokens.append(token)
                 yield token
+        except Exception as gen_err:
+            print(f"  {_C['red']}✘ /chat/stream generation error: {gen_err}{_C['reset']}", flush=True)
+            yield f"\n[Error: {str(gen_err)}]"
         finally:
             _llm_lock.release()
             try:
@@ -146,9 +170,9 @@ def chat_stream():
                 torch.cuda.empty_cache()
             except Exception:
                 pass
-        full_reply = "".join(response_tokens)
-        _log_response(full_reply)
-        _log_done("/chat/stream", time.time() - t0, token_count)
+            full_reply = "".join(response_tokens)
+            _log_response(full_reply)
+            _log_done("/chat/stream", time.time() - t0, token_count)
 
     return Response(stream_with_context(generate()), mimetype="text/plain")
 
@@ -158,7 +182,7 @@ def speech_to_text():
     Transcribes audio exclusively in Amharic using dedicated Ethio-ASR model.
     Accepts raw audio binary streams (WebM, MP4, OGG, WAV) or multipart uploads.
     """
-    client_ip = request.remote_addr
+    client_ip = _get_client_ip()
     audio_bytes = request.data  # Raw binary audio from browser MediaRecorder
 
     if not audio_bytes and request.files:
@@ -233,7 +257,8 @@ def synthesize_speech():
     rate = data.get("rate", 1.0)
     pitch = data.get("pitch", 1.0)
 
-    _log_request("POST", "/api/tts", request.remote_addr, "-", text)
+    client_ip = _get_client_ip()
+    _log_request("POST", "/api/tts", client_ip, "-", text)
     t0 = time.time()
 
     if not text.strip():
@@ -252,15 +277,16 @@ def stream_speech_audio():
     from flask import send_file
     from src.tts.synthesizer import VoiceSynthesizer
 
+    client_ip = _get_client_ip()
     if request.method == "GET":
         text = request.args.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
         lang = request.args.get("lang", "am-ET")
-        _log_request("GET", f"/api/tts/audio?lang={lang}", request.remote_addr, "-", text)
+        _log_request("GET", f"/api/tts/audio?lang={lang}", client_ip, "-", text)
     else:
         data = request.get_json() or {}
         text = data.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
         lang = data.get("lang", "am-ET")
-        _log_request("POST", f"/api/tts/audio?lang={lang}", request.remote_addr, "-", text)
+        _log_request("POST", f"/api/tts/audio?lang={lang}", client_ip, "-", text)
 
     if not text.strip():
         return jsonify({"error": "Text cannot be empty"}), 400
@@ -268,21 +294,37 @@ def stream_speech_audio():
     t0 = time.time()
     synthesizer = VoiceSynthesizer()
     temp_mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
+    temp_path = temp_mp3.name
+    temp_mp3.close()
 
     try:
-        asyncio.run(synthesizer.generate_audio_file(text=text, output_path=temp_mp3.name, lang=lang))
+        asyncio.run(synthesizer.generate_audio_file(text=text, output_path=temp_path, lang=lang))
         _log_done("/api/tts/audio", time.time() - t0)
-        return send_file(temp_mp3.name, mimetype="audio/mpeg", as_attachment=False)
+
+        @after_this_request
+        def cleanup_temp_file(response):
+            try:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+            except Exception:
+                pass
+            return response
+
+        return send_file(temp_path, mimetype="audio/mpeg", as_attachment=False)
     except Exception as e:
+        try:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+        except Exception:
+            pass
         print(f"  {_C['red']}✘ /api/tts/audio error: {e}{_C['reset']}", flush=True)
         return jsonify({"error": str(e)}), 500
-
-
 
 @ui_bp.route("/refresh", methods=["POST"])
 def refresh():
     """Rescans and index the documents folder."""
-    _log_request("POST", "/refresh", request.remote_addr, "-", "[rescan index]")
+    client_ip = _get_client_ip()
+    _log_request("POST", "/refresh", client_ip, "-", "[rescan index]")
     t0 = time.time()
     rag_pipeline = current_app.config.get("RAG_PIPELINE")
     if not rag_pipeline:
@@ -316,7 +358,8 @@ def clear_history_route():
     """Clears the chat history for a session."""
     data = request.get_json() or {}
     session_id = data.get("session_id", "default_session")
-    _log_request("POST", "/clear", request.remote_addr, session_id, "[clear history]")
+    client_ip = _get_client_ip()
+    _log_request("POST", "/clear", client_ip, session_id, "[clear history]")
     t0 = time.time()
     try:
         from src.db.chat_history import clear_history

@@ -176,6 +176,8 @@ def transcribe_audio_blob(audio_bytes: bytes) -> str:
             if len(audio_array.shape) > 1:
                 audio_array = audio_array.mean(axis=-1)
 
+            # Direct transcription without rejection filter
+
             transcriber = _get_transcriber_instance()
             return transcriber.transcribe_audio_array(audio_array, sample_rate=16000)
         except Exception:

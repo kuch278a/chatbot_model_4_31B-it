@@ -8240,3 +8240,2719 @@ Indexed 3 files from /mnt/data/local_data
   [92m✔ /api/tts/audio done[0m in [93m0.85s[0m
 
 127.0.0.1 - - [21/Aug/2026 17:19:12] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  60%|######    | 81/135 [00:00<00:00, 787.83it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1114.27it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:04<47:33,  2.41s/it]Loading weights:   6%|6         | 76/1188 [00:04<00:51, 21.67it/s]Loading weights:  10%|9         | 116/1188 [00:06<00:45, 23.53it/s]Loading weights:  12%|#1        | 139/1188 [00:07<00:40, 26.01it/s]Loading weights:  13%|#3        | 155/1188 [00:07<00:41, 24.72it/s]Loading weights:  14%|#3        | 166/1188 [00:08<00:43, 23.66it/s]Loading weights:  15%|#4        | 174/1188 [00:08<00:46, 21.59it/s]Loading weights:  15%|#5        | 181/1188 [00:09<00:48, 20.77it/s]Loading weights:  16%|#5        | 186/1188 [00:09<00:46, 21.35it/s]Loading weights:  16%|#6        | 193/1188 [00:09<00:44, 22.19it/s]Loading weights:  17%|#6        | 199/1188 [00:10<00:44, 22.43it/s]Loading weights:  17%|#7        | 203/1188 [00:10<00:49, 19.75it/s]Loading weights:  18%|#7        | 210/1188 [00:10<00:44, 21.75it/s]Loading weights:  18%|#7        | 213/1188 [00:11<00:56, 17.34it/s]Loading weights:  19%|#8        | 223/1188 [00:11<00:40, 24.08it/s]Loading weights:  19%|#9        | 227/1188 [00:11<00:57, 16.68it/s]Loading weights:  20%|#9        | 235/1188 [00:11<00:42, 22.48it/s]Loading weights:  20%|##        | 239/1188 [00:12<00:40, 23.21it/s]Loading weights:  20%|##        | 243/1188 [00:12<01:16, 12.40it/s]Loading weights:  21%|##1       | 251/1188 [00:13<00:56, 16.59it/s]Loading weights:  21%|##1       | 254/1188 [00:13<00:52, 17.86it/s]Loading weights:  22%|##1       | 257/1188 [00:13<00:57, 16.08it/s]Loading weights:  23%|##2       | 268/1188 [00:14<00:53, 17.14it/s]Loading weights:  23%|##3       | 278/1188 [00:14<00:41, 22.02it/s]Loading weights:  24%|##3       | 282/1188 [00:14<00:44, 20.46it/s]Loading weights:  24%|##3       | 285/1188 [00:14<00:43, 20.74it/s]Loading weights:  25%|##4       | 296/1188 [00:15<00:42, 21.13it/s]Loading weights:  26%|##5       | 306/1188 [00:15<00:31, 27.87it/s]Loading weights:  26%|##6       | 310/1188 [00:15<00:39, 22.31it/s]Loading weights:  27%|##6       | 318/1188 [00:15<00:30, 28.41it/s]Loading weights:  27%|##7       | 322/1188 [00:15<00:29, 29.22it/s]Loading weights:  27%|##7       | 326/1188 [00:16<00:38, 22.22it/s]Loading weights:  28%|##7       | 332/1188 [00:16<00:32, 26.16it/s]Loading weights:  28%|##8       | 336/1188 [00:16<00:35, 24.24it/s]Loading weights:  29%|##8       | 339/1188 [00:16<00:38, 21.92it/s]Loading weights:  30%|##9       | 351/1188 [00:17<00:37, 22.41it/s]Loading weights:  30%|###       | 361/1188 [00:17<00:31, 26.57it/s]Loading weights:  31%|###       | 365/1188 [00:18<00:38, 21.21it/s]Loading weights:  32%|###1      | 375/1188 [00:18<00:27, 29.11it/s]Loading weights:  32%|###1      | 379/1188 [00:18<00:38, 21.21it/s]Loading weights:  33%|###2      | 389/1188 [00:18<00:27, 28.85it/s]Loading weights:  33%|###3      | 393/1188 [00:19<00:33, 23.39it/s]Loading weights:  33%|###3      | 397/1188 [00:19<00:30, 25.53it/s]Loading weights:  34%|###3      | 403/1188 [00:19<00:26, 29.32it/s]Loading weights:  34%|###4      | 407/1188 [00:19<00:34, 22.86it/s]Loading weights:  35%|###4      | 410/1188 [00:19<00:33, 22.94it/s]Loading weights:  35%|###4      | 415/1188 [00:19<00:31, 24.49it/s]Loading weights:  35%|###5      | 418/1188 [00:20<00:36, 20.82it/s]Loading weights:  35%|###5      | 421/1188 [00:20<00:42, 18.23it/s]Loading weights:  36%|###6      | 430/1188 [00:20<00:31, 24.39it/s]Loading weights:  37%|###6      | 434/1188 [00:20<00:39, 19.28it/s]Loading weights:  37%|###6      | 437/1188 [00:21<00:39, 18.84it/s]Loading weights:  38%|###7      | 448/1188 [00:21<00:37, 19.92it/s]Loading weights:  39%|###8      | 458/1188 [00:21<00:29, 24.43it/s]Loading weights:  39%|###8      | 462/1188 [00:22<00:30, 23.92it/s]Loading weights:  39%|###9      | 465/1188 [00:22<00:34, 20.71it/s]Loading weights:  40%|####      | 476/1188 [00:22<00:37, 19.13it/s]Loading weights:  41%|####      | 486/1188 [00:23<00:31, 22.23it/s]Loading weights:  41%|####1     | 490/1188 [00:23<00:38, 18.21it/s]Loading weights:  41%|####1     | 492/1188 [00:23<00:45, 15.17it/s]Loading weights:  42%|####1     | 498/1188 [00:24<00:35, 19.48it/s]Loading weights:  42%|####2     | 501/1188 [00:24<00:36, 19.07it/s]Loading weights:  42%|####2     | 504/1188 [00:24<00:35, 19.21it/s]Loading weights:  43%|####3     | 513/1188 [00:24<00:23, 29.15it/s]Loading weights:  44%|####3     | 517/1188 [00:25<00:36, 18.46it/s]Loading weights:  44%|####4     | 527/1188 [00:25<00:24, 26.97it/s]Loading weights:  45%|####4     | 531/1188 [00:25<00:29, 22.13it/s]Loading weights:  46%|####5     | 541/1188 [00:25<00:19, 32.89it/s]Loading weights:  46%|####6     | 547/1188 [00:26<00:27, 23.58it/s]Loading weights:  47%|####6     | 555/1188 [00:26<00:23, 26.47it/s]Loading weights:  47%|####7     | 559/1188 [00:26<00:29, 21.07it/s]Loading weights:  47%|####7     | 562/1188 [00:26<00:28, 22.17it/s]Loading weights:  48%|####8     | 573/1188 [00:27<00:25, 24.56it/s]Loading weights:  48%|####8     | 576/1188 [00:27<00:27, 22.04it/s]Loading weights:  49%|####9     | 583/1188 [00:27<00:25, 23.30it/s]Loading weights:  49%|####9     | 587/1188 [00:27<00:25, 23.50it/s]Loading weights:  50%|#####     | 596/1188 [00:28<00:22, 26.54it/s]Loading weights:  51%|#####     | 600/1188 [00:28<00:21, 27.56it/s]Loading weights:  51%|#####     | 603/1188 [00:28<00:26, 21.75it/s]Loading weights:  52%|#####1    | 614/1188 [00:28<00:23, 23.94it/s]Loading weights:  53%|#####2    | 624/1188 [00:29<00:18, 29.77it/s]Loading weights:  53%|#####2    | 628/1188 [00:29<00:23, 24.01it/s]Loading weights:  54%|#####3    | 638/1188 [00:29<00:18, 29.79it/s]Loading weights:  54%|#####4    | 642/1188 [00:30<00:25, 21.27it/s]Loading weights:  54%|#####4    | 645/1188 [00:30<00:25, 21.21it/s]Loading weights:  55%|#####5    | 656/1188 [00:30<00:22, 23.42it/s]Loading weights:  55%|#####5    | 659/1188 [00:30<00:24, 21.92it/s]Loading weights:  56%|#####6    | 666/1188 [00:30<00:21, 24.85it/s]Loading weights:  56%|#####6    | 669/1188 [00:31<00:25, 20.57it/s]Loading weights:  57%|#####7    | 679/1188 [00:31<00:18, 27.31it/s]Loading weights:  57%|#####7    | 683/1188 [00:31<00:23, 21.37it/s]Loading weights:  58%|#####8    | 693/1188 [00:32<00:17, 28.73it/s]Loading weights:  59%|#####8    | 697/1188 [00:32<00:22, 22.04it/s]Loading weights:  59%|#####8    | 700/1188 [00:32<00:22, 21.57it/s]Loading weights:  60%|#####9    | 708/1188 [00:32<00:16, 29.55it/s]Loading weights:  60%|#####9    | 712/1188 [00:33<00:22, 20.91it/s]Loading weights:  61%|######    | 721/1188 [00:33<00:16, 27.78it/s]Loading weights:  61%|######1   | 725/1188 [00:33<00:24, 18.99it/s]Loading weights:  62%|######1   | 735/1188 [00:33<00:17, 26.09it/s]Loading weights:  62%|######2   | 739/1188 [00:34<00:21, 20.46it/s]Loading weights:  62%|######2   | 742/1188 [00:34<00:26, 17.15it/s]Loading weights:  63%|######3   | 749/1188 [00:34<00:20, 21.77it/s]Loading weights:  63%|######3   | 753/1188 [00:34<00:20, 20.96it/s]Loading weights:  64%|######4   | 762/1188 [00:35<00:14, 29.84it/s]Loading weights:  64%|######4   | 766/1188 [00:35<00:20, 20.22it/s]Loading weights:  65%|######5   | 776/1188 [00:35<00:14, 27.77it/s]Loading weights:  66%|######5   | 780/1188 [00:35<00:17, 23.35it/s]Loading weights:  66%|######6   | 790/1188 [00:36<00:12, 31.45it/s]Loading weights:  67%|######6   | 794/1188 [00:36<00:16, 23.24it/s]Loading weights:  68%|######7   | 804/1188 [00:36<00:13, 27.69it/s]Loading weights:  68%|######8   | 808/1188 [00:37<00:16, 22.45it/s]Loading weights:  69%|######8   | 818/1188 [00:37<00:12, 29.17it/s]Loading weights:  69%|######9   | 822/1188 [00:37<00:14, 25.34it/s]Loading weights:  69%|######9   | 825/1188 [00:37<00:16, 21.75it/s]Loading weights:  72%|#######2  | 859/1188 [00:37<00:04, 67.79it/s]Loading weights:  74%|#######4  | 885/1188 [00:37<00:03, 100.32it/s]Loading weights:  78%|#######7  | 921/1188 [00:38<00:01, 148.11it/s]Loading weights:  80%|#######9  | 950/1188 [00:38<00:01, 178.41it/s]Loading weights:  83%|########3 | 989/1188 [00:38<00:00, 226.00it/s]Loading weights:  86%|########6 | 1024/1188 [00:38<00:00, 256.27it/s]Loading weights:  89%|########8 | 1057/1188 [00:38<00:00, 273.07it/s]Loading weights:  92%|#########2| 1096/1188 [00:38<00:00, 303.02it/s]Loading weights:  96%|#########6| 1141/1188 [00:38<00:00, 339.47it/s]Loading weights:  99%|#########9| 1177/1188 [00:38<00:00, 335.57it/s]Loading weights: 100%|##########| 1188/1188 [00:38<00:00, 30.61it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [22/Aug/2026 10:36:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2026 10:36:27] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2026 10:36:27] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:36:44][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 1KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   8%|7         | 60/796 [00:00<00:01, 595.25it/s]Loading weights:  18%|#7        | 143/796 [00:00<00:00, 724.96it/s]Loading weights:  31%|###       | 243/796 [00:00<00:00, 848.29it/s]Loading weights:  41%|####1     | 328/796 [00:00<00:00, 843.96it/s]Loading weights:  82%|########2 | 654/796 [00:00<00:00, 1708.40it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1555.29it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m23.88s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [22/Aug/2026 10:37:08] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 08:52:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 08:52:34] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 08:52:35] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 08:52:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Aug/2026 08:52:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 08:52:43] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[08:53:06][0m
+  [96mClient :[0m 127.0.0.1
+  [96mSession:[0m 1787550788328
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [24/Aug/2026 08:53:06] "POST /clear HTTP/1.1" 200 -
+[2026-08-24 08:55:13] [INFO] [test_module]: Test log entry for Amani AI assistant
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5431.21it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:26,  8.08it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:05, 217.02it/s]Loading weights:   8%|7         | 95/1188 [00:00<00:04, 222.58it/s]Loading weights:  10%|#         | 124/1188 [00:00<00:04, 217.48it/s]Loading weights:  13%|#2        | 150/1188 [00:00<00:05, 201.51it/s]Loading weights:  15%|#4        | 173/1188 [00:00<00:05, 195.93it/s]Loading weights:  17%|#6        | 199/1188 [00:01<00:05, 196.24it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 201.33it/s]Loading weights:  21%|##        | 244/1188 [00:01<00:04, 193.14it/s]Loading weights:  23%|##2       | 270/1188 [00:01<00:04, 206.48it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 208.67it/s]Loading weights:  27%|##6       | 318/1188 [00:01<00:04, 208.39it/s]Loading weights:  29%|##8       | 340/1188 [00:01<00:04, 207.16it/s]Loading weights:  30%|###       | 361/1188 [00:01<00:03, 206.81it/s]Loading weights:  33%|###2      | 387/1188 [00:01<00:03, 215.74it/s]Loading weights:  34%|###4      | 409/1188 [00:02<00:03, 201.47it/s]Loading weights:  37%|###6      | 434/1188 [00:02<00:03, 208.25it/s]Loading weights:  39%|###8      | 459/1188 [00:02<00:03, 209.28it/s]Loading weights:  40%|####      | 481/1188 [00:02<00:03, 209.75it/s]Loading weights:  42%|####2     | 503/1188 [00:02<00:03, 200.58it/s]Loading weights:  45%|####4     | 531/1188 [00:02<00:03, 200.68it/s]Loading weights:  47%|####6     | 556/1188 [00:02<00:03, 204.78it/s]Loading weights:  49%|####8     | 577/1188 [00:02<00:03, 194.00it/s]Loading weights:  51%|#####     | 601/1188 [00:03<00:02, 202.45it/s]Loading weights:  53%|#####2    | 625/1188 [00:03<00:02, 210.68it/s]Loading weights:  55%|#####4    | 650/1188 [00:03<00:02, 219.06it/s]Loading weights:  57%|#####6    | 673/1188 [00:03<00:02, 206.44it/s]Loading weights:  59%|#####8    | 697/1188 [00:03<00:02, 203.98it/s]Loading weights:  61%|######    | 724/1188 [00:03<00:02, 214.88it/s]Loading weights:  63%|######2   | 746/1188 [00:03<00:02, 150.33it/s]Loading weights:  64%|######4   | 764/1188 [00:07<00:24, 17.04it/s] Loading weights:  65%|######5   | 777/1188 [00:11<00:43,  9.41it/s]Loading weights:  66%|######6   | 786/1188 [00:12<00:38, 10.41it/s]Loading weights:  67%|######6   | 794/1188 [00:12<00:36, 10.94it/s]Loading weights:  67%|######7   | 800/1188 [00:12<00:32, 12.10it/s]Loading weights:  68%|######8   | 808/1188 [00:13<00:30, 12.31it/s]Loading weights:  69%|######8   | 818/1188 [00:13<00:24, 15.32it/s]Loading weights:  69%|######9   | 822/1188 [00:14<00:30, 11.98it/s]Loading weights:  69%|######9   | 825/1188 [00:14<00:29, 12.42it/s]Loading weights:  72%|#######1  | 850/1188 [00:14<00:11, 29.51it/s]Loading weights:  74%|#######3  | 874/1188 [00:14<00:06, 49.10it/s]Loading weights:  76%|#######5  | 902/1188 [00:14<00:03, 75.28it/s]Loading weights:  78%|#######8  | 930/1188 [00:15<00:02, 104.41it/s]Loading weights:  80%|########  | 954/1188 [00:15<00:01, 121.27it/s]Loading weights:  83%|########2 | 986/1188 [00:15<00:01, 157.89it/s]Loading weights:  86%|########5 | 1017/1188 [00:15<00:00, 187.91it/s]Loading weights:  88%|########7 | 1044/1188 [00:15<00:00, 205.44it/s]Loading weights:  91%|######### | 1080/1188 [00:15<00:00, 242.68it/s]Loading weights:  93%|#########3| 1109/1188 [00:15<00:00, 246.50it/s]Loading weights:  96%|#########6| 1145/1188 [00:15<00:00, 270.90it/s]Loading weights:  99%|#########9| 1180/1188 [00:15<00:00, 290.64it/s]Loading weights: 100%|##########| 1188/1188 [00:15<00:00, 74.41it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [24/Aug/2026 11:08:59] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:08:59] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:08:59] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:08:59] "HEAD / HTTP/1.1" 200 -
+100.69.252.86 - - [24/Aug/2026 11:09:21] "GET / HTTP/1.1" 200 -
+100.69.252.86 - - [24/Aug/2026 11:09:21] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+100.69.252.86 - - [24/Aug/2026 11:09:22] "GET /files HTTP/1.1" 200 -
+100.69.252.86 - - [24/Aug/2026 11:09:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+100.69.252.86 - - [24/Aug/2026 11:09:27] code 400, message Bad request version ('\x02h2\x08http/1.1\x003\x04ï\x04í')
+100.69.252.86 - - [24/Aug/2026 11:09:27] "[35m[1m\x16\x03\x01\x07\x06\x01\x00\x07\x02\x03\x03dÅc]\x07#÷3òÀf\x0f\x1bóúKÇ°UBIû\x07\x8dVlð\x15tSS[ ¾àlÑ\x18'\x8aÝ\x90®-)ìÖîêPö^\x06bU°'\x06IÑMY\x87pâ\x00 ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x99jj\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00#\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x003\x04ï\x04í[0m" HTTPStatus.BAD_REQUEST -
+100.69.252.86 - - [24/Aug/2026 11:09:27] code 400, message Bad request version ('a¸¿ò6ÄL^\x03Ñ\x8bX4|PÉR\x8a$(á¨D\x93H*Kàj¼\x03\x98/')
+100.69.252.86 - - [24/Aug/2026 11:09:27] "[35m[1m\x16\x03\x01\x06¦\x01\x00\x06¢\x03\x03QÍ_ú\x14¤\x12ÿ/z¼½\x1f\x7fa®«§\x89\x82ÐZn@ü\x00)\\í¥¾­ ÝG\x16=·íF\x91ccy-h\x82\x04\x96aCvèè0\x04¡\x0f09:ÚNØ²\x00 ::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x069\x9a\x9a\x00\x00\x00\x0d\x00\x18\x00\x16\x09\x04\x09\x05\x09\x06\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04í**\x00\x01\x00\x11ì\x04ÀS\x8b9[³Î>Ñ­\x91\x1a©\x1f\x95\\;ÒTÍX| ÷;\x1b3ÈC;¥q¶I\x17B¬²òPÍÇi\x04\x92aZ\x05\x99\x84p¿£A¤\x92\x03\x81Ï;Z^×¸Zu Z1\x0b\x1f«\x95ÉÃ\x1fÑë\x82\x0e\x08\x832\x92±,LÌ\x04\x84Á\x16\x1cQ7\x18L;\x82UÜ\x10v4\x99\x96\x17°U´öI/\x80\x14ÿy¡ÕW\x94XÅ°\x0dÈ½p ½\x12÷£4´wõz\x06òûD@\x10¯¾\x11Íj¨\x07\x16¼»\x1f'­m¶pË\x05\x0f04¸Åì7]ûy a¸¿ò6ÄL^\x03Ñ\x8bX4|PÉR\x8a$(á¨D\x93H*Kàj¼\x03\x98/[0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [24/Aug/2026 11:09:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:09:39] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:09:40] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:13:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:13:13] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:13:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Aug/2026 11:13:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:13:18] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:15:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:15:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:17:11] "[33mGET /api/docs HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Aug/2026 11:17:30] "GET /API/docs HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 11:17:31] "GET /API/openapi.json HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5202.99it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:22,  8.32it/s]Loading weights:   5%|5         | 63/1188 [00:00<00:05, 211.54it/s]Loading weights:   8%|7         | 92/1188 [00:00<00:04, 228.93it/s]Loading weights:  10%|#         | 120/1188 [00:00<00:04, 213.83it/s]Loading weights:  12%|#2        | 145/1188 [00:00<00:04, 210.36it/s]Loading weights:  14%|#4        | 168/1188 [00:00<00:05, 202.61it/s]Loading weights:  16%|#5        | 190/1188 [00:00<00:04, 206.95it/s]Loading weights:  18%|#7        | 212/1188 [00:01<00:04, 206.34it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 203.02it/s]Loading weights:  22%|##1       | 258/1188 [00:01<00:04, 190.08it/s]Loading weights:  24%|##3       | 283/1188 [00:01<00:04, 203.73it/s]Loading weights:  26%|##5       | 306/1188 [00:01<00:04, 203.51it/s]Loading weights:  28%|##7       | 332/1188 [00:01<00:04, 210.78it/s]Loading weights:  30%|##9       | 354/1188 [00:01<00:04, 199.37it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:03, 202.30it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:03, 206.33it/s]Loading weights:  36%|###6      | 430/1188 [00:02<00:03, 198.83it/s]Loading weights:  39%|###8      | 459/1188 [00:02<00:03, 213.44it/s]Loading weights:  40%|####      | 481/1188 [00:02<00:03, 207.64it/s]Loading weights:  42%|####2     | 502/1188 [00:02<00:03, 199.73it/s]Loading weights:  44%|####4     | 525/1188 [00:02<00:03, 192.20it/s]Loading weights:  47%|####7     | 559/1188 [00:02<00:03, 204.77it/s]Loading weights:  49%|####8     | 581/1188 [00:02<00:02, 206.09it/s]Loading weights:  51%|#####     | 602/1188 [00:03<00:02, 201.06it/s]Loading weights:  53%|#####2    | 628/1188 [00:03<00:02, 214.66it/s]Loading weights:  55%|#####4    | 652/1188 [00:03<00:02, 219.93it/s]Loading weights:  57%|#####6    | 675/1188 [00:03<00:02, 191.01it/s]Loading weights:  59%|#####9    | 705/1188 [00:03<00:02, 212.05it/s]Loading weights:  61%|######1   | 727/1188 [00:03<00:02, 210.39it/s]Loading weights:  63%|######3   | 749/1188 [00:03<00:02, 212.87it/s]Loading weights:  65%|######4   | 771/1188 [00:03<00:02, 207.27it/s]Loading weights:  67%|######6   | 794/1188 [00:03<00:01, 208.90it/s]Loading weights:  69%|######9   | 822/1188 [00:04<00:01, 208.42it/s]Loading weights:  83%|########3 | 989/1188 [00:04<00:00, 596.71it/s]Loading weights: 100%|#########9| 1186/1188 [00:04<00:00, 660.74it/s]Loading weights: 100%|##########| 1188/1188 [00:04<00:00, 268.42it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [24/Aug/2026 13:40:46] "GET /API/docs HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 13:40:47] "GET /API/openapi.json HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 13:40:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4667.75it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 43/1188 [00:00<00:02, 401.63it/s]Loading weights:   7%|7         | 84/1188 [00:00<00:04, 257.81it/s]Loading weights:  10%|9         | 113/1188 [00:00<00:04, 252.53it/s]Loading weights:  12%|#1        | 140/1188 [00:00<00:04, 223.88it/s]Loading weights:  14%|#4        | 168/1188 [00:00<00:04, 222.94it/s]Loading weights:  16%|#6        | 193/1188 [00:00<00:04, 228.14it/s]Loading weights:  18%|#8        | 217/1188 [00:00<00:04, 214.33it/s]Loading weights:  20%|##        | 239/1188 [00:01<00:04, 212.64it/s]Loading weights:  22%|##2       | 262/1188 [00:01<00:04, 204.36it/s]Loading weights:  24%|##3       | 283/1188 [00:01<00:04, 197.52it/s]Loading weights:  26%|##6       | 310/1188 [00:01<00:04, 202.95it/s]Loading weights:  28%|##7       | 332/1188 [00:01<00:04, 204.17it/s]Loading weights:  30%|###       | 359/1188 [00:01<00:03, 212.07it/s]Loading weights:  32%|###2      | 381/1188 [00:01<00:03, 207.49it/s]Loading weights:  34%|###4      | 405/1188 [00:01<00:03, 216.09it/s]Loading weights:  36%|###5      | 427/1188 [00:01<00:03, 211.79it/s]Loading weights:  38%|###7      | 449/1188 [00:02<00:03, 201.68it/s]Loading weights:  40%|###9      | 472/1188 [00:02<00:03, 202.62it/s]Loading weights:  41%|####1     | 493/1188 [00:02<00:03, 192.17it/s]Loading weights:  44%|####3     | 517/1188 [00:02<00:03, 195.68it/s]Loading weights:  46%|####5     | 545/1188 [00:02<00:03, 197.94it/s]Loading weights:  48%|####7     | 569/1188 [00:02<00:03, 201.60it/s]Loading weights:  50%|#####     | 594/1188 [00:02<00:02, 207.42it/s]Loading weights:  52%|#####1    | 615/1188 [00:02<00:02, 205.35it/s]Loading weights:  54%|#####4    | 642/1188 [00:03<00:02, 213.40it/s]Loading weights:  56%|#####5    | 664/1188 [00:03<00:02, 213.16it/s]Loading weights:  58%|#####7    | 686/1188 [00:03<00:02, 205.48it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 210.32it/s]Loading weights:  62%|######1   | 735/1188 [00:03<00:02, 207.51it/s]Loading weights:  64%|######3   | 756/1188 [00:03<00:02, 204.50it/s]Loading weights:  65%|######5   | 777/1188 [00:03<00:03, 128.62it/s]Loading weights:  67%|######6   | 794/1188 [00:04<00:04, 90.80it/s] Loading weights:  68%|######7   | 807/1188 [00:04<00:04, 90.71it/s]Loading weights:  69%|######8   | 819/1188 [00:04<00:04, 79.09it/s]Loading weights:  70%|######9   | 829/1188 [00:04<00:06, 57.84it/s]Loading weights:  78%|#######7  | 924/1188 [00:05<00:01, 155.29it/s]Loading weights:  91%|#########1| 1082/1188 [00:05<00:00, 357.78it/s]Loading weights:  97%|#########7| 1154/1188 [00:05<00:00, 409.73it/s]Loading weights: 100%|##########| 1188/1188 [00:05<00:00, 217.15it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [24/Aug/2026 14:50:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:50:59] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:51:00] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:51:05][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787550788328
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:51:05] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:51:09][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787320820380
+  [96mPrompt :[0m [clear history]
+
+[1m[92m▶ POST /clear[0m [2m[14:51:09][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572269022
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:51:09] "POST /clear HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:51:09] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:51:40][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572269022
+  [96mPrompt :[0m 2+2
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.277).
+127.0.0.1 - - [24/Aug/2026 14:51:45] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m 4
+  [92m✔ /chat/stream done[0m in [93m4.21s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=en-US[0m [2m[14:51:45][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m 4
+  [92m✔ /api/tts/audio done[0m in [93m0.78s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:51:46] "GET /api/tts/audio?text=4&lang=en-US HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:51:56][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572269022
+  [96mPrompt :[0m 1000*500
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.574).
+127.0.0.1 - - [24/Aug/2026 14:52:00] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m 500,000
+  [92m✔ /chat/stream done[0m in [93m3.74s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=en-US[0m [2m[14:52:00][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m 500,000
+  [92m✔ /api/tts/audio done[0m in [93m0.87s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:52:01] "GET /api/tts/audio?text=500,000&lang=en-US HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[14:52:25][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572269022
+  [96mPrompt :[0m 565/5
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.364).
+127.0.0.1 - - [24/Aug/2026 14:52:29] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m 113
+  [92m✔ /chat/stream done[0m in [93m3.20s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=en-US[0m [2m[14:52:29][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m 113
+  [92m✔ /api/tts/audio done[0m in [93m0.90s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:52:30] "GET /api/tts/audio?text=113&lang=en-US HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:53:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:53:09] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:53:17][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572269022
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:53:17] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:53:17][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m 1787572397480
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [24/Aug/2026 14:53:17] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:54:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Aug/2026 14:54:13] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:54:21][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 44KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   7%|7         | 56/796 [00:00<00:01, 544.68it/s]Loading weights:  21%|##        | 165/796 [00:00<00:00, 855.64it/s]Loading weights:  34%|###4      | 272/796 [00:00<00:00, 947.87it/s]Loading weights:  46%|####6     | 367/796 [00:00<00:00, 907.91it/s]Loading weights:  58%|#####7    | 459/796 [00:00<00:00, 835.46it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1345.26it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:54:24][0m
+  [96mClient :[0m 100.69.252.86
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 9KB]
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+
+[FasterWhisper] Model loaded successfully on cpu ✔
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m18.77s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [24/Aug/2026 14:54:43] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m21.75s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [24/Aug/2026 14:54:43] "POST /api/stt HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4464.28it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<03:58,  4.97it/s]Loading weights:   6%|6         | 77/1188 [00:00<00:05, 194.00it/s]Loading weights:  10%|9         | 117/1188 [00:00<00:05, 206.86it/s]Loading weights:  13%|#2        | 149/1188 [00:00<00:04, 211.99it/s]Loading weights:  15%|#4        | 178/1188 [00:00<00:04, 206.07it/s]Loading weights:  17%|#7        | 203/1188 [00:01<00:04, 198.51it/s]Loading weights:  19%|#9        | 226/1188 [00:01<00:04, 202.96it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:04, 191.48it/s]Loading weights:  23%|##2       | 270/1188 [00:01<00:04, 186.96it/s]Loading weights:  25%|##4       | 296/1188 [00:01<00:04, 184.22it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 195.97it/s]Loading weights:  29%|##9       | 345/1188 [00:02<00:08, 103.62it/s]Loading weights:  30%|###       | 361/1188 [00:02<00:11, 75.12it/s] Loading weights:  32%|###2      | 381/1188 [00:02<00:08, 90.38it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:06, 113.38it/s]Loading weights:  36%|###6      | 432/1188 [00:02<00:05, 136.12it/s]Loading weights:  38%|###7      | 451/1188 [00:03<00:05, 143.61it/s]Loading weights:  40%|####      | 476/1188 [00:03<00:04, 158.25it/s]Loading weights:  42%|####1     | 498/1188 [00:03<00:04, 164.78it/s]Loading weights:  44%|####4     | 525/1188 [00:03<00:03, 188.62it/s]Loading weights:  46%|####5     | 546/1188 [00:03<00:03, 181.87it/s]Loading weights:  48%|####7     | 569/1188 [00:03<00:03, 189.13it/s]Loading weights:  50%|####9     | 589/1188 [00:03<00:03, 191.69it/s]Loading weights:  51%|#####1    | 609/1188 [00:04<00:05, 105.91it/s]Loading weights:  53%|#####2    | 625/1188 [00:04<00:06, 92.24it/s] Loading weights:  54%|#####3    | 638/1188 [00:04<00:07, 73.38it/s]Loading weights:  55%|#####4    | 650/1188 [00:04<00:06, 76.94it/s]Loading weights:  56%|#####5    | 660/1188 [00:05<00:07, 74.79it/s]Loading weights:  56%|#####6    | 670/1188 [00:05<00:06, 74.07it/s]Loading weights:  57%|#####7    | 683/1188 [00:05<00:06, 83.98it/s]Loading weights:  59%|#####8    | 697/1188 [00:05<00:05, 91.00it/s]Loading weights:  60%|#####9    | 711/1188 [00:05<00:05, 92.00it/s]Loading weights:  61%|######1   | 725/1188 [00:05<00:05, 86.95it/s]Loading weights:  62%|######1   | 736/1188 [00:05<00:05, 88.72it/s]Loading weights:  63%|######2   | 747/1188 [00:05<00:05, 86.10it/s]Loading weights:  64%|######3   | 756/1188 [00:06<00:05, 84.96it/s]Loading weights:  64%|######4   | 766/1188 [00:06<00:05, 73.33it/s]Loading weights:  66%|######5   | 780/1188 [00:06<00:05, 79.56it/s]Loading weights:  67%|######6   | 794/1188 [00:06<00:05, 66.51it/s]Loading weights:  68%|######8   | 808/1188 [00:06<00:04, 79.79it/s]Loading weights:  69%|######9   | 822/1188 [00:07<00:05, 62.93it/s]Loading weights:  77%|#######6  | 913/1188 [00:07<00:01, 203.24it/s]Loading weights:  87%|########7 | 1036/1188 [00:07<00:00, 400.32it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 160.26it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 09:55:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 09:55:40] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 09:55:41] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 09:55:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:55:50][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 18KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  11%|#1        | 90/796 [00:00<00:00, 880.63it/s]Loading weights:  81%|########1 | 647/796 [00:00<00:00, 3613.85it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 3792.81it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:55:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 39KB]
+  [92m✔ /api/stt done[0m in [93m6.93s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 09:55:57] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:55:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 09:55:57] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.06s[0m | [93m1 tokens[0m
+
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[09:55:58][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.91s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:55:58] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 09:56:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 09:56:02] "GET /files HTTP/1.1" 200 -
+[FasterWhisper] Model loaded successfully on cpu ✔
+
+[1m[92m▶ POST /clear[0m [2m[09:56:05][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:56:05] "POST /clear HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m17.66s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 09:56:11] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:57:02][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 185KB]
+  [92m✔ /api/stt done[0m in [93m2.64s[0m
+
+  [96mTranscript (am-ET):[0m ኢትዮጵያ አርቴቻል ኢንተስ ትነግረኛለች።
+127.0.0.1 - - [25/Aug/2026 09:57:05] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:57:05][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ኢትዮጵያ አርቴቻል ኢንተስ ትነግረኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.480).
+127.0.0.1 - - [25/Aug/2026 09:57:14] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m10.54s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[09:57:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.88s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:57:17] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:57:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 481KB]
+  [92m✔ /api/stt done[0m in [93m6.95s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ተነግኛለች። ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጃስ ነገር
+127.0.0.1 - - [25/Aug/2026 09:58:02] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:58:02][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ተነግኛለች። ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጃስ ነገር
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.800).
+127.0.0.1 - - [25/Aug/2026 09:58:11] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲትዩቱ ኢትዮጵያን በአፍሪካ የቴክኖሎጂ እና የአርቴፊሻል ኢንተለጀን...
+  [92m✔ /chat/stream done[0m in [93m30.25s[0m | [93m123 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[09:58:32][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲት...
+  [92m✔ /api/tts/audio done[0m in [93m6.26s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:58:39] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20በሴፕቴምበር%202020%20በጠቅላይሚኒስትር%20ዶክተር%20አብይ%20አህመድ%20ተመርቋል።%20ኢንስቲትዩቱ%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20እና%20የአርቴፊሻል%20ኢንተለጀንስ%20እድገት%20ግንባር%20ቀደም%20ለማድረግ፣%20በወጣቶች%20መካከል%20ፈጠራን%20ለማሳደግ%20እንዲሁም%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20የቴክኖሎጂ%20አገልግሎቶችን%20ለመስጠት%20የተቋቋመ%20ነው።%0A%0Aየኢንስቲትዩቱ&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:59:01][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 33KB]
+  [92m✔ /api/stt done[0m in [93m1.32s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 09:59:03] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:59:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 09:59:03] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[09:59:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.81s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:59:04] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:59:20][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 137KB]
+  [92m✔ /api/stt done[0m in [93m2.25s[0m
+
+  [96mTranscript (am-ET):[0m ቂኝ እስኪው።
+127.0.0.1 - - [25/Aug/2026 09:59:22] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:59:23][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ቂኝ እስኪው።
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 09:59:30] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m9.26s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[09:59:32][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.88s[0m
+
+127.0.0.1 - - [25/Aug/2026 09:59:33] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[09:59:45][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 77KB]
+  [92m✔ /api/stt done[0m in [93m5.55s[0m
+
+  [96mTranscript (am-ET):[0m ስለራትች አብራር የለኝ።
+127.0.0.1 - - [25/Aug/2026 09:59:51] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[09:59:51][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ስለራትች አብራር የለኝ።
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 09:59:57] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ ግልጽ አይደለም ወይም የተቋረጠ ይመስላል። እባክዎ ምንለማለት እንደፈለጉ በግልጽ እንደገና ይንገሩኝ።
+  [92m✔ /chat/stream done[0m in [93m9.38s[0m | [93m19 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:00:00][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ ግልጽ አይደለም ወይም የተቋረጠ ይመስላል። እባክዎ ምንለማለት እንደፈለጉ በግልጽ እንደገና ይንገሩኝ።
+  [92m✔ /api/tts/audio done[0m in [93m1.50s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:00:02] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20ግልጽ%20አይደለም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ምንለማለት%20እንደፈለጉ%20በግልጽ%20እንደገና%20ይንገሩኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:00:18][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 123KB]
+  [92m✔ /api/stt done[0m in [93m6.24s[0m
+
+  [96mTranscript (am-ET):[0m ሽን ማል።
+127.0.0.1 - - [25/Aug/2026 10:00:24] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:00:24][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ሽን ማል።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.276).
+127.0.0.1 - - [25/Aug/2026 10:00:32] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m10.02s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:00:35][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.95s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:00:36] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:00:50][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 51KB]
+  [92m✔ /api/stt done[0m in [93m9.53s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:01:00] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:01:39][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 176KB]
+  [92m✔ /api/stt done[0m in [93m2.94s[0m
+
+  [96mTranscript (am-ET):[0m ራስሽን ታስታውቀኛለች።
+127.0.0.1 - - [25/Aug/2026 10:01:42] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:01:42][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ራስሽን ታስታውቀኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 10:01:50] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m12.69s[0m | [93m29 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:01:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በ...
+  [92m✔ /api/tts/audio done[0m in [93m0.95s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:01:56] "GET /api/tts/audio?text=ስሜ%20አማኒ%20ይባላል፤%20በኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)የተገነባሁ%20የሰው%20ሰራሽ%20አስተውሎት%20ረዳት%20ነኝ።%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:02:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 162KB]
+  [92m✔ /api/stt done[0m in [93m2.47s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 10:02:18] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:02:19][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 10:02:19] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:02:19][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.82s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:02:20] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:02:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 92KB]
+  [92m✔ /api/stt done[0m in [93m1.91s[0m
+
+  [96mTranscript (am-ET):[0m ኢትዮጵያ አርቲ ኦፊሻል ኢንተለጀንስ ስንስቷ አግገኛለች።
+127.0.0.1 - - [25/Aug/2026 10:02:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:02:35][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ኢትዮጵያ አርቲ ኦፊሻል ኢንተለጀንስ ስንስቷ አግገኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.680).
+127.0.0.1 - - [25/Aug/2026 10:02:45] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል።
+  [92m✔ /chat/stream done[0m in [93m13.34s[0m | [93m21 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:02:48][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል።
+  [92m✔ /api/tts/audio done[0m in [93m1.71s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:02:50] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20በሴፕቴምበር%202020%20በጠቅላይሚኒስትር%20ዶክተር%20አብይ%20አህመድ%20ተመርቋል።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:03:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 218KB]
+  [92m✔ /api/stt done[0m in [93m2.83s[0m
+
+  [96mTranscript (am-ET):[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ዋና ዳይሬክተር።
+127.0.0.1 - - [25/Aug/2026 10:03:16] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:03:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ዋና ዳይሬክተር።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 1.000).
+127.0.0.1 - - [25/Aug/2026 10:03:25] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተርወርቁ ጋቸና ናቸው።
+  [92m✔ /chat/stream done[0m in [93m10.55s[0m | [93m10 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:03:27][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተርወርቁ ጋቸና ናቸው።
+  [92m✔ /api/tts/audio done[0m in [93m1.72s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:03:28] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተርወርቁ%20ጋቸና%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:03:45][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 140KB]
+  [92m✔ /api/stt done[0m in [93m2.16s[0m
+
+  [96mTranscript (am-ET):[0m ዛሬ አየሩ እንዴት ነው
+127.0.0.1 - - [25/Aug/2026 10:03:47] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:03:47][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ዛሬ አየሩ እንዴት ነው
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/4 context chunks (top score: 0.264).
+127.0.0.1 - - [25/Aug/2026 10:03:54] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ የቀረበው መረጃ ስለ ኢትዮጵያ ታሪክ እና ስነ-ህንፃ እንጂ ስለአየር ሁኔታ የሚገልጽ አይደለም። ስለዚህ የዛሬውን የአየር ሁኔታ በተመለከተ መረጃ መስጠት አልችልም።
+  [92m✔ /chat/stream done[0m in [93m11.49s[0m | [93m28 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:03:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ የቀረበው መረጃ ስለ ኢትዮጵያ ታሪክ እና ስነ-ህንፃ እንጂ ስለአየር ሁኔታ የሚገልጽ አይደለም። ስለዚህ የዛሬውን የአየ...
+  [92m✔ /api/tts/audio done[0m in [93m2.30s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:04:01] "GET /api/tts/audio?text=ይቅርታ፣%20የቀረበው%20መረጃ%20ስለ%20ኢትዮጵያ%20ታሪክ%20እና%20ስነ-ህንፃ%20እንጂ%20ስለአየር%20ሁኔታ%20የሚገልጽ%20አይደለም።%20ስለዚህ%20የዛሬውን%20የአየር%20ሁኔታ%20በተመለከተ%20መረጃ%20መስጠት%20አልችልም።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:04:18][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 95KB]
+  [92m✔ /api/stt done[0m in [93m1.87s[0m
+
+  [96mTranscript (am-ET):[0m አየሩ ዛሬ እንዴት ነው
+127.0.0.1 - - [25/Aug/2026 10:04:20] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:04:20][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m አየሩ ዛሬ እንዴት ነው
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/4 context chunks (top score: 0.291).
+127.0.0.1 - - [25/Aug/2026 10:04:27] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ የቀረበው መረጃ ስለ ኢትዮጵያ ታሪክ እና ስነ-ህንፃ እንጂ ስለአየር ሁኔታ የሚገልጽ አይደለም። ስለዚህ የዛሬውን የአየር ሁኔታ በተመለከተ መረጃ መስጠት አልችልም።
+  [92m✔ /chat/stream done[0m in [93m11.65s[0m | [93m28 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:04:32][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ የቀረበው መረጃ ስለ ኢትዮጵያ ታሪክ እና ስነ-ህንፃ እንጂ ስለአየር ሁኔታ የሚገልጽ አይደለም። ስለዚህ የዛሬውን የአየ...
+  [92m✔ /api/tts/audio done[0m in [93m1.77s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:04:34] "GET /api/tts/audio?text=ይቅርታ፣%20የቀረበው%20መረጃ%20ስለ%20ኢትዮጵያ%20ታሪክ%20እና%20ስነ-ህንፃ%20እንጂ%20ስለአየር%20ሁኔታ%20የሚገልጽ%20አይደለም።%20ስለዚህ%20የዛሬውን%20የአየር%20ሁኔታ%20በተመለከተ%20መረጃ%20መስጠት%20አልችልም።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:04:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 146KB]
+  [92m✔ /api/stt done[0m in [93m2.20s[0m
+
+  [96mTranscript (am-ET):[0m የታሪክ ትንሽ ነገር
+127.0.0.1 - - [25/Aug/2026 10:04:57] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:04:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m የታሪክ ትንሽ ነገር
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.640).
+127.0.0.1 - - [25/Aug/2026 10:05:06] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ ታሪክ እጅግ ጥንታዊና ረጅም ሲሆን፣ ዋና ዋናዎቹን ነጥቦች እንደሚከተለውማጠቃለል ይቻላል፦  *   **ጥንታዊ ስልጣኔ፦** ኢትዮጵያ የሰው ልጅ መገኛ (ድንቅነሽ/ሉሲ) እንደሆነች የ...
+  [92m✔ /chat/stream done[0m in [93m31.10s[0m | [93m131 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:05:29][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ ታሪክ እጅግ ጥንታዊና ረጅም ሲሆን፣ ዋና ዋናዎቹን ነጥቦች እንደሚከተለውማጠቃለል ይቻላል፦
+
+   ጥንታዊ ስልጣኔ፦ ኢ...
+  [92m✔ /api/tts/audio done[0m in [93m3.68s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:05:32] "GET /api/tts/audio?text=የኢትዮጵያ%20ታሪክ%20እጅግ%20ጥንታዊና%20ረጅም%20ሲሆን፣%20ዋና%20ዋናዎቹን%20ነጥቦች%20እንደሚከተለውማጠቃለል%20ይቻላል፦%0A%0A%20%20%20ጥንታዊ%20ስልጣኔ፦%20ኢትዮጵያ%20የሰው%20ልጅ%20መገኛ%20(ድንቅነሽ/ሉሲ)%20እንደሆነች%20የሚታወቅ%20ሲሆን፣%20በአክሱም%20ስልጣኔ%20ዘመን%20በንግድ፣%20በሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20የሰለጠነች%20ሀገር%20ነበረች።%0A%20%20%20መንፈሳዊነት፦%20በ4ኛው%20ክፍለ%20ዘመን%20ክርስትና%20ይፋዊ%20የሆነባት%20ሲሆን፣%20በ7ኛው%20ክፍለ%20ዘ&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:06:05][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 164KB]
+  [92m✔ /api/stt done[0m in [93m2.43s[0m
+
+  [96mTranscript (am-ET):[0m ምን አዲስ ነገር አለ
+127.0.0.1 - - [25/Aug/2026 10:06:07] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:06:07][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ምን አዲስ ነገር አለ
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 10:06:14] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m በአሁኑ ወቅት አዲስ የቀረበ መረጃ የለም። ነገር ግን በታሪክ፣ በቴክኖሎጂወይም በሌሎች አጠቃላይ ጉዳዮች ላይ ማወቅ የሚፈልጉት ነገር ካለ መጠየቅ ይችላሉ። በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m12.00s[0m | [93m34 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:06:19][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m በአሁኑ ወቅት አዲስ የቀረበ መረጃ የለም። ነገር ግን በታሪክ፣ በቴክኖሎጂወይም በሌሎች አጠቃላይ ጉዳዮች ላይ ማወቅ የሚፈልጉት ...
+  [92m✔ /api/tts/audio done[0m in [93m1.79s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:06:21] "GET /api/tts/audio?text=በአሁኑ%20ወቅት%20አዲስ%20የቀረበ%20መረጃ%20የለም።%20ነገር%20ግን%20በታሪክ፣%20በቴክኖሎጂወይም%20በሌሎች%20አጠቃላይ%20ጉዳዮች%20ላይ%20ማወቅ%20የሚፈልጉት%20ነገር%20ካለ%20መጠየቅ%20ይችላሉ።%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:06:42][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 150KB]
+  [92m✔ /api/stt done[0m in [93m2.22s[0m
+
+  [96mTranscript (am-ET):[0m አርቲፊሻል ኢንተለጀንስ ግንጋርኝ።
+127.0.0.1 - - [25/Aug/2026 10:06:44] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:06:45][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m አርቲፊሻል ኢንተለጀንስ ግንጋርኝ።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.706).
+127.0.0.1 - - [25/Aug/2026 10:06:54] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m አርቴፊሻል ኢንተለጀንስ (AI) በኢትዮጵያ ውስጥ በተለይም በኢትዮጵያ አርቴፊሻልኢንተለጀንስ ኢንስቲትዩት አማካኝነት ትልቅ ትኩረት ተሰጥቶታል። ዋና ዋናዎቹ ነጥቦች የሚከተሉት ናቸው፦  *   ...
+  [92m✔ /chat/stream done[0m in [93m30.80s[0m | [93m125 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:07:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m አርቴፊሻል ኢንተለጀንስ (AI) በኢትዮጵያ ውስጥ በተለይም በኢትዮጵያ አርቴፊሻልኢንተለጀንስ ኢንስቲትዩት አማካኝነት ትልቅ ትኩረ...
+  [92m✔ /api/tts/audio done[0m in [93m2.77s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:07:18] "GET /api/tts/audio?text=አርቴፊሻል%20ኢንተለጀንስ%20(AI)%20በኢትዮጵያ%20ውስጥ%20በተለይም%20በኢትዮጵያ%20አርቴፊሻልኢንተለጀንስ%20ኢንስቲትዩት%20አማካኝነት%20ትልቅ%20ትኩረት%20ተሰጥቶታል።%20ዋና%20ዋናዎቹ%20ነጥቦች%20የሚከተሉት%20ናቸው፦%0A%0A%20%20%20ዓላማው፦%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20እና%20በአርቴፊሻል%20ኢንተለጀንስ%20ግንባር%20ቀደም%20አድርጎ%20ለማስቀመጥ፣%20በወጣት%20ኢትዮጵያውያን%20መካከል%20ፈጠራን%20እና%20የአቅም%20ግንባታን%20ለማሳደግ%20ያለመ%20ነው።%0A%20%20%20ትኩረት&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:07:50][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 167KB]
+  [92m✔ /api/stt done[0m in [93m2.47s[0m
+
+  [96mTranscript (am-ET):[0m ትልቁ የኢትዮጵያ ታሪክ ምንድን ነው?
+127.0.0.1 - - [25/Aug/2026 10:07:53] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:07:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ትልቁ የኢትዮጵያ ታሪክ ምንድን ነው?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.842).
+127.0.0.1 - - [25/Aug/2026 10:08:01] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ ታሪክ እጅግ ጥንታዊና ሰፊ ሲሆን፣ ዋና ዋናዎቹን ኩነቶች እንደሚከተለውማጠቃለል ይቻላል፦  *   **ጥንታዊ ስልጣኔ፦** ታሪኩ የሚጀምረው የሰው ልጅ መገኛ በሆነችው አፋር ውስጥ በ...
+  [92m✔ /chat/stream done[0m in [93m31.91s[0m | [93m131 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:08:25][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ ታሪክ እጅግ ጥንታዊና ሰፊ ሲሆን፣ ዋና ዋናዎቹን ኩነቶች እንደሚከተለውማጠቃለል ይቻላል፦
+
+   ጥንታዊ ስልጣኔ፦ ታሪ...
+  [92m✔ /api/tts/audio done[0m in [93m2.69s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:08:28] "GET /api/tts/audio?text=የኢትዮጵያ%20ታሪክ%20እጅግ%20ጥንታዊና%20ሰፊ%20ሲሆን፣%20ዋና%20ዋናዎቹን%20ኩነቶች%20እንደሚከተለውማጠቃለል%20ይቻላል፦%0A%0A%20%20%20ጥንታዊ%20ስልጣኔ፦%20ታሪኩ%20የሚጀምረው%20የሰው%20ልጅ%20መገኛ%20በሆነችው%20አፋር%20ውስጥ%20በሚገኘው%20የድንቅነሽ%20(ሉሲ)%20ቅሪተ%20አካል%20ነው።%20በመቀጠልም%20አክሱም%20በዓለም%20አቀፍ%20ንግድ፣%20በሳንቲም%20ቀረጻ%20እና%20በግዕዝ%20ፊደላት%20አጠቃቀም%20የሰለጠነች%20ስልጣኔ%20ሆና%20አገልግላለች።%0A%20%20%20መንፈሳዊነት፦%20በ4ኛው%20ክፍ&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:08:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 59KB]
+  [92m✔ /api/stt done[0m in [93m1.62s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 10:08:54] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:08:54][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 10:08:54] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:08:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.92s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:08:55] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:09:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 220KB]
+  [92m✔ /api/stt done[0m in [93m2.77s[0m
+
+  [96mTranscript (am-ET):[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ የምርምር ና ጥናት በዋና ዳይሬክተር ማንናቸው?
+127.0.0.1 - - [25/Aug/2026 10:09:20] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:09:20][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ የምርምር ና ጥናት በዋና ዳይሬክተር ማንናቸው?
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.998).
+127.0.0.1 - - [25/Aug/2026 10:09:30] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተርወርቁ ጋቸና ናቸው።
+  [92m✔ /chat/stream done[0m in [93m11.10s[0m | [93m10 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:09:32][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተርወርቁ ጋቸና ናቸው።
+  [92m✔ /api/tts/audio done[0m in [93m0.84s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:09:33] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20ዋና%20ዳይሬክተር%20ክቡር%20ዶክተርወርቁ%20ጋቸና%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:09:54][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 219KB]
+  [92m✔ /api/stt done[0m in [93m2.77s[0m
+
+  [96mTranscript (am-ET):[0m አርቲፊሻል ኢንተለጀንስ የምርምር እና ጥናት ዋና ምክትል ዋና ዳይሬክተር ማናቸው።
+127.0.0.1 - - [25/Aug/2026 10:09:57] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:09:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m አርቲፊሻል ኢንተለጀንስ የምርምር እና ጥናት ዋና ምክትል ዋና ዳይሬክተር ማናቸው።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.984).
+127.0.0.1 - - [25/Aug/2026 10:10:06] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት የምርምር እና ልማት ምክትልዋና ዳይሬክተር ክቡር ዶክተር ታዬ ግርማ ናቸው።
+  [92m✔ /chat/stream done[0m in [93m12.86s[0m | [93m22 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:10:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት የምርምር እና ልማት ምክትልዋና ዳይሬክተር ክቡር ዶክተር ታዬ ግርማ ናቸው።
+  [92m✔ /api/tts/audio done[0m in [93m1.19s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:10:11] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20የምርምር%20እና%20ልማት%20ምክትልዋና%20ዳይሬክተር%20ክቡር%20ዶክተር%20ታዬ%20ግርማ%20ናቸው።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:10:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 30KB]
+  [92m✔ /api/stt done[0m in [93m7.40s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:10:29] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:11:46][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787641884091
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:11:46] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:12:05][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 251KB]
+  [92m✔ /api/stt done[0m in [93m3.65s[0m
+
+  [96mTranscript (am-ET):[0m እንግዶችን በስተክክል ትቀባይለኛለች እና ራትሽን አስታዋወቂች ስቲ።
+127.0.0.1 - - [25/Aug/2026 10:12:09] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:12:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787641884091
+  [96mPrompt :[0m እንግዶችን በስተክክል ትቀባይለኛለች እና ራትሽን አስታዋወቂች ስቲ።
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 10:12:17] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m12.50s[0m | [93m29 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:12:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በ...
+  [92m✔ /api/tts/audio done[0m in [93m0.90s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:12:22] "GET /api/tts/audio?text=ስሜ%20አማኒ%20ይባላል፤%20በኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)የተገነባሁ%20የሰው%20ሰራሽ%20አስተውሎት%20ረዳት%20ነኝ።%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:12:36][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 68KB]
+  [92m✔ /api/stt done[0m in [93m7.87s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:12:44] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:23:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 41KB]
+  [92m✔ /api/stt done[0m in [93m7.93s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:24:07] "POST /api/stt HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5378.03it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   4%|3         | 43/1188 [00:00<00:03, 372.79it/s]Loading weights:   7%|6         | 81/1188 [00:00<00:04, 264.11it/s]Loading weights:   9%|9         | 109/1188 [00:00<00:04, 254.63it/s]Loading weights:  11%|#1        | 136/1188 [00:00<00:04, 223.92it/s]Loading weights:  14%|#3        | 166/1188 [00:00<00:04, 222.56it/s]Loading weights:  16%|#6        | 195/1188 [00:00<00:04, 230.51it/s]Loading weights:  18%|#8        | 219/1188 [00:00<00:04, 229.04it/s]Loading weights:  20%|##        | 243/1188 [00:01<00:04, 216.70it/s]Loading weights:  22%|##2       | 265/1188 [00:01<00:04, 210.77it/s]Loading weights:  24%|##4       | 290/1188 [00:01<00:04, 217.52it/s]Loading weights:  26%|##6       | 312/1188 [00:01<00:04, 207.05it/s]Loading weights:  28%|##8       | 334/1188 [00:01<00:04, 202.97it/s]Loading weights:  30%|###       | 361/1188 [00:01<00:03, 209.26it/s]Loading weights:  32%|###2      | 382/1188 [00:01<00:04, 200.49it/s]Loading weights:  34%|###3      | 403/1188 [00:02<00:07, 102.58it/s]Loading weights:  35%|###5      | 419/1188 [00:02<00:13, 57.09it/s] Loading weights:  37%|###6      | 436/1188 [00:02<00:10, 68.38it/s]Loading weights:  39%|###9      | 464/1188 [00:03<00:07, 93.86it/s]Loading weights:  41%|####1     | 490/1188 [00:03<00:05, 119.34it/s]Loading weights:  44%|####3     | 517/1188 [00:03<00:04, 137.69it/s]Loading weights:  46%|####5     | 545/1188 [00:03<00:04, 155.74it/s]Loading weights:  48%|####7     | 565/1188 [00:03<00:03, 161.96it/s]Loading weights:  49%|####9     | 588/1188 [00:03<00:03, 173.84it/s]Loading weights:  52%|#####1    | 614/1188 [00:03<00:03, 186.32it/s]Loading weights:  54%|#####3    | 639/1188 [00:03<00:02, 199.28it/s]Loading weights:  56%|#####5    | 661/1188 [00:04<00:02, 190.67it/s]Loading weights:  57%|#####7    | 682/1188 [00:04<00:02, 193.73it/s]Loading weights:  60%|#####9    | 707/1188 [00:04<00:02, 197.60it/s]Loading weights:  62%|######1   | 735/1188 [00:04<00:02, 204.60it/s]Loading weights:  64%|######3   | 756/1188 [00:06<00:10, 40.64it/s] Loading weights:  65%|######4   | 771/1188 [00:06<00:11, 36.14it/s]Loading weights:  66%|######5   | 783/1188 [00:06<00:11, 35.94it/s]Loading weights:  67%|######6   | 792/1188 [00:07<00:10, 39.38it/s]Loading weights:  67%|######7   | 801/1188 [00:07<00:09, 39.36it/s]Loading weights:  68%|######8   | 809/1188 [00:07<00:10, 37.88it/s]Loading weights:  69%|######9   | 822/1188 [00:07<00:07, 47.34it/s]Loading weights:  73%|#######3  | 871/1188 [00:07<00:02, 109.97it/s]Loading weights:  83%|########3 | 991/1188 [00:07<00:00, 279.42it/s]Loading weights:  94%|#########4| 1119/1188 [00:08<00:00, 464.78it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 146.77it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 10:31:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:31:07] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:31:31][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 15KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   9%|8         | 70/796 [00:00<00:01, 699.77it/s]Loading weights:  18%|#8        | 146/796 [00:00<00:00, 735.14it/s]Loading weights:  28%|##8       | 224/796 [00:00<00:00, 752.22it/s]Loading weights:  38%|###7      | 300/796 [00:00<00:00, 736.02it/s]Loading weights:  47%|####6     | 374/796 [00:00<00:00, 718.29it/s]Loading weights:  57%|#####7    | 457/796 [00:00<00:00, 752.60it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1205.96it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m20.52s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:31:51] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:06][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787641884091
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:06] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:08][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787640943970
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:08] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1786876090749
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:10] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:10] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:11][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643110196
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:11] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:32:14][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643110196
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:32:14] "POST /clear HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 7287.96it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<00:59, 19.86it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:04, 260.86it/s]Loading weights:   6%|6         | 73/1188 [00:00<00:04, 249.76it/s]Loading weights:   8%|8         | 98/1188 [00:00<00:04, 221.11it/s]Loading weights:  10%|#         | 124/1188 [00:00<00:04, 222.76it/s]Loading weights:  12%|#2        | 147/1188 [00:00<00:04, 220.13it/s]Loading weights:  14%|#4        | 171/1188 [00:00<00:04, 217.84it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 216.45it/s]Loading weights:  19%|#9        | 226/1188 [00:01<00:04, 220.40it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:04, 208.65it/s]Loading weights:  23%|##3       | 276/1188 [00:01<00:04, 223.08it/s]Loading weights:  25%|##5       | 299/1188 [00:01<00:04, 208.03it/s]Loading weights:  27%|##7       | 321/1188 [00:01<00:04, 205.67it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:04, 205.46it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:04, 205.43it/s]Loading weights:  33%|###2      | 389/1188 [00:01<00:03, 211.29it/s]Loading weights:  35%|###4      | 411/1188 [00:01<00:03, 198.90it/s]Loading weights:  37%|###6      | 435/1188 [00:02<00:04, 156.01it/s]Loading weights:  38%|###8      | 453/1188 [00:02<00:09, 75.66it/s] Loading weights:  39%|###9      | 466/1188 [00:03<00:11, 60.35it/s]Loading weights:  42%|####1     | 498/1188 [00:03<00:07, 87.19it/s]Loading weights:  44%|####4     | 525/1188 [00:03<00:05, 111.12it/s]Loading weights:  47%|####6     | 556/1188 [00:03<00:04, 139.56it/s]Loading weights:  48%|####8     | 576/1188 [00:03<00:04, 145.07it/s]Loading weights:  51%|#####     | 600/1188 [00:03<00:03, 158.66it/s]Loading weights:  53%|#####2    | 628/1188 [00:03<00:03, 174.13it/s]Loading weights:  55%|#####4    | 652/1188 [00:04<00:02, 188.77it/s]Loading weights:  57%|#####6    | 676/1188 [00:04<00:02, 197.37it/s]Loading weights:  59%|#####8    | 698/1188 [00:04<00:02, 191.27it/s]Loading weights:  61%|######    | 721/1188 [00:04<00:02, 200.52it/s]Loading weights:  63%|######2   | 743/1188 [00:04<00:02, 193.20it/s]Loading weights:  64%|######4   | 766/1188 [00:04<00:02, 201.36it/s]Loading weights:  66%|######6   | 787/1188 [00:05<00:07, 50.83it/s] Loading weights:  68%|######7   | 803/1188 [00:06<00:08, 43.90it/s]Loading weights:  69%|######8   | 815/1188 [00:07<00:11, 32.17it/s]Loading weights:  69%|######9   | 824/1188 [00:07<00:15, 23.46it/s]Loading weights:  80%|########  | 952/1188 [00:08<00:02, 101.00it/s]Loading weights:  87%|########7 | 1036/1188 [00:08<00:00, 160.87it/s]Loading weights:  94%|#########4| 1118/1188 [00:08<00:00, 229.08it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 142.49it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 10:45:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:45:25] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:45:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  77%|#######7  | 614/796 [00:00<00:00, 6138.78it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 7294.09it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m12.68s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:45:40] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:45:48][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 211KB]
+  [92m✔ /api/stt done[0m in [93m2.73s[0m
+
+  [96mTranscript (am-ET):[0m ስለኢትዮጵያ አርቴፊሻልን  ገኛለች።
+127.0.0.1 - - [25/Aug/2026 10:45:51] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:45:51][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m ስለኢትዮጵያ አርቴፊሻልን  ገኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.412).
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:45:54][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 75KB]
+127.0.0.1 - - [25/Aug/2026 10:46:00] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:46:01][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 36KB]
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m11.78s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:46:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.83s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:46:04] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m15.50s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:46:10] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m8.84s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:46:10] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:46:18][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 202KB]
+  [92m✔ /api/stt done[0m in [93m2.77s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ነገርኝ
+127.0.0.1 - - [25/Aug/2026 10:46:21] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:46:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ነገርኝ
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.870).
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:46:27][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+  [92m✔ /api/stt done[0m in [93m1.42s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 10:46:28] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:46:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m ።
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:46:31][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 48KB]
+127.0.0.1 - - [25/Aug/2026 10:46:31] "POST /chat/stream HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m7.71s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:46:38] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:46:48][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 32KB]
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲትዩቱ በግብርና፣ በትምህርት፣ በጤና እና በሕዝብ ደህንነት ዘርፎች...
+  [92m✔ /chat/stream done[0m in [93m31.83s[0m | [93m123 tokens[0m
+
+127.0.0.1 - - [25/Aug/2026 10:46:53] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m24.97s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:46:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲት...
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:46:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.95s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:46:54] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m7.26s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:46:56] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m3.76s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:46:57] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20በሴፕቴምበር%202020%20በጠቅላይሚኒስትር%20ዶክተር%20አብይ%20አህመድ%20ተመርቋል።%20ኢንስቲትዩቱ%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20የአይቲ%20አገልግሎቶችን%20በመስጠት፣%20በወጣቶች%20መካከል%20ፈጠራን%20በማሳደግ%20እና%20አገሪቱን%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ለማድረግ%20ያለመ%20ስትራቴጂካዊ%20ተነሳሽነት%20ነው።%0A%0Aየኢንስቲትዩቱ%20አመራር%20እንደሚ&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 105KB]
+  [92m✔ /api/stt done[0m in [93m1.87s[0m
+
+  [96mTranscript (am-ET):[0m ው
+127.0.0.1 - - [25/Aug/2026 10:47:04] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:47:05][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m ው
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 10:47:05] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:12][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 104KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:14][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:25][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:27][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+  [92m✔ /api/stt done[0m in [93m15.59s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:28] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m27.53s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:41] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:45][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 35KB]
+  [92m✔ /api/stt done[0m in [93m27.18s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:48] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m23.79s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:48] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m27.54s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:55] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m9.65s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:47:55] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:47:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 82KB]
+  [92m✔ /api/stt done[0m in [93m7.61s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:48:04] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:48:14][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:48:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:48:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:48:27][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+  [92m✔ /api/stt done[0m in [93m14.26s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:48:28] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m17.52s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:48:35] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m20.86s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:48:42] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m14.77s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:48:42] "POST /api/stt HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5593.62it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 31/1188 [00:00<00:03, 309.95it/s]Loading weights:   5%|5         | 62/1188 [00:00<00:04, 227.36it/s]Loading weights:   7%|7         | 87/1188 [00:00<00:04, 233.47it/s]Loading weights:   9%|9         | 112/1188 [00:00<00:05, 212.37it/s]Loading weights:  12%|#1        | 138/1188 [00:00<00:04, 218.32it/s]Loading weights:  14%|#3        | 161/1188 [00:00<00:04, 212.76it/s]Loading weights:  16%|#5        | 185/1188 [00:00<00:04, 220.63it/s]Loading weights:  18%|#7        | 209/1188 [00:00<00:04, 222.78it/s]Loading weights:  20%|#9        | 237/1188 [00:01<00:04, 218.27it/s]Loading weights:  22%|##1       | 260/1188 [00:01<00:04, 220.35it/s]Loading weights:  24%|##3       | 283/1188 [00:01<00:04, 203.39it/s]Loading weights:  26%|##5       | 307/1188 [00:01<00:04, 205.80it/s]Loading weights:  28%|##7       | 332/1188 [00:01<00:04, 209.13it/s]Loading weights:  30%|##9       | 354/1188 [00:01<00:04, 187.83it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:04, 196.31it/s]Loading weights:  34%|###4      | 404/1188 [00:01<00:03, 210.09it/s]Loading weights:  36%|###5      | 426/1188 [00:02<00:03, 206.25it/s]Loading weights:  38%|###7      | 447/1188 [00:02<00:05, 147.31it/s]Loading weights:  39%|###9      | 465/1188 [00:02<00:07, 90.57it/s] Loading weights:  41%|####1     | 492/1188 [00:02<00:06, 115.57it/s]Loading weights:  43%|####2     | 509/1188 [00:03<00:10, 63.42it/s] Loading weights:  44%|####3     | 522/1188 [00:04<00:14, 44.95it/s]Loading weights:  45%|####4     | 532/1188 [00:04<00:15, 41.21it/s]Loading weights:  48%|####8     | 573/1188 [00:04<00:08, 74.97it/s]Loading weights:  51%|#####     | 600/1188 [00:04<00:06, 95.27it/s]Loading weights:  53%|#####2    | 624/1188 [00:04<00:04, 113.43it/s]Loading weights:  55%|#####4    | 650/1188 [00:04<00:04, 133.48it/s]Loading weights:  56%|#####6    | 669/1188 [00:04<00:03, 143.93it/s]Loading weights:  59%|#####8    | 697/1188 [00:05<00:02, 166.70it/s]Loading weights:  61%|######    | 721/1188 [00:05<00:02, 181.32it/s]Loading weights:  63%|######2   | 743/1188 [00:05<00:02, 187.15it/s]Loading weights:  64%|######4   | 764/1188 [00:05<00:02, 192.27it/s]Loading weights:  66%|######6   | 788/1188 [00:05<00:01, 203.32it/s]Loading weights:  68%|######8   | 810/1188 [00:06<00:07, 50.47it/s] Loading weights:  70%|######9   | 826/1188 [00:07<00:06, 52.48it/s]Loading weights:  71%|#######   | 839/1188 [00:07<00:05, 59.61it/s]Loading weights:  80%|########  | 954/1188 [00:07<00:01, 192.05it/s]Loading weights:  85%|########4 | 1005/1188 [00:07<00:00, 237.34it/s]Loading weights:  92%|#########2| 1093/1188 [00:07<00:00, 341.56it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 158.17it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 10:53:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:53:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:54:55] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:55:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:57:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:57:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:57:26][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 33KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  36%|###6      | 290/796 [00:00<00:00, 2896.69it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5019.82it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m1.29s[0m
+
+  [96mTranscript (am-ET):[0m ው።
+127.0.0.1 - - [25/Aug/2026 10:57:27] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:57:27][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m ው።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.616).
+
+[1m[92m▶ POST /clear[0m [2m[10:57:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787643109185
+  [96mPrompt :[0m [clear history]
+
+[1m[92m▶ POST /clear[0m [2m[10:57:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:57:33] "POST /clear HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:57:33] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[10:57:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:57:33] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:57:36] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m10.84s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:57:39][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m1.14s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:57:40] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:57:52][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 169KB]
+  [92m✔ /api/stt done[0m in [93m2.19s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 10:57:54] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:57:54][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 10:57:55] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:57:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.81s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:57:56] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:58:02][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 85KB]
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m11.11s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:58:13] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:58:14][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 161KB]
+  [92m✔ /api/stt done[0m in [93m2.33s[0m
+
+  [96mTranscript (am-ET):[0m ምስሉ ላይ የኢትዮጵያ አርቴፊስሻል ተነግድኛለች።
+127.0.0.1 - - [25/Aug/2026 10:58:16] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:58:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ምስሉ ላይ የኢትዮጵያ አርቴፊስሻል ተነግድኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.432).
+127.0.0.1 - - [25/Aug/2026 10:58:24] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m9.59s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:58:26][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.83s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:58:27] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:58:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 682KB]
+  [92m✔ /api/stt done[0m in [93m10.32s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ትነገኛለች።
+127.0.0.1 - - [25/Aug/2026 10:59:08] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:59:08][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ትነገኛለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.873).
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:59:14][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 255KB]
+  [92m✔ /api/stt done[0m in [93m3.82s[0m
+
+  [96mTranscript (am-ET):[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ንግርኛለ።
+127.0.0.1 - - [25/Aug/2026 10:59:18] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:59:18] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:59:18][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ስለ ኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ንግርኛለ።
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:59:20][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 40KB]
+  [92m✔ /api/stt done[0m in [93m1.58s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 10:59:22] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:59:22][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ።
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:59:24][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+  [92m✔ /api/stt done[0m in [93m10.20s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:59:34] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:59:36][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 122KB]
+  [92m✔ /api/stt done[0m in [93m1.86s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 10:59:38] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[10:59:38][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲትዩቱ በግብርና፣ በትምህርት፣ በጤና እና በሕዝብ ደህንነት ዘርፎች...
+  [92m✔ /chat/stream done[0m in [93m32.91s[0m | [93m123 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[10:59:41][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 50KB]
+  [Context Filter] Accepted 3/4 context chunks (top score: 0.841).
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[10:59:41][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይሚኒስትር ዶክተር አብይ አህመድ ተመርቋል። ኢንስቲት...
+  [92m✔ /api/tts/audio done[0m in [93m2.86s[0m
+
+127.0.0.1 - - [25/Aug/2026 10:59:44] "GET /api/tts/audio?text=የኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20በሴፕቴምበር%202020%20በጠቅላይሚኒስትር%20ዶክተር%20አብይ%20አህመድ%20ተመርቋል።%20ኢንስቲትዩቱ%20በግብርና፣%20በትምህርት፣%20በጤና%20እና%20በሕዝብ%20ደህንነት%20ዘርፎች%20የአይቲ%20አገልግሎቶችን%20በመስጠት፣%20ምርታማነትን%20እና%20የኢኮኖሚ%20እድገትን%20ለማሻሻል%20እንዲሁም%20ኢትዮጵያን%20በአፍሪካ%20የቴክኖሎጂ%20እድገት%20ግንባር%20ቀደም%20ለማድረግ%20ያለመ%20ስትራቴጂካዊ%20ተነሳሽነት%20ነው።%0A%0Aየኢንስቲት&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m9.30s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 10:59:50] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 10:59:51] "POST /chat/stream HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5616.03it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:40, 11.82it/s]Loading weights:   5%|4         | 59/1188 [00:00<00:04, 263.09it/s]Loading weights:   8%|7         | 92/1188 [00:00<00:05, 216.30it/s]Loading weights:  10%|9         | 118/1188 [00:00<00:05, 213.45it/s]Loading weights:  12%|#2        | 144/1188 [00:00<00:04, 209.71it/s]Loading weights:  14%|#4        | 168/1188 [00:00<00:05, 203.55it/s]Loading weights:  16%|#6        | 195/1188 [00:00<00:04, 211.17it/s]Loading weights:  18%|#8        | 217/1188 [00:01<00:05, 192.63it/s]Loading weights:  20%|##        | 243/1188 [00:01<00:04, 199.97it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 202.69it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 203.62it/s]Loading weights:  27%|##6       | 318/1188 [00:01<00:04, 216.22it/s]Loading weights:  29%|##8       | 340/1188 [00:01<00:04, 189.67it/s]Loading weights:  30%|###       | 360/1188 [00:01<00:05, 151.50it/s]Loading weights:  33%|###2      | 387/1188 [00:02<00:04, 177.18it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:04, 173.72it/s]Loading weights:  36%|###5      | 426/1188 [00:02<00:04, 170.66it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:04, 176.80it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 185.25it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:05, 132.60it/s]Loading weights:  43%|####3     | 514/1188 [00:03<00:06, 97.54it/s] Loading weights:  46%|####5     | 543/1188 [00:03<00:04, 129.47it/s]Loading weights:  47%|####7     | 561/1188 [00:03<00:06, 95.56it/s] Loading weights:  48%|####8     | 575/1188 [00:04<00:09, 62.76it/s]Loading weights:  49%|####9     | 586/1188 [00:04<00:09, 62.74it/s]Loading weights:  52%|#####1    | 614/1188 [00:04<00:06, 89.53it/s]Loading weights:  54%|#####3    | 639/1188 [00:04<00:05, 109.29it/s]Loading weights:  55%|#####5    | 658/1188 [00:04<00:04, 121.02it/s]Loading weights:  57%|#####7    | 683/1188 [00:04<00:03, 142.87it/s]Loading weights:  59%|#####9    | 701/1188 [00:05<00:04, 103.95it/s]Loading weights:  60%|######    | 715/1188 [00:05<00:06, 78.18it/s] Loading weights:  61%|######1   | 727/1188 [00:05<00:05, 77.06it/s]Loading weights:  62%|######2   | 740/1188 [00:05<00:05, 75.53it/s]Loading weights:  63%|######3   | 750/1188 [00:05<00:05, 77.72it/s]Loading weights:  64%|######3   | 759/1188 [00:05<00:06, 70.65it/s]Loading weights:  65%|######4   | 767/1188 [00:06<00:07, 52.98it/s]Loading weights:  67%|######6   | 794/1188 [00:06<00:04, 88.52it/s]Loading weights:  68%|######7   | 806/1188 [00:06<00:04, 84.24it/s]Loading weights:  69%|######8   | 817/1188 [00:06<00:05, 71.73it/s]Loading weights:  70%|######9   | 826/1188 [00:07<00:07, 51.36it/s]Loading weights:  72%|#######1  | 850/1188 [00:07<00:04, 80.12it/s]Loading weights:  75%|#######4  | 887/1188 [00:07<00:02, 131.55it/s]Loading weights:  80%|########  | 952/1188 [00:07<00:01, 229.22it/s]Loading weights:  84%|########4 | 1002/1188 [00:07<00:00, 288.39it/s]Loading weights:  88%|########8 | 1050/1188 [00:07<00:00, 331.06it/s]Loading weights:  92%|#########2| 1095/1188 [00:07<00:00, 358.47it/s]Loading weights:  97%|#########7| 1157/1188 [00:07<00:00, 389.85it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 149.65it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 11:27:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:27:58] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:31:15][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 29KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####1     | 327/796 [00:00<00:00, 3268.48it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5183.42it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m20.20s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 11:31:35] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:31:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:31:48] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:32:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 145KB]
+  [92m✔ /api/stt done[0m in [93m2.02s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 11:32:06] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:32:39][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 774KB]
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+127.0.0.1 - - [25/Aug/2026 11:47:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:47:40] "[35m[1mGET /files HTTP/1.1[0m" 503 -
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5080.99it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 3/1188 [00:00<00:39, 29.94it/s]Loading weights:   4%|3         | 47/1188 [00:00<00:04, 264.83it/s]Loading weights:   6%|6         | 74/1188 [00:00<00:04, 264.95it/s]Loading weights:   9%|8         | 101/1188 [00:00<00:04, 234.88it/s]Loading weights:  11%|#         | 125/1188 [00:00<00:04, 228.21it/s]Loading weights:  13%|#2        | 149/1188 [00:00<00:04, 224.63it/s]Loading weights:  14%|#4        | 172/1188 [00:00<00:04, 212.64it/s]Loading weights:  17%|#6        | 198/1188 [00:00<00:04, 221.40it/s]Loading weights:  19%|#8        | 221/1188 [00:01<00:04, 199.87it/s]Loading weights:  21%|##1       | 251/1188 [00:01<00:04, 204.41it/s]Loading weights:  23%|##3       | 279/1188 [00:01<00:04, 219.07it/s]Loading weights:  25%|##5       | 302/1188 [00:01<00:04, 209.29it/s]Loading weights:  27%|##7       | 324/1188 [00:01<00:04, 195.31it/s]Loading weights:  29%|##9       | 347/1188 [00:01<00:05, 144.41it/s]Loading weights:  31%|###       | 366/1188 [00:01<00:05, 152.88it/s]Loading weights:  33%|###2      | 387/1188 [00:02<00:04, 165.67it/s]Loading weights:  35%|###4      | 415/1188 [00:02<00:04, 179.05it/s]Loading weights:  37%|###6      | 436/1188 [00:02<00:04, 184.40it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 198.54it/s]Loading weights:  41%|####      | 484/1188 [00:02<00:03, 204.16it/s]Loading weights:  43%|####2     | 506/1188 [00:02<00:03, 200.08it/s]Loading weights:  44%|####4     | 527/1188 [00:02<00:03, 201.36it/s]Loading weights:  46%|####6     | 548/1188 [00:02<00:03, 201.44it/s]Loading weights:  48%|####7     | 569/1188 [00:03<00:05, 111.91it/s]Loading weights:  49%|####9     | 585/1188 [00:03<00:08, 73.76it/s] Loading weights:  51%|#####     | 600/1188 [00:03<00:08, 69.04it/s]Loading weights:  51%|#####1    | 611/1188 [00:04<00:08, 64.71it/s]Loading weights:  52%|#####2    | 620/1188 [00:04<00:13, 41.62it/s]Loading weights:  53%|#####2    | 627/1188 [00:04<00:14, 40.01it/s]Loading weights:  53%|#####3    | 633/1188 [00:05<00:15, 35.71it/s]Loading weights:  55%|#####5    | 656/1188 [00:05<00:08, 60.57it/s]Loading weights:  57%|#####7    | 680/1188 [00:05<00:05, 87.60it/s]Loading weights:  59%|#####8    | 698/1188 [00:05<00:04, 101.54it/s]Loading weights:  61%|######1   | 725/1188 [00:05<00:03, 134.42it/s]Loading weights:  63%|######2   | 743/1188 [00:05<00:03, 142.29it/s]Loading weights:  64%|######4   | 761/1188 [00:06<00:05, 82.03it/s] Loading weights:  65%|######5   | 775/1188 [00:06<00:06, 62.66it/s]Loading weights:  66%|######6   | 786/1188 [00:06<00:07, 55.86it/s]Loading weights:  67%|######6   | 795/1188 [00:07<00:07, 49.85it/s]Loading weights:  68%|######7   | 804/1188 [00:07<00:08, 45.77it/s]Loading weights:  68%|######8   | 810/1188 [00:07<00:08, 44.04it/s]Loading weights:  69%|######8   | 816/1188 [00:07<00:09, 39.68it/s]Loading weights:  69%|######9   | 822/1188 [00:07<00:09, 40.66it/s]Loading weights:  70%|######9   | 830/1188 [00:07<00:08, 39.86it/s]Loading weights:  78%|#######7  | 926/1188 [00:08<00:01, 197.24it/s]Loading weights:  85%|########5 | 1012/1188 [00:08<00:00, 319.39it/s]Loading weights:  90%|########9 | 1064/1188 [00:08<00:00, 360.54it/s]Loading weights:  96%|#########6| 1142/1188 [00:08<00:00, 453.20it/s]Loading weights: 100%|##########| 1188/1188 [00:08<00:00, 139.53it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 11:48:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:48:32] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:48:38][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 11KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####1     | 327/796 [00:00<00:00, 3267.49it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5538.39it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m21.73s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 11:49:00] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:53:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 11:53:05] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:53:21][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 22KB]
+  [92m✔ /api/stt done[0m in [93m10.41s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 11:53:31] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[11:53:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644632196
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 11:53:33] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[11:53:42][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 60KB]
+  [92m✔ /api/stt done[0m in [93m1.76s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 11:53:44] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:53:44][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 11:53:44] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[11:53:44][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.84s[0m
+
+127.0.0.1 - - [25/Aug/2026 11:53:45] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5079.31it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   2%|2         | 29/1188 [00:00<00:05, 230.90it/s]Loading weights:   5%|4         | 55/1188 [00:00<00:05, 215.16it/s]Loading weights:   6%|6         | 77/1188 [00:00<00:05, 199.95it/s]Loading weights:   9%|8         | 102/1188 [00:00<00:05, 208.23it/s]Loading weights:  11%|#         | 128/1188 [00:00<00:04, 215.22it/s]Loading weights:  13%|#2        | 154/1188 [00:00<00:04, 216.04it/s]Loading weights:  15%|#4        | 176/1188 [00:00<00:04, 208.19it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 206.22it/s]Loading weights:  19%|#8        | 220/1188 [00:01<00:04, 204.22it/s]Loading weights:  20%|##        | 241/1188 [00:01<00:04, 196.36it/s]Loading weights:  23%|##2       | 268/1188 [00:01<00:04, 199.60it/s]Loading weights:  24%|##4       | 290/1188 [00:01<00:04, 203.93it/s]Loading weights:  26%|##6       | 311/1188 [00:01<00:04, 192.29it/s]Loading weights:  28%|##8       | 337/1188 [00:01<00:04, 196.36it/s]Loading weights:  30%|###       | 357/1188 [00:01<00:04, 196.48it/s]Loading weights:  32%|###1      | 379/1188 [00:01<00:04, 192.63it/s]Loading weights:  34%|###4      | 407/1188 [00:02<00:04, 194.41it/s]Loading weights:  36%|###6      | 430/1188 [00:02<00:03, 196.84it/s]Loading weights:  38%|###7      | 450/1188 [00:02<00:03, 195.93it/s]Loading weights:  40%|####      | 476/1188 [00:02<00:03, 200.66it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 193.83it/s]Loading weights:  44%|####3     | 519/1188 [00:02<00:03, 195.38it/s]Loading weights:  46%|####5     | 545/1188 [00:02<00:03, 207.30it/s]Loading weights:  48%|####7     | 569/1188 [00:02<00:03, 202.93it/s]Loading weights:  50%|####9     | 590/1188 [00:02<00:03, 192.64it/s]Loading weights:  51%|#####1    | 610/1188 [00:03<00:04, 117.37it/s]Loading weights:  53%|#####2    | 626/1188 [00:04<00:10, 53.91it/s] Loading weights:  56%|#####6    | 666/1188 [00:04<00:05, 89.08it/s]Loading weights:  58%|#####8    | 691/1188 [00:04<00:04, 109.51it/s]Loading weights:  60%|######    | 713/1188 [00:05<00:07, 60.81it/s] Loading weights:  61%|######1   | 729/1188 [00:05<00:09, 48.71it/s]Loading weights:  62%|######2   | 741/1188 [00:06<00:11, 37.32it/s]Loading weights:  63%|######3   | 752/1188 [00:06<00:12, 33.66it/s]Loading weights:  64%|######3   | 759/1188 [00:07<00:13, 32.85it/s]Loading weights:  65%|######4   | 768/1188 [00:07<00:11, 38.02it/s]Loading weights:  67%|######6   | 794/1188 [00:07<00:09, 41.99it/s]Loading weights:  67%|######7   | 801/1188 [00:07<00:10, 36.86it/s]Loading weights:  68%|######8   | 808/1188 [00:08<00:12, 30.76it/s]Loading weights:  68%|######8   | 812/1188 [00:08<00:16, 22.49it/s]Loading weights:  69%|######8   | 819/1188 [00:09<00:14, 25.67it/s]Loading weights:  69%|######9   | 823/1188 [00:09<00:17, 21.31it/s]Loading weights:  70%|######9   | 826/1188 [00:09<00:17, 21.00it/s]Loading weights:  73%|#######2  | 867/1188 [00:09<00:04, 71.95it/s]Loading weights:  77%|#######6  | 909/1188 [00:09<00:02, 126.72it/s]Loading weights:  80%|#######9  | 950/1188 [00:09<00:01, 159.42it/s]Loading weights:  82%|########2 | 977/1188 [00:10<00:01, 166.01it/s]Loading weights:  85%|########4 | 1004/1188 [00:10<00:01, 170.42it/s]Loading weights:  87%|########7 | 1037/1188 [00:10<00:00, 199.66it/s]Loading weights:  89%|########9 | 1061/1188 [00:10<00:00, 197.88it/s]Loading weights:  92%|#########1| 1088/1188 [00:10<00:00, 214.67it/s]Loading weights:  94%|#########3| 1115/1188 [00:10<00:00, 205.98it/s]Loading weights:  96%|#########6| 1146/1188 [00:10<00:00, 188.75it/s]Loading weights:  99%|#########9| 1181/1188 [00:10<00:00, 221.76it/s]Loading weights: 100%|##########| 1188/1188 [00:11<00:00, 107.25it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 12:02:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:02:10] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:02:11][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 12KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####1     | 330/796 [00:00<00:00, 3293.64it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 5205.25it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:02:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 18KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:02:15][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 15KB]
+  [92m✔ /api/stt done[0m in [93m5.27s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 12:02:16] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:02:16][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:02:16] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.02s[0m | [93m1 tokens[0m
+
+  [92m✔ /api/stt done[0m in [93m3.42s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 12:02:16] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:02:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:02:17] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.02s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:02:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.94s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:02:18] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:02:18][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.92s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:02:19] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m17.83s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 12:02:33] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:02:47][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 314KB]
+127.0.0.1 - - [25/Aug/2026 12:02:52] "GET / HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m4.82s[0m
+
+  [96mTranscript (am-ET):[0m ሰላምሰላም።
+127.0.0.1 - - [25/Aug/2026 12:02:52] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:02:53] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:02:58][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 75KB]
+  [92m✔ /api/stt done[0m in [93m1.76s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 12:03:00] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:03:00][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:03:00] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:03:00][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m1.04s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:03:01] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:03:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 154KB]
+  [92m✔ /api/stt done[0m in [93m2.34s[0m
+
+  [96mTranscript (am-ET):[0m ስሙሽ ማን ይባላል
+127.0.0.1 - - [25/Aug/2026 12:03:20] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:03:20][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ስሙሽ ማን ይባላል
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 12:03:28] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m13.48s[0m | [93m29 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:03:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ስሜ አማኒ ይባላል፤ በኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት (EAII)የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ። በ...
+  [92m✔ /api/tts/audio done[0m in [93m0.96s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:03:34] "GET /api/tts/audio?text=ስሜ%20አማኒ%20ይባላል፤%20በኢትዮጵያ%20አርቴፊሻል%20ኢንተለጀንስ%20ኢንስቲትዩት%20(EAII)የተገነባሁ%20የሰው%20ሰራሽ%20አስተውሎት%20ረዳት%20ነኝ።%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:03:52][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 125KB]
+  [92m✔ /api/stt done[0m in [93m8.87s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 12:04:01] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:06:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 53KB]
+  [92m✔ /api/stt done[0m in [93m7.93s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 12:06:18] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:07:06][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 187KB]
+  [92m✔ /api/stt done[0m in [93m2.83s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 12:07:08] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:07:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:07:09] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:07:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.81s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:07:10] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:07:41][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 394KB]
+  [92m✔ /api/stt done[0m in [93m22.09s[0m
+
+  [96mTranscript (en-US):[0m you
+127.0.0.1 - - [25/Aug/2026 12:08:03] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:08:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m you
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 1/4 context chunks (top score: 0.267).
+127.0.0.1 - - [25/Aug/2026 12:08:11] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m9.09s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:08:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.82s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:08:14] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:08:46][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 394KB]
+  [92m✔ /api/stt done[0m in [93m12.80s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 12:08:59] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:11:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:11:26] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:11:34][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 56KB]
+  [92m✔ /api/stt done[0m in [93m1.87s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 12:11:36] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:11:36][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:11:36] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:11:36][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.82s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:11:37] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:12:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:12:02] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:12:11][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 55KB]
+  [92m✔ /api/stt done[0m in [93m1.66s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 12:12:12] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:12:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:12:13] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:12:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.87s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:12:14] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:12:23][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 37KB]
+  [92m✔ /api/stt done[0m in [93m1.22s[0m
+
+  [96mTranscript (am-ET):[0m ሽ
+127.0.0.1 - - [25/Aug/2026 12:12:24] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:12:24][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሽ
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 12:12:24] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:12:24][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.92s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:12:25] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:12:39][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 34KB]
+  [92m✔ /api/stt done[0m in [93m1.21s[0m
+
+  [96mTranscript (am-ET):[0m ሽ አልባል
+127.0.0.1 - - [25/Aug/2026 12:12:40] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:12:41][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ሽ አልባል
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.311).
+127.0.0.1 - - [25/Aug/2026 12:12:47] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m8.92s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[12:12:50][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.97s[0m
+
+127.0.0.1 - - [25/Aug/2026 12:12:51] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎንበግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:13:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 32KB]
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:13:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 52KB]
+  [92m✔ /api/stt done[0m in [93m2.04s[0m
+
+  [96mTranscript (am-ET):[0m ምሽ ልናግልኝ ትሻያለች
+127.0.0.1 - - [25/Aug/2026 12:13:15] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:13:15][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ምሽ ልናግልኝ ትሻያለች
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92m✔ /api/stt done[0m in [93m8.49s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 12:13:17] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 12:13:22] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m8.60s[0m | [93m13 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[12:13:37][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 72KB]
+  [92m✔ /api/stt done[0m in [93m1.81s[0m
+
+  [96mTranscript (am-ET):[0m ስዎሽ ለተናግረኝ ትችላለች።
+127.0.0.1 - - [25/Aug/2026 12:13:39] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[12:13:39][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m ስዎሽ ለተናግረኝ ትችላለች።
+  [2m[queued — lock acquired][0m
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+127.0.0.1 - - [25/Aug/2026 12:13:46] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎንበግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m8.79s[0m | [93m13 tokens[0m
+
+127.0.0.1 - - [25/Aug/2026 13:21:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:21:06] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:21:07] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[13:21:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 11KB]
+  [92m✔ /api/stt done[0m in [93m8.59s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 13:21:19] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[13:21:35][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:21:35] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[13:21:38][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 10KB]
+  [92m✔ /api/stt done[0m in [93m10.16s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 13:21:48] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:21:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:21:50] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:22:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 13:22:02] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[13:22:10][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 10KB]
+  [92m✔ /api/stt done[0m in [93m1.05s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [25/Aug/2026 13:22:11] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:22:12][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 13:22:12] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.02s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:22:12][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /api/tts/audio done[0m in [93m0.89s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:22:13] "GET /api/tts/audio?text=ይቅርታ፣%20ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።%20እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:22:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:22:33] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:22:33][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.83s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:22:34] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:22:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:22:58] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m4.99s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:22:58][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.93s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:22:59] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:23:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:23:59] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.08s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:23:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m0.95s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:24:00] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:24:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:24:14] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.11s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:24:47][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:24:52] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m4.98s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:24:52][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m1.06s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:24:53] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:25:03][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:25:08] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.02s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:26:51][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:26:56] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.00s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[13:26:57][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /api/tts/audio done[0m in [93m1.10s[0m
+
+127.0.0.1 - - [25/Aug/2026 13:26:58] "GET /api/tts/audio?text=ሰላም!%20እንዴት%20ነዎት?%20በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:27:09][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m selam
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 2/4 context chunks (top score: 0.781).
+127.0.0.1 - - [25/Aug/2026 13:27:14] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m5.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[13:27:32][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 106KB]
+  [92m✔ /api/stt done[0m in [93m2.02s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [25/Aug/2026 13:27:34] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[13:27:35][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [25/Aug/2026 13:27:35] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[13:27:41][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 15KB]
+  [92m✔ /api/stt done[0m in [93m8.88s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 13:27:50] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:00:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:00:28] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:00:34][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787653274232
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 14:00:34] "POST /clear HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[14:00:37][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787644631017
+  [96mPrompt :[0m [clear history]
+
+[1m[92m▶ POST /clear[0m [2m[14:00:37][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m 1787655615255
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 14:00:37] "POST /clear HTTP/1.1" 200 -
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [25/Aug/2026 14:00:37] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:00:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:00:52] "GET /files HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...Starting Amani AI server on 0.0.0.0:5000...
+
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.100.9.209:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5153.74it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<14:48,  1.33it/s]Loading weights:  18%|#7        | 213/1188 [00:01<00:05, 182.63it/s]Loading weights:  27%|##7       | 322/1188 [00:02<00:04, 200.05it/s]Loading weights:  33%|###2      | 392/1188 [00:02<00:03, 204.09it/s]Loading weights:  37%|###7      | 443/1188 [00:03<00:06, 117.04it/s]Loading weights:  40%|####      | 478/1188 [00:03<00:06, 112.62it/s]Loading weights:  42%|####2     | 504/1188 [00:03<00:05, 121.61it/s]Loading weights:  45%|####4     | 529/1188 [00:04<00:05, 131.73it/s]Loading weights:  47%|####6     | 553/1188 [00:04<00:04, 143.05it/s]Loading weights:  48%|####8     | 576/1188 [00:04<00:03, 153.39it/s]Loading weights:  51%|#####     | 600/1188 [00:04<00:03, 163.99it/s]Loading weights:  53%|#####2    | 624/1188 [00:04<00:03, 175.12it/s]Loading weights:  54%|#####4    | 646/1188 [00:04<00:02, 183.58it/s]Loading weights:  56%|#####6    | 668/1188 [00:04<00:02, 186.91it/s]Loading weights:  58%|#####8    | 694/1188 [00:04<00:02, 200.66it/s]Loading weights:  60%|######    | 716/1188 [00:06<00:10, 46.23it/s] Loading weights:  62%|######1   | 732/1188 [00:06<00:11, 39.09it/s]Loading weights:  63%|######2   | 744/1188 [00:08<00:22, 19.79it/s]Loading weights:  63%|######3   | 753/1188 [00:09<00:21, 20.61it/s]Loading weights:  64%|######4   | 762/1188 [00:09<00:19, 22.25it/s]Loading weights:  65%|######4   | 768/1188 [00:09<00:18, 23.22it/s]Loading weights:  66%|######5   | 780/1188 [00:09<00:15, 27.16it/s]Loading weights:  66%|######6   | 785/1188 [00:10<00:16, 23.96it/s]Loading weights:  67%|######6   | 794/1188 [00:10<00:13, 29.76it/s]Loading weights:  68%|######8   | 808/1188 [00:10<00:13, 27.74it/s]Loading weights:  69%|######8   | 818/1188 [00:11<00:11, 33.10it/s]Loading weights:  69%|######9   | 823/1188 [00:11<00:14, 25.94it/s]Loading weights:  78%|#######8  | 928/1188 [00:11<00:01, 138.64it/s]Loading weights:  82%|########2 | 975/1188 [00:11<00:01, 172.65it/s]Loading weights:  88%|########7 | 1041/1188 [00:11<00:00, 247.41it/s]Loading weights:  91%|#########1| 1084/1188 [00:12<00:00, 233.70it/s]Loading weights:  94%|#########4| 1120/1188 [00:12<00:00, 228.21it/s]Loading weights:  97%|#########6| 1152/1188 [00:12<00:00, 187.70it/s]Loading weights: 100%|#########9| 1186/1188 [00:12<00:00, 203.63it/s]Loading weights: 100%|##########| 1188/1188 [00:12<00:00, 94.12it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [25/Aug/2026 14:06:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:06:49] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:07:06][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 3KB]
+[FasterWhisper] Loading distil-large-v3.5 on cpu (int8)...
+[FasterWhisper] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m4.68s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:07:11] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:07:13][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 3KB]
+  [92m✔ /api/stt done[0m in [93m0.13s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:07:14] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:07:17][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 3KB]
+  [92m✔ /api/stt done[0m in [93m0.16s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:07:17] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:07:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:07:22] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:07:53][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+Using cache found in /home/iotadmin/.cache/torch/hub/snakers4_silero-vad_master
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:08:01][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 115KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m8.42s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:08:02] "POST /api/stt HTTP/1.1" 200 -
+  [92m✔ /api/stt done[0m in [93m6.63s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:08:08] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:27:50][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 28KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.37s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:27:56] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:28:26][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 48KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.35s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:28:32] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:28:58][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.02s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:29:05] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:29:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.00s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:29:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:29:58][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.99s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:30:05] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:30:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.99s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:30:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:30:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.10s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:31:06] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:31:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.99s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:31:35] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:31:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.01s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:32:06] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:32:29][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.99s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:32:36] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:32:59][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.00s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:33:06] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:33:29][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.97s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:33:36] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:34:00][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.98s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:34:07] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:34:29][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.00s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:34:36] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:35:00][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 473KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m7.05s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:35:07] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:35:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:35:12] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:35:23][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 153KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.56s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:35:29] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:41:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:41:21] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:41:22][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 1KB]
+  [92m✔ /api/stt done[0m in [93m0.10s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:41:22] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:41:28][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 93KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.39s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:41:34] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:41:36][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 35KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.34s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:41:42] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:41:55][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 43KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.52s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:42:01] "POST /api/stt HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:45:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:45:05] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:45:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Aug/2026 14:45:11] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[14:45:12][0m
+  [96mClient :[0m 100.85.29.31
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 19KB]
+  [Ethio-ASR] VAD: No human voice detected in audio stream (filtered out).
+  [92m✔ /api/stt done[0m in [93m6.32s[0m
+
+  [96mTranscript (am-ET):[0m 
+127.0.0.1 - - [25/Aug/2026 14:45:19] "POST /api/stt HTTP/1.1" 200 -
