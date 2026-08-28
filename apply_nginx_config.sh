@@ -30,7 +30,11 @@ if command -v ufw >/dev/null 2>&1; then
     ufw allow 443/tcp || true
 fi
 
-systemctl reload nginx
+if command -v systemctl >/dev/null 2>&1 && systemctl is-system-running >/dev/null 2>&1; then
+    systemctl reload nginx || systemctl restart nginx
+else
+    service nginx reload 2>/dev/null || service nginx restart || nginx -s reload 2>/dev/null || nginx
+fi
 
 echo ""
 echo "=========================================================================="
