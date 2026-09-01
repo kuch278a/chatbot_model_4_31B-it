@@ -37,7 +37,7 @@ sys.stderr = sys.stdout
 
 from config import settings
 from src.ui.app import create_ui_app
-from endpoints.talk import talk_bp
+from src.endpoints import talk_bp
 
 app = Flask(__name__)
 
