@@ -215,9 +215,12 @@ def talk():
     response = send_file(temp_path, mimetype="audio/mpeg", as_attachment=False)
 
     # Attach intermediate text as headers so clients can show transcript/response
-    # without needing a separate API call.
-    response.headers["X-Transcript"] = transcript.encode("utf-8", errors="replace").decode("latin-1", errors="replace")
-    response.headers["X-Response"]   = llm_response[:500].encode("utf-8", errors="replace").decode("latin-1", errors="replace")
+    # without needing a separate API call (sanitize newlines to satisfy HTTP header specs).
+    clean_transcript = transcript.replace("\r", " ").replace("\n", " ").strip()
+    clean_response   = llm_response[:500].replace("\r", " ").replace("\n", " ").strip()
+    response.headers["X-Transcript"] = clean_transcript.encode("utf-8", errors="replace").decode("latin-1", errors="replace")
+    response.headers["X-Response"]   = clean_response.encode("utf-8", errors="replace").decode("latin-1", errors="replace")
     response.headers["X-Detected-Language"] = detected_lang
 
     return response
+

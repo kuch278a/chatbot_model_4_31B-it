@@ -158,6 +158,14 @@
                                     <span class="bar"></span>
                                 </div>
                             </button>
+
+                            <!-- Send Button -->
+                            <button type="button" id="sendBtn" onclick="sendMessage()" class="gemini-send-btn"
+                                title="መልዕክት ላክ / Send message" disabled>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -172,6 +180,42 @@
 
     <!-- ─── Application JavaScript ───────────────────────────────────────────── -->
     <script>
+        // ─── Browser getUserMedia Polyfill for HTTP & Legacy Support ─────────
+        if (typeof navigator !== 'undefined') {
+            if (!navigator.mediaDevices) {
+                navigator.mediaDevices = {};
+            }
+            if (!navigator.mediaDevices.getUserMedia) {
+                const legacyGUM = navigator.getUserMedia ||
+                                  navigator.webkitGetUserMedia ||
+                                  navigator.mozGetUserMedia ||
+                                  navigator.msGetUserMedia;
+                if (legacyGUM) {
+                    navigator.mediaDevices.getUserMedia = function(constraints) {
+                        return new Promise((resolve, reject) => {
+                            legacyGUM.call(navigator, constraints, resolve, reject);
+                        });
+                    };
+                }
+            }
+        }
+
+        async function requestUserMediaStream(constraints = { audio: true }) {
+            if (navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
+                return await navigator.mediaDevices.getUserMedia(constraints);
+            }
+            const legacy = navigator.getUserMedia ||
+                           navigator.webkitGetUserMedia ||
+                           navigator.mozGetUserMedia ||
+                           navigator.msGetUserMedia;
+            if (legacy) {
+                return new Promise((resolve, reject) => {
+                    legacy.call(navigator, constraints, resolve, reject);
+                });
+            }
+            throw new Error("getUserMedia is not supported on this browser/context.");
+        }
+
         let messages = [];
         let chats = JSON.parse(localStorage.getItem('amani_chats') || '[]');
         let currentChatId = localStorage.getItem('amani_current_chat_id') || null;
@@ -181,6 +225,12 @@
         // autoListenMode removed: VAD handles voice activity automatically
         let ttsEnabled = true;
         let currentAudio = null;
+        let activeSpeakerBtn = null;
+
+        const ICON_SPEAKER_ON = `<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`;
+        const ICON_SPEAKER_OFF = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.73 4.73H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>`;
+        const ICON_SPEAKER_MSG = `<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`;
+        const ICON_STOP_AUDIO = `<path d="M6 6h12v12H6z"/>`;
 
         // ─── Initializer ───────────────────────────────────────────────────
         function init() {
@@ -541,11 +591,10 @@
                             <button class="action-icon-btn" onclick="copyMessageText(this)" title="Copy to clipboard">
                                 <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                             </button>
-                            <!-- Read Aloud (TTS) Voice Button (Commented out)
-                            <button class="action-icon-btn" onclick="speakSingleMessage(this)" title="Read Aloud (TTS)">
+                            <!-- Read Aloud (TTS) Voice Button -->
+                            <button class="action-icon-btn speak-msg-btn" onclick="speakSingleMessage(this)" title="ድምፅ አሰማ (Read Aloud)">
                                 <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
                             </button>
-                            -->
                         </div>
                     </div>
                 `;
@@ -569,9 +618,32 @@
         }
 
         function speakSingleMessage(btn) {
+            if (activeSpeakerBtn === btn) {
+                stopCurrentSpeech();
+                return;
+            }
+
+            stopCurrentSpeech();
             const wrapper = btn.closest('.assistant-content-wrapper');
+            if (!wrapper) return;
             const bubble = wrapper.querySelector('.assistant-bubble');
-            speakText(bubble.innerText);
+            if (!bubble) return;
+
+            const text = bubble.innerText;
+            activeSpeakerBtn = btn;
+            btn.classList.add("playing");
+            const svg = btn.querySelector("svg");
+            if (svg) svg.innerHTML = ICON_STOP_AUDIO;
+            btn.title = "ድምፅ አቁም (Stop Speech)";
+
+            speakText(text, true, () => {
+                if (activeSpeakerBtn === btn) {
+                    btn.classList.remove("playing");
+                    if (svg) svg.innerHTML = ICON_SPEAKER_MSG;
+                    btn.title = "ድምፅ አሰማ (Read Aloud)";
+                    activeSpeakerBtn = null;
+                }
+            });
         }
 
         // ─── Real-time Streaming Send Message ───────────────────────────────
@@ -583,13 +655,7 @@
             if (!content) return;
 
             // Stop any playing audio
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-            if (window.speechSynthesis) {
-                window.speechSynthesis.cancel();
-            }
+            stopCurrentSpeech();
 
             isStreaming = true;
             messages.push({ role: 'user', content });
@@ -798,17 +864,9 @@
                 return; // Already initialized and running
             }
 
-            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
-                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
-
-            if (!getUserMedia) {
-                return;
-            }
-
             try {
                 if (!vadStream) {
-                    vadStream = await getUserMedia({
+                    vadStream = await requestUserMediaStream({
                         audio: {
                             echoCancellation: true,
                             noiseSuppression: true,
@@ -824,7 +882,7 @@
                     await vadAudioContext.resume();
                 }
 
-                if (!vadAnalyser) {
+                if (!vadAnalyser && vadStream) {
                     const source = vadAudioContext.createMediaStreamSource(vadStream);
                     vadAnalyser = vadAudioContext.createAnalyser();
                     vadAnalyser.fftSize = 512;
@@ -833,17 +891,7 @@
 
                 _runVadMonitorLoop();
             } catch (e) {
-                console.warn("[VAD] Microphone initialization failed:", e);
-                const input = document.getElementById("userInput");
-                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
-                    appendMessageNode('assistant', '⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።');
-                } else if (!isSecureOrigin()) {
-                    showPermModal(
-                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
-                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ወይም localhost ይፈልጋል።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require HTTPS or localhost to access the microphone.</span>",
-                        true
-                    );
-                }
+                console.warn("[VAD] Auto-mic background initialization waiting for user interaction:", e.message || e);
             }
         }
 
@@ -1018,49 +1066,211 @@
             }
         }
 
-        // ─── Manual Mic Button Click Support ─────────────────────────────────
+        // ─── Manual Mic Button Click Support & HTTP Fallback ────────────────
+        let isWebSpeechRunning = false;
+
+        function startWebSpeechFallback() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                showHttpMicHelper();
+                return;
+            }
+
+            if (webSpeechRec && isWebSpeechRunning) {
+                try { webSpeechRec.stop(); } catch (e) { }
+                return;
+            }
+
+            const micBtn = document.getElementById("micBtn");
+            const input = document.getElementById("userInput");
+
+            try {
+                webSpeechRec = new SpeechRec();
+                webSpeechRec.continuous = false;
+                webSpeechRec.interimResults = true;
+                webSpeechRec.lang = "am-ET";
+
+                webSpeechRec.onstart = () => {
+                    isWebSpeechRunning = true;
+                    if (micBtn) micBtn.classList.add("listening");
+                    if (input) input.placeholder = "🎙️ እያዳመጥኩ ነው... (ተናገሩ)";
+                };
+
+                webSpeechRec.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = '';
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            finalTranscript += event.results[i][0].transcript;
+                        } else {
+                            interimTranscript += event.results[i][0].transcript;
+                        }
+                    }
+                    if (input) {
+                        if (finalTranscript) {
+                            input.value = finalTranscript;
+                            handleInput(input);
+                        } else if (interimTranscript) {
+                            input.placeholder = interimTranscript;
+                        }
+                    }
+                };
+
+                webSpeechRec.onerror = (event) => {
+                    console.warn("[WebSpeech] Error:", event.error);
+                    isWebSpeechRunning = false;
+                    if (micBtn) micBtn.classList.remove("listening");
+                    if (input && input.value === '') input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                        showHttpMicHelper();
+                    }
+                };
+
+                webSpeechRec.onend = () => {
+                    isWebSpeechRunning = false;
+                    if (micBtn) micBtn.classList.remove("listening");
+                    if (input) {
+                        if (input.value.trim().length > 0) {
+                            input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                            sendMessage();
+                        } else {
+                            input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        }
+                    }
+                };
+
+                webSpeechRec.start();
+            } catch (err) {
+                console.error("[WebSpeech] Start failed:", err);
+                showHttpMicHelper();
+            }
+        }
+
+        function showHttpMicHelper() {
+            const currentOrigin = location.origin;
+            const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+            let desc = '';
+            if (isLocal) {
+                desc = `
+                    <p>እባክዎ በብሮውዘርዎ አድራሻ አሞሌ (Address Bar) ላይ ያለውን የማይክሮፎን ምልክት በመጫን ፈቃድ ይስጡ (Allow Microphone)።</p>
+                    <p style="font-size:13px; color:var(--text-secondary); margin-top:6px;">Please click the microphone icon in your browser address bar and select "Allow".</p>
+                `;
+            } else {
+                desc = `
+                    <div style="text-align:left; font-size:13px; line-height:1.6;">
+                        <p style="font-weight:600; margin-bottom:6px;">ማይክሮፎን በ HTTP አድራሻ ላይ ለማብራት / Enable Microphone on HTTP:</p>
+                        <ol style="margin:4px 0 10px 18px; padding:0;">
+                            <li>በ Chrome/Edge አዲስ Tab ከፍተው ይሄንን አድራሻ ይክፈቱ: <code>chrome://flags/#unsafely-treat-insecure-origin-as-secure</code></li>
+                            <li><strong>Insecure origins treated as secure</strong> በሚለው ሳጥን ውስጥ <code>${currentOrigin}</code> ያስገቡ</li>
+                            <li>ቀኝ በኩል ያለውን ምርጫ <strong>Enabled</strong> አድርገው <strong>Relaunch</strong> ይጫኑ</li>
+                        </ol>
+                        <div style="background:rgba(255,255,255,0.06); padding:8px 12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                            <code style="color:var(--gemini-blue); font-weight:600;">${currentOrigin}</code>
+                            <button type="button" onclick="navigator.clipboard.writeText('${currentOrigin}'); this.textContent='✓ Copied';" style="background:var(--gemini-blue); color:#fff; border:none; padding:4px 10px; border-radius:6px; font-size:12px; cursor:pointer;">Copy Origin</button>
+                        </div>
+                    </div>
+                `;
+            }
+            showPermModal("የማይክሮፎን ፈቃድ / Microphone Permission", desc, false);
+        }
+
         async function toggleSpeechRecognition() {
             if (vadIsCapturing) {
                 // If already capturing, clicking immediately finishes and sends
                 stopVadCapture(true);
-            } else {
-                // If not capturing, ensure VAD is running and force start capture
-                await startAlwaysOnVAD();
-                startVadCapture();
+                return;
+            }
+            if (isWebSpeechRunning && webSpeechRec) {
+                try { webSpeechRec.stop(); } catch (e) { }
+                return;
+            }
+
+            try {
+                if (!vadStream) {
+                    vadStream = await requestUserMediaStream({
+                        audio: {
+                            echoCancellation: true,
+                            noiseSuppression: true,
+                            autoGainControl: true
+                        }
+                    });
+                    if (!vadAudioContext || vadAudioContext.state === 'closed') {
+                        vadAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    }
+                    if (vadAudioContext.state === 'suspended') {
+                        await vadAudioContext.resume();
+                    }
+                    if (!vadAnalyser && vadStream) {
+                        const source = vadAudioContext.createMediaStreamSource(vadStream);
+                        vadAnalyser = vadAudioContext.createAnalyser();
+                        vadAnalyser.fftSize = 512;
+                        source.connect(vadAnalyser);
+                    }
+                    _runVadMonitorLoop();
+                }
+
+                if (vadStream) {
+                    startVadCapture();
+                } else {
+                    startWebSpeechFallback();
+                }
+            } catch (e) {
+                console.warn("[Mic] getUserMedia error, falling back to WebSpeech API:", e);
+                startWebSpeechFallback();
             }
         }
 
         function stopVAD() {
             stopVadCapture(false);
+            if (isWebSpeechRunning && webSpeechRec) {
+                try { webSpeechRec.stop(); } catch (e) { }
+            }
         }
 
 
-                // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+        // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+        function stopCurrentSpeech() {
+            if (currentAudio) {
+                try { currentAudio.pause(); } catch (e) { }
+                currentAudio = null;
+            }
+            if (window.speechSynthesis) {
+                try { window.speechSynthesis.cancel(); } catch (e) { }
+            }
+            if (activeSpeakerBtn) {
+                activeSpeakerBtn.classList.remove("playing");
+                const svg = activeSpeakerBtn.querySelector("svg");
+                if (svg) svg.innerHTML = ICON_SPEAKER_MSG;
+                activeSpeakerBtn.title = "ድምፅ አሰማ (Read Aloud)";
+                activeSpeakerBtn = null;
+            }
+            const globalBtn = document.getElementById("speakerBtn");
+            if (globalBtn) globalBtn.classList.remove("speaking");
+        }
+
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const btn = document.getElementById("speakerBtn");
+            const icon = document.getElementById("speakerIcon") || (btn ? btn.querySelector("svg") : null);
             if (btn) {
                 if (ttsEnabled) {
                     btn.classList.add("active");
-                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (በርቷል)";
+                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (በርቷል) - Speech Output (On)";
+                    if (icon) icon.innerHTML = ICON_SPEAKER_ON;
                 } else {
                     btn.classList.remove("active");
-                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (ጠፍቷል)";
+                    btn.title = "ድምፅ ማብሪያ/ማጥፊያ (ጠፍቷል) - Speech Output (Off)";
+                    if (icon) icon.innerHTML = ICON_SPEAKER_OFF;
                 }
             }
             if (!ttsEnabled) {
-                if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio = null;
-                }
-                if (window.speechSynthesis) {
-                    window.speechSynthesis.cancel();
-                }
+                stopCurrentSpeech();
             }
         }
 
-        function speakText(text) {
-            if (!ttsEnabled || !text) {
+        function speakText(text, force = false, onComplete = null) {
+            if ((!ttsEnabled && !force) || !text) {
+                if (onComplete) onComplete();
                 triggerVadAutoListen();
                 return;
             }
@@ -1072,36 +1282,27 @@
                 .replace(/#+\s*/g, '')
                 .trim();
             if (!cleanText) {
+                if (onComplete) onComplete();
                 triggerVadAutoListen();
                 return;
             }
 
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-            if (window.speechSynthesis) {
-                window.speechSynthesis.cancel();
-            }
+            stopCurrentSpeech();
+
+            const globalBtn = document.getElementById("speakerBtn");
+            if (globalBtn) globalBtn.classList.add("speaking");
 
             const isAmharic = /[\u1200-\u137F]/.test(cleanText);
             const detectedLang = isAmharic ? "am-ET" : "en-US";
-            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${detectedLang}`;
-            const audio = new Audio(audioUrl);
-            currentAudio = audio;
 
-            audio.onended = () => {
+            const finishPlayback = () => {
                 currentAudio = null;
+                if (globalBtn) globalBtn.classList.remove("speaking");
+                if (onComplete) onComplete();
                 triggerVadAutoListen();
             };
 
-            audio.onerror = () => {
-                currentAudio = null;
-                triggerVadAutoListen();
-            };
-
-            audio.play().catch(e => {
-                console.warn("[TTS] Backend audio stream failed, fallback to browser SpeechSynthesis:", e);
+            const fallbackBrowserSpeech = () => {
                 if ('speechSynthesis' in window) {
                     try { window.speechSynthesis.resume(); } catch (err) { }
                     const voices = window.speechSynthesis.getVoices();
@@ -1111,12 +1312,30 @@
                     const utterance = new SpeechSynthesisUtterance(cleanText);
                     utterance.lang = detectedLang;
                     if (targetVoice) utterance.voice = targetVoice;
-                    utterance.onend = () => { triggerVadAutoListen(); };
-                    utterance.onerror = () => { triggerVadAutoListen(); };
+                    utterance.onend = finishPlayback;
+                    utterance.onerror = finishPlayback;
                     window.speechSynthesis.speak(utterance);
                 } else {
-                    triggerVadAutoListen();
+                    finishPlayback();
                 }
+            };
+
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(cleanText)}&lang=${detectedLang}`;
+            const audio = new Audio(audioUrl);
+            currentAudio = audio;
+
+            audio.onended = finishPlayback;
+
+            audio.onerror = () => {
+                console.warn("[TTS] Backend audio stream failed, fallback to browser SpeechSynthesis");
+                currentAudio = null;
+                fallbackBrowserSpeech();
+            };
+
+            audio.play().catch(e => {
+                console.warn("[TTS] Backend audio stream failed, fallback to browser SpeechSynthesis:", e);
+                currentAudio = null;
+                fallbackBrowserSpeech();
             });
         }
 
@@ -1198,29 +1417,8 @@
             setVoiceModeState("listening", "Connecting mic... / ማይክሮፎን በማገናኘት ላይ...");
             updateVoiceSubtitle("Amani AI", "Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...", true);
 
-            const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-                ? navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
-                : (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
-
-            if (!getUserMedia) {
-                if (!isSecureOrigin()) {
-                    closeVoiceMode();
-                    showPermModal(
-                        "የማይክሮፎን ፈቃድ ለማብራት / Enable Microphone",
-                        "ብሮውዘር የማይክሮፎን ፈቃድ ለመጠየቅ ደህንነቱ የተጠበቀ HTTPS ግንኙነት ይፈልጋል። ወደ HTTPS ለመቀየር ከታች ያለውን ቁልፍ ይጫኑ።<br><br><span style=\"font-size:13px;color:var(--text-secondary);\">Web browsers require an HTTPS connection to prompt for microphone permissions. Click below to switch to HTTPS and allow microphone access.</span>",
-                        true
-                    );
-                } else if (window.webkitSpeechRecognition || window.SpeechRecognition) {
-                    startVoiceModeWebSpeechFallback();
-                } else {
-                    setVoiceModeState("muted", "Microphone unavailable / ማይክሮፎን አልተገኘም");
-                    updateVoiceSubtitle("System", "⚠️ ማይክሮፎን በ HTTPS ወይም በ http://localhost:5000 ብቻ ነው የሚሰራው።", false);
-                }
-                return;
-            }
-
             try {
-                vmMediaStream = await getUserMedia({
+                vmMediaStream = await requestUserMediaStream({
                     audio: {
                         echoCancellation: true,
                         noiseSuppression: true,
@@ -1229,15 +1427,15 @@
                 });
             } catch (err) {
                 try {
-                    vmMediaStream = await getUserMedia({ audio: true });
+                    vmMediaStream = await requestUserMediaStream({ audio: true });
                 } catch (e2) {
-                    console.error("[VoiceMode] Mic access failed:", e2);
+                    console.warn("[VoiceMode] Mic access failed, falling back to Web Speech:", e2);
                     if (window.webkitSpeechRecognition || window.SpeechRecognition) {
                         startVoiceModeWebSpeechFallback();
                         return;
                     }
-                    setVoiceModeState("muted", "Permission Denied / ፈቃድ ተከልክሏል");
-                    updateVoiceSubtitle("System", "⚠️ የማይክሮፎን ፈቃድ አልተሰጠም። እባክዎ በብሮውዘርዎ Address Bar ላይ ፈቃድ ይስጡ።", false);
+                    setVoiceModeState("muted", "Microphone unavailable / ማይክሮፎን አልተገኘም");
+                    showHttpMicHelper();
                     return;
                 }
             }

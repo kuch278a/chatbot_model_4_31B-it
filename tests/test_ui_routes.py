@@ -17,6 +17,9 @@ class TestUIRoutes(unittest.TestCase):
         self.assertIn("userInput", html)
         self.assertIn("sendBtn", html)
         self.assertIn("micBtn", html)
+        self.assertIn("toggleSpeechRecognition", html)
+        self.assertIn("requestUserMediaStream", html)
+        self.assertIn("startWebSpeechFallback", html)
         self.assertIn("themeToggleBtn", html)
         self.assertIn("toggleTheme", html)
         self.assertIn("ሰላም፣ እንዴት ልርዳዎት?", html)
@@ -32,6 +35,7 @@ class TestUIRoutes(unittest.TestCase):
         self.assertIn("--gemini-bg", css)
         self.assertIn("data-theme", css)
         self.assertIn(".brand-icon", css)
+        self.assertIn("gemini-mic-btn", css)
 
 if __name__ == "__main__":
     unittest.main()

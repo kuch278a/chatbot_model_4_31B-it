@@ -850,6 +850,12 @@ body,
     fill: currentColor;
 }
 
+.action-icon-btn.playing {
+    color: var(--gemini-blue);
+    background-color: rgba(66, 133, 244, 0.15);
+    animation: speakerPulse 1.2s infinite;
+}
+
 /* Context / RAG Sources Accordion */
 .sources-pill-accordion {
     margin-top: 8px;
@@ -1098,6 +1104,50 @@ body,
 
     100% {
         box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Speaker / TTS Toggle Button */
+.gemini-speaker-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.gemini-speaker-btn:hover {
+    background-color: var(--gemini-surface-hover);
+    color: var(--text-primary);
+}
+
+.gemini-speaker-btn.active {
+    color: var(--gemini-blue);
+    background-color: rgba(66, 133, 244, 0.12);
+}
+
+.gemini-speaker-btn.speaking {
+    color: var(--gemini-emerald);
+    background-color: rgba(16, 185, 129, 0.15);
+    animation: speakerPulse 1.2s infinite;
+}
+
+@keyframes speakerPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
