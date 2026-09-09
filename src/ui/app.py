@@ -271,10 +271,9 @@ def synthesize_speech():
 
 @ui_bp.route("/api/tts/audio", methods=["POST", "GET"])
 def stream_speech_audio():
-    """Endpoint that synthesizes text using edge-tts and streams the resulting MP3 audio file."""
+    """Endpoint that synthesizes text using edge-tts and streams the resulting MP3 audio chunks."""
     import asyncio
-    import tempfile
-    from flask import send_file
+    from flask import Response, stream_with_context
     from src.tts.synthesizer import VoiceSynthesizer
 
     client_ip = _get_client_ip()
@@ -293,30 +292,29 @@ def stream_speech_audio():
 
     t0 = time.time()
     synthesizer = VoiceSynthesizer()
-    temp_mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
-    temp_path = temp_mp3.name
-    temp_mp3.close()
+
+    def generate():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        
+        async def fetch_audio():
+            async for chunk in synthesizer.generate_audio_stream(text=text, lang=lang):
+                yield chunk
+
+        gen = fetch_audio()
+        try:
+            while True:
+                chunk = loop.run_until_complete(gen.__anext__())
+                yield chunk
+        except StopAsyncIteration:
+            pass
+        finally:
+            loop.close()
+            _log_done("/api/tts/audio", time.time() - t0)
 
     try:
-        asyncio.run(synthesizer.generate_audio_file(text=text, output_path=temp_path, lang=lang))
-        _log_done("/api/tts/audio", time.time() - t0)
-
-        @after_this_request
-        def cleanup_temp_file(response):
-            try:
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
-            except Exception:
-                pass
-            return response
-
-        return send_file(temp_path, mimetype="audio/mpeg", as_attachment=False)
+        return Response(stream_with_context(generate()), mimetype="audio/mpeg")
     except Exception as e:
-        try:
-            if os.path.exists(temp_path):
-                os.remove(temp_path)
-        except Exception:
-            pass
         print(f"  {_C['red']}✘ /api/tts/audio error: {e}{_C['reset']}", flush=True)
         return jsonify({"error": str(e)}), 500
 

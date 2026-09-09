@@ -21,6 +21,10 @@ import warnings
 warnings.filterwarnings("ignore", message=".*calling .generate\\(\\) with the `input_ids` being on a device type different.*")
 
 import torch
+if torch.cuda.is_available():
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
+
 import types
 from transformers import AutoProcessor, AutoModelForMultimodalLM
 from .base import BaseLLMClient

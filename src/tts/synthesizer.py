@@ -86,15 +86,26 @@ class VoiceSynthesizer:
         text = re.sub(r'#+\s*', '', text)
         return re.sub(r'\s+', ' ', text).strip()
 
-    async def generate_audio_file(self, text: str, output_path: str, lang: str = "am-ET") -> str:
+    async def generate_audio_file(self, text: str, output_path: str, lang: str = "am-ET", rate: str = "+20%") -> str:
         """Generates an MP3 audio file using edge-tts with Neural Amharic voice."""
         cleaned_text = self.clean_text_for_speech(text)
         voice_info = self.select_voice(lang=lang)
         voice_short_name = voice_info.get("short_name", "am-ET-MekdesNeural")
 
-        communicate = edge_tts.Communicate(cleaned_text, voice_short_name)
+        communicate = edge_tts.Communicate(cleaned_text, voice_short_name, rate=rate)
         await communicate.save(output_path)
         return output_path
+
+    async def generate_audio_stream(self, text: str, lang: str = "am-ET", rate: str = "+20%"):
+        """Generates an MP3 audio stream using edge-tts with Neural Amharic voice."""
+        cleaned_text = self.clean_text_for_speech(text)
+        voice_info = self.select_voice(lang=lang)
+        voice_short_name = voice_info.get("short_name", "am-ET-MekdesNeural")
+
+        communicate = edge_tts.Communicate(cleaned_text, voice_short_name, rate=rate)
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                yield chunk["data"]
 
     def synthesize(self, text: str, lang: str = "am-ET", rate: float = 1.0, pitch: float = 1.0) -> Dict[str, str]:
         """Synthesizes speech metadata for a given text."""

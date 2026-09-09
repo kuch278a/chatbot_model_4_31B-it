@@ -22573,3 +22573,356 @@ All services loaded and ready!
 127.0.0.1 - - [07/Sep/2026 09:50:13] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
 127.0.0.1 - - [07/Sep/2026 10:00:07] "[33mGET /autodiscover/autodiscover.json?@zdi/Powershell HTTP/1.1[0m" 404 -
 127.0.0.1 - - [07/Sep/2026 10:11:22] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 10:31:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 10:33:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:07:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:26:20] "[33mGET /owa/auth/x.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:29:06] "OPTIONS / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:30:13] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:34:15] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:39:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:41:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:42:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:43:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:44:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:44:58] "[33mGET /manage/account/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:44:58] "[33mGET /admin/index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:00] "[33mGET /index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:00] "[33mGET /+CSCOE+/logon.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:03] "[33mGET /cgi-bin/login.cgi HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:04] "[33mGET /login.htm HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:05] "[33mGET /login.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:07] "[33mGET /login.jsp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:08] "[33mGET /login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:09] "[33mGET /doc/index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:10] "[33mGET /remote/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:10] "[33mGET /admin/login.asp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:11] "[33mGET /web/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:13] "[33mGET /webpages/login.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:45:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /actuator/env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /wp-config.php~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /actuator/configprops HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /wp-config.php.swp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /_ignition/health-check HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /storage/logs/laravel.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /crusader-404-probe HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /wp-config.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:31] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.tar.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /dump.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.tgz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /database.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /archive.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /sql.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.7z HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /db.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.tar HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /dump.tar.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /backup.rar HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.windsurf/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /site.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /public_html.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /htdocs.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.claude.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.claude/settings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.cursorrules HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /data.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /mysql.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /mcp_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.cursor/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.aider.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.vscode/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.continue/config.ts HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.codeium/windsurf/mcp_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /claude_desktop_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.claude/.credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /litellm_config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /.zprofile HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:46:47] "[33mGET /secrets.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /wp-config.php~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /_ignition/health-check HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /crusader-404-probe HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:07] "[33mGET /storage/logs/laravel.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:08] "[33mGET /backup.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:08] "[33mGET /backup.tar.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:08] "[33mGET /dump.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:08] "[33mGET /database.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:08] "[33mGET /backup.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /db.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /backup.tar HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /backup.tgz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /dump.tar.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /www.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /site.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /htdocs.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /web.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /mysql.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /sql.gz HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /data.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /backup.7z HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /backup.rar HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /public_html.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /archive.zip HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.cursor/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.vscode/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.windsurf/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.claude.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /mcp_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /claude_desktop_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.codeium/windsurf/mcp_config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.claude/settings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.cursor/settings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.aider.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.continue/config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.claude/.credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.continue/config.ts HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.litellm/config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /litellm_config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /proxy_config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.claude/mcp.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /anthropic.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.cursorrules HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /ai.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.anthropic HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.openai HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.zsh_history HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.zshrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.zprofile HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /.continue/config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /auth.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:09] "[33mGET /google.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 11:47:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:47:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 11:59:36] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:00:46] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:01:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:05:37] "[33mGET /SDK/webLanguage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:10:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:10:47] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [07/Sep/2026 12:15:36] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:16:17] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:19:23] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 12:45:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 12:45:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:01:02] "OPTIONS / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:14:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:22:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:46] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:46] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 13:28:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:49] "GET /API/docs HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:49] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:28:50] "GET /API/openapi.json HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:30:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:32:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:33:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 13:41:44] "[33mGET /SDK/webLanguage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 14:32:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:32:53] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:40:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:40:26] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [07/Sep/2026 14:46:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 14:50:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 14:51:08] "[33mGET /geoserver/web/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 15:02:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:02:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 15:03:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:04:00] "[33mGET /login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Sep/2026 15:37:52] "GET / HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  61%|######1   | 83/135 [00:00<00:00, 825.29it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 966.72it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:04<44:54,  2.27s/it]Loading weights:   6%|6         | 75/1188 [00:04<00:50, 21.90it/s]Loading weights:   8%|7         | 95/1188 [00:05<00:47, 22.96it/s]Loading weights:   9%|9         | 108/1188 [00:06<00:48, 22.49it/s]Loading weights:  10%|9         | 117/1188 [00:06<00:52, 20.52it/s]Loading weights:  11%|#         | 126/1188 [00:07<00:47, 22.59it/s]Loading weights:  11%|#1        | 132/1188 [00:07<00:51, 20.49it/s]Loading weights:  12%|#2        | 144/1188 [00:07<00:47, 21.91it/s]Loading weights:  13%|#2        | 154/1188 [00:08<00:39, 26.45it/s]Loading weights:  13%|#3        | 159/1188 [00:08<00:45, 22.59it/s]Loading weights:  14%|#3        | 166/1188 [00:08<00:41, 24.59it/s]Loading weights:  14%|#4        | 170/1188 [00:08<00:44, 22.96it/s]Loading weights:  15%|#4        | 173/1188 [00:09<00:42, 23.67it/s]Loading weights:  15%|#5        | 179/1188 [00:09<00:38, 26.10it/s]Loading weights:  16%|#5        | 185/1188 [00:09<00:41, 23.95it/s]Loading weights:  16%|#5        | 188/1188 [00:09<00:42, 23.78it/s]Loading weights:  17%|#6        | 199/1188 [00:10<00:41, 23.65it/s]Loading weights:  18%|#7        | 209/1188 [00:10<00:34, 28.29it/s]Loading weights:  18%|#7        | 213/1188 [00:10<00:47, 20.68it/s]Loading weights:  19%|#8        | 223/1188 [00:10<00:35, 27.38it/s]Loading weights:  19%|#9        | 227/1188 [00:11<00:49, 19.34it/s]Loading weights:  19%|#9        | 230/1188 [00:11<00:47, 20.31it/s]Loading weights:  20%|#9        | 237/1188 [00:11<00:37, 25.45it/s]Loading weights:  20%|##        | 241/1188 [00:12<00:47, 19.97it/s]Loading weights:  21%|##        | 244/1188 [00:12<00:53, 17.81it/s]Loading weights:  21%|##1       | 251/1188 [00:12<00:44, 20.87it/s]Loading weights:  21%|##1       | 255/1188 [00:12<00:51, 18.18it/s]Loading weights:  22%|##2       | 264/1188 [00:12<00:34, 26.93it/s]Loading weights:  23%|##2       | 268/1188 [00:13<00:55, 16.47it/s]Loading weights:  23%|##2       | 271/1188 [00:13<00:51, 17.80it/s]Loading weights:  23%|##3       | 278/1188 [00:13<00:43, 20.94it/s]Loading weights:  24%|##3       | 282/1188 [00:14<00:55, 16.32it/s]Loading weights:  24%|##3       | 285/1188 [00:14<00:53, 16.95it/s]Loading weights:  25%|##4       | 292/1188 [00:14<00:40, 21.93it/s]Loading weights:  25%|##4       | 296/1188 [00:15<00:51, 17.21it/s]Loading weights:  26%|##5       | 306/1188 [00:15<00:35, 24.56it/s]Loading weights:  26%|##6       | 310/1188 [00:15<00:45, 19.18it/s]Loading weights:  26%|##6       | 313/1188 [00:15<00:43, 19.95it/s]Loading weights:  27%|##6       | 320/1188 [00:15<00:33, 26.20it/s]Loading weights:  27%|##7       | 324/1188 [00:16<00:45, 19.14it/s]Loading weights:  28%|##7       | 327/1188 [00:16<00:44, 19.23it/s]Loading weights:  28%|##7       | 332/1188 [00:16<00:48, 17.64it/s]Loading weights:  28%|##8       | 337/1188 [00:16<00:41, 20.63it/s]Loading weights:  29%|##8       | 340/1188 [00:17<00:59, 14.33it/s]Loading weights:  30%|##9       | 351/1188 [00:17<00:42, 19.67it/s]Loading weights:  30%|##9       | 354/1188 [00:17<00:40, 20.48it/s]Loading weights:  31%|###       | 365/1188 [00:18<00:37, 21.83it/s]Loading weights:  32%|###1      | 375/1188 [00:18<00:29, 27.93it/s]Loading weights:  32%|###1      | 379/1188 [00:18<00:32, 25.18it/s]Loading weights:  32%|###2      | 382/1188 [00:18<00:35, 22.75it/s]Loading weights:  33%|###3      | 393/1188 [00:19<00:32, 24.22it/s]Loading weights:  34%|###3      | 403/1188 [00:19<00:25, 30.91it/s]Loading weights:  34%|###4      | 407/1188 [00:19<00:31, 24.76it/s]Loading weights:  35%|###4      | 410/1188 [00:20<00:37, 20.48it/s]Loading weights:  35%|###5      | 417/1188 [00:20<00:35, 21.91it/s]Loading weights:  35%|###5      | 421/1188 [00:20<00:34, 22.03it/s]Loading weights:  36%|###6      | 430/1188 [00:20<00:24, 31.05it/s]Loading weights:  37%|###6      | 434/1188 [00:21<00:35, 21.14it/s]Loading weights:  37%|###7      | 444/1188 [00:21<00:25, 29.01it/s]Loading weights:  38%|###7      | 448/1188 [00:21<00:32, 22.49it/s]Loading weights:  39%|###8      | 458/1188 [00:21<00:26, 27.57it/s]Loading weights:  39%|###8      | 462/1188 [00:22<00:31, 23.39it/s]Loading weights:  39%|###9      | 465/1188 [00:22<00:32, 21.92it/s]Loading weights:  40%|####      | 476/1188 [00:22<00:32, 21.70it/s]Loading weights:  41%|####      | 486/1188 [00:22<00:24, 28.66it/s]Loading weights:  41%|####1     | 490/1188 [00:23<00:31, 21.91it/s]Loading weights:  41%|####1     | 493/1188 [00:23<00:32, 21.39it/s]Loading weights:  42%|####2     | 500/1188 [00:23<00:30, 22.34it/s]Loading weights:  42%|####2     | 504/1188 [00:23<00:28, 23.91it/s]Loading weights:  43%|####3     | 513/1188 [00:24<00:27, 24.96it/s]Loading weights:  44%|####3     | 517/1188 [00:24<00:29, 22.72it/s]Loading weights:  44%|####3     | 520/1188 [00:24<00:30, 21.87it/s]Loading weights:  44%|####4     | 528/1188 [00:24<00:21, 30.80it/s]Loading weights:  45%|####4     | 532/1188 [00:25<00:34, 18.75it/s]Loading weights:  46%|####5     | 542/1188 [00:25<00:23, 27.43it/s]Loading weights:  46%|####5     | 546/1188 [00:25<00:32, 19.85it/s]Loading weights:  47%|####6     | 555/1188 [00:26<00:23, 26.73it/s]Loading weights:  47%|####7     | 559/1188 [00:26<00:27, 22.88it/s]Loading weights:  47%|####7     | 563/1188 [00:26<00:26, 23.22it/s]Loading weights:  48%|####7     | 570/1188 [00:26<00:20, 30.08it/s]Loading weights:  48%|####8     | 574/1188 [00:26<00:29, 20.88it/s]Loading weights:  49%|####8     | 581/1188 [00:27<00:27, 22.10it/s]Loading weights:  49%|####9     | 584/1188 [00:27<00:32, 18.45it/s]Loading weights:  49%|####9     | 588/1188 [00:27<00:31, 19.33it/s]Loading weights:  51%|#####     | 600/1188 [00:28<00:26, 22.10it/s]Loading weights:  51%|#####1    | 610/1188 [00:28<00:21, 26.56it/s]Loading weights:  52%|#####1    | 614/1188 [00:28<00:24, 23.34it/s]Loading weights:  52%|#####1    | 617/1188 [00:28<00:23, 23.98it/s]Loading weights:  53%|#####2    | 628/1188 [00:29<00:25, 21.95it/s]Loading weights:  54%|#####3    | 638/1188 [00:29<00:17, 30.82it/s]Loading weights:  54%|#####4    | 643/1188 [00:29<00:25, 21.20it/s]Loading weights:  55%|#####4    | 652/1188 [00:30<00:22, 23.77it/s]Loading weights:  55%|#####5    | 656/1188 [00:30<00:25, 21.23it/s]Loading weights:  55%|#####5    | 659/1188 [00:30<00:31, 16.70it/s]Loading weights:  56%|#####6    | 666/1188 [00:31<00:23, 21.77it/s]Loading weights:  56%|#####6    | 670/1188 [00:31<00:27, 18.53it/s]Loading weights:  57%|#####7    | 683/1188 [00:32<00:25, 19.61it/s]Loading weights:  58%|#####8    | 693/1188 [00:32<00:21, 23.51it/s]Loading weights:  59%|#####8    | 697/1188 [00:32<00:23, 20.86it/s]Loading weights:  60%|#####9    | 707/1188 [00:32<00:19, 24.88it/s]Loading weights:  60%|#####9    | 711/1188 [00:33<00:22, 21.13it/s]Loading weights:  60%|######    | 714/1188 [00:33<00:24, 19.20it/s]Loading weights:  61%|######1   | 725/1188 [00:33<00:20, 22.87it/s]Loading weights:  62%|######1   | 735/1188 [00:33<00:15, 28.92it/s]Loading weights:  62%|######2   | 739/1188 [00:34<00:18, 23.73it/s]Loading weights:  62%|######2   | 742/1188 [00:34<00:21, 20.61it/s]Loading weights:  63%|######3   | 749/1188 [00:34<00:19, 22.89it/s]Loading weights:  63%|######3   | 752/1188 [00:34<00:18, 23.60it/s]Loading weights:  64%|######3   | 755/1188 [00:35<00:18, 23.16it/s]Loading weights:  64%|######4   | 762/1188 [00:35<00:18, 22.66it/s]Loading weights:  64%|######4   | 766/1188 [00:35<00:21, 19.97it/s]Loading weights:  65%|######5   | 776/1188 [00:35<00:15, 26.08it/s]Loading weights:  66%|######5   | 780/1188 [00:36<00:19, 20.61it/s]Loading weights:  66%|######5   | 783/1188 [00:36<00:19, 20.99it/s]Loading weights:  67%|######6   | 794/1188 [00:36<00:17, 22.42it/s]Loading weights:  68%|######7   | 802/1188 [00:36<00:13, 29.26it/s]Loading weights:  68%|######7   | 806/1188 [00:37<00:13, 27.96it/s]Loading weights:  68%|######8   | 810/1188 [00:37<00:18, 20.59it/s]Loading weights:  69%|######9   | 822/1188 [00:37<00:14, 24.46it/s]Loading weights:  69%|######9   | 825/1188 [00:38<00:15, 23.17it/s]Loading weights:  72%|#######2  | 859/1188 [00:38<00:04, 66.73it/s]Loading weights:  75%|#######5  | 894/1188 [00:38<00:02, 112.45it/s]Loading weights:  78%|#######7  | 923/1188 [00:38<00:01, 145.13it/s]Loading weights:  81%|########  | 962/1188 [00:38<00:01, 191.25it/s]Loading weights:  84%|########3 | 992/1188 [00:38<00:01, 181.36it/s]Loading weights:  85%|########5 | 1015/1188 [00:39<00:01, 114.68it/s]Loading weights:  87%|########6 | 1033/1188 [00:39<00:02, 66.71it/s] Loading weights:  88%|########8 | 1046/1188 [00:40<00:03, 38.18it/s]Loading weights:  89%|########8 | 1056/1188 [00:40<00:03, 39.96it/s]Loading weights:  90%|########9 | 1065/1188 [00:41<00:03, 32.26it/s]Loading weights:  90%|######### | 1072/1188 [00:41<00:04, 25.43it/s]Loading weights:  91%|#########1| 1082/1188 [00:42<00:04, 21.25it/s]Loading weights:  91%|#########1| 1086/1188 [00:43<00:06, 15.71it/s]Loading weights:  92%|#########1| 1089/1188 [00:43<00:06, 16.35it/s]Loading weights:  93%|#########2| 1102/1188 [00:43<00:03, 24.68it/s]Loading weights:  96%|#########6| 1144/1188 [00:43<00:00, 65.27it/s]Loading weights:  99%|#########9| 1180/1188 [00:43<00:00, 102.70it/s]Loading weights: 100%|##########| 1188/1188 [00:43<00:00, 27.06it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [09/Sep/2026 15:09:42] "[33mGET /geoserver/web/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/Sep/2026 15:15:58] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1357.34it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<03:59,  4.94it/s]Loading weights:   6%|6         | 77/1188 [00:00<00:05, 195.26it/s]Loading weights:  10%|#         | 119/1188 [00:00<00:05, 211.76it/s]Loading weights:  13%|#2        | 153/1188 [00:00<00:04, 227.88it/s]Loading weights:  15%|#5        | 184/1188 [00:00<00:04, 229.73it/s]Loading weights:  18%|#7        | 213/1188 [00:01<00:04, 219.38it/s]Loading weights:  20%|##        | 241/1188 [00:01<00:04, 221.99it/s]Loading weights:  22%|##2       | 266/1188 [00:01<00:04, 227.71it/s]Loading weights:  25%|##4       | 292/1188 [00:01<00:04, 223.31it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:03, 224.67it/s]Loading weights:  29%|##9       | 345/1188 [00:01<00:03, 230.83it/s]Loading weights:  31%|###1      | 369/1188 [00:01<00:03, 213.55it/s]Loading weights:  33%|###3      | 393/1188 [00:01<00:03, 216.04it/s]Loading weights:  35%|###5      | 416/1188 [00:02<00:03, 214.56it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:03, 226.12it/s]Loading weights:  40%|###9      | 471/1188 [00:02<00:03, 225.17it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 219.06it/s]Loading weights:  44%|####4     | 525/1188 [00:02<00:02, 231.90it/s]Loading weights:  46%|####6     | 549/1188 [00:02<00:02, 229.32it/s]Loading weights:  48%|####8     | 573/1188 [00:02<00:02, 225.18it/s]Loading weights:  50%|#####     | 597/1188 [00:02<00:02, 217.66it/s]Loading weights:  52%|#####2    | 622/1188 [00:02<00:02, 220.53it/s]Loading weights:  55%|#####4    | 650/1188 [00:03<00:02, 227.35it/s]Loading weights:  57%|#####6    | 676/1188 [00:03<00:02, 232.31it/s]Loading weights:  59%|#####8    | 700/1188 [00:03<00:02, 220.85it/s]Loading weights:  61%|######1   | 725/1188 [00:03<00:02, 224.36it/s]Loading weights:  63%|######2   | 748/1188 [00:03<00:01, 220.90it/s]Loading weights:  65%|######5   | 776/1188 [00:03<00:01, 234.07it/s]Loading weights:  67%|######7   | 800/1188 [00:03<00:01, 229.12it/s]Loading weights:  69%|######9   | 823/1188 [00:03<00:01, 218.07it/s]Loading weights:  72%|#######2  | 861/1188 [00:04<00:04, 68.94it/s] Loading weights:  80%|########  | 951/1188 [00:05<00:01, 136.82it/s]Loading weights:  82%|########2 | 978/1188 [00:06<00:03, 60.04it/s] Loading weights:  84%|########4 | 998/1188 [00:07<00:03, 55.94it/s]Loading weights:  88%|########8 | 1049/1188 [00:07<00:01, 85.29it/s]Loading weights:  90%|######### | 1075/1188 [00:07<00:01, 69.11it/s]Loading weights:  96%|#########5| 1135/1188 [00:08<00:00, 95.91it/s]Loading weights:  97%|#########7| 1155/1188 [00:09<00:00, 57.92it/s]Loading weights:  98%|#########8| 1170/1188 [00:10<00:00, 42.36it/s]Loading weights:  99%|#########9| 1181/1188 [00:10<00:00, 45.97it/s]Loading weights: 100%|##########| 1188/1188 [00:10<00:00, 109.40it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [09/Sep/2026 15:35:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 15:35:35] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 15:35:37] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 15:35:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[15:36:00][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 144KB]
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  10%|#         | 82/796 [00:00<00:00, 806.70it/s]Loading weights:  20%|##        | 163/796 [00:00<00:00, 780.95it/s]Loading weights:  31%|###       | 243/796 [00:00<00:00, 789.04it/s]Loading weights:  40%|####      | 322/796 [00:00<00:00, 730.11it/s]Loading weights:  51%|#####     | 404/796 [00:00<00:00, 755.89it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1432.34it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+  [92m✔ /api/stt done[0m in [93m8.13s[0m
+
+  [96mTranscript (am-ET):[0m ሰላም
+127.0.0.1 - - [09/Sep/2026 15:36:08] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:36:08][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1788254167688
+  [96mPrompt :[0m ሰላም
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [09/Sep/2026 15:36:08] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ሰላም! እንዴት ነዎት? በምን ልርዳዎት?
+  [92m✔ /chat/stream done[0m in [93m0.01s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:17][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m ሰላም!
+  [92m✔ /api/tts/audio done[0m in [93m1.30s[0m
+
+127.0.0.1 - - [09/Sep/2026 15:36:19] "GET /api/tts/audio?text=ሰላም!&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:20][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m እንዴት ነዎት?
+127.0.0.1 - - [09/Sep/2026 15:36:21] "GET /api/tts/audio?text=እንዴት%20ነዎት?&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m0.81s[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:23][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m በምን ልርዳዎት?
+127.0.0.1 - - [09/Sep/2026 15:36:23] "GET /api/tts/audio?text=በምን%20ልርዳዎት?&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m0.89s[0m
+
+
+[1m[92m▶ POST /api/stt?lang=auto[0m [2m[15:36:27][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m [audio 64KB]
+  [92m✔ /api/stt done[0m in [93m1.02s[0m
+
+  [96mTranscript (am-ET):[0m ።
+127.0.0.1 - - [09/Sep/2026 15:36:28] "POST /api/stt HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[15:36:28][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1788254167688
+  [96mPrompt :[0m ።
+  [2m[queued — lock acquired][0m
+127.0.0.1 - - [09/Sep/2026 15:36:28] "POST /chat/stream HTTP/1.1" 200 -
+  [92mResponse:[0m ይቅርታ፣ ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል። እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+  [92m✔ /chat/stream done[0m in [93m0.02s[0m | [93m1 tokens[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:28][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m ይቅርታ፣
+  [92m✔ /api/tts/audio done[0m in [93m0.88s[0m
+
+127.0.0.1 - - [09/Sep/2026 15:36:29] "GET /api/tts/audio?text=ይቅርታ፣&lang=am-ET HTTP/1.1" 200 -
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:31][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m ጥያቄዎ አልገባኝም ወይም የተቋረጠ ይመስላል።
+127.0.0.1 - - [09/Sep/2026 15:36:32] "GET /api/tts/audio?text=ጥያቄዎ%20አልገባኝም%20ወይም%20የተቋረጠ%20ይመስላል።&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m1.28s[0m
+
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[15:36:35][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m እባክዎ ጥያቄዎን በግልጽ እንደገና ይጠይቁኝ።
+127.0.0.1 - - [09/Sep/2026 15:36:36] "GET /api/tts/audio?text=እባክዎ%20ጥያቄዎን%20በግልጽ%20እንደገና%20ይጠይቁኝ።&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m1.12s[0m
+
+127.0.0.1 - - [09/Sep/2026 15:36:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 15:36:41] "GET /files HTTP/1.1" 200 -

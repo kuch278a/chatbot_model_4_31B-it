@@ -40,9 +40,9 @@ class FasterWhisperTranscriber:
         self.compute_type = compute_type
         self.use_vad = use_vad
         self.vad_parameters = vad_parameters or {
-            "threshold": 0.40,
-            "min_silence_duration_ms": 400,
-            "speech_pad_ms": 300
+            "threshold": 0.45,
+            "min_silence_duration_ms": 350,
+            "speech_pad_ms": 150
         }
         self.language = language
         self.initial_prompt = initial_prompt
@@ -81,13 +81,14 @@ class FasterWhisperTranscriber:
             else:
                 raise e
 
-    def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000) -> str:
+    def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000, fast_mode: bool = True) -> str:
         """
-        Transcribe a 1D float32 numpy audio array with normalization and beam search.
+        Transcribe a 1D float32 numpy audio array with normalization and greedy/beam search.
 
         Args:
             audio_array: 1D float32 numpy array normalized to [-1.0, 1.0].
             sample_rate: Audio sample rate in Hz (default 16000).
+            fast_mode: If True, uses greedy decoding (beam_size=1) for sub-200ms latency.
 
         Returns:
             Transcribed text string.
@@ -100,13 +101,16 @@ class FasterWhisperTranscriber:
         if max_val > 1e-5:
             audio_array = audio_array / max_val * 0.95
 
+        beam_size = 1 if fast_mode else 5
+        best_of = 1 if fast_mode else 5
+
         segments, info = self.model.transcribe(
             audio_array,
             language=self.language,
             initial_prompt=self.initial_prompt,
-            beam_size=5,
-            best_of=5,
-            repetition_penalty=1.2,
+            beam_size=beam_size,
+            best_of=best_of,
+            repetition_penalty=1.1,
             condition_on_previous_text=False,
             vad_filter=self.use_vad,
             vad_parameters=self.vad_parameters if self.use_vad else None
@@ -115,9 +119,9 @@ class FasterWhisperTranscriber:
         full_text = " ".join([segment.text.strip() for segment in segments]).strip()
         return full_text
 
-    def transcribe_audio_array_with_info(self, audio_array: np.ndarray, sample_rate: int = 16000, force_language: str = None) -> tuple:
+    def transcribe_audio_array_with_info(self, audio_array: np.ndarray, sample_rate: int = 16000, force_language: str = None, fast_mode: bool = True) -> tuple:
         """
-        Transcribe audio array with auto language detection.
+        Transcribe audio array with auto language detection and low-latency fast_mode.
 
         Returns:
             (transcript, detected_language, probability)
@@ -129,13 +133,16 @@ class FasterWhisperTranscriber:
         if max_val > 1e-5:
             audio_array = audio_array / max_val * 0.95
 
+        beam_size = 1 if fast_mode else 5
+        best_of = 1 if fast_mode else 5
+
         segments, info = self.model.transcribe(
             audio_array,
             language=force_language if force_language else self.language,
             initial_prompt=self.initial_prompt if (force_language or self.language) == "am" else None,
-            beam_size=5,
-            best_of=5,
-            repetition_penalty=1.2,
+            beam_size=beam_size,
+            best_of=best_of,
+            repetition_penalty=1.1,
             condition_on_previous_text=False,
             vad_filter=self.use_vad,
             vad_parameters=self.vad_parameters if self.use_vad else None

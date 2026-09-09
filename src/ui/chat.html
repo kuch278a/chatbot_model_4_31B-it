@@ -200,9 +200,19 @@
             }
         }
 
-        async function requestUserMediaStream(constraints = { audio: true }) {
+        async function requestUserMediaStream(constraints = null) {
+            const defaultConstraints = {
+                audio: {
+                    echoCancellation: { ideal: true },
+                    noiseSuppression: { ideal: true },
+                    autoGainControl: { ideal: true },
+                    channelCount: { ideal: 1 },
+                    sampleRate: { ideal: 16000 }
+                }
+            };
+            const reqConstraints = constraints || defaultConstraints;
             if (navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
-                return await navigator.mediaDevices.getUserMedia(constraints);
+                return await navigator.mediaDevices.getUserMedia(reqConstraints);
             }
             const legacy = navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
@@ -210,10 +220,87 @@
                            navigator.msGetUserMedia;
             if (legacy) {
                 return new Promise((resolve, reject) => {
-                    legacy.call(navigator, constraints, resolve, reject);
+                    legacy.call(navigator, reqConstraints, resolve, reject);
                 });
             }
             throw new Error("getUserMedia is not supported on this browser/context.");
+        }
+
+        // ─── Native WAV Recorder ───────────────────────────────────────────
+        class WavRecorder {
+            constructor(stream) {
+                this.stream = stream;
+                this.audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+                this.source = this.audioContext.createMediaStreamSource(stream);
+                this.processor = this.audioContext.createScriptProcessor(4096, 1, 1);
+                
+                this.chunks = [];
+                this.state = "inactive";
+                this.ondataavailable = null;
+                this.onstop = null;
+                this.mimeType = "audio/wav";
+                
+                this.processor.onaudioprocess = (e) => {
+                    if (this.state !== "recording") return;
+                    this.chunks.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+                };
+                
+                this.source.connect(this.processor);
+                this.processor.connect(this.audioContext.destination);
+            }
+            
+            start() {
+                this.chunks = [];
+                this.state = "recording";
+            }
+            
+            stop() {
+                this.state = "inactive";
+                if (this.onstop) this.onstop();
+            }
+            
+            requestData() {}
+            
+            getWavBlob() {
+                let totalLen = 0;
+                for (let i = 0; i < this.chunks.length; i++) totalLen += this.chunks[i].length;
+                
+                const pcm16 = new Int16Array(totalLen);
+                let offset = 0;
+                for (let i = 0; i < this.chunks.length; i++) {
+                    const ch = this.chunks[i];
+                    for (let j = 0; j < ch.length; j++) {
+                        let s = Math.max(-1, Math.min(1, ch[j]));
+                        pcm16[offset++] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+                    }
+                }
+                
+                const buffer = new ArrayBuffer(44 + pcm16.length * 2);
+                const view = new DataView(buffer);
+                
+                const writeString = (v, o, s) => { for(let i=0;i<s.length;i++) v.setUint8(o+i, s.charCodeAt(i)); };
+                
+                writeString(view, 0, 'RIFF');
+                view.setUint32(4, 36 + pcm16.length * 2, true);
+                writeString(view, 8, 'WAVE');
+                writeString(view, 12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true);
+                view.setUint16(22, 1, true);
+                view.setUint32(24, 16000, true);
+                view.setUint32(28, 16000 * 2, true);
+                view.setUint16(32, 2, true);
+                view.setUint16(34, 16, true);
+                writeString(view, 36, 'data');
+                view.setUint32(40, pcm16.length * 2, true);
+                
+                let idx = 44;
+                for (let i = 0; i < pcm16.length; i++, idx += 2) {
+                    view.setInt16(idx, pcm16[i], true);
+                }
+                
+                return new Blob([view], { type: 'audio/wav' });
+            }
         }
 
         let messages = [];
@@ -693,6 +780,7 @@
                     const reader = res.body.getReader();
                     const decoder = new TextDecoder();
                     let fullText = '';
+                    let streamSpeechBuffer = '';
                     let assistantRow = null;
                     let bubble = null;
                     let firstChunk = true;
@@ -703,6 +791,24 @@
 
                         const chunk = decoder.decode(value, { stream: true });
                         fullText += chunk;
+
+                        // ── Sentence-Pipelined TTS (Play first clause/sentence immediately) ──
+                        if (ttsEnabled) {
+                            streamSpeechBuffer += chunk;
+                            const regex = /(::|።|፧|፦|[.!?\n]|(?:[፣,](?=\s)))/;
+                            let match = regex.exec(streamSpeechBuffer);
+                            while (match) {
+                                const boundaryIdx = match.index + match[0].length;
+                                const candidate = streamSpeechBuffer.slice(0, boundaryIdx).trim();
+                                if (candidate.length >= 4) {
+                                    enqueueStreamSentence(candidate);
+                                    streamSpeechBuffer = streamSpeechBuffer.slice(boundaryIdx);
+                                    match = regex.exec(streamSpeechBuffer);
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
 
                         if (firstChunk && fullText.trim().length > 0) {
                             firstChunk = false;
@@ -725,10 +831,15 @@
                         appendMessageNode('assistant', fullText, true);
                     }
 
+                    // Flush any remaining trailing sentence/clause to TTS queue
+                    if (ttsEnabled && streamSpeechBuffer.trim().length > 0) {
+                        enqueueStreamSentence(streamSpeechBuffer.trim());
+                        streamSpeechBuffer = '';
+                    }
+
                     if (fullText.trim().length > 0) {
                         messages.push({ role: 'assistant', content: fullText, sources: [] });
                         saveToLocalStorage();
-                        speakText(fullText);
                     }
                 }
             } catch (e) {
@@ -801,9 +912,19 @@
         let vadRecordingStartTime = null;
         let vadCaptureTimeoutId = null;
         let webSpeechRec = null;
+        let liveInterimRecognition = null;
 
-        const VAD_SILENCE_THRESHOLD = 0.0025;  // Highly sensitive threshold for human voice
-        const VAD_SILENCE_DURATION_MS = 700;   // 700ms of quiet before sending utterance
+        // DSP Filter Graph Nodes for Acoustic Echo Cancellation & Noise Pre-filtering
+        let vadSourceNode = null;
+        let vadHighPassFilter = null;
+        let vadLowPassFilter = null;
+        let vadCompressor = null;
+        let vadCleanDestination = null;
+        let vadCleanStream = null;
+
+        // ─── Aggressive VAD Settings ─────────────────────────────────────────
+        const VAD_SILENCE_THRESHOLD = 0.0028;  // Highly sensitive threshold for human voice
+        const VAD_SILENCE_DURATION_MS = 380;   // 380ms aggressive silence cutoff (was 700ms)
         const VAD_MAX_RECORDING_MS = 30000;    // 30s safety limit per sentence
 
         function getSupportedAudioMimeType() {
@@ -866,27 +987,60 @@
 
             try {
                 if (!vadStream) {
-                    vadStream = await requestUserMediaStream({
-                        audio: {
-                            echoCancellation: true,
-                            noiseSuppression: true,
-                            autoGainControl: true
-                        }
-                    });
+                    vadStream = await requestUserMediaStream();
                 }
 
                 if (!vadAudioContext || vadAudioContext.state === 'closed') {
-                    vadAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    vadAudioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
                 }
                 if (vadAudioContext.state === 'suspended') {
                     await vadAudioContext.resume();
                 }
 
-                if (!vadAnalyser && vadStream) {
-                    const source = vadAudioContext.createMediaStreamSource(vadStream);
+                if (!vadSourceNode && vadStream) {
+                    vadSourceNode = vadAudioContext.createMediaStreamSource(vadStream);
+
+                    // 1. High-Pass Filter: Cuts sub-audible HVAC rumble, desk thuds, mic pops below 85Hz
+                    vadHighPassFilter = vadAudioContext.createBiquadFilter();
+                    vadHighPassFilter.type = "highpass";
+                    vadHighPassFilter.frequency.value = 85;
+                    vadHighPassFilter.Q.value = 0.7;
+
+                    // 2. Low-Pass Filter: Cuts high-frequency electronic hiss & switching noise above 7500Hz
+                    vadLowPassFilter = vadAudioContext.createBiquadFilter();
+                    vadLowPassFilter.type = "lowpass";
+                    vadLowPassFilter.frequency.value = 7500;
+                    vadLowPassFilter.Q.value = 0.7;
+
+                    // 3. Dynamics Compressor: Evens out voice volume, tames spikes and prevents mic clipping
+                    vadCompressor = vadAudioContext.createDynamicsCompressor();
+                    vadCompressor.threshold.value = -24;
+                    vadCompressor.knee.value = 30;
+                    vadCompressor.ratio.value = 12;
+                    vadCompressor.attack.value = 0.003;
+                    vadCompressor.release.value = 0.25;
+
+                    // 4. Analyser for VAD energy measurement
                     vadAnalyser = vadAudioContext.createAnalyser();
                     vadAnalyser.fftSize = 512;
-                    source.connect(vadAnalyser);
+                    vadAnalyser.smoothingTimeConstant = 0.2;
+
+                    // 5. Clean Destination Stream for MediaRecorder
+                    if (vadAudioContext.createMediaStreamDestination) {
+                        vadCleanDestination = vadAudioContext.createMediaStreamDestination();
+                        vadCleanStream = vadCleanDestination.stream;
+                    } else {
+                        vadCleanStream = vadStream;
+                    }
+
+                    // Connect DSP Audio Graph: Source -> HighPass -> LowPass -> Compressor -> Analyser & Destination
+                    vadSourceNode.connect(vadHighPassFilter);
+                    vadHighPassFilter.connect(vadLowPassFilter);
+                    vadLowPassFilter.connect(vadCompressor);
+                    vadCompressor.connect(vadAnalyser);
+                    if (vadCleanDestination) {
+                        vadCompressor.connect(vadCleanDestination);
+                    }
                 }
 
                 _runVadMonitorLoop();
@@ -960,7 +1114,8 @@
         }
 
         function startVadCapture() {
-            if (!vadStream || vadIsCapturing) return;
+            const streamToRecord = vadCleanStream || vadStream;
+            if (!streamToRecord || vadIsCapturing) return;
 
             vadIsCapturing = true;
             vadSpeechDetected = true;
@@ -974,39 +1129,51 @@
             if (micBtn) micBtn.classList.add("listening");
             if (input) input.placeholder = "🎙️ እያዳመጥኩ ነው... (ተናገሩ)";
 
-            const supportedMime = getSupportedAudioMimeType();
-            const recorderOptions = supportedMime ? { mimeType: supportedMime } : {};
-
-            try {
-                vadRecorder = new MediaRecorder(vadStream, recorderOptions);
-            } catch (e) {
+            // ── Real-Time Streaming Transcripts (sub-200ms live interim feedback) ──
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRec && !liveInterimRecognition) {
                 try {
-                    vadRecorder = new MediaRecorder(vadStream);
-                } catch (e2) {
-                    console.error("[VAD] MediaRecorder start error:", e2);
-                    vadIsCapturing = false;
-                    return;
+                    liveInterimRecognition = new SpeechRec();
+                    liveInterimRecognition.continuous = true;
+                    liveInterimRecognition.interimResults = true;
+                    liveInterimRecognition.lang = "am-ET";
+                    liveInterimRecognition.onresult = (e) => {
+                        let liveText = "";
+                        for (let i = e.resultIndex; i < e.results.length; ++i) {
+                            liveText += e.results[i][0].transcript;
+                        }
+                        if (liveText && input) {
+                            input.value = liveText;
+                            handleInput(input);
+                        }
+                    };
+                    liveInterimRecognition.onerror = () => {};
+                    liveInterimRecognition.start();
+                } catch (recErr) {
+                    console.warn("[VAD] Live interim transcript unavailable:", recErr);
                 }
             }
 
-            vadRecorder.ondataavailable = (e) => {
-                if (e.data && e.data.size > 0) vadChunks.push(e.data);
-            };
+            try {
+                vadRecorder = new WavRecorder(streamToRecord);
+            } catch (e2) {
+                console.error("[VAD] WavRecorder start error:", e2);
+                vadIsCapturing = false;
+                return;
+            }
 
             vadRecorder.onstop = async () => {
-                const chunksToProcess = [...vadChunks];
-                vadChunks = [];
-                const finalMime = (vadRecorder && vadRecorder.mimeType) || supportedMime || 'audio/webm';
-
-                if (chunksToProcess.length === 0) {
+                if (vadRecorder.chunks.length === 0) {
                     if (input && input.value === '') input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
                     return;
                 }
 
-                if (input) input.placeholder = "በEthio-ASR ወደ ጽሑፍ በመቀየር ላይ...";
+                if (input && input.value.trim().length === 0) {
+                    input.placeholder = "በEthio-ASR ወደ ጽሑፍ በመቀየር ላይ...";
+                }
 
-                const audioBlob = new Blob(chunksToProcess, { type: finalMime });
-
+                const audioBlob = vadRecorder.getWavBlob();
+                const finalMime = "audio/wav";
                 try {
                     const res = await fetch("/api/stt", {
                         method: "POST",
@@ -1021,6 +1188,10 @@
                             handleInput(input);
                             sendMessage();
                         }
+                    } else if (input && input.value.trim().length > 0) {
+                        // If backend returned empty but live interim stream caught it, send interim transcript
+                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                        sendMessage();
                     } else {
                         if (input) {
                             input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
@@ -1028,7 +1199,11 @@
                     }
                 } catch (err) {
                     console.error("[VAD] STT error:", err);
-                    if (input) input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    if (input && input.value.trim().length > 0) {
+                        sendMessage();
+                    } else if (input) {
+                        input.placeholder = "መልዕክትዎን እዚህ ይጻፉ...";
+                    }
                 }
             };
 
@@ -1048,6 +1223,11 @@
             vadIsCapturing = false;
             vadSpeechDetected = false;
             vadSilenceStart = null;
+
+            if (liveInterimRecognition) {
+                try { liveInterimRecognition.stop(); } catch (e) { }
+                liveInterimRecognition = null;
+            }
 
             if (vadCaptureTimeoutId) {
                 clearTimeout(vadCaptureTimeoutId);
@@ -1228,8 +1408,13 @@
         }
 
 
-        // ─── Speech Synthesis (TTS) ────────────────────────────────────────
+        // ─── Speech Synthesis (TTS) & Real-time Sentence Streaming ─────────
+        let streamAudioQueue = [];
+        let isStreamAudioPlaying = false;
+
         function stopCurrentSpeech() {
+            streamAudioQueue = [];
+            isStreamAudioPlaying = false;
             if (currentAudio) {
                 try { currentAudio.pause(); } catch (e) { }
                 currentAudio = null;
@@ -1246,6 +1431,74 @@
             }
             const globalBtn = document.getElementById("speakerBtn");
             if (globalBtn) globalBtn.classList.remove("speaking");
+        }
+
+        function enqueueStreamSentence(clauseText) {
+            if (!ttsEnabled || !clauseText || !clauseText.trim()) return;
+            const cleaned = clauseText.replace(/<[^>]*>/g, '')
+                .replace(/\*\*|__/g, '')
+                .replace(/\*|_/g, '')
+                .replace(/`[^`]+`/g, '')
+                .replace(/#+\s*/g, '')
+                .trim();
+            if (!cleaned) return;
+            streamAudioQueue.push(cleaned);
+            if (!isStreamAudioPlaying) {
+                playNextStreamSentence();
+            }
+        }
+
+        function playNextStreamSentence() {
+            if (streamAudioQueue.length === 0) {
+                isStreamAudioPlaying = false;
+                triggerVadAutoListen();
+                return;
+            }
+
+            isStreamAudioPlaying = true;
+            const textToPlay = streamAudioQueue.shift();
+
+            const isAmharic = /[\u1200-\u137F]/.test(textToPlay);
+            const detectedLang = isAmharic ? "am-ET" : "en-US";
+
+            const finishSentence = () => {
+                currentAudio = null;
+                playNextStreamSentence();
+            };
+
+            const fallbackBrowserSpeech = () => {
+                if ('speechSynthesis' in window) {
+                    try { window.speechSynthesis.resume(); } catch (err) { }
+                    const voices = window.speechSynthesis.getVoices();
+                    let targetVoice = isAmharic
+                        ? voices.find(v => v.name.includes('Mekdes') || v.lang.startsWith('am'))
+                        : voices.find(v => v.name.includes('Jenny') || v.lang.startsWith('en'));
+                    const utterance = new SpeechSynthesisUtterance(textToPlay);
+                    utterance.lang = detectedLang;
+                    if (targetVoice) utterance.voice = targetVoice;
+                    utterance.onend = finishSentence;
+                    utterance.onerror = finishSentence;
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    finishSentence();
+                }
+            };
+
+            const audioUrl = `/api/tts/audio?text=${encodeURIComponent(textToPlay)}&lang=${detectedLang}`;
+            const audio = new Audio(audioUrl);
+            currentAudio = audio;
+
+            audio.onended = finishSentence;
+            audio.onerror = () => {
+                console.warn("[StreamTTS] Audio failed, fallback to WebSpeech");
+                currentAudio = null;
+                fallbackBrowserSpeech();
+            };
+            audio.play().catch(e => {
+                console.warn("[StreamTTS] Audio play error, fallback to WebSpeech:", e);
+                currentAudio = null;
+                fallbackBrowserSpeech();
+            });
         }
 
         function toggleTTS() {
@@ -1364,7 +1617,7 @@
 
         // Synchronized with Auto-Listen parameters
         const VM_VAD_THRESHOLD = 0.006;
-        const VM_SILENCE_DURATION_MS = 700;    // ms of silence before auto-sending (was 1800)
+        const VM_SILENCE_DURATION_MS = 380;    // 380ms aggressive silence cutoff (was 700ms)
         const VM_MAX_RECORDING_MS = 60000;
 
         function setVoiceModeState(state, label) {
@@ -1523,24 +1776,14 @@
             const recorderOpts = supportedMime ? { mimeType: supportedMime } : {};
 
             try {
-                vmMediaRecorder = new MediaRecorder(vmMediaStream, recorderOpts);
-            } catch (e) {
-                try {
-                    vmMediaRecorder = new MediaRecorder(vmMediaStream);
-                } catch (e2) {
-                    console.error("[VoiceMode] MediaRecorder failed:", e2);
-                    return;
-                }
+                vmMediaRecorder = new WavRecorder(vmMediaStream);
+            } catch (e2) {
+                console.error("[VoiceMode] WavRecorder failed:", e2);
+                return;
             }
 
-            vmMediaRecorder.ondataavailable = (e) => {
-                if (e.data && e.data.size > 0) {
-                    vmAudioChunks.push(e.data);
-                }
-            };
-
             vmMediaRecorder.onstop = () => {
-                const hadSpeech = vmSpeechStarted || vmAudioChunks.length > 0;
+                const hadSpeech = vmSpeechStarted || vmMediaRecorder.chunks.length > 0;
                 if (vmVadAnimId) {
                     cancelAnimationFrame(vmVadAnimId);
                     vmVadAnimId = null;
@@ -1677,8 +1920,7 @@
             setVoiceModeState("thinking", "Transcribing... / ድምፅ በመተርጎም ላይ...");
             updateVoiceSubtitle("Ethio-ASR", "Transcribing speech... / ንግግርዎን ወደ ጽሑፍ በመቀየር ላይ...", true);
 
-            const finalMime = (vmMediaRecorder && vmMediaRecorder.mimeType) || getSupportedAudioMimeType() || "audio/webm";
-            const audioBlob = new Blob(vmAudioChunks, { type: finalMime });
+            const audioBlob = vmMediaRecorder.getWavBlob();
 
             try {
                 const res = await fetch("/api/stt", {

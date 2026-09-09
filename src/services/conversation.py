@@ -185,11 +185,16 @@ class ConversationService:
             if is_buffered:
                 buffer.append(token)
                 buf_str = "".join(buffer)
-                if len(buf_str) > 45 or "\n" in buf_str:
+                # Flush immediately if punctuation/newline occurs or 25 chars reached
+                if any(p in buf_str for p in ["\n", "።", "::", ".", "!", "?", "፣", ","]) or len(buf_str) >= 25:
                     cleaned_head = _clean_repetitive_intros(buf_str, prompt)
                     is_buffered = False
                     if cleaned_head:
                         yield cleaned_head
+                elif not any(buf_str.startswith(stem) for stem in ["ሰላም", "እኔ", "አማኒ", "Hello", "I am", "I'm"]):
+                    # Not an intro template, flush immediately for minimal TTFT
+                    is_buffered = False
+                    yield buf_str
             else:
                 yield token
 

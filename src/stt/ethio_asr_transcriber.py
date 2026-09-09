@@ -34,6 +34,11 @@ class EthioASRTranscriber:
         try:
             self.model = AutoModelForCTC.from_pretrained(self.model_id).to(self.device)
             self.model.eval()
+            
+            if "cuda" in str(self.device):
+                torch.backends.cuda.matmul.allow_tf32 = True
+                torch.backends.cudnn.allow_tf32 = True
+                
             print(f"[Ethio-ASR] Model loaded successfully on {self.device} ✔")
         except Exception as e:
             if "cuda" in str(self.device):
@@ -88,7 +93,7 @@ class EthioASRTranscriber:
                 return_tensors="pt"
             ).to(self.device)
 
-            with torch.no_grad():
+            with torch.inference_mode():
                 logits = self.model(**inputs).logits
 
             pred_ids = torch.argmax(logits, dim=-1)
@@ -135,65 +140,34 @@ def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000) -> str:
 def transcribe_audio_blob(audio_bytes: bytes) -> str:
     """
     Transcribe WebM/MP4/OGG/WAV audio blob from browser MediaRecorder to Amharic text.
-    Uses ffmpeg to universally normalize any client container into 16kHz mono PCM.
+    Uses ffmpeg in-memory to universally normalize any client container into 16kHz mono PCM.
     """
     if not audio_bytes or len(audio_bytes) < 64:
         return ""
 
-    with tempfile.NamedTemporaryFile(suffix=".audio", delete=False) as in_file:
-        in_file.write(audio_bytes)
-        in_path = in_file.name
-
-    wav_path = in_path + ".wav"
     try:
         proc = subprocess.run(
             [
                 "ffmpeg", "-y",
-                "-i", in_path,
+                "-i", "pipe:0",
                 "-ar", "16000",
                 "-ac", "1",
-                "-f", "wav",
-                wav_path
+                "-f", "s16le",
+                "pipe:1"
             ],
-            stdout=subprocess.DEVNULL,
+            input=audio_bytes,
+            stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
             check=False
         )
 
-        if proc.returncode != 0 or not os.path.exists(wav_path) or os.path.getsize(wav_path) == 0:
+        if proc.returncode != 0 or not proc.stdout:
             return ""
 
-        try:
-            import scipy.io.wavfile as wavfile
-            sr, audio_data = wavfile.read(wav_path)
-            if audio_data.dtype == np.int16:
-                audio_array = audio_data.astype(np.float32) / 32768.0
-            elif audio_data.dtype == np.float32:
-                audio_array = audio_data
-            else:
-                audio_array = audio_data.astype(np.float32)
-
-            if len(audio_array.shape) > 1:
-                audio_array = audio_array.mean(axis=-1)
-
-            # Direct transcription without rejection filter
-
-            transcriber = _get_transcriber_instance()
-            return transcriber.transcribe_audio_array(audio_array, sample_rate=16000)
-        except Exception:
-            # Fallback direct PCM read if wavfile reader encounters unusual headers
-            with open(wav_path, "rb") as f:
-                wav_data = f.read()
-            pcm_bytes = wav_data[44:] if len(wav_data) > 44 else b""
-            return transcribe_audio(pcm_bytes, sample_rate=16000)
-
-    finally:
-        for p in [in_path, wav_path]:
-            if os.path.exists(p):
-                try:
-                    os.unlink(p)
-                except OSError:
-                    pass
+        return transcribe_audio(proc.stdout, sample_rate=16000)
+    except Exception as e:
+        print(f"[Ethio-ASR] FFMPEG pipe error: {e}", flush=True)
+        return ""
 
 
 # Backward compatibility alias
