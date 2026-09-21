@@ -107,24 +107,10 @@ def talk():
             transcript = transcribe_webm(audio_bytes, force_language="en")
             detected_lang = "en-US"
         else:
-            # Default / auto: try Ethio-ASR (Amharic) first
+            # Default / auto: use Ethio-ASR (Amharic) only
             from src.stt.ethio_asr_transcriber import transcribe_audio_blob
             transcript = transcribe_audio_blob(audio_bytes)
             detected_lang = "am-ET"
-
-            # If nothing came back and we're in auto mode, fall back to Whisper
-            if not transcript.strip() and lang == "auto":
-                try:
-                    from src.stt.faster_whisper_transcriber import transcribe_webm_with_info
-                    whisper_text, w_lang, _ = transcribe_webm_with_info(audio_bytes)
-                    if whisper_text.strip():
-                        transcript = whisper_text
-                        detected_lang = "en-US" if w_lang == "en" else "am-ET"
-                except Exception as w_err:
-                    print(
-                        f"  {_C['yellow']}Whisper fallback failed: {w_err}{_C['reset']}",
-                        flush=True,
-                    )
     except Exception as stt_err:
         print(f"  {_C['red']}✘ STT error: {stt_err}{_C['reset']}", flush=True)
         return jsonify({"error": f"Speech recognition failed: {stt_err}"}), 500
@@ -148,7 +134,7 @@ def talk():
         return jsonify({"error": "Server busy. Another request is being processed. Please retry."}), 503
 
     try:
-        result = conv_service.chat(session_id, transcript)
+        result = conv_service.chat(session_id, transcript, is_voice=True)
     except Exception as llm_err:
         print(f"  {_C['red']}✘ LLM error: {llm_err}{_C['reset']}", flush=True)
         return jsonify({"error": f"Language model failed: {llm_err}"}), 500

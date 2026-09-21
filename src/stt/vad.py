@@ -18,15 +18,15 @@ logger = logging.getLogger(__name__)
 
 # ─── Centralized VAD Settings ────────────────────────────────────────────────
 DEFAULT_SAMPLE_RATE: int = 16000        # Target audio sample rate (16kHz)
-DEFAULT_ENERGY_THRESHOLD: float = 0.003 # RMS volume threshold for speech detection
+DEFAULT_ENERGY_THRESHOLD: float = 0.001 # RMS volume threshold for speech detection (lowered for Amharic)
 DEFAULT_FRAME_MS: int = 20              # Processing frame window in milliseconds
-DEFAULT_PRE_PADDING_MS: int = 150       # Pre-speech audio margin to preserve (ms)
-DEFAULT_POST_PADDING_MS: int = 120      # Post-speech audio margin to preserve (ms)
-VAD_ENABLED: bool = True                # Global toggle to enable/disable VAD filtering
+DEFAULT_PRE_PADDING_MS: int = 500       # Pre-speech audio margin to preserve (ms)
+DEFAULT_POST_PADDING_MS: int = 600      # Post-speech audio margin to preserve (ms)
+VAD_ENABLED: bool = False               # Global toggle to enable/disable VAD filtering
 
 # ─── Silero Neural VAD Settings ───────────────────────────────────────────────
 SILERO_ENABLED: bool = True             # Toggle Silero neural backend on/off
-SILERO_THRESHOLD: float = 0.45          # Voice probability cutoff (0.0 – 1.0)
+SILERO_THRESHOLD: float = 0.15          # Voice probability cutoff (lowered to avoid cutting speech)
 SILERO_REPO: str = "snakers4/silero-vad"  # Torch Hub model source
 
 

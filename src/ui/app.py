@@ -211,20 +211,10 @@ def speech_to_text():
                 from src.stt.ethio_asr_transcriber import transcribe_audio_blob
                 transcript = transcribe_audio_blob(audio_bytes)
         else:
+            # Default / auto: use Ethio-ASR (Amharic) only
             from src.stt.ethio_asr_transcriber import transcribe_audio_blob
             transcript = transcribe_audio_blob(audio_bytes)
             detected_lang = "am-ET"
-
-            # If empty and target_lang was auto, attempt Whisper fallback
-            if not transcript.strip() and target_lang == "auto":
-                try:
-                    from src.stt.faster_whisper_transcriber import transcribe_webm_with_info
-                    whisper_text, w_lang, _ = transcribe_webm_with_info(audio_bytes)
-                    if whisper_text.strip():
-                        transcript = whisper_text
-                        detected_lang = "en-US" if w_lang == "en" else "am-ET"
-                except Exception:
-                    pass
 
         _log_done("/api/stt", time.time() - t0)
         print(f"  {_C['cyan']}Transcript ({detected_lang}):{_C['reset']} {transcript}", flush=True)

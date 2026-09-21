@@ -9,6 +9,7 @@ import subprocess
 import numpy as np
 import torch
 from transformers import AutoProcessor, AutoModelForCTC
+from src.stt.vad import apply_vad
 
 # Global singleton instance
 _model_instance = None
@@ -58,6 +59,16 @@ class EthioASRTranscriber:
         if len(audio_array) == 0:
             return ""
 
+        # Apply VAD to trim leading/trailing silence before processing
+        pre_vad_len = len(audio_array)
+        audio_array, has_speech = apply_vad(audio_array, sample_rate)
+        print(f"[Ethio-ASR][DEBUG] VAD: {pre_vad_len} samples → {len(audio_array)} samples, "
+              f"has_speech={has_speech}, "
+              f"trimmed={pre_vad_len - len(audio_array)} samples ({(pre_vad_len - len(audio_array))/sample_rate:.2f}s removed)", flush=True)
+        if not has_speech or len(audio_array) == 0:
+            print(f"[Ethio-ASR][DEBUG] VAD rejected audio — no speech detected!", flush=True)
+            return ""
+
         # Limit total audio duration to 60 seconds max to protect system RAM
         max_total_samples = sample_rate * 60
         if len(audio_array) > max_total_samples:
@@ -76,9 +87,13 @@ class EthioASRTranscriber:
                 sub_text = self._transcribe_single_chunk(chunk, sample_rate=sample_rate)
                 if sub_text:
                     transcripts.append(sub_text)
-            return " ".join(transcripts)
+            result = " ".join(transcripts)
+            print(f"[Ethio-ASR][DEBUG] Multi-chunk result: '{result}'", flush=True)
+            return result
 
-        return self._transcribe_single_chunk(audio_array, sample_rate=sample_rate)
+        result = self._transcribe_single_chunk(audio_array, sample_rate=sample_rate)
+        print(f"[Ethio-ASR][DEBUG] Single-chunk result: '{result}'", flush=True)
+        return result
 
     def _transcribe_single_chunk(self, chunk: np.ndarray, sample_rate: int = 16000) -> str:
         """Transcribe a single audio chunk within safe memory bounds."""
@@ -129,6 +144,11 @@ def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000) -> str:
     # Convert 16-bit PCM bytes to float32 numpy array [-1.0, 1.0]
     audio_array = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32) / 32768.0
 
+    print(f"[Ethio-ASR][DEBUG] PCM→float32: {len(audio_array)} samples, "
+          f"duration={len(audio_array)/sample_rate:.2f}s, "
+          f"max={np.max(np.abs(audio_array)):.4f}, "
+          f"rms={np.sqrt(np.mean(audio_array**2)):.4f}", flush=True)
+
     if sample_rate != 16000 and len(audio_array) > 0:
         import scipy.signal as signal
         num_samples = int(len(audio_array) * 16000 / sample_rate)
@@ -143,6 +163,7 @@ def transcribe_audio_blob(audio_bytes: bytes) -> str:
     Uses ffmpeg in-memory to universally normalize any client container into 16kHz mono PCM.
     """
     if not audio_bytes or len(audio_bytes) < 64:
+        print(f"[Ethio-ASR][DEBUG] Audio too short: {len(audio_bytes) if audio_bytes else 0} bytes", flush=True)
         return ""
 
     try:
@@ -157,14 +178,19 @@ def transcribe_audio_blob(audio_bytes: bytes) -> str:
             ],
             input=audio_bytes,
             stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
             check=False
         )
 
         if proc.returncode != 0 or not proc.stdout:
+            stderr_msg = proc.stderr.decode("utf-8", errors="replace")[-500:] if proc.stderr else "no stderr"
+            print(f"[Ethio-ASR][DEBUG] ffmpeg failed (rc={proc.returncode}): {stderr_msg}", flush=True)
             return ""
 
-        return transcribe_audio(proc.stdout, sample_rate=16000)
+        pcm_bytes = proc.stdout
+        print(f"[Ethio-ASR][DEBUG] ffmpeg OK: {len(audio_bytes)} input bytes → {len(pcm_bytes)} PCM bytes ({len(pcm_bytes)/32000:.2f}s)", flush=True)
+
+        return transcribe_audio(pcm_bytes, sample_rate=16000)
     except Exception as e:
         print(f"[Ethio-ASR] FFMPEG pipe error: {e}", flush=True)
         return ""

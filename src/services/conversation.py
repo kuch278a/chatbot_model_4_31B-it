@@ -56,7 +56,16 @@ class ConversationService:
         self.llm_client = llm_client
         self.rag_pipeline = rag_pipeline
 
-    def _get_system_prompt(self) -> str:
+    def _get_system_prompt(self, is_voice: bool = False) -> str:
+        if is_voice:
+            return (
+                "You are Amani (አማኒ), an AI assistant by EAII (የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት). "
+                "Provide highly detailed, fact-dense answers, but compress them into exactly ONE single sentence. "
+                "Skip all conversational filler, greetings, and pleasantries. Give the direct, core facts immediately. "
+                "No markdown or lists. If asked your name, say: 'ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።' "
+                "CRITICAL: If the provided context does not answer the question, answer using your general knowledge or politely state you don't know. NEVER use the words 'context', 'provided information', or 'documents' in your response."
+            )
+
         prompt_paths = [
             os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "local_data", "system_prompt.txt"),
             "/mnt/data/local_data/system_prompt.txt"
@@ -73,7 +82,7 @@ class ConversationService:
 
         return "The assistant is Amani (አማኒ), an intelligent bilingual (Amharic & English) AI assistant developed by EAII."
 
-    def chat(self, session_id, prompt):
+    def chat(self, session_id, prompt, is_voice=False):
         is_am = is_amharic_text(prompt)
 
         # Guard for single-letter or empty audio fragments
@@ -103,7 +112,10 @@ class ConversationService:
             return {"response": greeting_resp, "sources": []}
 
         history = get_history(session_id, limit=6)
-        context_str, sources = self.rag_pipeline.get_context(prompt, k=4)
+        # For voice, we only need the top 2 context chunks to keep reading time (prefill) extremely fast.
+        # For text, we can use 4 chunks for deeper context.
+        k_chunks = 2 if is_voice else 4
+        context_str, sources = self.rag_pipeline.get_context(prompt, k=k_chunks)
 
         if context_str:
             if is_am:
@@ -113,12 +125,17 @@ class ConversationService:
         else:
             llm_prompt = prompt
 
-        system_prompt = self._get_system_prompt()
+        system_prompt = self._get_system_prompt(is_voice=is_voice)
+
+        # Give the AI enough tokens (80) to naturally finish its sentence without getting cut off,
+        # but keep it low enough to prevent runaway rambling.
+        gen_kwargs = {"max_new_tokens": 80} if is_voice else {}
 
         response = self.llm_client.generate(
             prompt=llm_prompt,
             system_prompt=system_prompt,
-            history=history
+            history=history,
+            **gen_kwargs
         )
 
         cleaned_response = _clean_repetitive_intros(response, prompt)
