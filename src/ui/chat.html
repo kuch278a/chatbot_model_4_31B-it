@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Amani AI — Bilingual Amharic/English Conversational Assistant powered by Gemma 4 31B-it.">
-    <title>Amani AI</title>
+        content="Tesfanesh AI — Bilingual Amharic/English Conversational Assistant powered by Gemma 4 31B-it.">
+    <title>Tesfanesh AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-row">
                     <div class="brand-group">
                         <div class="brand-icon">አ</div>
-                        <span class="brand-text">Amani AI</span>
+                        <span class="brand-text">Tesfanesh AI</span>
                     </div>
                     <button class="icon-button" onclick="toggleSidebar()" title="Collapse menu">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -171,8 +171,8 @@
                 </div>
 
                 <div class="gemini-disclaimer-footer">
-                    Amani AI may produce inaccurate information. Please verify important details.
-                    አማኒ ኤአይ የተሳሳተ መረጃ ሊያቀርብ ይችላል። እባክዎ አስፈላጊ ዝርዝሮችን ያረጋግጡ።
+                    Tesfanesh AI may produce inaccurate information. Please verify important details.
+                    ተስፋነሽ ኤአይ የተሳሳተ መረጃ ሊያቀርብ ይችላል። እባክዎ አስፈላጊ ዝርዝሮችን ያረጋግጡ።
                 </div>
             </div>
         </main>
@@ -1668,7 +1668,7 @@
             if (muteBtn) muteBtn.classList.remove("active");
 
             setVoiceModeState("listening", "Connecting mic... / ማይክሮፎን በማገናኘት ላይ...");
-            updateVoiceSubtitle("Amani AI", "Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...", true);
+            updateVoiceSubtitle("Tesfanesh AI", "Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...", true);
 
             try {
                 vmMediaStream = await requestUserMediaStream({
@@ -1710,7 +1710,7 @@
             }
 
             setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
-            updateVoiceSubtitle("Amani AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
+            updateVoiceSubtitle("Tesfanesh AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
 
             startVoiceModeRecording();
         }
@@ -1870,7 +1870,7 @@
 
                 vmWebSpeechRec.onstart = () => {
                     setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
-                    updateVoiceSubtitle("Amani AI", "Start speaking... / መናገር ይጀምሩ...", true);
+                    updateVoiceSubtitle("Tesfanesh AI", "Start speaking... / መናገር ይጀምሩ...", true);
                 };
 
                 vmWebSpeechRec.onresult = (event) => {
@@ -1937,7 +1937,7 @@
                     vmIsProcessing = false;
                     if (vmActive && !vmMuted) {
                         setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
-                        updateVoiceSubtitle("Amani AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
+                        updateVoiceSubtitle("Tesfanesh AI", "Start speaking in Amharic or English... / መናገር ይጀምሩ...", true);
                         startVoiceModeRecording();
                     }
                     return;
@@ -1964,7 +1964,7 @@
             if (!vmActive) return;
 
             setVoiceModeState("thinking", "Thinking... / በማሰብ ላይ...");
-            updateVoiceSubtitle("Amani AI", "Thinking... / በማሰብ ላይ...", true);
+            updateVoiceSubtitle("Tesfanesh AI", "Thinking... / በማሰብ ላይ...", true);
 
             vmAbortController = new AbortController();
 
@@ -2008,7 +2008,7 @@
                         scrollToBottom();
                     }
 
-                    updateVoiceSubtitle("Amani AI", fullText, false);
+                    updateVoiceSubtitle("Tesfanesh AI", fullText, false);
                 }
 
                 if (bubble) {
@@ -2082,7 +2082,7 @@
                     setTimeout(() => {
                         if (vmActive && !vmMuted && !vmIsSpeaking && !vmIsProcessing) {
                             setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
-                            updateVoiceSubtitle("Amani AI", "Listening for your response... / እያዳመጥኩ ነው...", true);
+                            updateVoiceSubtitle("Tesfanesh AI", "Listening for your response... / እያዳመጥኩ ነው...", true);
                             if (vmWebSpeechRec) {
                                 try { vmWebSpeechRec.start(); } catch (e) { }
                             } else {
@@ -2154,7 +2154,7 @@
                     micIcon.innerHTML = '<path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>';
                 }
                 setVoiceModeState("listening", "Listening... / እያዳመጥኩ ነው...");
-                updateVoiceSubtitle("Amani AI", "Listening... / እያዳመጥኩ ነው...", true);
+                updateVoiceSubtitle("Tesfanesh AI", "Listening... / እያዳመጥኩ ነው...", true);
                 if (vmWebSpeechRec) {
                     try { vmWebSpeechRec.start(); } catch (e) { }
                 } else {
@@ -2309,7 +2309,7 @@
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                         <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
                     </svg>
-                    <span id="vmSpeakerName">Amani AI</span>
+                    <span id="vmSpeakerName">Tesfanesh AI</span>
                 </div>
                 <div class="vm-subtitles-text placeholder" id="vmSubtitlesText">
                     Start speaking in Amharic or English... / መናገር ይጀምሩ...

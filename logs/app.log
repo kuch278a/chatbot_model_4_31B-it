@@ -25613,3 +25613,2142 @@ Indexed 3 files from /mnt/data/local_data
   [92mSTT done[0m in [93m0.32s[0m | lang=am-ET | transcript: 
 127.0.0.1 - - [21/Sep/2026 16:42:28] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
 127.0.0.1 - - [21/Sep/2026 16:49:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Sep/2026 16:58:22] "GET / HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights:  64%|######4   | 87/135 [00:00<00:00, 868.41it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 1053.02it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:04<48:57,  2.48s/it]Loading weights:   6%|6         | 77/1188 [00:05<00:53, 20.85it/s]Loading weights:   8%|8         | 100/1188 [00:05<00:46, 23.17it/s]Loading weights:  10%|9         | 114/1188 [00:06<00:48, 22.27it/s]Loading weights:  10%|#         | 124/1188 [00:06<00:46, 22.94it/s]Loading weights:  11%|#1        | 131/1188 [00:07<00:49, 21.31it/s]Loading weights:  12%|#1        | 140/1188 [00:07<00:44, 23.33it/s]Loading weights:  12%|#2        | 145/1188 [00:07<00:46, 22.54it/s]Loading weights:  13%|#2        | 149/1188 [00:08<00:44, 23.25it/s]Loading weights:  13%|#3        | 158/1188 [00:08<00:52, 19.50it/s]Loading weights:  14%|#3        | 161/1188 [00:08<00:52, 19.48it/s]Loading weights:  14%|#4        | 168/1188 [00:09<00:56, 18.07it/s]Loading weights:  14%|#4        | 172/1188 [00:09<00:51, 19.78it/s]Loading weights:  15%|#5        | 181/1188 [00:09<00:38, 26.00it/s]Loading weights:  16%|#5        | 185/1188 [00:09<00:48, 20.70it/s]Loading weights:  16%|#5        | 188/1188 [00:10<00:47, 21.11it/s]Loading weights:  17%|#6        | 199/1188 [00:10<00:46, 21.36it/s]Loading weights:  17%|#7        | 205/1188 [00:10<00:37, 25.89it/s]Loading weights:  18%|#7        | 209/1188 [00:10<00:37, 26.04it/s]Loading weights:  18%|#7        | 213/1188 [00:11<00:44, 22.12it/s]Loading weights:  18%|#8        | 216/1188 [00:11<00:42, 22.61it/s]Loading weights:  19%|#8        | 224/1188 [00:11<00:31, 30.41it/s]Loading weights:  19%|#9        | 228/1188 [00:11<00:46, 20.66it/s]Loading weights:  20%|#9        | 237/1188 [00:11<00:34, 27.44it/s]Loading weights:  20%|##        | 241/1188 [00:12<00:45, 20.92it/s]Loading weights:  21%|##        | 244/1188 [00:12<00:42, 22.16it/s]Loading weights:  21%|##1       | 251/1188 [00:12<00:42, 22.16it/s]Loading weights:  21%|##1       | 255/1188 [00:12<00:38, 24.14it/s]Loading weights:  22%|##2       | 264/1188 [00:13<00:33, 27.29it/s]Loading weights:  23%|##2       | 268/1188 [00:13<00:38, 23.68it/s]Loading weights:  23%|##2       | 271/1188 [00:13<00:40, 22.86it/s]Loading weights:  23%|##3       | 279/1188 [00:13<00:28, 32.36it/s]Loading weights:  24%|##3       | 283/1188 [00:14<00:48, 18.71it/s]Loading weights:  25%|##4       | 292/1188 [00:14<00:40, 22.25it/s]Loading weights:  25%|##4       | 296/1188 [00:14<00:47, 18.63it/s]Loading weights:  25%|##5       | 299/1188 [00:14<00:44, 20.00it/s]Loading weights:  26%|##5       | 306/1188 [00:15<00:32, 27.42it/s]Loading weights:  26%|##6       | 310/1188 [00:15<00:48, 18.25it/s]Loading weights:  26%|##6       | 313/1188 [00:15<00:47, 18.44it/s]Loading weights:  27%|##7       | 324/1188 [00:16<00:38, 22.33it/s]Loading weights:  28%|##7       | 327/1188 [00:16<00:40, 21.17it/s]Loading weights:  28%|##7       | 332/1188 [00:16<00:35, 24.37it/s]Loading weights:  28%|##8       | 335/1188 [00:16<00:42, 19.86it/s]Loading weights:  29%|##8       | 339/1188 [00:16<00:41, 20.59it/s]Loading weights:  29%|##9       | 345/1188 [00:17<00:37, 22.44it/s]Loading weights:  30%|##9       | 351/1188 [00:17<00:39, 21.34it/s]Loading weights:  30%|##9       | 354/1188 [00:17<00:39, 20.87it/s]Loading weights:  31%|###       | 365/1188 [00:17<00:36, 22.33it/s]Loading weights:  32%|###1      | 375/1188 [00:18<00:27, 30.06it/s]Loading weights:  32%|###1      | 379/1188 [00:18<00:34, 23.75it/s]Loading weights:  32%|###2      | 382/1188 [00:18<00:32, 24.56it/s]Loading weights:  33%|###2      | 389/1188 [00:18<00:29, 27.53it/s]Loading weights:  33%|###3      | 393/1188 [00:19<00:40, 19.63it/s]Loading weights:  34%|###3      | 403/1188 [00:19<00:31, 24.97it/s]Loading weights:  34%|###4      | 407/1188 [00:19<00:38, 20.03it/s]Loading weights:  35%|###4      | 410/1188 [00:19<00:42, 18.38it/s]Loading weights:  35%|###4      | 415/1188 [00:20<00:35, 21.93it/s]Loading weights:  35%|###5      | 418/1188 [00:20<00:36, 21.10it/s]Loading weights:  35%|###5      | 421/1188 [00:20<00:36, 20.88it/s]Loading weights:  36%|###5      | 424/1188 [00:20<00:35, 21.45it/s]Loading weights:  36%|###6      | 430/1188 [00:20<00:28, 27.03it/s]Loading weights:  37%|###6      | 434/1188 [00:21<00:39, 18.95it/s]Loading weights:  37%|###7      | 444/1188 [00:21<00:28, 26.21it/s]Loading weights:  38%|###7      | 448/1188 [00:21<00:31, 23.29it/s]Loading weights:  38%|###7      | 451/1188 [00:21<00:35, 21.05it/s]Loading weights:  39%|###8      | 462/1188 [00:22<00:33, 21.75it/s]Loading weights:  40%|###9      | 472/1188 [00:22<00:28, 25.41it/s]Loading weights:  40%|####      | 476/1188 [00:22<00:31, 22.64it/s]Loading weights:  40%|####      | 479/1188 [00:22<00:31, 22.47it/s]Loading weights:  41%|####      | 486/1188 [00:23<00:25, 27.73it/s]Loading weights:  41%|####1     | 490/1188 [00:23<00:35, 19.60it/s]Loading weights:  42%|####1     | 498/1188 [00:23<00:28, 24.53it/s]Loading weights:  42%|####2     | 501/1188 [00:23<00:34, 20.19it/s]Loading weights:  43%|####2     | 505/1188 [00:24<00:30, 22.16it/s]Loading weights:  43%|####3     | 514/1188 [00:24<00:20, 32.46it/s]Loading weights:  44%|####3     | 519/1188 [00:24<00:30, 22.29it/s]Loading weights:  44%|####4     | 527/1188 [00:24<00:22, 29.77it/s]Loading weights:  45%|####4     | 532/1188 [00:25<00:30, 21.67it/s]Loading weights:  46%|####5     | 541/1188 [00:25<00:25, 25.33it/s]Loading weights:  46%|####5     | 545/1188 [00:25<00:28, 22.45it/s]Loading weights:  46%|####6     | 548/1188 [00:25<00:29, 21.71it/s]Loading weights:  47%|####7     | 559/1188 [00:26<00:29, 21.67it/s]Loading weights:  48%|####7     | 569/1188 [00:26<00:22, 27.60it/s]Loading weights:  48%|####8     | 573/1188 [00:26<00:25, 24.09it/s]Loading weights:  48%|####8     | 576/1188 [00:27<00:30, 19.80it/s]Loading weights:  49%|####8     | 581/1188 [00:27<00:25, 23.74it/s]Loading weights:  49%|####9     | 585/1188 [00:27<00:29, 20.40it/s]Loading weights:  49%|####9     | 588/1188 [00:27<00:33, 18.17it/s]Loading weights:  50%|#####     | 596/1188 [00:27<00:21, 27.02it/s]Loading weights:  51%|#####     | 600/1188 [00:28<00:28, 20.33it/s]Loading weights:  51%|#####1    | 610/1188 [00:28<00:20, 28.56it/s]Loading weights:  52%|#####1    | 614/1188 [00:28<00:32, 17.78it/s]Loading weights:  53%|#####2    | 624/1188 [00:29<00:23, 23.55it/s]Loading weights:  53%|#####2    | 628/1188 [00:29<00:29, 18.92it/s]Loading weights:  54%|#####3    | 638/1188 [00:29<00:23, 23.73it/s]Loading weights:  54%|#####4    | 642/1188 [00:30<00:26, 20.70it/s]Loading weights:  55%|#####4    | 650/1188 [00:30<00:20, 26.71it/s]Loading weights:  55%|#####5    | 656/1188 [00:30<00:23, 22.73it/s]Loading weights:  55%|#####5    | 659/1188 [00:30<00:24, 21.88it/s]Loading weights:  56%|#####5    | 664/1188 [00:30<00:21, 23.84it/s]Loading weights:  56%|#####6    | 667/1188 [00:31<00:25, 20.56it/s]Loading weights:  56%|#####6    | 670/1188 [00:31<00:25, 20.19it/s]Loading weights:  57%|#####6    | 677/1188 [00:31<00:19, 25.90it/s]Loading weights:  57%|#####7    | 683/1188 [00:31<00:25, 19.62it/s]Loading weights:  58%|#####7    | 686/1188 [00:32<00:25, 19.95it/s]Loading weights:  59%|#####8    | 697/1188 [00:32<00:25, 19.09it/s]Loading weights:  60%|#####9    | 707/1188 [00:32<00:19, 25.11it/s]Loading weights:  60%|#####9    | 711/1188 [00:33<00:24, 19.76it/s]Loading weights:  61%|######    | 721/1188 [00:33<00:17, 26.02it/s]Loading weights:  61%|######1   | 725/1188 [00:33<00:22, 20.56it/s]Loading weights:  62%|######1   | 735/1188 [00:33<00:15, 29.83it/s]Loading weights:  62%|######2   | 740/1188 [00:34<00:19, 22.67it/s]Loading weights:  63%|######2   | 744/1188 [00:34<00:22, 20.10it/s]Loading weights:  63%|######3   | 749/1188 [00:34<00:20, 21.67it/s]Loading weights:  63%|######3   | 753/1188 [00:35<00:23, 18.39it/s]Loading weights:  64%|######4   | 762/1188 [00:35<00:16, 26.53it/s]Loading weights:  64%|######4   | 766/1188 [00:35<00:24, 17.24it/s]Loading weights:  65%|######5   | 776/1188 [00:35<00:16, 24.82it/s]Loading weights:  66%|######5   | 780/1188 [00:36<00:23, 17.62it/s]Loading weights:  66%|######6   | 790/1188 [00:36<00:18, 21.77it/s]Loading weights:  67%|######6   | 794/1188 [00:37<00:21, 18.68it/s]Loading weights:  67%|######7   | 797/1188 [00:37<00:21, 18.09it/s]Loading weights:  68%|######8   | 808/1188 [00:37<00:19, 19.82it/s]Loading weights:  69%|######8   | 818/1188 [00:38<00:16, 23.02it/s]Loading weights:  69%|######9   | 822/1188 [00:38<00:17, 21.50it/s]Loading weights:  69%|######9   | 825/1188 [00:38<00:19, 18.62it/s]Loading weights:  72%|#######2  | 858/1188 [00:38<00:05, 56.92it/s]Loading weights:  75%|#######4  | 887/1188 [00:38<00:03, 91.61it/s]Loading weights:  76%|#######6  | 905/1188 [00:38<00:02, 107.14it/s]Loading weights:  79%|#######9  | 939/1188 [00:39<00:01, 142.29it/s]Loading weights:  81%|########1 | 967/1188 [00:39<00:01, 166.71it/s]Loading weights:  84%|########4 | 1001/1188 [00:39<00:00, 201.35it/s]Loading weights:  87%|########6 | 1030/1188 [00:39<00:00, 221.51it/s]Loading weights:  90%|########9 | 1069/1188 [00:39<00:00, 254.59it/s]Loading weights:  93%|#########3| 1105/1188 [00:39<00:00, 281.66it/s]Loading weights:  96%|#########6| 1145/1188 [00:39<00:00, 310.52it/s]Loading weights: 100%|#########9| 1183/1188 [00:39<00:00, 325.38it/s]Loading weights: 100%|##########| 1188/1188 [00:39<00:00, 29.80it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [22/Sep/2026 14:25:42] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:47:54][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 359 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 368122 input bytes → 66770 PCM bytes (2.09s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   9%|8         | 69/796 [00:00<00:01, 667.99it/s]Loading weights:  20%|#9        | 156/796 [00:00<00:00, 784.97it/s]Loading weights:  30%|##9       | 235/796 [00:00<00:00, 774.50it/s]Loading weights:  39%|###9      | 313/796 [00:00<00:00, 716.70it/s]Loading weights:  48%|####8     | 386/796 [00:00<00:00, 698.93it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1423.86it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 33385 samples, duration=2.09s, max=0.7877, rms=0.0855
+[Ethio-ASR][DEBUG] VAD: 33385 samples → 33385 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ለው።'
+  [92mSTT done[0m in [93m6.48s[0m | lang=am-ET | transcript: ለው።
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m16.03s[0m | response: የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በግብርና፣ በትምህርት፣ በጤና እና በሕዝብ ደህንነት ዘርፎች የሰው ሰራሽ አስተውሎት ቴክኖሎጂዎችን በማልማትና በ...
+  [92mTTS done[0m in [93m2.19s[0m
+  [1m[92m✔ /talk total[0m [93m24.97s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:48:19] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:49:11][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 510 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 522618 input bytes → 94796 PCM bytes (2.96s)
+[Ethio-ASR][DEBUG] PCM→float32: 47398 samples, duration=2.96s, max=0.9962, rms=0.1345
+[Ethio-ASR][DEBUG] VAD: 47398 samples → 47398 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ው ው'
+  [92mSTT done[0m in [93m1.69s[0m | lang=am-ET | transcript: ው ው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m8.26s[0m | response: ይቅርታ፣ ጥያቄዎ ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እችላለሁ።
+  [92mTTS done[0m in [93m1.77s[0m
+  [1m[92m✔ /talk total[0m [93m11.72s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:49:22] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:49:35][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 505 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 518074 input bytes → 93972 PCM bytes (2.94s)
+[Ethio-ASR][DEBUG] PCM→float32: 46986 samples, duration=2.94s, max=0.9949, rms=0.1863
+[Ethio-ASR][DEBUG] VAD: 46986 samples → 46986 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'የለው የለው ሄለው።'
+  [92mSTT done[0m in [93m1.67s[0m | lang=am-ET | transcript: የለው የለው ሄለው።
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.309).
+  [92mLLM done[0m in [93m8.42s[0m | response: ይቅርታ፣ ጥያቄዎ ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እችላለሁ።
+  [92mTTS done[0m in [93m0.91s[0m
+  [1m[92m✔ /talk total[0m [93m11.00s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:49:46] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:49:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 510 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 522618 input bytes → 94796 PCM bytes (2.96s)
+[Ethio-ASR][DEBUG] PCM→float32: 47398 samples, duration=2.96s, max=0.9951, rms=0.1961
+[Ethio-ASR][DEBUG] VAD: 47398 samples → 47398 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ህለው ለው ው ለው ህለው'
+  [92mSTT done[0m in [93m1.63s[0m | lang=am-ET | transcript: ህለው ለው ው ለው ህለው
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.417).
+  [92mLLM done[0m in [93m8.73s[0m | response: ይቅርታ፣ ጥያቄዎ ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እችላለሁ።
+  [92mTTS done[0m in [93m0.87s[0m
+  [1m[92m✔ /talk total[0m [93m11.23s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:50:10] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:50:22][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 470 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 481722 input bytes → 87378 PCM bytes (2.73s)
+[Ethio-ASR][DEBUG] PCM→float32: 43689 samples, duration=2.73s, max=0.9933, rms=0.1589
+[Ethio-ASR][DEBUG] VAD: 43689 samples → 43689 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'አለው ሀለው አለው ለው'
+  [92mSTT done[0m in [93m1.63s[0m | lang=am-ET | transcript: አለው ሀለው አለው ለው
+  [Context Filter] Greeting detected ('አለው ሀለው አለው ለው') — bypassing RAG context injection.
+  [92mLLM done[0m in [93m7.90s[0m | response: ይቅርታ፣ ጥያቄዎ ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እችላለሁ።
+  [92mTTS done[0m in [93m0.94s[0m
+  [1m[92m✔ /talk total[0m [93m10.47s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:50:33] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:52:34][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 434 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 445370 input bytes → 80782 PCM bytes (2.52s)
+[Ethio-ASR][DEBUG] PCM→float32: 40391 samples, duration=2.52s, max=0.9946, rms=0.2800
+[Ethio-ASR][DEBUG] VAD: 40391 samples → 40391 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'እና ደግሞ ሪኮርዲንግ ምናም ነው ለት ነው'
+  [92mSTT done[0m in [93m1.63s[0m | lang=am-ET | transcript: እና ደግሞ ሪኮርዲንግ ምናም ነው ለት ነው
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.378).
+  [92mLLM done[0m in [93m12.57s[0m | response: ይቅርታ፣ የሪኮርዲንግ ትርጉም ወይም አጠቃቀምን በተመለከተ የጠየቁት ጥያቄ ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እች...
+  [92mTTS done[0m in [93m1.78s[0m
+  [1m[92m✔ /talk total[0m [93m15.97s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:52:50] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:53:18][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 980 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 1004282 input bytes → 182172 PCM bytes (5.69s)
+[Ethio-ASR][DEBUG] PCM→float32: 91086 samples, duration=5.69s, max=0.9952, rms=0.1335
+[Ethio-ASR][DEBUG] VAD: 91086 samples → 91086 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ምንናቁ አስተካቅል ብሎት ነ አይደለም።'
+  [92mSTT done[0m in [93m1.77s[0m | lang=am-ET | transcript: ምንናቁ አስተካቅል ብሎት ነ አይደለም።
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m9.01s[0m | response: ይቅርታ፣ የላኩት መልዕክት ግልጽ ስላልሆነ ምን ማስተካከል እንደሚፈልጉ ወይም ምን ዓይነት መረጃ እንደሚፈልጉ በዝርዝር ቢነግሩኝ ልረዳዎ እችላለሁ።
+  [92mTTS done[0m in [93m1.93s[0m
+  [1m[92m✔ /talk total[0m [93m12.70s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:53:31] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 14:53:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 14:54:02] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:56:11][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 488 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 499898 input bytes → 90674 PCM bytes (2.83s)
+[Ethio-ASR][DEBUG] PCM→float32: 45337 samples, duration=2.83s, max=1.0000, rms=0.0633
+[Ethio-ASR][DEBUG] VAD: 45337 samples → 45337 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m1.74s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [22/Sep/2026 14:56:13] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:56:20][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 528 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 540794 input bytes → 98094 PCM bytes (3.07s)
+[Ethio-ASR][DEBUG] PCM→float32: 49047 samples, duration=3.07s, max=0.9911, rms=0.1140
+[Ethio-ASR][DEBUG] VAD: 49047 samples → 49047 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ቼክ ክ ቼ ቼክ ው'
+  [92mSTT done[0m in [93m1.92s[0m | lang=am-ET | transcript: ቼክ ክ ቼ ቼክ ው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m8.54s[0m | response: ይቅርታ፣ የላኩት መልዕክት ግልጽ ስላልሆነ ምን ማወቅ እንደሚፈልጉ በዝርዝር ቢነግሩኝ የተሻለ መረጃ ልሰጥዎ እችላለሁ።
+  [92mTTS done[0m in [93m2.05s[0m
+  [1m[92m✔ /talk total[0m [93m12.51s[0m
+
+127.0.0.1 - - [22/Sep/2026 14:56:32] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[14:56:51][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 22 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 22778 input bytes → 4122 PCM bytes (0.13s)
+[Ethio-ASR][DEBUG] PCM→float32: 2061 samples, duration=0.13s, max=0.0002, rms=0.0001
+[Ethio-ASR][DEBUG] VAD: 2061 samples → 2061 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.54s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [22/Sep/2026 14:56:52] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:03:06][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 505 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 518074 input bytes → 93972 PCM bytes (2.94s)
+[Ethio-ASR][DEBUG] PCM→float32: 46986 samples, duration=2.94s, max=0.9931, rms=0.1415
+[Ethio-ASR][DEBUG] VAD: 46986 samples → 46986 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስምሽ ማን ነው?'
+  [92mSTT done[0m in [93m1.88s[0m | lang=am-ET | transcript: ስምሽ ማን ነው?
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.04s[0m | response: ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.86s[0m
+  [1m[92m✔ /talk total[0m [93m8.78s[0m
+
+127.0.0.1 - - [22/Sep/2026 15:03:15] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:03:39][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 994 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 1017914 input bytes → 184646 PCM bytes (5.77s)
+[Ethio-ASR][DEBUG] PCM→float32: 92323 samples, duration=5.77s, max=0.3929, rms=0.0582
+[Ethio-ASR][DEBUG] VAD: 92323 samples → 92323 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'የኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ማ ናቸው?'
+  [92mSTT done[0m in [93m1.92s[0m | lang=am-ET | transcript: የኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ማ ናቸው?
+  [Context Filter] Accepted 2/2 context chunks (top score: 1.000).
+  [92mLLM done[0m in [93m8.79s[0m | response: የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተር ወርቁ ጋቸና ናቸው።
+  [92mTTS done[0m in [93m0.92s[0m
+  [1m[92m✔ /talk total[0m [93m11.64s[0m
+
+127.0.0.1 - - [22/Sep/2026 15:03:50] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:04:07][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 465 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 477178 input bytes → 86552 PCM bytes (2.70s)
+[Ethio-ASR][DEBUG] PCM→float32: 43276 samples, duration=2.70s, max=0.6166, rms=0.1043
+[Ethio-ASR][DEBUG] VAD: 43276 samples → 43276 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'እስቺ ስለ ኢትዮጵያ ንገሪ'
+  [92mSTT done[0m in [93m1.72s[0m | lang=am-ET | transcript: እስቺ ስለ ኢትዮጵያ ንገሪ
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.358).
+  [92mLLM done[0m in [93m14.75s[0m | response: ኢትዮጵያ የሰው ልጅ መገኛ ተብላ የምትታወቅ ሲሆን በአፋር ስምጥ ሸለቆ ውስጥ እንደ ድንቅነሽ (3.2 ሚሊዮን ዓመት) እና አርዲ (4.4 ሚሊዮን ዓመት) ያሉ ጥ...
+  [92mTTS done[0m in [93m2.04s[0m
+  [1m[92m✔ /talk total[0m [93m18.51s[0m
+
+127.0.0.1 - - [22/Sep/2026 15:04:26] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:05:33][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 412 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 422650 input bytes → 76662 PCM bytes (2.40s)
+[Ethio-ASR][DEBUG] PCM→float32: 38331 samples, duration=2.40s, max=0.9310, rms=0.1686
+[Ethio-ASR][DEBUG] VAD: 38331 samples → 38331 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስለ አሜሪካ ነገር'
+  [92mSTT done[0m in [93m1.56s[0m | lang=am-ET | transcript: ስለ አሜሪካ ነገር
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m14.56s[0m | response: ዩናይትድ ስቴትስ ኦፍ አሜሪካ በሰሜናዊ አሜሪካ የምትገኝ፣ በ50 ግዛቶች የተዋቀረች፣ በዓለም ላይ ከፍተኛው የኢኮኖሚ አቅም ያላት እና በዴሞክራሲያዊ የሪፐብሊክ...
+  [92mTTS done[0m in [93m2.51s[0m
+  [1m[92m✔ /talk total[0m [93m18.63s[0m
+
+127.0.0.1 - - [22/Sep/2026 15:05:52] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:13:20][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 22 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 22778 input bytes → 4122 PCM bytes (0.13s)
+[Ethio-ASR][DEBUG] PCM→float32: 2061 samples, duration=0.13s, max=0.0745, rms=0.0290
+[Ethio-ASR][DEBUG] VAD: 2061 samples → 2061 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.87s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [22/Sep/2026 15:13:21] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [22/Sep/2026 15:29:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 15:29:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 15:48:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 15:56:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:03:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.amplifyrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.anthropic/config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.aws/credentials.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.claude/settings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.config/gcloud/credentials.db HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.aws/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.config/gcloud/application_default_credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.docker/laravel/app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.aws/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.aws/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.boto HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.config/anthropic/credentials/default.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.docker/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.docker/secrets.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.docker/config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env-example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env-sample HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.anthropic HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.aws HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.development HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.dist HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.docker HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.email HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.live HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.mail HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.openai HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.qa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.sample HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.env.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.git-credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.git/HEAD HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.git/ORIG_HEAD HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.gitconfig HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.gitlab-ci.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.gitlab-ci/variables.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /.ssh/id_rsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /Dockerfile HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "GET /?phpinfo=1 HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /administrator/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /app/.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /app/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:33] "[33mGET /appsettings.QA.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /aws.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /aws.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /back/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /client/stripe.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /client_secrets.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /cms/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config.ts HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config/database.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config/databases.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config/parameters.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /config/stripe.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /credentials.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /credentials.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /database.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /env.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /id_rsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /info.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /netlify.toml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /phpinfo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /phpinfo.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /public/phpinfo.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /secrets.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /server/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /settings.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /stripe.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /stripe.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /stripe.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /template.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /v3/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /vercel.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /wp-config.php.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /webpack.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /var/log/debug.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /.git/config.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:34] "[33mGET /dev_env.tfvars HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:35] "[33mGET /.wgetrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:35] "[33mGET /cloud-config.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:03:35] "[33mGET /actions/debug/default/index HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:16] "[33mPOST /hello.world?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:18] "[31m[1mPOST /?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1[0m" 405 -
+127.0.0.1 - - [22/Sep/2026 16:04:20] "[33mPOST /index.php?%25ADd+allow_url_include%3D1+%25ADd+auto_prepend_file%3Dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:21] "[33mPOST /test.hello?%25ADd+allow_url_include%3D1+%25ADd+auto_prepend_file%3Dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:22] "[33mPOST /index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:22] "[33mGET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:23] "[33mGET /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:24] "[33mGET /vendor/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:25] "[33mGET /vendor/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:26] "[33mGET /vendor/phpunit/phpunit/LICENSE/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:26] "[33mGET /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:26] "[33mGET /phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:27] "[33mGET /phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:27] "[33mGET /phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:28] "[33mGET /phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:29] "[33mGET /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:29] "[33mGET /lib/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:30] "[33mGET /lib/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:30] "[33mGET /lib/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:31] "[33mGET /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:31] "[33mGET /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:31] "[33mGET /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:32] "[33mGET /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:33] "[33mGET /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:34] "[33mGET /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:34] "[33mGET /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:35] "[33mGET /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:35] "[33mGET /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:36] "[33mGET /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:37] "[33mGET /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:38] "[33mGET /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:38] "[33mGET /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:39] "[33mGET /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:39] "[33mGET /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:40] "[33mGET /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:41] "[33mGET /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:41] "[33mGET /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:41] "[33mGET /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:42] "[33mGET /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:42] "[33mGET /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:43] "[33mGET /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:43] "[33mGET /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:43] "[33mGET /index.php?s=/index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=Hello HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:44] "[33mGET /public/index.php?s=/index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=Hello HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:45] "[33mGET /index.php?lang=../../../../../../../../usr/local/lib/php/pearcmd&+config-create+/&/<?echo(md5("hi"));?>+/tmp/index1.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:45] "[33mGET /index.php?lang=../../../../../../../../tmp/index1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:04:46] "[33mGET /containers/json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 16:27:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:30:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:31:01] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [22/Sep/2026 16:58:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 16:58:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:05:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:05:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /wp-config.php~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.git/index HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /configuration.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.yarnrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /settings.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /compose/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /instance/config.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.env.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.docker/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.npmrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.gitlab-ci.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.env_dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /docker-compose/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /package-lock.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /local_settings.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /composer.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /env.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /.env.bak~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /docker-compose.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:15] "[33mGET /config.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.git/HEAD HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /wp-config.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /wp-config.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config/app.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /wp-config.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /docker-compose.override.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /settings.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config/database.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /wp-config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /Gemfile.lock HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env.old~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env.temp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config/application.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config/secrets.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config.inc.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /phpinfo.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /info.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /config/environment.rb HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /ecosystem.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.env.orig HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:16] "[33mGET /.ssh/id_dsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /credentials.csv HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.aws.credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /next.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /pm2.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /terraform.tfstate HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws-credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws/braket/.env.quantum HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /helm/values.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.git/refs/heads/master HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /kubeconfig HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /terraform.tfvars HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /infra/terraform.tfvars HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.git/refs/heads/main HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /azure/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.azure/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.git/COMMIT_EDITMSG HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.kube/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /terraform.tfstate.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.terraform.tfvars HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /service-account.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /actuator/beans HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /gcp-credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /service_account.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.gcp/credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /actuator/info HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /google-credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /database.properties HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /_actuator/env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /bak/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /certs/server.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.gitconfig HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /env.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /aws.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /actuator/logfile HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /k8s.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /docker-compose.prod.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /ssl/private.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /wp-config-sample.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.ssh/id_rsa.priv HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.ssh/identity.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /actuator/trace HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /Gemfile HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /config.inc.php.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /.ssh/id_ecdsa.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:20] "[33mGET /config.ini.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /_config.inc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /inc/config.inc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/config.inc.php.dist HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /localsettings.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /etc/config.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /configuration.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /configuration.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/database.yml~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/config.inc.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /localsettings.php~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /app/config/database.yml.pgsql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wp-config.inc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/config.inc.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /localsettings.php.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /localsettings.php.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /localsettings.php.swp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wp-config.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/dbconfig.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /app/config/database.yml~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /app/config/databases.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /db1.sqlite HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wp-config.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /app/config/database.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /.capistrano HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wp-config.php.swp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/database.yml.pgsql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /db.sqlite HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /data.sqlite HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /.wp-config.php.swp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /schema.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /sql/db.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wordpress/wp-config.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /wp-config.php.dist HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /app/laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /vendor/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /mysite/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /portal/laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /symfony/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /out/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /system/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /gunicorn.conf.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /db.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /nuxt.config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /gatsby-config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /inc/db.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /src/main/resources/aws.properties HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /flask_app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /instance/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /laravel/.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:25] "[33mGET /config/initializers/stripe.rb HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /var/cache/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /gcp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /aws/rds/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.gcp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /joomla/configuration.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env.netlify HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /administrator/configuration.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.wrangler/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /vercel.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /k8s-config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /ansible/group_vars/all/vars.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.azure/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /aws/ec2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /azure/credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /k8s/configmap.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /boto.cfg HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /cloudflare/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /google-services.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /skaffold.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /ansible/roles/common/vars/main.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /playbooks/vars/secrets.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /deploy/k8s/secrets.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /kubernetes/deployment.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /ansible/vars/secrets.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /gcp-key.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env.2024 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /Procfile.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /circle.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /ansible/group_vars/all.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env.2025 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env.20230101 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.woodpecker.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /aws/s3/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /magento/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.netlify/state.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /helmfile.d/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /ansible/host_vars/localhost.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /jenkins/secrets/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.env.test.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /jwt.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /.git/refs/stash HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /database.sqlite3 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /server.crt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /prod.db HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /local.db HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:06:29] "[33mGET /kubernetes/configmap.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:27:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:27:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 17:30:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:33:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:42:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 17:59:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 18:02:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 18:06:54] "[33mGET /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 18:11:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 18:21:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 18:35:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 18:55:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:01:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:02:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:14:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:14:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:21:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:31:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:31:31] "[33mPOST /mcp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 19:31:31] "[33mGET /sse HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 19:31:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 19:51:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 19:51:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 20:08:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:08:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 20:10:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:22:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:22:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:42:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:45:40] "[33mGET /SDK/webLanguage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 20:58:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 20:58:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:06:31] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:06:51] "[33mGET /appsettings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:07:00] "[33mGET /config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:07:05] "[33mGET /web.config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:07:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:37:50] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:44:33] "[33mGET /manage/account/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:33] "[33mGET /admin/index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:34] "[33mGET /index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:37] "[33mGET /+CSCOE+/logon.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:39] "[33mGET /cgi-bin/login.cgi HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:41] "[33mGET /login.htm HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:41] "[33mGET /login.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:42] "[33mGET /login.jsp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:43] "[33mGET /login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:45] "[33mGET /doc/index.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:44:45] "[33mGET /remote/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 21:47:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:48:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:54:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 21:56:47] "[31m[1mPOST / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [22/Sep/2026 21:56:47] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 22:48:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 22:48:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 22:48:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 23:12:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 23:23:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 23:34:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2026 23:43:10] "[33mGET /Dr0v HTTP/1.1[0m" 404 -
+127.0.0.1 - - [22/Sep/2026 23:47:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:15:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:22:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:30:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:32:46] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 00:36:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:36:43] "GET / HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[00:36:45][0m
+  [96mClient :[0m 47.88.18.245
+  [96mSession:[0m 1790113004569
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.00s[0m
+
+127.0.0.1 - - [23/Sep/2026 00:36:45] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:36:45] "GET /files HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 00:36:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:01:17] "[33mGET /c/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:06:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 01:06:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:07:16] "[33mGET /sellers.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:32:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 01:33:45] "[33mPOST /hello.world?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:45] "[31m[1mPOST /?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 01:33:46] "[33mPOST /index.php?%25ADd+allow_url_include%3D1+%25ADd+auto_prepend_file%3Dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:46] "[33mPOST /test.hello?%25ADd+allow_url_include%3D1+%25ADd+auto_prepend_file%3Dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:47] "[33mPOST /index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp://input HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:47] "[33mGET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:48] "[33mGET /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:48] "[33mGET /vendor/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:49] "[33mGET /vendor/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:49] "[33mGET /vendor/phpunit/phpunit/LICENSE/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:49] "[33mGET /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:50] "[33mGET /phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:50] "[33mGET /phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:51] "[33mGET /phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:51] "[33mGET /phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:52] "[33mGET /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:52] "[33mGET /lib/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:53] "[33mGET /lib/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:53] "[33mGET /lib/phpunit/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:54] "[33mGET /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:54] "[33mGET /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:55] "[33mGET /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:55] "[33mGET /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:56] "[33mGET /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:56] "[33mGET /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:57] "[33mGET /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:57] "[33mGET /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:58] "[33mGET /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:59] "[33mGET /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:33:59] "[33mGET /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:00] "[33mGET /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:00] "[33mGET /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:01] "[33mGET /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:01] "[33mGET /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:02] "[33mGET /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:02] "[33mGET /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:02] "[33mGET /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:03] "[33mGET /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:03] "[33mGET /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:04] "[33mGET /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:04] "[33mGET /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:05] "[33mGET /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:06] "[33mGET /index.php?s=/index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=Hello HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:06] "[33mGET /public/index.php?s=/index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=Hello HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:07] "[33mGET /index.php?lang=../../../../../../../../usr/local/lib/php/pearcmd&+config-create+/&/<?echo(md5("hi"));?>+/tmp/index1.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:08] "[33mGET /index.php?lang=../../../../../../../../tmp/index1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:34:08] "[33mGET /containers/json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 01:56:24] "[33mGET /stalker_portal/server/tools/auth_simple.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /sendgrid.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /admin/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:14] "[33mGET /server/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "[33mGET /laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "[33mGET /phpinfo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "[33mGET /phpinfo.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "GET /?phpinfo=-1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 02:41:15] "[33mGET /core/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /wp-config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /app_dev.php/_profiler/open?file=app/config/parameters.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /.env.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "GET /?url=.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /appsettings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /_profiler/phpinfo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:16] "[33mGET /dev/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /staging/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /info/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /test/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /app_dev.php/_profiler/phpinfo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /demo/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /docker-compose.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /portal/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:17] "[33mGET /sendgrid/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /crm/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /info HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /dashboard/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /application/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /test.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /.env.development HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:18] "[33mGET /.config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /web/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /secrets.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /bot/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /apis/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:19] "[33mGET /API/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:20] "[33mGET /frontend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:20] "[33mGET /debug/default/view?panel=config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:20] "[33mGET /local/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /api/test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /back/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /media/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /project/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /site/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /pos/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /.env.save.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:21] "[33mGET /docs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /cms/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /config.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /v1/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /erp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /beta/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /wp-config.php.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /images/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /client/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:22] "[33mGET /server.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /node/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /config.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /v2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /static/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /info.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /shop/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /backup/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /blogs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:23] "[33mGET /stage/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /library/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /settings/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /platform/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /html/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /api/v2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /system/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /content/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:24] "[33mGET /env.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /services/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /src/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /new/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /old/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /test/phpinfo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /public_html/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /data/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:25] "[33mGET /download/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /lara/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /service/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /Application/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /Backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:26] "[33mGET /.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:27] "[33mGET /home/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:27] "[33mGET /main/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:27] "[33mGET /facturacion/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /blog/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /frontend/web/debug/default/view HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /app/config/parameters.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /aws.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /login/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:28] "[33mGET /auth/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /prod/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /store/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /sandbox/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /Laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /config.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /base/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /user/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /.env.testing HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:29] "[33mGET /index.php?file=../../../../../../../../root/.aws/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /www/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /uploads/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /saas/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /client_secrets.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /.env.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /developer/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /infos/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /apps/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /v3/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:30] "[33mGET /env.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /twilio.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /.env.sample.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /.env.local.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /.env.production.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /config.dev.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /twilio/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /config/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:31] "[33mGET /sendgrid/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.php-bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.php-backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.php.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /test/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.example.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /app_dev.php/_profiler/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /var/.env.local.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env.bz2 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:32] "[33mGET /.env-original HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /.env.credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /netlify/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /.env-disabled HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /.env-dev.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /vercel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /elasticemail/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /sendgrid_email/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /.trash/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /.vercel/output/static/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:33] "[33mGET /api/shared/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /.env.server HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /.env_private HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /.env.sh HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /.env/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /s3/bucket.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /workspace/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:34] "[33mGET /BE/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:35] "[33mGET /stripe.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:35] "[33mGET /preview-env/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:35] "[33mGET /strapi/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:35] "[33mGET /Be/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /.env.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /staging/backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /.env_config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /api/.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /backend-api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:36] "[33mGET /docker/dev/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /back-api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /api-node/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /api-backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /backend/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /api/.env/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /shared/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /stripe/webhook_secret.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /.env.save~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /public/.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:37] "[33mGET /react/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /register/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /node-api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /core/Database/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /tmp/config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /.well-known/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /backup/.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /node/api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /sources/api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:38] "[33mGET /node/backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /fe/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /server/api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /server/backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /public-api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /uat/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /wp-login/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /api2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:39] "[33mGET /.env.previous HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/.env.dist HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/admin-app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/development/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/enviroments/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/.env.project HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /.env.db HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /api/.env:80/sources/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:40] "[33mGET /laravel/.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /.env.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/apps/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/.env.development HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/docker/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/shared/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /ci-cd/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/live_env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:41] "[33mGET /api/.env:80/back/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:42] "[33mGET /api/.env:80/.env.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:42] "[33mGET /api/.env:80/app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:42] "[33mGET /api/.env:80/private/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:42] "[33mGET /api/.env:80/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:43] "[33mGET /api/.env:80/cp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:43] "[33mGET /api/.env:80/system/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:43] "[33mGET /api/.env:80/script/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:43] "[33mGET /api/.env:80/fedex/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:43] "[33mGET /api/.env:80/application/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/cms/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /development/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/rest/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/core/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:41:44] "[33mGET /api/.env:80/local/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:42:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /sendgrid.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /admin/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /server/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:03] "[33mGET /phpinfo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 02:43:04] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:12:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 03:43:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "[33mGET /mcp/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "[33mGET /api/mcp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "[33mGET /mcp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 03:43:44] "[33mGET /sse HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 03:45:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 03:47:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 04:05:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 04:05:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 04:09:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 04:09:46] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 04:45:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 04:45:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:03] "[33mGET /hYUF HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:03] "[33mGET /yKNK HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:05] "[33mGET /aab8 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:07] "[33mGET /jquery-3.3.1.slim.min.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:07] "[33mGET /aab9 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 04:56:09] "[33mGET /jquery-3.3.2.slim.min.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 05:00:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:16:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:18:28] "OPTIONS / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:18:28] "[31m[1mQUXC / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 05:18:29] "[31m[1mPOST / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 05:20:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:33:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:34:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:53:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:56:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 05:58:15] "[33mGET /SDK/webLanguage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:00:45] "[33mGET /developmentserver/metadatauploader HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:04:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:04:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:04:52] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:04:53] "[33mGET /sitemap.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:05:04] "[33mGET /config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:13:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:15] "GET /?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:15] "[33mGET /q/health HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:15] "[33mGET /management/env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:15] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:16] "GET /?src=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:16] "[33mGET /eureka/apps HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:16] "GET /?image=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:16] "GET /?img=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:16] "[33mGET /fetch?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:17] "GET /?proxy=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:17] "[33mGET /proxy?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:17] "GET /?redirect=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:17] "GET /?load=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:18] "[33mGET /image?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:18] "GET /?fetch=http://169.254.169.254/latest/meta-data/iam/security-credentials/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:18] "[33mGET /next=http:%2F%2F169.254.169.254%2Flatest%2Fmeta-data%2Fiam%2Fsecurity-credentials%2F HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:18] "GET /?url=http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/ HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:14:18] "[33mGET /load?url=http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:14:19] "[33mGET /next=http:%2F%2Fmetadata.google.internal%2FcomputeMetadata%2Fv1%2Finstance%2Fservice-accounts%2F HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:23:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:25:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:25:53] "[33mGET /truffle.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:40:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:45:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:45:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:45:30] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:45:31] "[33mGET /sitemap.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:45:31] "[33mGET /config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 06:55:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 06:55:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 07:05:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 07:05:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 07:08:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:07:33] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:28:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:18] "[33mGET /dns-query?dns=N14BAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:18] "[33mPOST /dns-query HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:18] "[33mGET /dns-query?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /dns-query?dns=hrgBAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mPOST /dns-query HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /dns-query?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /query?dns=0usBAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mPOST /query HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /query?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /query?dns=9NoBAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mPOST /query HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /query?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:19] "[33mGET /resolve?dns=rVMBAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "[33mPOST /resolve HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "[33mGET /resolve?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "[33mGET /resolve?dns=AV8BAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "[33mPOST /resolve HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "[33mGET /resolve?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 08:50:20] "GET /?dns=xC0BAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:21] "[31m[1mPOST / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 08:50:21] "GET /?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:22] "GET /?dns=_b0BAAABAAAAAAAAATEEb2RucwFtCmRuc21lYXN1cmUDdG9wAAABAAE HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:23] "[31m[1mPOST / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 08:50:23] "GET /?name=1.odns.m.dnsmeasure.top&type=A HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:50:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 08:57:59] "[33mGET /webui/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:00:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:00:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:01:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:01:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:06:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:08:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:08:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:09:16] "[33mPOST /vpnsvc/connect.cgi HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "[33mGET /webui HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "[33mPOST /sdk HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "[33mGET /rest/applinks/1.0/manifest HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:46] "[33mGET /cgi-mod/header_logo.cgi?size=big HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:47] "[33mGET /CFIDE/componentutils/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:47] "[33mGET /confluence/rest/applinks/1.0/manifest HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:11:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 09:11:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:30] "[33mGET /dana-na/nc/nc_gina_ver.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:30] "[33mGET /webui HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:30] "[33mGET /user HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:31] "[33mGET /+CSCOE+/logon.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:31] "[33mGET /CFIDE/componentutils/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:31] "[33mGET /login.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:31] "[33mGET /confluence/rest/applinks/1.0/manifest HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:31] "[33mGET /login.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:32] "[33mGET /owa/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:32] "[33mGET /human.aspx?arg12=infotech HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /dana-cached/hc/HostCheckerInstaller.osx HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /api/v2/about HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /dniapi/userInfos HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /geoserver/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /dana-na/nc/nc_gina_ver.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:38] "[33mGET /owa/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:12:39] "[33mGET /Account/Login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:22:06] "[33mGET /geoserver/web/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 09:29:10] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:24:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 10:27:47] "[33mGET /api/v1/version HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:27:47] "[33mPOST /xmlrpc/2/common HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:27:50] "[33mPOST /web/database/list HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:27:51] "[33mGET /web/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:49:06] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /signin HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /__ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /cs/Satellite?pagename=OpenMarket/Xcelerate/Admin/WebReferences HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /spaces/viewdefaultdecorator.action?decoratorName HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /services/user/values.xml?var=STATUS HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /community/recent/?wpfob=(SELECT/**/1/**/FROM/**/(SELECT/**/SLEEP(8))a) HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /wp-admin/admin-ajax.php?action=heartbeat&kc_us_dismiss_admin_notice=1&option_name=bfcm_2025_offer&redirect_to=https://interact.sh HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /status?full=true HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "GET /?band=1)%20AND%201=CAST((SELECT%20version())%20AS%20INT)-- HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /wp-json/gravitysmtp/v1/tests/mock-data?page=gravitysmtp-settings HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /device.rsp?opt=user&cmd=list HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /secure/ManageFilters.jspa?filter=popular&filterView=popular HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /rest/api/2/user/picker?query HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /api/backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /public/login.htm?type=probes HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "[33mGET /cgi-bin/awstats.pl?config=3JihM8vav6iDy7Ev8uVseEEetmG HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:01] "GET /?static=1&order=asc HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 10:50:02] "[33mGET /login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:02] "[33mGET /cs/Satellite?pagename=OpenMarket/Xcelerate/Admin/Slots HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:02] "[33mGET /awstats/awstats.pl?config=3JihM8vav6iDy7Ev8uVseEEetmG HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:02] "[33mGET /wp-admin/admin-ajax.php?action=heartbeat&kc_us_dismiss_admin_notice=1&option_name=welcome_offer&redirect_to=https://interact.sh HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:07] "[33mGET /editor.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:07] "[33mPOST /api/v1/fabric_device_auth/fortigate/init HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:07] "[33mGET /api/v1/init_consts HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:07] "[33mGET /__raw/services/server/info/server-info?output_mode=json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:07] "[33mGET /debug/pprof/goroutine?debug=1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:50:08] "[33mGET /api/modular-connector/login/hbpdt?origin=mo&type=foo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 10:53:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:00:40] "GET / HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4539.58it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 23 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 8 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:18, 15.06it/s]Loading weights:   5%|4         | 58/1188 [00:00<00:03, 285.04it/s]Loading weights:   8%|7         | 90/1188 [00:00<00:04, 244.09it/s]Loading weights:  10%|9         | 117/1188 [00:00<00:04, 243.75it/s]Loading weights:  12%|#2        | 143/1188 [00:00<00:04, 245.56it/s]Loading weights:  14%|#4        | 169/1188 [00:00<00:04, 232.34it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 226.66it/s]Loading weights:  19%|#9        | 227/1188 [00:00<00:04, 232.87it/s]Loading weights:  21%|##1       | 251/1188 [00:01<00:04, 228.38it/s]Loading weights:  23%|##3       | 278/1188 [00:01<00:03, 237.37it/s]Loading weights:  26%|##5       | 304/1188 [00:01<00:03, 241.76it/s]Loading weights:  28%|##7       | 329/1188 [00:01<00:03, 216.34it/s]Loading weights:  30%|##9       | 352/1188 [00:01<00:03, 219.27it/s]Loading weights:  32%|###1      | 376/1188 [00:01<00:03, 219.90it/s]Loading weights:  34%|###3      | 399/1188 [00:01<00:03, 213.58it/s]Loading weights:  36%|###6      | 428/1188 [00:01<00:03, 226.12it/s]Loading weights:  38%|###7      | 451/1188 [00:01<00:03, 223.32it/s]Loading weights:  40%|###9      | 474/1188 [00:02<00:03, 221.32it/s]Loading weights:  42%|####1     | 498/1188 [00:02<00:03, 210.62it/s]Loading weights:  45%|####4     | 531/1188 [00:02<00:03, 218.37it/s]Loading weights:  47%|####7     | 559/1188 [00:02<00:02, 221.78it/s]Loading weights:  49%|####9     | 583/1188 [00:02<00:02, 221.88it/s]Loading weights:  51%|#####1    | 610/1188 [00:02<00:02, 228.98it/s]Loading weights:  54%|#####3    | 638/1188 [00:02<00:02, 227.66it/s]Loading weights:  56%|#####5    | 661/1188 [00:02<00:02, 221.26it/s]Loading weights:  58%|#####7    | 684/1188 [00:03<00:02, 223.52it/s]Loading weights:  60%|#####9    | 711/1188 [00:03<00:02, 225.92it/s]Loading weights:  62%|######1   | 734/1188 [00:03<00:02, 222.03it/s]Loading weights:  64%|######4   | 762/1188 [00:03<00:01, 223.62it/s]Loading weights:  66%|######6   | 785/1188 [00:03<00:02, 165.15it/s]Loading weights:  68%|######7   | 804/1188 [00:10<00:36, 10.44it/s] Loading weights:  69%|######8   | 818/1188 [00:12<00:36, 10.05it/s]Loading weights:  70%|######9   | 828/1188 [00:12<00:34, 10.53it/s]Loading weights:  71%|#######1  | 849/1188 [00:13<00:21, 15.53it/s]Loading weights:  74%|#######3  | 876/1188 [00:13<00:12, 24.41it/s]Loading weights:  77%|#######6  | 913/1188 [00:13<00:06, 40.75it/s]Loading weights:  80%|#######9  | 946/1188 [00:13<00:04, 59.01it/s]Loading weights:  82%|########2 | 980/1188 [00:13<00:02, 81.76it/s]Loading weights:  85%|########5 | 1014/1188 [00:13<00:01, 108.73it/s]Loading weights:  89%|########8 | 1053/1188 [00:13<00:00, 143.69it/s]Loading weights:  92%|#########1| 1090/1188 [00:13<00:00, 176.10it/s]Loading weights:  95%|#########4| 1123/1188 [00:13<00:00, 203.72it/s]Loading weights:  97%|#########7| 1158/1188 [00:14<00:00, 232.36it/s]Loading weights: 100%|##########| 1188/1188 [00:14<00:00, 83.93it/s] 
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [23/Sep/2026 11:13:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:13:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:14:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:18:32][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 350 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 359034 input bytes → 65120 PCM bytes (2.04s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   9%|8         | 70/796 [00:00<00:01, 658.14it/s]Loading weights:  17%|#7        | 136/796 [00:00<00:01, 635.51it/s]Loading weights:  26%|##5       | 203/796 [00:00<00:00, 643.69it/s]Loading weights:  35%|###5      | 282/796 [00:00<00:00, 685.98it/s]Loading weights:  46%|####5     | 364/796 [00:00<00:00, 729.49it/s]Loading weights:  55%|#####5    | 438/796 [00:00<00:00, 732.77it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1152.91it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 32560 samples, duration=2.04s, max=0.9963, rms=0.1816
+[Ethio-ASR][DEBUG] VAD: 32560 samples → 32560 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሄላው ጉድሞርኒንግ'
+  [92mSTT done[0m in [93m6.98s[0m | lang=am-ET | transcript: ሄላው ጉድሞርኒንግ
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m7.53s[0m | response: ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m1.01s[0m
+  [1m[92m✔ /talk total[0m [93m15.79s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:18:48] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:19:18][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 57 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 59130 input bytes → 10716 PCM bytes (0.33s)
+[Ethio-ASR][DEBUG] PCM→float32: 5358 samples, duration=0.33s, max=0.0079, rms=0.0009
+[Ethio-ASR][DEBUG] VAD: 5358 samples → 5358 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.29s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:19:18] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:21:12][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 501 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 513530 input bytes → 93148 PCM bytes (2.91s)
+[Ethio-ASR][DEBUG] PCM→float32: 46574 samples, duration=2.91s, max=0.9942, rms=0.2053
+[Ethio-ASR][DEBUG] VAD: 46574 samples → 46574 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'በደ ማንኝት።'
+  [92mSTT done[0m in [93m0.94s[0m | lang=am-ET | transcript: በደ ማንኝት።
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.472).
+  [92mLLM done[0m in [93m6.52s[0m | response: ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.92s[0m
+  [1m[92m✔ /talk total[0m [93m8.39s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:21:20] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:21:47][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 461 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 472634 input bytes → 85728 PCM bytes (2.68s)
+[Ethio-ASR][DEBUG] PCM→float32: 42864 samples, duration=2.68s, max=0.9943, rms=0.1391
+[Ethio-ASR][DEBUG] VAD: 42864 samples → 42864 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'አማኒ ማን ነው'
+  [92mSTT done[0m in [93m0.87s[0m | lang=am-ET | transcript: አማኒ ማን ነው
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.553).
+  [92mLLM done[0m in [93m6.57s[0m | response: ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.83s[0m
+  [1m[92m✔ /talk total[0m [93m8.26s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:21:56] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:22:21][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 368 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 377210 input bytes → 68418 PCM bytes (2.14s)
+[Ethio-ASR][DEBUG] PCM→float32: 34209 samples, duration=2.14s, max=0.9958, rms=0.2326
+[Ethio-ASR][DEBUG] VAD: 34209 samples → 34209 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'አማንኤል ዋንነው'
+  [92mSTT done[0m in [93m0.57s[0m | lang=am-ET | transcript: አማንኤል ዋንነው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m14.19s[0m | response: አማንኤል በብሉይ ኪዳን መጽሐፍ ውስጥ የሚገኝ የነቢዩ ዳንኤል ጓደኛ ሲሆን ከሻድራክ እና ከሜሻክ ጋር በመሆን በባቢሎን ንጉሥ ናቡከደነጾር ዘመን በጋለ እሳት ው...
+  [92mTTS done[0m in [93m3.21s[0m
+  [1m[92m✔ /talk total[0m [93m17.97s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:22:39] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:24:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:24:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:24:45] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:25:55][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 483 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 495354 input bytes → 89850 PCM bytes (2.81s)
+[Ethio-ASR][DEBUG] PCM→float32: 44925 samples, duration=2.81s, max=0.9952, rms=0.1731
+[Ethio-ASR][DEBUG] VAD: 44925 samples → 44925 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'አማኑኤል ማነው'
+  [92mSTT done[0m in [93m0.74s[0m | lang=am-ET | transcript: አማኑኤል ማነው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m12.86s[0m | response: አማኑኤል ማለት በዕብራይስጥ ቋንቋ "እግዚአብሔር ከእኛ ጋር ነው" ማለት ሲሆን በክርስትና እምነት የኢየሱስ ክርስቶስን መምጣትና መለኮታዊ ማንነት የሚገልጽ ትን...
+  [92mTTS done[0m in [93m2.74s[0m
+  [1m[92m✔ /talk total[0m [93m16.33s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:26:11] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:26:17] "[33mGET /SDK/webLanguage HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:27:05][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 22 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 22778 input bytes → 4122 PCM bytes (0.13s)
+[Ethio-ASR][DEBUG] PCM→float32: 2061 samples, duration=0.13s, max=0.0058, rms=0.0021
+[Ethio-ASR][DEBUG] VAD: 2061 samples → 2061 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.24s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:27:05] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:28:18][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 634 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 649850 input bytes → 117876 PCM bytes (3.68s)
+[Ethio-ASR][DEBUG] PCM→float32: 58938 samples, duration=3.68s, max=0.9931, rms=0.1178
+[Ethio-ASR][DEBUG] VAD: 58938 samples → 58938 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ላ ማነሽ'
+  [92mSTT done[0m in [93m0.88s[0m | lang=am-ET | transcript: ላ ማነሽ
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.06s[0m | response: ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.88s[0m
+  [1m[92m✔ /talk total[0m [93m7.82s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:28:26] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:30:45][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0000, rms=0.0000
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.25s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:30:45] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 11:38:46] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:43:24][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 372 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 381754 input bytes → 69242 PCM bytes (2.16s)
+[Ethio-ASR][DEBUG] PCM→float32: 34621 samples, duration=2.16s, max=0.9931, rms=0.1860
+[Ethio-ASR][DEBUG] VAD: 34621 samples → 34621 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.70s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:43:25] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:43:29][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 261 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 268154 input bytes → 48634 PCM bytes (1.52s)
+[Ethio-ASR][DEBUG] PCM→float32: 24317 samples, duration=1.52s, max=0.9811, rms=0.1501
+[Ethio-ASR][DEBUG] VAD: 24317 samples → 24317 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሰላም አንዴ ነው'
+  [92mSTT done[0m in [93m0.64s[0m | lang=am-ET | transcript: ሰላም አንዴ ነው
+  [Context Filter] Greeting detected ('ሰላም አንዴ ነው') — bypassing RAG context injection.
+  [92mLLM done[0m in [93m8.55s[0m | response: ሰላም ማለት በሰላማዊ ሁኔታ መኖር፣ ከግጭት ወይም ከጦርነት የጸዳ ሁኔታ እንዲሁም በውስጣዊ ስሜት የሚገኝ እርጋታ እና ደህንነት ማለት ነው።
+  [92mTTS done[0m in [93m2.36s[0m
+  [1m[92m✔ /talk total[0m [93m11.55s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:43:41] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:43:53] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:44:25][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 710 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 727098 input bytes → 131890 PCM bytes (4.12s)
+[Ethio-ASR][DEBUG] PCM→float32: 65945 samples, duration=4.12s, max=0.9921, rms=0.1849
+[Ethio-ASR][DEBUG] VAD: 65945 samples → 65945 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሰላማዊሰላመ'
+  [92mSTT done[0m in [93m0.88s[0m | lang=am-ET | transcript: ሰላማዊሰላመ
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m8.20s[0m | response: ሰላማዊነት ማለት ግጭት፣ ጦርነት ወይም ሁከት የሌለበት፣ በስምምነት እና በመረጋጋት ላይ የተመሰረተ የኑሮ ሁኔታ ነው።
+  [92mTTS done[0m in [93m2.73s[0m
+  [1m[92m✔ /talk total[0m [93m11.81s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:44:36] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:45:26][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 820 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 840698 input bytes → 152498 PCM bytes (4.77s)
+[Ethio-ASR][DEBUG] PCM→float32: 76249 samples, duration=4.77s, max=0.9950, rms=0.1081
+[Ethio-ASR][DEBUG] VAD: 76249 samples → 76249 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.95s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:45:27] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:45:32][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 448 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 459002 input bytes → 83256 PCM bytes (2.60s)
+[Ethio-ASR][DEBUG] PCM→float32: 41628 samples, duration=2.60s, max=0.9911, rms=0.1683
+[Ethio-ASR][DEBUG] VAD: 41628 samples → 41628 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ወርኪን ባ'
+  [92mSTT done[0m in [93m0.77s[0m | lang=am-ET | transcript: ወርኪን ባ
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.267).
+  [92mLLM done[0m in [93m6.95s[0m | response: ይቅርታ፣ የጠየቁት ጥያቄ ግልጽ ስላልሆነ ወይም በቂ መረጃ ስላልተገኘ መልስ መስጠት አልቻልኩም።
+  [92mTTS done[0m in [93m1.34s[0m
+  [1m[92m✔ /talk total[0m [93m9.06s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:45:41] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:46:02] "[33mGET /webui/ HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:46:20][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0001, rms=0.0000
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.43s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:46:20] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:47:17][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 488 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 499898 input bytes → 90674 PCM bytes (2.83s)
+[Ethio-ASR][DEBUG] PCM→float32: 45337 samples, duration=2.83s, max=0.9936, rms=0.1459
+[Ethio-ASR][DEBUG] VAD: 45337 samples → 45337 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ትራብል ትራብል'
+  [92mSTT done[0m in [93m0.71s[0m | lang=am-ET | transcript: ትራብል ትራብል
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m13.50s[0m | response: ትራብል (Trouble) የሚለው የእንግሊዝኛ ቃል በግርድፉ ችግር፣ መከራ፣ ውጥረት ወይም አስቸጋሪ ሁኔታ ማለት ሲሆን በስነ-ልቦናዊ እና በማህበራዊ ግንኙነቶች ...
+  [92mTTS done[0m in [93m2.95s[0m
+  [1m[92m✔ /talk total[0m [93m17.16s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:47:34] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:48:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:49:28] "[33mGET /geoserver/web/ HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:49:40][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 13 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 13690 input bytes → 2474 PCM bytes (0.08s)
+[Ethio-ASR][DEBUG] PCM→float32: 1237 samples, duration=0.08s, max=0.0002, rms=0.0000
+[Ethio-ASR][DEBUG] VAD: 1237 samples → 1237 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.40s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:49:40] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:51:14][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 448 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 459002 input bytes → 83256 PCM bytes (2.60s)
+[Ethio-ASR][DEBUG] PCM→float32: 41628 samples, duration=2.60s, max=0.9953, rms=0.1907
+[Ethio-ASR][DEBUG] VAD: 41628 samples → 41628 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሞቃት የሀገሪቱ ክልል ማን'
+  [92mSTT done[0m in [93m0.72s[0m | lang=am-ET | transcript: ሞቃት የሀገሪቱ ክልል ማን
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.418).
+  [92mLLM done[0m in [93m5.99s[0m | response: በቀረበው መረጃ ውስጥ የትኛው ክልል ሞቃት እንደሆነ የሚገልጽ ዝርዝር የለም።
+  [92mTTS done[0m in [93m1.64s[0m
+  [1m[92m✔ /talk total[0m [93m8.35s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:51:22] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:52:44][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0004, rms=0.0001
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.29s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:52:45] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 11:54:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:19] "[33mGET /3s42fd2wf5okbf HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:19] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:20] "[33mGET /rest/workflows HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:20] "[33mGET /api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:20] "[33mGET /backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /sendgrid.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /admin/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /server/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /phpinfo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /.env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "[33mGET /phpinfo.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:21] "GET /?phpinfo=-1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:22] "[33mGET /core/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:22] "[33mGET /wp-config.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:22] "[33mGET /app/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:22] "[33mGET /app_dev.php/_profiler/open?file=app/config/parameters.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:23] "[33mGET /.env.save HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:23] "GET /?url=.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:23] "[33mGET /appsettings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:23] "[33mGET /_profiler/phpinfo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:23] "[33mGET /.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /dev/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /staging/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /info/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /test/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:24] "[33mGET /app_dev.php/_profiler/phpinfo HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /demo/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /docker-compose.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /portal/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /sendgrid/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /crm/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /info HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:25] "[33mGET /dashboard/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /.env.local HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /application/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /test.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /.env.development HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /.config.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /web/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /secrets.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:26] "[33mGET /.env.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /bot/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /apis/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /API/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /frontend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /debug/default/view?panel=config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /local/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /api/test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:27] "[33mGET /back/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /media/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /project/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /site/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /pos/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /.env.save.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /docs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /cms/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:28] "[33mGET /config.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:29] "[33mGET /v1/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:29] "[33mGET /erp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:29] "[33mGET /beta/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:29] "[33mGET /wp-config.php.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:29] "[33mGET /images/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /client/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /server.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /node/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /config.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /v2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /static/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /config.js HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:30] "[33mGET /info.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /shop/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /backup/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /blogs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /stage/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /library/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /settings/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /platform/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:31] "[33mGET /html/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /api/v2/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /system/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /content/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /env.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /services/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /src/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /new/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:32] "[33mGET /old/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /test/phpinfo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /public_html/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /data/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /download/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /lara/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /service/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:33] "[33mGET /Application/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:34] "[33mGET /env.example HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:34] "[33mGET /Backend/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:34] "[33mGET /.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:34] "[33mGET /home/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /main/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /facturacion/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /blog/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /frontend/web/debug/default/view HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /app/config/parameters.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /aws.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /login/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /auth/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:35] "[33mGET /prod/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /store/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /sandbox/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /Laravel/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /config.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /base/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /user/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:36] "[33mGET /.env.testing HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /index.php?file=../../../../../../../../root/.aws/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /www/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /uploads/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /saas/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /client_secrets.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /.env.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /developer/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:37] "[33mGET /infos/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /apps/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /v3/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /env.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /twilio.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /settings.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /.git/HEAD HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /.DS_Store HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:38] "[33mGET /.aws/credentials HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /dump.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /storage/logs/laravel.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /backup.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /k8s/secrets.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /secrets.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:39] "[33mGET /secrets.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /security.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /server.key HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /settings.py HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /terraform.tfstate HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /web.config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /database.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /db.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:40] "[33mGET /debug.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /docker-compose.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /error.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /google-services.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /id_dsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /id_ecdsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /id_rsa HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /.env.orig HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:41] "[33mGET /.env.php.bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /.env.staging HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /.env.test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /.gitlab-ci.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /.kube/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /.svn/entries HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /app.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /app_dev.php/_profiler/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:42] "[33mGET /application.properties HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /application.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /config.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /config/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /credentials.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /database.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /yarn.lock HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /tmp/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:43] "[33mGET /tests/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /test/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /temp/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /staging/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /autodiscover/autodiscover.json?@zdi/Powershell HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /secrets.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /requirements.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /readme.md HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:44] "[33mGET /php_errors.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /php_error.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /package.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /package-lock.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /old/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /mysql.sql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /logs/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /log/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:45] "[33mGET /laravel.log HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /kubernetes/secrets.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /dev/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /demo/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /database.config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /crossdomain.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /credentials.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /credentials.ini HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:46] "[33mGET /configuration.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /configuration.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /configuration.json HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /beta/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /api/.git/config HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /assets/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /cache/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:47] "[33mGET /log/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /logs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /public/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /wwwroot/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /htdocs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /storage/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /tmp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /temp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:48] "[33mGET /administrator/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /.env.sample.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /.env.local.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /.env.production.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /config.dev.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /twilio/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:49] "[33mGET /sendgrid/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /.env.php-bak HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /.env.php-backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /.env.php.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /test/.env.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /.env.example.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /var/.env.local.php HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /env.example.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:50] "[33mGET /admincp/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:51] "GET /?redirect=/www/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:51] "[33mGET /cfg/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:51] "[33mGET /demo.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:52] "[33mGET /infra.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:52] "GET /?dest=/var/www/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:52] "[33mGET /.env.production.yaml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:52] "GET /?dest=file:/var/www/html/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /server/env/.dev.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /.env.production.yml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /api/dev/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /.EnV.StAgE HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /app/.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /.env-event HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /administrator/config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:53] "[33mGET /.env-nginx HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "[33mGET /.env-token HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "[33mGET /jobs/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "[33mGET /releases/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "GET /?dest=/app/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "[33mGET /.env-trace HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:54] "[33mGET /.env-usage HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /.example.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /CONFIG/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /.env.netrc HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /.env.setup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /settings/.env.production HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /laravel-5.1/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:55] "[33mGET /chargebee/settings.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /database.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /.env.pgsql HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /dbadmin/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /.env.4 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /.EnV.SeRvEr HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /.EnV~ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /.EnV.SaMpLe HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:56] "[33mGET /django/.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "[33mGET /.env.old.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "[33mGET /ReAcT/.EnV HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "[33mGET /.env_ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "GET /?dest=/home/user/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "[33mGET /.eNv.sAvE.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:57] "[33mGET /fastapi/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /2022/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /panel/.env.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /backend/.env.prod HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /api/.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /admin/config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /.env.mailer_dsn HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /env_1/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /config/.env.old HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:58] "[33mGET /configs/staging.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /application/api/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /.env.climadrive HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /apps/config/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /forum/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /admin/.env.backup HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "[33mGET /eLaStIcEmAiL/.eNv HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:54:59] "GET /?uri=/config/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:55:00] "[33mGET /api/test/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:00] "[33mGET /ReGiStEr/.eNv HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:00] "[33mGET /web.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:00] "[33mGET /2021/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /.env.mailjet HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /frontend/.env.dev HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /config/staging.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /.env.bak.1 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /.env.azure HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /.env-queue HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /configuras/staging.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:01] "[33mGET /core/database/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /.env.climadrive.app HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /config/secrets.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /api/.env/wp-includes/wso HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /modules/autoupgrade/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /api/.env/cgi-bin/wp-2019 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:02] "[33mGET /api/.env/img/cloud HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:03] "[33mGET /api/.env/images/fw HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:03] "GET /?uri=/app/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:55:03] "GET /?url=/www/.env HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /api/.env/edit-form HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /views/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /trade/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /staff/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /sales/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:04] "[33mGET /oauth/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /model/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /infra/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /api/.env/4pric HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /imuva/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /api/.env/about HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /httpd/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:05] "[33mGET /api/.env/class.api HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:06] "[33mGET /api/.env/cloud HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:06] "[33mGET /tmp/.env.staging HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:06] "[33mGET /api/.env/ioxi2 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:06] "[33mGET /laravel_web/.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 11:55:06] "[33mGET /credentials/.env HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:55:39][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 470 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 481722 input bytes → 87378 PCM bytes (2.73s)
+[Ethio-ASR][DEBUG] PCM→float32: 43689 samples, duration=2.73s, max=0.9926, rms=0.1784
+[Ethio-ASR][DEBUG] VAD: 43689 samples → 43689 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሳምሰን ለማየ የሚባል ሰው'
+  [92mSTT done[0m in [93m0.76s[0m | lang=am-ET | transcript: ሳምሰን ለማየ የሚባል ሰው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m9.34s[0m | response: ሳምሰን ለማየ በኢትዮጵያ ውስጥ በስሙ ብቻ የሚታወቅ ታዋቂ ግለሰብ በመሆኑ ዝርዝር የህይወት ታሪክ ወይም ዝነኛነቱን የሚገልጽ መረጃ የለም።
+  [92mTTS done[0m in [93m2.17s[0m
+  [1m[92m✔ /talk total[0m [93m12.27s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:55:52] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:57:13][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 448 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 459002 input bytes → 83256 PCM bytes (2.60s)
+[Ethio-ASR][DEBUG] PCM→float32: 41628 samples, duration=2.60s, max=0.9928, rms=0.1153
+[Ethio-ASR][DEBUG] VAD: 41628 samples → 41628 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ፕሮሰስ ማራክት እንችላል'
+  [92mSTT done[0m in [93m0.66s[0m | lang=am-ET | transcript: ፕሮሰስ ማራክት እንችላል
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.389).
+  [92mLLM done[0m in [93m7.59s[0m | response: የቀረበው መረጃ ስለ ፕሮሰስ ማራክት ምንም ዓይነት ዝርዝር መረጃ ስለማይሰጥ ጥያቄውን መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m1.82s[0m
+  [1m[92m✔ /talk total[0m [93m10.07s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:57:23] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:57:47][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 541 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 554426 input bytes → 100566 PCM bytes (3.14s)
+[Ethio-ASR][DEBUG] PCM→float32: 50283 samples, duration=3.14s, max=0.9999, rms=0.1191
+[Ethio-ASR][DEBUG] VAD: 50283 samples → 50283 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሲክረት ማለት ማለ ነው በአማርኛ'
+  [92mSTT done[0m in [93m0.78s[0m | lang=am-ET | transcript: ሲክረት ማለት ማለ ነው በአማርኛ
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.331).
+  [92mLLM done[0m in [93m5.02s[0m | response: ሲክረት ማለት በምስጢር የሚጠበቅ ወይም ለሌላ ሰው የማይገለጥ ነገር ማለት ነው።
+  [92mTTS done[0m in [93m3.08s[0m
+  [1m[92m✔ /talk total[0m [93m8.87s[0m
+
+127.0.0.1 - - [23/Sep/2026 11:57:56] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:58:11][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 22 KB  (filename=recorded_audio.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 22778 input bytes → 4122 PCM bytes (0.13s)
+[Ethio-ASR][DEBUG] PCM→float32: 2061 samples, duration=0.13s, max=0.0010, rms=0.0002
+[Ethio-ASR][DEBUG] VAD: 2061 samples → 2061 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.37s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 11:58:11] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 11:58:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:00:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:23:16] "[31m[1mPOST / HTTP/1.1[0m" 405 -
+127.0.0.1 - - [23/Sep/2026 12:23:17] "[33mGET /.env HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 12:39:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:40:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:41:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:51:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 12:59:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:22:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:22:46] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:22:47] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:24:36] "[33mGET /feed/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 13:24:36] "GET /?feed=rss2 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:24:36] "[33mGET /feed/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 13:24:36] "GET /?feed=rss2 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:33:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:51:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 13:59:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 14:02:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 14:42:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 15:06:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 15:08:02] "GET / HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5378.95it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 4 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<02:33,  7.71it/s]Loading weights:   5%|5         | 62/1188 [00:00<00:05, 214.31it/s]Loading weights:   8%|8         | 96/1188 [00:00<00:04, 248.96it/s]Loading weights:  11%|#         | 129/1188 [00:00<00:04, 251.58it/s]Loading weights:  13%|#3        | 159/1188 [00:00<00:04, 222.47it/s]Loading weights:  16%|#5        | 185/1188 [00:00<00:04, 226.14it/s]Loading weights:  18%|#7        | 213/1188 [00:00<00:04, 231.18it/s]Loading weights:  20%|##        | 241/1188 [00:01<00:04, 229.53it/s]Loading weights:  22%|##2       | 267/1188 [00:01<00:03, 237.40it/s]Loading weights:  25%|##4       | 293/1188 [00:01<00:03, 239.42it/s]Loading weights:  27%|##6       | 318/1188 [00:01<00:03, 233.73it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:03, 218.92it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:03, 216.94it/s]Loading weights:  33%|###2      | 390/1188 [00:01<00:03, 225.22it/s]Loading weights:  35%|###4      | 413/1188 [00:01<00:03, 221.62it/s]Loading weights:  37%|###6      | 436/1188 [00:02<00:03, 205.16it/s]Loading weights:  39%|###8      | 463/1188 [00:02<00:03, 222.03it/s]Loading weights:  41%|####      | 486/1188 [00:02<00:03, 216.45it/s]Loading weights:  43%|####2     | 508/1188 [00:02<00:03, 217.10it/s]Loading weights:  45%|####5     | 535/1188 [00:02<00:02, 232.04it/s]Loading weights:  47%|####7     | 559/1188 [00:02<00:02, 228.73it/s]Loading weights:  49%|####9     | 583/1188 [00:02<00:02, 215.89it/s]Loading weights:  51%|#####1    | 611/1188 [00:02<00:02, 232.89it/s]Loading weights:  53%|#####3    | 635/1188 [00:02<00:02, 230.96it/s]Loading weights:  55%|#####5    | 659/1188 [00:03<00:06, 81.02it/s] Loading weights:  57%|#####6    | 677/1188 [00:03<00:06, 74.37it/s]Loading weights:  58%|#####8    | 691/1188 [00:04<00:07, 68.23it/s]Loading weights:  59%|#####9    | 703/1188 [00:04<00:07, 65.13it/s]Loading weights:  60%|######    | 713/1188 [00:04<00:08, 54.81it/s]Loading weights:  61%|######    | 721/1188 [00:04<00:09, 51.73it/s]Loading weights:  61%|######1   | 728/1188 [00:05<00:09, 46.70it/s]Loading weights:  62%|######2   | 739/1188 [00:05<00:09, 48.39it/s]Loading weights:  63%|######2   | 745/1188 [00:05<00:09, 47.02it/s]Loading weights:  63%|######3   | 752/1188 [00:05<00:08, 48.45it/s]Loading weights:  64%|######4   | 762/1188 [00:05<00:07, 57.90it/s]Loading weights:  65%|######4   | 769/1188 [00:05<00:09, 45.25it/s]Loading weights:  66%|######5   | 780/1188 [00:06<00:08, 46.06it/s]Loading weights:  67%|######6   | 791/1188 [00:06<00:07, 54.05it/s]Loading weights:  67%|######7   | 798/1188 [00:06<00:08, 44.34it/s]Loading weights:  68%|######8   | 808/1188 [00:06<00:09, 39.98it/s]Loading weights:  69%|######8   | 818/1188 [00:06<00:07, 49.32it/s]Loading weights:  69%|######9   | 825/1188 [00:07<00:08, 40.43it/s]Loading weights:  76%|#######5  | 898/1188 [00:07<00:01, 151.59it/s]Loading weights:  78%|#######7  | 922/1188 [00:07<00:01, 166.61it/s]Loading weights:  81%|########1 | 966/1188 [00:07<00:00, 223.28it/s]Loading weights:  89%|########8 | 1054/1188 [00:07<00:00, 373.25it/s]Loading weights:  95%|#########5| 1129/1188 [00:07<00:00, 451.91it/s]Loading weights: 100%|#########9| 1184/1188 [00:07<00:00, 471.56it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 150.08it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:20:00][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 332 KB  (filename=recorded_audio_90da70bd.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 340858 input bytes → 61824 PCM bytes (1.93s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####      | 326/796 [00:00<00:00, 3257.07it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4901.92it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 30912 samples, duration=1.93s, max=0.1418, rms=0.0218
+[Ethio-ASR][DEBUG] VAD: 30912 samples → 30912 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስሙሽ ማን ነው?'
+  [92mSTT done[0m in [93m1.40s[0m | lang=am-ET | transcript: ስሙሽ ማን ነው?
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m7.30s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m2.13s[0m
+  [1m[92m✔ /talk total[0m [93m10.99s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:20:11] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:21:05][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 399 KB  (filename=recorded_audio_31fa92ba.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 409018 input bytes → 74188 PCM bytes (2.32s)
+[Ethio-ASR][DEBUG] PCM→float32: 37094 samples, duration=2.32s, max=0.1238, rms=0.0248
+[Ethio-ASR][DEBUG] VAD: 37094 samples → 37094 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሰሽ ለናግኝ ትሻለች'
+  [92mSTT done[0m in [93m0.55s[0m | lang=am-ET | transcript: ሰሽ ለናግኝ ትሻለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.44s[0m | response: ጥያቄዎ ግልጽ ስላልሆነ እና የተፈለገው ትርጉም ስላልታወቀ በትክክል መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m1.56s[0m
+  [1m[92m✔ /talk total[0m [93m8.55s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:21:14] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:21:26][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 363 KB  (filename=recorded_audio_b1294796.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 372666 input bytes → 67594 PCM bytes (2.11s)
+[Ethio-ASR][DEBUG] PCM→float32: 33797 samples, duration=2.11s, max=0.1461, rms=0.0310
+[Ethio-ASR][DEBUG] VAD: 33797 samples → 33797 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስምሽል ግብኝ ትቻያለች።'
+  [92mSTT done[0m in [93m0.59s[0m | lang=am-ET | transcript: ስምሽል ግብኝ ትቻያለች።
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.54s[0m | response: ጥያቄዎ ግልጽ ስላልሆነ እና የተፈለገው ትርጉም ስላልታወቀ በትክክል መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m0.87s[0m
+  [1m[92m✔ /talk total[0m [93m8.01s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:21:34] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:21:46][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 381 KB  (filename=recorded_audio_5286ec5a.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 390842 input bytes → 70890 PCM bytes (2.22s)
+[Ethio-ASR][DEBUG] PCM→float32: 35445 samples, duration=2.22s, max=0.1462, rms=0.0284
+[Ethio-ASR][DEBUG] VAD: 35445 samples → 35445 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'መሽላና ግርኝ ለች'
+  [92mSTT done[0m in [93m1.72s[0m | lang=am-ET | transcript: መሽላና ግርኝ ለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.51s[0m | response: ጥያቄዎ ግልጽ ስላልሆነ እና የተፈለገው ትርጉም ስላልታወቀ በትክክል መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m0.79s[0m
+  [1m[92m✔ /talk total[0m [93m9.02s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:21:55] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:22:06][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 346 KB  (filename=recorded_audio_bbc2df4c.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 354490 input bytes → 64296 PCM bytes (2.01s)
+[Ethio-ASR][DEBUG] PCM→float32: 32148 samples, duration=2.01s, max=0.1281, rms=0.0227
+[Ethio-ASR][DEBUG] VAD: 32148 samples → 32148 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስሙሽ ማ ነው'
+  [92mSTT done[0m in [93m0.52s[0m | lang=am-ET | transcript: ስሙሽ ማ ነው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.48s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.85s[0m
+  [1m[92m✔ /talk total[0m [93m7.84s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:22:14] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:22:58][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 430 KB  (filename=recorded_audio_1a8611a4.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 440826 input bytes → 79958 PCM bytes (2.50s)
+[Ethio-ASR][DEBUG] PCM→float32: 39979 samples, duration=2.50s, max=0.1593, rms=0.0266
+[Ethio-ASR][DEBUG] VAD: 39979 samples → 39979 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሰመችል ግሪን ትሻያለች'
+  [92mSTT done[0m in [93m1.71s[0m | lang=am-ET | transcript: ሰመችል ግሪን ትሻያለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.50s[0m | response: ጥያቄዎ ግልጽ ስላልሆነ እና የተፈለገው ትርጉም ስላልታወቀ በትክክል መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m0.90s[0m
+  [1m[92m✔ /talk total[0m [93m9.12s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:23:07] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:25:46][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 452 KB  (filename=recorded_audio_528f2983.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 463546 input bytes → 84080 PCM bytes (2.63s)
+[Ethio-ASR][DEBUG] PCM→float32: 42040 samples, duration=2.63s, max=0.1441, rms=0.0234
+[Ethio-ASR][DEBUG] VAD: 42040 samples → 42040 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስምሽ ለናግኝ ትቻያለች።'
+  [92mSTT done[0m in [93m0.76s[0m | lang=am-ET | transcript: ስምሽ ለናግኝ ትቻያለች።
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.58s[0m | response: ጥያቄዎ ግልጽ ስላልሆነ እና የተፈለገው ትርጉም ስላልታወቀ በትክክል መመለስ አልቻልኩም።
+  [92mTTS done[0m in [93m0.87s[0m
+  [1m[92m✔ /talk total[0m [93m8.21s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:25:54] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5124.68it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 4 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:07, 17.65it/s]Loading weights:   5%|4         | 59/1188 [00:00<00:03, 317.69it/s]Loading weights:   8%|7         | 92/1188 [00:00<00:04, 254.66it/s]Loading weights:  10%|#         | 120/1188 [00:00<00:04, 246.41it/s]Loading weights:  12%|#2        | 146/1188 [00:00<00:04, 231.80it/s]Loading weights:  14%|#4        | 170/1188 [00:00<00:04, 226.47it/s]Loading weights:  16%|#6        | 194/1188 [00:00<00:04, 227.05it/s]Loading weights:  18%|#8        | 217/1188 [00:00<00:04, 222.15it/s]Loading weights:  20%|##        | 240/1188 [00:01<00:07, 133.79it/s]Loading weights:  22%|##1       | 258/1188 [00:02<00:17, 53.03it/s] Loading weights:  23%|##2       | 271/1188 [00:02<00:24, 38.20it/s]Loading weights:  24%|##3       | 281/1188 [00:03<00:24, 36.80it/s]Loading weights:  24%|##4       | 289/1188 [00:03<00:27, 32.25it/s]Loading weights:  25%|##4       | 296/1188 [00:03<00:27, 32.50it/s]Loading weights:  29%|##9       | 345/1188 [00:03<00:10, 80.47it/s]Loading weights:  31%|###       | 367/1188 [00:04<00:08, 96.45it/s]Loading weights:  33%|###3      | 393/1188 [00:04<00:06, 121.14it/s]Loading weights:  35%|###5      | 417/1188 [00:04<00:05, 139.45it/s]Loading weights:  38%|###7      | 448/1188 [00:04<00:04, 165.51it/s]Loading weights:  40%|###9      | 470/1188 [00:04<00:04, 170.92it/s]Loading weights:  42%|####2     | 500/1188 [00:04<00:03, 189.66it/s]Loading weights:  44%|####4     | 528/1188 [00:04<00:03, 201.55it/s]Loading weights:  47%|####6     | 555/1188 [00:04<00:02, 211.56it/s]Loading weights:  49%|####8     | 578/1188 [00:05<00:02, 206.49it/s]Loading weights:  51%|#####     | 600/1188 [00:05<00:02, 208.72it/s]Loading weights:  52%|#####2    | 622/1188 [00:05<00:02, 211.31it/s]Loading weights:  55%|#####4    | 652/1188 [00:05<00:02, 212.02it/s]Loading weights:  57%|#####7    | 679/1188 [00:05<00:02, 224.77it/s]Loading weights:  59%|#####9    | 702/1188 [00:05<00:02, 218.34it/s]Loading weights:  61%|######1   | 725/1188 [00:05<00:02, 214.28it/s]Loading weights:  63%|######2   | 747/1188 [00:05<00:02, 213.91it/s]Loading weights:  65%|######4   | 769/1188 [00:05<00:01, 213.92it/s]Loading weights:  67%|######6   | 791/1188 [00:07<00:10, 38.08it/s] Loading weights:  68%|######7   | 807/1188 [00:07<00:09, 41.50it/s]Loading weights:  69%|######9   | 820/1188 [00:08<00:10, 35.89it/s]Loading weights:  70%|######9   | 830/1188 [00:08<00:10, 35.41it/s]Loading weights:  74%|#######3  | 874/1188 [00:08<00:04, 69.98it/s]Loading weights:  79%|#######9  | 941/1188 [00:08<00:01, 135.56it/s]Loading weights:  86%|########5 | 1019/1188 [00:09<00:00, 217.62it/s]Loading weights:  92%|#########2| 1096/1188 [00:09<00:00, 299.34it/s]Loading weights: 100%|##########| 1188/1188 [00:09<00:00, 127.49it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:33:04][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 417 KB  (filename=recorded_audio_f5b679ed.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 427194 input bytes → 77486 PCM bytes (2.42s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 8098.43it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 38743 samples, duration=2.42s, max=0.1260, rms=0.0238
+[Ethio-ASR][DEBUG] VAD: 38743 samples → 38743 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስምሽ ልነግኝ ትችላለች'
+  [92mSTT done[0m in [93m1.35s[0m | lang=am-ET | transcript: ስምሽ ልነግኝ ትችላለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m7.09s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.88s[0m
+  [1m[92m✔ /talk total[0m [93m9.48s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:33:14] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:33:26][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 483 KB  (filename=recorded_audio_87318bc6.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 495354 input bytes → 89850 PCM bytes (2.81s)
+[Ethio-ASR][DEBUG] PCM→float32: 44925 samples, duration=2.81s, max=0.1035, rms=0.0224
+[Ethio-ASR][DEBUG] VAD: 44925 samples → 44925 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'የአዲስ አበቦና አስተዳደር መሆን ናቸው።'
+  [92mSTT done[0m in [93m0.78s[0m | lang=am-ET | transcript: የአዲስ አበቦና አስተዳደር መሆን ናቸው።
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.418).
+  [92mLLM done[0m in [93m5.57s[0m | response: የአዲስ አበባ ከተማ አስተዳደር ከንቲባ ወይዘሮ አዳነች አቤቤ ናቸው።
+  [92mTTS done[0m in [93m1.47s[0m
+  [1m[92m✔ /talk total[0m [93m7.82s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:33:33] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:33:47][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 692 KB  (filename=recorded_audio_8046ff5f.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 708922 input bytes → 128592 PCM bytes (4.02s)
+[Ethio-ASR][DEBUG] PCM→float32: 64296 samples, duration=4.02s, max=0.1069, rms=0.0175
+[Ethio-ASR][DEBUG] VAD: 64296 samples → 64296 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'የኢትዮጵያ ተጠቅላይ ሚኒስትር ማን ይባላል'
+  [92mSTT done[0m in [93m0.85s[0m | lang=am-ET | transcript: የኢትዮጵያ ተጠቅላይ ሚኒስትር ማን ይባላል
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.458).
+  [92mLLM done[0m in [93m10.19s[0m | response: የኢትዮጵያ ፌዴራላዊ ዴሞክራሲያዊ ሪፐብሊክ ጠቅላይ ሚኒስትር ክቡር ዶክተር ዐቢይ አሕመድ አሊ ናቸው።
+  [92mTTS done[0m in [93m1.77s[0m
+  [1m[92m✔ /talk total[0m [93m12.80s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:34:00] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:35:53][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_ec08e456.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0270, rms=0.0080
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.25s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:35:53] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -

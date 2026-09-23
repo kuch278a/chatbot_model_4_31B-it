@@ -1,4 +1,4 @@
-# 📡 Amani AI — Endpoints Reference
+# 📡 Tesfanesh AI — Endpoints Reference
 
 This package contains end-to-end composite API endpoints that chain speech recognition, neural inference, and voice synthesis into a single unified request/response pipeline.
 

@@ -268,12 +268,12 @@ def stream_speech_audio():
 
     client_ip = _get_client_ip()
     if request.method == "GET":
-        text = request.args.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
+        text = request.args.get("text", "እንኳን ወደ ተስፋነሽ ረዳት በደህና መጡ")
         lang = request.args.get("lang", "am-ET")
         _log_request("GET", f"/api/tts/audio?lang={lang}", client_ip, "-", text)
     else:
         data = request.get_json() or {}
-        text = data.get("text", "እንኳን ወደ አማኒ ረዳት በደህና መጡ")
+        text = data.get("text", "እንኳን ወደ ተስፋነሽ ረዳት በደህና መጡ")
         lang = data.get("lang", "am-ET")
         _log_request("POST", f"/api/tts/audio?lang={lang}", client_ip, "-", text)
 

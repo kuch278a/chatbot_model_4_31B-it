@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Amani AI — High-Performance Bilingual Chatbot (Gemma 4 31B)
+# 🤖 Tesfanesh AI — High-Performance Bilingual Chatbot (Gemma 4 31B)
 ### Enterprise-Grade Neural Inference, Native Ge'ez STT, Neural TTS, Local Semantic RAG & Nginx Gateway
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://python.org)
@@ -14,7 +14,7 @@
 
 ## 📖 Overview
 
-**Amani AI** is an enterprise-grade conversational AI platform engineered specifically for **Amharic and English** bilingual environments. It delivers end-to-end voice and text processing with ultra-low latency by coupling a layer-sharded **Gemma 4 (31B)** model with native Ge'ez Automatic Speech Recognition, high-fidelity neural Text-to-Speech, an offline Semantic Retrieval-Augmented Generation (RAG) system, and a hardened 4-in-1 Nginx Gateway.
+**Tesfanesh AI** is an enterprise-grade conversational AI platform engineered specifically for **Amharic and English** bilingual environments. It delivers end-to-end voice and text processing with ultra-low latency by coupling a layer-sharded **Gemma 4 (31B)** model with native Ge'ez Automatic Speech Recognition, high-fidelity neural Text-to-Speech, an offline Semantic Retrieval-Augmented Generation (RAG) system, and a hardened 4-in-1 Nginx Gateway.
 
 ---
 
@@ -207,7 +207,7 @@ Once applied, the application will be accessible via:
 ```bash
 curl -N -X POST http://127.0.0.1:5000/chat/stream \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "ሰላም! አማኒ ማን ነው?", "session_id": "user_001"}'
+  -d '{"prompt": "ሰላም! ተስፋነሽ ማን ነው?", "session_id": "user_001"}'
 ```
 
 #### 2. End-to-End Voice Conversation (Talk API)

@@ -115,6 +115,16 @@ def talk():
         print(f"  {_C['red']}✘ STT error: {stt_err}{_C['reset']}", flush=True)
         return jsonify({"error": f"Speech recognition failed: {stt_err}"}), 500
 
+    # --- Auto-correct common STT mistakes ---
+    try:
+        from src.services.autocorrect import correct_stt_transcript
+        original_transcript = transcript
+        transcript = correct_stt_transcript(transcript)
+        if original_transcript != transcript:
+            print(f"  {_C['yellow']}[Auto-Correct]{_C['reset']} '{original_transcript}' -> '{transcript}'", flush=True)
+    except Exception as e:
+        pass
+
     stt_elapsed = time.time() - t_stt
     print(
         f"  {_C['green']}STT done{_C['reset']} in {_C['yellow']}{stt_elapsed:.2f}s{_C['reset']} "
@@ -160,9 +170,9 @@ def talk():
     t_tts = time.time()
     synthesizer = VoiceSynthesizer()
 
-    temp_mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
-    temp_path = temp_mp3.name
-    temp_mp3.close()
+    temp_wav = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
+    temp_path = temp_wav.name
+    temp_wav.close()
 
     try:
         asyncio.run(
@@ -188,7 +198,7 @@ def talk():
         flush=True,
     )
 
-    # ── 5. Stream MP3 back ────────────────────────────────────────────────────
+    # ── 5. Stream WAV back ────────────────────────────────────────────────────
     @after_this_request
     def _cleanup(response):
         try:
@@ -198,7 +208,7 @@ def talk():
             pass
         return response
 
-    response = send_file(temp_path, mimetype="audio/mpeg", as_attachment=False)
+    response = send_file(temp_path, mimetype="audio/wav", as_attachment=False)
 
     # Attach intermediate text as headers so clients can show transcript/response
     # without needing a separate API call (sanitize newlines to satisfy HTTP header specs).

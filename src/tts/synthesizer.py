@@ -1,3 +1,4 @@
+import os
 import re
 import asyncio
 import edge_tts
@@ -87,13 +88,31 @@ class VoiceSynthesizer:
         return re.sub(r'\s+', ' ', text).strip()
 
     async def generate_audio_file(self, text: str, output_path: str, lang: str = "am-ET", rate: str = "+20%") -> str:
-        """Generates an MP3 audio file using edge-tts with Neural Amharic voice."""
+        """Generates an audio file (MP3 or WAV) using edge-tts with Neural Amharic voice."""
         cleaned_text = self.clean_text_for_speech(text)
         voice_info = self.select_voice(lang=lang)
         voice_short_name = voice_info.get("short_name", "am-ET-MekdesNeural")
 
         communicate = edge_tts.Communicate(cleaned_text, voice_short_name, rate=rate)
-        await communicate.save(output_path)
+        
+        if output_path.lower().endswith(".wav"):
+            temp_mp3 = output_path + ".mp3"
+            await communicate.save(temp_mp3)
+            
+            import subprocess
+            try:
+                subprocess.run(
+                    ["ffmpeg", "-y", "-i", temp_mp3, "-ar", "24000", "-ac", "1", output_path],
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                    check=True
+                )
+            finally:
+                if os.path.exists(temp_mp3):
+                    os.remove(temp_mp3)
+        else:
+            await communicate.save(output_path)
+            
         return output_path
 
     async def generate_audio_stream(self, text: str, lang: str = "am-ET", rate: str = "+20%"):

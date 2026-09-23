@@ -13,7 +13,7 @@ EN_AM_EXPANSIONS = {
     'history': 'ታሪክ',
     'director': 'ዳይሬክተር',
     'institute': 'ኢንስቲትዩት',
-    'amani': 'አማኒ',
+    'amani': 'ተስፋነሽ',
     'axum': 'አክሱም',
     'aksum': 'አክሱም',
     'lalibela': 'ላሊበላ',

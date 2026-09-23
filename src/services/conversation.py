@@ -25,7 +25,7 @@ def _clean_repetitive_intros(text: str, user_prompt: str) -> str:
         "ማን ነህ", "ማን ነሽ", "ስምህ ማን ነው", "ስምሽ ማን ነው", "ስምህ ማን", "ስምሽ ማን",
         "ማን ልበል", "ስምሽ ማን ልበል", "ስምህ ማን ልበል", "ስምህን ንገረኝ", "ስምሽን ንገረኝ",
         "ስምህን", "ስምሽን", "ምን ልበል", "ስለ ራስህ", "ስለ ራስሽ", "who are you",
-        "what is your name", "tell me about yourself", "about amani", "ስለ አማኒ",
+        "what is your name", "tell me about yourself", "about tesfanesh", "ስለ ተስፋነሽ",
         "ስምህ", "ስምሽ", "ማን ነሽ?"
     ]
     if any(p in user_lower for p in who_patterns):
@@ -46,7 +46,7 @@ def _clean_repetitive_intros(text: str, user_prompt: str) -> str:
     cleaned = re.sub(r"^(?:በኢትዮጵያ\s+አርቴ?ፊሻል\s+ኢንተለጀንስ\s+ኢንስቲትዩት\s*(?:\(EAII\))?\s*የተገነባሁ\s*ረዳት\s*ነኝ[፣,፤;።\s]*)+", "", cleaned, flags=re.IGNORECASE)
 
     # Clean English intros
-    cleaned = re.sub(r"^(?:Hello[!,\s]*)?(?:I am|I'm)\s+Amani,?\s*(?:an?\s+AI\s+assistant\s+(?:developed\s+by\s+EAII)?)?[,\.\s]*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^(?:Hello[!,\s]*)?(?:I am|I'm)\s+Tesfanesh,?\s*(?:an?\s+AI\s+assistant\s+(?:developed\s+by\s+EAII)?)?[,\.\s]*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^[፣,፤;።\s\.\-]+", "", cleaned).strip()
     return cleaned if cleaned else text.strip()
 
@@ -59,10 +59,10 @@ class ConversationService:
     def _get_system_prompt(self, is_voice: bool = False) -> str:
         if is_voice:
             return (
-                "You are Amani (አማኒ), an AI assistant by EAII (የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት). "
+                "You are Tesfanesh (ተስፋነሽ), an AI assistant by EAII (የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት). "
                 "Provide highly detailed, fact-dense answers, but compress them into exactly ONE single sentence. "
                 "Skip all conversational filler, greetings, and pleasantries. Give the direct, core facts immediately. "
-                "No markdown or lists. If asked your name, say: 'ስሜ አማኒ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።' "
+                "No markdown or lists. If asked your name, say: 'ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።' "
                 "CRITICAL: If the provided context does not answer the question, answer using your general knowledge or politely state you don't know. NEVER use the words 'context', 'provided information', or 'documents' in your response."
             )
 
@@ -80,7 +80,7 @@ class ConversationService:
                 except Exception as e:
                     print(f"Warning: Could not read system prompt from {path}: {e}")
 
-        return "The assistant is Amani (አማኒ), an intelligent bilingual (Amharic & English) AI assistant developed by EAII."
+        return "The assistant is Tesfanesh (ተስፋነሽ), an intelligent bilingual (Amharic & English) AI assistant developed by EAII."
 
     def chat(self, session_id, prompt, is_voice=False):
         is_am = is_amharic_text(prompt)
@@ -208,7 +208,7 @@ class ConversationService:
                     is_buffered = False
                     if cleaned_head:
                         yield cleaned_head
-                elif not any(buf_str.startswith(stem) for stem in ["ሰላም", "እኔ", "አማኒ", "Hello", "I am", "I'm"]):
+                elif not any(buf_str.startswith(stem) for stem in ["ሰላም", "እኔ", "ተስፋነሽ", "Hello", "I am", "I'm"]):
                     # Not an intro template, flush immediately for minimal TTFT
                     is_buffered = False
                     yield buf_str
