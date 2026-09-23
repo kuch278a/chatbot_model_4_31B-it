@@ -27752,3 +27752,121 @@ All services loaded and ready!
 [Ethio-ASR][DEBUG] Single-chunk result: ''
   [92mSTT done[0m in [93m0.25s[0m | lang=am-ET | transcript: 
 127.0.0.1 - - [23/Sep/2026 15:35:53] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5845.03it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 4 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   3%|2         | 33/1188 [00:00<00:04, 272.30it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:04, 243.88it/s]Loading weights:   7%|7         | 88/1188 [00:00<00:04, 242.31it/s]Loading weights:  10%|9         | 115/1188 [00:00<00:04, 250.62it/s]Loading weights:  12%|#2        | 143/1188 [00:00<00:04, 251.39it/s]Loading weights:  14%|#4        | 169/1188 [00:00<00:04, 224.48it/s]Loading weights:  16%|#6        | 195/1188 [00:00<00:04, 225.51it/s]Loading weights:  19%|#8        | 224/1188 [00:00<00:04, 227.32it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:04, 224.86it/s]Loading weights:  23%|##3       | 276/1188 [00:01<00:03, 229.72it/s]Loading weights:  25%|##5       | 300/1188 [00:01<00:03, 226.65it/s]Loading weights:  27%|##7       | 323/1188 [00:01<00:03, 222.46it/s]Loading weights:  29%|##9       | 346/1188 [00:01<00:03, 223.90it/s]Loading weights:  31%|###1      | 369/1188 [00:01<00:03, 212.26it/s]Loading weights:  33%|###3      | 393/1188 [00:01<00:03, 213.75it/s]Loading weights:  35%|###4      | 415/1188 [00:02<00:05, 132.90it/s]Loading weights:  36%|###6      | 433/1188 [00:02<00:09, 78.14it/s] Loading weights:  38%|###7      | 446/1188 [00:02<00:12, 60.37it/s]Loading weights:  38%|###8      | 457/1188 [00:03<00:15, 47.88it/s]Loading weights:  39%|###9      | 465/1188 [00:03<00:21, 33.76it/s]Loading weights:  41%|####1     | 490/1188 [00:04<00:13, 53.08it/s]Loading weights:  43%|####3     | 513/1188 [00:04<00:09, 72.11it/s]Loading weights:  46%|####5     | 545/1188 [00:04<00:06, 102.23it/s]Loading weights:  48%|####8     | 573/1188 [00:04<00:04, 126.85it/s]Loading weights:  51%|#####     | 600/1188 [00:04<00:03, 149.43it/s]Loading weights:  53%|#####2    | 625/1188 [00:04<00:03, 169.33it/s]Loading weights:  55%|#####4    | 650/1188 [00:04<00:02, 185.58it/s]Loading weights:  57%|#####6    | 673/1188 [00:04<00:02, 187.09it/s]Loading weights:  59%|#####8    | 698/1188 [00:05<00:02, 196.57it/s]Loading weights:  61%|######1   | 725/1188 [00:05<00:02, 207.24it/s]Loading weights:  63%|######3   | 749/1188 [00:05<00:02, 204.44it/s]Loading weights:  65%|######4   | 771/1188 [00:05<00:02, 206.24it/s]Loading weights:  67%|######6   | 793/1188 [00:05<00:03, 118.53it/s]Loading weights:  68%|######8   | 810/1188 [00:06<00:07, 50.02it/s] Loading weights:  69%|######9   | 823/1188 [00:07<00:08, 41.84it/s]Loading weights:  75%|#######4  | 887/1188 [00:07<00:03, 93.51it/s]Loading weights:  83%|########2 | 983/1188 [00:07<00:01, 188.69it/s]Loading weights:  91%|######### | 1080/1188 [00:07<00:00, 294.52it/s]Loading weights:  98%|#########7| 1161/1188 [00:07<00:00, 344.15it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 154.02it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:46:37][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 381 KB  (filename=recorded_audio_cdf07631.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 390842 input bytes → 70890 PCM bytes (2.22s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  21%|##        | 167/796 [00:00<00:00, 1646.50it/s]Loading weights:  42%|####1     | 332/796 [00:00<00:00, 661.46it/s] Loading weights: 100%|##########| 796/796 [00:00<00:00, 1534.04it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 35445 samples, duration=2.22s, max=0.0768, rms=0.0129
+[Ethio-ASR][DEBUG] VAD: 35445 samples → 35445 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m7.03s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:46:44] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:46:49][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 381 KB  (filename=recorded_audio_68b2a501.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 390842 input bytes → 70890 PCM bytes (2.22s)
+[Ethio-ASR][DEBUG] PCM→float32: 35445 samples, duration=2.22s, max=0.1358, rms=0.0295
+[Ethio-ASR][DEBUG] VAD: 35445 samples → 35445 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.53s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:46:49] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:46:54][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 261 KB  (filename=recorded_audio_fe125420.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 268154 input bytes → 48634 PCM bytes (1.52s)
+[Ethio-ASR][DEBUG] PCM→float32: 24317 samples, duration=1.52s, max=0.1652, rms=0.0299
+[Ethio-ASR][DEBUG] VAD: 24317 samples → 24317 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስምች ማ ነው'
+  [92mSTT done[0m in [93m0.57s[0m | lang=am-ET | transcript: ስምች ማ ነው
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.262).
+  [92mLLM done[0m in [93m7.51s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.86s[0m
+  [1m[92m✔ /talk total[0m [93m9.20s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:47:03] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:47:16][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 692 KB  (filename=recorded_audio_a73b542e.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 708922 input bytes → 128592 PCM bytes (4.02s)
+[Ethio-ASR][DEBUG] PCM→float32: 64296 samples, duration=4.02s, max=0.1245, rms=0.0205
+[Ethio-ASR][DEBUG] VAD: 64296 samples → 64296 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'የኢትዮጵያ አርቴፊሻል የተለኛና ዳይሬክት ና ችለች'
+  [92mSTT done[0m in [93m0.77s[0m | lang=am-ET | transcript: የኢትዮጵያ አርቴፊሻል የተለኛና ዳይሬክት ና ችለች
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.736).
+  [92mLLM done[0m in [93m9.07s[0m | response: የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት ዋና ዳይሬክተር ክቡር ዶክተር ወርቁ ጋቸና ናቸው።
+  [92mTTS done[0m in [93m0.86s[0m
+  [1m[92m✔ /talk total[0m [93m10.70s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:47:27] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:47:39][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 394 KB  (filename=recorded_audio_2d8a5231.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 404474 input bytes → 73364 PCM bytes (2.29s)
+[Ethio-ASR][DEBUG] PCM→float32: 36682 samples, duration=2.29s, max=0.1066, rms=0.0200
+[Ethio-ASR][DEBUG] VAD: 36682 samples → 36682 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ምክትል ዳይሬክተር ማን ነው'
+  [92mSTT done[0m in [93m0.55s[0m | lang=am-ET | transcript: ምክትል ዳይሬክተር ማን ነው
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.758).
+  [92mLLM done[0m in [93m15.27s[0m | response: የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሦስት ምክትል ዋና ዳይሬክተሮች የሚመራ ሲሆን እነርሱም የምርምር እና ልማት ኃላፊ ዶክተር ታዬ ግርማ፣ የአስተ...
+  [92mTTS done[0m in [93m2.43s[0m
+  [1m[92m✔ /talk total[0m [93m18.24s[0m
+
+127.0.0.1 - - [23/Sep/2026 15:47:57] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 15:48:22] "[33mGET /admin/config.php HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:48:30][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_37020e0b.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0281, rms=0.0081
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.22s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:48:30] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
