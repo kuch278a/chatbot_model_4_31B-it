@@ -27870,3 +27870,834 @@ All services loaded and ready!
 [Ethio-ASR][DEBUG] Single-chunk result: ''
   [92mSTT done[0m in [93m0.22s[0m | lang=am-ET | transcript: 
 127.0.0.1 - - [23/Sep/2026 15:48:30] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5039.30it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 10 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:51, 10.61it/s]Loading weights:   5%|4         | 58/1188 [00:00<00:04, 241.66it/s]Loading weights:   8%|7         | 90/1188 [00:00<00:04, 233.61it/s]Loading weights:  10%|9         | 118/1188 [00:00<00:05, 212.55it/s]Loading weights:  12%|#2        | 145/1188 [00:00<00:04, 226.75it/s]Loading weights:  14%|#4        | 171/1188 [00:00<00:04, 223.91it/s]Loading weights:  16%|#6        | 196/1188 [00:00<00:04, 222.27it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 231.39it/s]Loading weights:  21%|##        | 247/1188 [00:01<00:04, 222.58it/s]Loading weights:  23%|##2       | 270/1188 [00:01<00:04, 219.29it/s]Loading weights:  25%|##4       | 293/1188 [00:01<00:04, 221.85it/s]Loading weights:  27%|##6       | 320/1188 [00:01<00:03, 233.20it/s]Loading weights:  29%|##8       | 344/1188 [00:01<00:03, 223.28it/s]Loading weights:  31%|###       | 367/1188 [00:01<00:04, 204.13it/s]Loading weights:  33%|###3      | 394/1188 [00:01<00:03, 219.96it/s]Loading weights:  35%|###5      | 417/1188 [00:01<00:03, 209.31it/s]Loading weights:  38%|###7      | 448/1188 [00:02<00:03, 217.50it/s]Loading weights:  40%|###9      | 472/1188 [00:02<00:03, 219.93it/s]Loading weights:  42%|####1     | 495/1188 [00:02<00:03, 215.93it/s]Loading weights:  44%|####3     | 517/1188 [00:03<00:08, 76.19it/s] Loading weights:  45%|####4     | 534/1188 [00:03<00:11, 55.65it/s]Loading weights:  46%|####6     | 547/1188 [00:04<00:14, 43.44it/s]Loading weights:  47%|####6     | 557/1188 [00:04<00:13, 47.30it/s]Loading weights:  48%|####8     | 574/1188 [00:04<00:10, 60.44it/s]Loading weights:  50%|#####     | 597/1188 [00:04<00:07, 83.27it/s]Loading weights:  53%|#####2    | 627/1188 [00:04<00:04, 114.92it/s]Loading weights:  54%|#####4    | 645/1188 [00:04<00:04, 124.15it/s]Loading weights:  57%|#####6    | 677/1188 [00:04<00:03, 163.99it/s]Loading weights:  59%|#####8    | 699/1188 [00:05<00:03, 159.64it/s]Loading weights:  61%|######1   | 727/1188 [00:05<00:02, 182.61it/s]Loading weights:  63%|######3   | 752/1188 [00:05<00:02, 198.50it/s]Loading weights:  66%|######5   | 780/1188 [00:05<00:01, 206.50it/s]Loading weights:  68%|######7   | 803/1188 [00:05<00:04, 90.00it/s] Loading weights:  69%|######9   | 820/1188 [00:06<00:04, 74.04it/s]Loading weights:  70%|#######   | 834/1188 [00:06<00:06, 58.63it/s]Loading weights:  80%|#######9  | 946/1188 [00:06<00:01, 175.88it/s]Loading weights:  86%|########6 | 1025/1188 [00:06<00:00, 258.45it/s]Loading weights:  92%|#########2| 1093/1188 [00:07<00:00, 326.89it/s]Loading weights:  98%|#########7| 1160/1188 [00:07<00:00, 378.31it/s]Loading weights: 100%|##########| 1188/1188 [00:07<00:00, 163.89it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:53:58][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_33f5ea2d.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:   8%|8         | 64/796 [00:00<00:01, 611.41it/s]Loading weights:  19%|#8        | 148/796 [00:00<00:00, 715.07it/s]Loading weights:  28%|##7       | 220/796 [00:00<00:00, 611.81it/s]Loading weights:  36%|###5      | 283/796 [00:00<00:00, 587.05it/s]Loading weights:  44%|####4     | 354/796 [00:00<00:00, 626.58it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 1249.67it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0234, rms=0.0075
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:54:01][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 13 KB  (filename=recorded_audio_10394074.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 13690 input bytes → 2474 PCM bytes (0.08s)
+[Ethio-ASR][DEBUG] PCM→float32: 1237 samples, duration=0.08s, max=0.0254, rms=0.0086
+[Ethio-ASR][DEBUG] VAD: 1237 samples → 1237 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''[Ethio-ASR][DEBUG] Single-chunk result: ''
+
+  [92mSTT done[0m in [93m1.44s[0m | lang=am-ET | transcript:   [92mSTT done[0m in [93m4.23s[0m | lang=am-ET | transcript: 
+
+127.0.0.1 - - [23/Sep/2026 15:54:02] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 15:54:02] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 15:54:09] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:54:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_0e03ca18.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0275, rms=0.0092
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.24s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:54:59] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[15:54:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 13 KB  (filename=recorded_audio_85649c07.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 13690 input bytes → 2474 PCM bytes (0.08s)
+[Ethio-ASR][DEBUG] PCM→float32: 1237 samples, duration=0.08s, max=0.0281, rms=0.0093
+[Ethio-ASR][DEBUG] VAD: 1237 samples → 1237 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.20s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 15:55:00] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+Starting background service initialization (attempt 1/5)...
+================================================================
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 4749.82it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 10 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:53, 10.46it/s]Loading weights:   5%|5         | 61/1188 [00:00<00:04, 243.22it/s]Loading weights:   8%|7         | 92/1188 [00:00<00:04, 239.70it/s]Loading weights:  10%|#         | 120/1188 [00:00<00:04, 237.55it/s]Loading weights:  12%|#2        | 146/1188 [00:00<00:04, 228.82it/s]Loading weights:  14%|#4        | 171/1188 [00:00<00:04, 226.67it/s]Loading weights:  17%|#6        | 199/1188 [00:00<00:04, 230.08it/s]Loading weights:  19%|#8        | 223/1188 [00:01<00:04, 232.81it/s]Loading weights:  21%|##        | 249/1188 [00:01<00:03, 237.80it/s]Loading weights:  23%|##3       | 274/1188 [00:01<00:03, 233.89it/s]Loading weights:  25%|##5       | 298/1188 [00:01<00:04, 219.37it/s]Loading weights:  27%|##7       | 321/1188 [00:01<00:03, 221.92it/s]Loading weights:  29%|##9       | 345/1188 [00:01<00:03, 221.29it/s]Loading weights:  31%|###       | 368/1188 [00:01<00:03, 221.07it/s]Loading weights:  33%|###2      | 391/1188 [00:01<00:03, 221.64it/s]Loading weights:  35%|###4      | 414/1188 [00:01<00:03, 219.85it/s]Loading weights:  37%|###6      | 437/1188 [00:01<00:03, 211.99it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 221.27it/s]Loading weights:  41%|####      | 486/1188 [00:02<00:03, 213.00it/s]Loading weights:  43%|####3     | 511/1188 [00:02<00:03, 221.30it/s]Loading weights:  45%|####4     | 534/1188 [00:02<00:02, 218.46it/s]Loading weights:  47%|####7     | 559/1188 [00:02<00:02, 217.87it/s]Loading weights:  49%|####8     | 581/1188 [00:02<00:02, 214.47it/s]Loading weights:  51%|#####     | 603/1188 [00:03<00:05, 107.50it/s]Loading weights:  52%|#####2    | 620/1188 [00:03<00:06, 89.69it/s] Loading weights:  55%|#####4    | 650/1188 [00:03<00:04, 121.01it/s]Loading weights:  56%|#####6    | 669/1188 [00:03<00:03, 133.31it/s]Loading weights:  59%|#####8    | 697/1188 [00:03<00:03, 156.02it/s]Loading weights:  61%|######1   | 725/1188 [00:03<00:02, 174.85it/s]Loading weights:  63%|######3   | 749/1188 [00:03<00:02, 186.24it/s]Loading weights:  65%|######5   | 774/1188 [00:04<00:02, 201.20it/s]Loading weights:  67%|######7   | 797/1188 [00:04<00:01, 206.68it/s]Loading weights:  69%|######9   | 822/1188 [00:04<00:01, 213.65it/s]Loading weights:  78%|#######7  | 921/1188 [00:04<00:00, 321.58it/s]Loading weights:  80%|########  | 951/1188 [00:05<00:02, 85.89it/s] Loading weights:  86%|########6 | 1027/1188 [00:05<00:01, 137.71it/s]Loading weights:  93%|#########3| 1106/1188 [00:05<00:00, 203.20it/s]Loading weights:  98%|#########8| 1170/1188 [00:06<00:00, 255.01it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 193.51it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:16:42][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 399 KB  (filename=recorded_audio_36c5baa0.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 409018 input bytes → 74188 PCM bytes (2.32s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  64%|######3   | 506/796 [00:00<00:00, 4992.98it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 2362.67it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 37094 samples, duration=2.32s, max=0.0704, rms=0.0159
+[Ethio-ASR][DEBUG] VAD: 37094 samples → 37094 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m4.20s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 16:16:46] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:16:51][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 346 KB  (filename=recorded_audio_2531d3d7.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 354490 input bytes → 64296 PCM bytes (2.01s)
+[Ethio-ASR][DEBUG] PCM→float32: 32148 samples, duration=2.01s, max=0.0916, rms=0.0178
+[Ethio-ASR][DEBUG] VAD: 32148 samples → 32148 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.53s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 16:16:51] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:16:55][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 257 KB  (filename=recorded_audio_f7a2c6d8.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 263610 input bytes → 47810 PCM bytes (1.49s)
+[Ethio-ASR][DEBUG] PCM→float32: 23905 samples, duration=1.49s, max=0.1195, rms=0.0210
+[Ethio-ASR][DEBUG] VAD: 23905 samples → 23905 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስሙሽ ማ ነው'
+  [92mSTT done[0m in [93m0.52s[0m | lang=am-ET | transcript: ስሙሽ ማ ነው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m9.42s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.83s[0m
+  [1m[92m✔ /talk total[0m [93m11.03s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:17:07] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:17:10] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:17:28][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 536 KB  (filename=recorded_audio_ebd39817.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 549882 input bytes → 99742 PCM bytes (3.12s)
+[Ethio-ASR][DEBUG] PCM→float32: 49871 samples, duration=3.12s, max=0.0979, rms=0.0160
+[Ethio-ASR][DEBUG] VAD: 49871 samples → 49871 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስለሮቦቲክ ስለናግርኝ ትሻያለች'
+  [92mSTT done[0m in [93m1.85s[0m | lang=am-ET | transcript: ስለሮቦቲክ ስለናግርኝ ትሻያለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m14.39s[0m | response: ሮቦቲክስ የሜካኒካል ኢንጂነሪንግን፣ የኤሌክትሮኒክስን እና የኮምፒውተር ሳይንስን በማቀናጀት የሰው ልጅን ተግባራት በራስ-ሰር የሚያከናውኑ ፕሮግራሚንግ የተደረገ...
+  [92mTTS done[0m in [93m3.46s[0m
+  [1m[92m✔ /talk total[0m [93m19.70s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:17:47] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:18:16][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 363 KB  (filename=recorded_audio_cc6fb324.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 372666 input bytes → 67594 PCM bytes (2.11s)
+[Ethio-ASR][DEBUG] PCM→float32: 33797 samples, duration=2.11s, max=0.1140, rms=0.0215
+[Ethio-ASR][DEBUG] VAD: 33797 samples → 33797 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'በደንብ ተብራር ሂደኛለች'
+  [92mSTT done[0m in [93m0.51s[0m | lang=am-ET | transcript: በደንብ ተብራር ሂደኛለች
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.253).
+  [92mLLM done[0m in [93m4.70s[0m | response: ይቅርታ፣ ጥያቄዎ አልገባኝም። እባክዎ እንደገና ይሞክሩ።
+  [92mTTS done[0m in [93m1.64s[0m
+  [1m[92m✔ /talk total[0m [93m6.86s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:18:23] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:18:33][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 656 KB  (filename=recorded_audio_cf29c1f7.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 672570 input bytes → 121998 PCM bytes (3.81s)
+[Ethio-ASR][DEBUG] PCM→float32: 60999 samples, duration=3.81s, max=0.1349, rms=0.0200
+[Ethio-ASR][DEBUG] VAD: 60999 samples → 60999 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ፍላሮብራሪ  ትችለች'
+  [92mSTT done[0m in [93m1.83s[0m | lang=am-ET | transcript: ፍላሮብራሪ  ትችለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m5.92s[0m | response: ይቅርታ፣ ጥያቄዎ አልገባኝም። እባክዎ እንደገና ይሞክሩ።
+  [92mTTS done[0m in [93m0.85s[0m
+  [1m[92m✔ /talk total[0m [93m8.60s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:18:42] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:18:54][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 794 KB  (filename=recorded_audio_92214707.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 813434 input bytes → 147552 PCM bytes (4.61s)
+[Ethio-ASR][DEBUG] PCM→float32: 73776 samples, duration=4.61s, max=0.1397, rms=0.0204
+[Ethio-ASR][DEBUG] VAD: 73776 samples → 73776 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስለ ሮቦቲክስ በደንብ ልተብራር ሂሊ ትችያለች ወይ'
+  [92mSTT done[0m in [93m1.13s[0m | lang=am-ET | transcript: ስለ ሮቦቲክስ በደንብ ልተብራር ሂሊ ትችያለች ወይ
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.257).
+  [92mLLM done[0m in [93m15.09s[0m | response: ሮቦቲክስ የሜካኒካል ኢንጂነሪንግን፣ የኤሌክትሮኒክስን እና የኮምፒውተር ሳይንስን በማቀናጀት የሰው ልጅን ተግባራት በራስ-ሰር የሚያከናውኑ ፕሮግራሚንግ የተደረገ...
+  [92mTTS done[0m in [93m0.89s[0m
+  [1m[92m✔ /talk total[0m [93m17.12s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:19:11] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:22:00] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:23:17][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_1cc4981b.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0242, rms=0.0089
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.26s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 16:23:17] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 16:27:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:28:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 297 KB  (filename=recorded_audio_e8328888.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 304506 input bytes → 55230 PCM bytes (1.73s)
+[Ethio-ASR][DEBUG] PCM→float32: 27615 samples, duration=1.73s, max=0.1030, rms=0.0162
+[Ethio-ASR][DEBUG] VAD: 27615 samples → 27615 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ማን ሰራሽ'
+  [92mSTT done[0m in [93m0.57s[0m | lang=am-ET | transcript: ማን ሰራሽ
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.386).
+  [92mLLM done[0m in [93m6.85s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.81s[0m
+  [1m[92m✔ /talk total[0m [93m8.24s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:29:07] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:29:18][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 417 KB  (filename=recorded_audio_41d55644.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 427194 input bytes → 77486 PCM bytes (2.42s)
+[Ethio-ASR][DEBUG] PCM→float32: 38743 samples, duration=2.42s, max=0.1070, rms=0.0204
+[Ethio-ASR][DEBUG] VAD: 38743 samples → 38743 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ማንነው የስራሸ'
+  [92mSTT done[0m in [93m0.63s[0m | lang=am-ET | transcript: ማንነው የስራሸ
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.58s[0m | response: ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m0.81s[0m
+  [1m[92m✔ /talk total[0m [93m8.02s[0m
+
+127.0.0.1 - - [23/Sep/2026 16:29:26] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:31:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:34:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:37:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:37:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:37:04] "[33mGET /mcp/ HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:37:04] "[33mGET /api/mcp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:37:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2026 16:37:04] "[33mGET /mcp HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:37:05] "[33mGET /sse HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Sep/2026 16:52:51] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[16:56:32][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_d0e6137d.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0292, rms=0.0093
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.25s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [23/Sep/2026 16:56:32] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [23/Sep/2026 16:57:38] "GET / HTTP/1.1" 200 -
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5812.62it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 10 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:00<01:03, 18.61it/s]Loading weights:   5%|4         | 55/1188 [00:00<00:03, 300.66it/s]Loading weights:   7%|7         | 86/1188 [00:00<00:04, 254.48it/s]Loading weights:  10%|9         | 113/1188 [00:00<00:04, 242.77it/s]Loading weights:  12%|#1        | 140/1188 [00:00<00:04, 246.57it/s]Loading weights:  14%|#3        | 166/1188 [00:00<00:04, 230.41it/s]Loading weights:  16%|#6        | 193/1188 [00:00<00:04, 239.12it/s]Loading weights:  18%|#8        | 218/1188 [00:00<00:04, 235.69it/s]Loading weights:  20%|##        | 242/1188 [00:01<00:04, 228.22it/s]Loading weights:  22%|##2       | 267/1188 [00:01<00:03, 233.01it/s]Loading weights:  24%|##4       | 291/1188 [00:01<00:03, 226.09it/s]Loading weights:  27%|##6       | 318/1188 [00:01<00:03, 237.92it/s]Loading weights:  29%|##8       | 342/1188 [00:01<00:03, 218.97it/s]Loading weights:  31%|###       | 365/1188 [00:01<00:03, 217.28it/s]Loading weights:  33%|###2      | 389/1188 [00:01<00:03, 221.86it/s]Loading weights:  35%|###4      | 412/1188 [00:01<00:03, 223.44it/s]Loading weights:  37%|###6      | 435/1188 [00:01<00:03, 208.35it/s]Loading weights:  39%|###8      | 462/1188 [00:02<00:03, 221.92it/s]Loading weights:  41%|####      | 485/1188 [00:02<00:03, 222.60it/s]Loading weights:  43%|####2     | 508/1188 [00:02<00:03, 221.81it/s]Loading weights:  45%|####4     | 531/1188 [00:02<00:02, 219.09it/s]Loading weights:  47%|####6     | 556/1188 [00:02<00:02, 217.20it/s]Loading weights:  49%|####8     | 581/1188 [00:02<00:02, 224.34it/s]Loading weights:  51%|#####     | 604/1188 [00:02<00:02, 218.64it/s]Loading weights:  53%|#####2    | 628/1188 [00:02<00:02, 217.76it/s]Loading weights:  55%|#####5    | 656/1188 [00:02<00:02, 219.74it/s]Loading weights:  57%|#####7    | 683/1188 [00:03<00:02, 221.88it/s]Loading weights:  60%|#####9    | 708/1188 [00:03<00:02, 226.82it/s]Loading weights:  62%|######1   | 735/1188 [00:03<00:01, 227.74it/s]Loading weights:  64%|######3   | 758/1188 [00:03<00:01, 216.62it/s]Loading weights:  66%|######5   | 780/1188 [00:03<00:01, 216.02it/s]Loading weights:  68%|######7   | 802/1188 [00:03<00:01, 200.20it/s]Loading weights:  69%|######9   | 823/1188 [00:05<00:08, 41.41it/s] Loading weights:  71%|#######   | 838/1188 [00:05<00:07, 47.42it/s]Loading weights:  72%|#######1  | 852/1188 [00:05<00:06, 54.41it/s]Loading weights:  74%|#######3  | 875/1188 [00:05<00:04, 73.69it/s]Loading weights:  76%|#######5  | 901/1188 [00:05<00:02, 97.76it/s]Loading weights:  78%|#######7  | 924/1188 [00:05<00:02, 117.72it/s]Loading weights:  80%|########  | 953/1188 [00:05<00:01, 143.21it/s]Loading weights:  82%|########2 | 979/1188 [00:06<00:01, 150.31it/s]Loading weights:  85%|########4 | 1006/1188 [00:06<00:01, 171.23it/s]Loading weights:  87%|########7 | 1038/1188 [00:06<00:00, 201.64it/s]Loading weights:  91%|######### | 1076/1188 [00:06<00:00, 243.89it/s]Loading weights:  93%|#########3| 1107/1188 [00:06<00:00, 259.10it/s]Loading weights:  96%|#########5| 1136/1188 [00:06<00:00, 229.06it/s]Loading weights:  98%|#########7| 1162/1188 [00:06<00:00, 219.53it/s]Loading weights: 100%|##########| 1188/1188 [00:06<00:00, 173.13it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:16:09][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 452 KB  (filename=recorded_audio_d6d70579.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 463546 input bytes → 84080 PCM bytes (2.63s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  20%|##        | 163/796 [00:00<00:00, 1619.66it/s]Loading weights: 100%|##########| 796/796 [00:00<00:00, 4683.32it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 42040 samples, duration=2.63s, max=0.1189, rms=0.0194
+[Ethio-ASR][DEBUG] VAD: 42040 samples → 42040 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሰላም ተስፋ ነች እንዴት ነሽ'
+  [92mSTT done[0m in [93m2.28s[0m | lang=am-ET | transcript: ሰላም ተስፋ ነች እንዴት ነሽ
+  [Context Filter] Greeting detected ('ሰላም ተስፋ ነች እንዴት ነሽ') — bypassing RAG context injection.
+  [92mLLM done[0m in [93m9.23s[0m | response: ደህና ነኝ፣ ስሜ ተስፋነሽ ይባላል፤ በ EAII የተገነባሁ የሰው ሰራሽ አስተውሎት ረዳት ነኝ።
+  [92mTTS done[0m in [93m1.50s[0m
+  [1m[92m✔ /talk total[0m [93m13.35s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:16:23] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:17:57][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 865 KB  (filename=recorded_audio_340862e1.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 886138 input bytes → 160740 PCM bytes (5.02s)
+[Ethio-ASR][DEBUG] PCM→float32: 80370 samples, duration=5.02s, max=0.1640, rms=0.0250
+[Ethio-ASR][DEBUG] VAD: 80370 samples → 80370 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ስለ ኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ልታስርጀኝ ትቻለች።'
+  [92mSTT done[0m in [93m1.27s[0m | lang=am-ET | transcript: ስለ ኢትዮጵያ አርቲፊሻል ኢንተለጀንስ ልታስርጀኝ ትቻለች።
+  [Context Filter] Accepted 2/2 context chunks (top score: 0.691).
+  [92mLLM done[0m in [93m15.23s[0m | response: የኢትዮጵያ አርቴፊሻል ኢንተለጀንስ ኢንስቲትዩት በሴፕቴምበር 2020 በጠቅላይ ሚኒስትር ዶክተር አብይ አህመድ ተመርቆ በዋና ዳይሬክተር ዶክተር ወርቁ ጋቸና እና...
+  [92mTTS done[0m in [93m2.16s[0m
+  [1m[92m✔ /talk total[0m [93m18.66s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:18:16] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:18:48] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:19:39][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 417 KB  (filename=recorded_audio_39cf6acc.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 427194 input bytes → 77486 PCM bytes (2.42s)
+[Ethio-ASR][DEBUG] PCM→float32: 38743 samples, duration=2.42s, max=0.2066, rms=0.0311
+[Ethio-ASR][DEBUG] VAD: 38743 samples → 38743 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'አብዲ ማን እንደሆን ታውቂያለች'
+  [92mSTT done[0m in [93m0.60s[0m | lang=am-ET | transcript: አብዲ ማን እንደሆን ታውቂያለች
+  [Context Filter] Accepted 1/2 context chunks (top score: 0.431).
+  [92mLLM done[0m in [93m5.97s[0m | response: አቶ ሽመልስ አብዲሳ የኦሮሚያ ክልል ርዕሰ-መስተዳድር ናቸው።
+  [92mTTS done[0m in [93m1.20s[0m
+  [1m[92m✔ /talk total[0m [93m7.77s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:19:47] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:20:09] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:20:19][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 244 KB  (filename=recorded_audio_fc4ae9ef.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 249978 input bytes → 45338 PCM bytes (1.42s)
+[Ethio-ASR][DEBUG] PCM→float32: 22669 samples, duration=1.42s, max=0.3586, rms=0.0534
+[Ethio-ASR][DEBUG] VAD: 22669 samples → 22669 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ብሩክ ማነው'
+  [92mSTT done[0m in [93m0.62s[0m | lang=am-ET | transcript: ብሩክ ማነው
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m10.71s[0m | response: ብሩክ የሚለው ስም በብዙ ሰዎች ዘንድ የሚታወቅ የተለመደ ስም በመሆኑ፣ የተለየ ዝርዝር መረጃ ካልሰጡኝ የትኛውን ብሩክ ማለዎ እንደሆነ በትክክል መለየት አልችል...
+  [92mTTS done[0m in [93m1.66s[0m
+  [1m[92m✔ /talk total[0m [93m12.99s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:20:32] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:20:49][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 328 KB  (filename=recorded_audio_6835b1a2.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 336314 input bytes → 61000 PCM bytes (1.91s)
+[Ethio-ASR][DEBUG] PCM→float32: 30500 samples, duration=1.91s, max=0.2152, rms=0.0388
+[Ethio-ASR][DEBUG] VAD: 30500 samples → 30500 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ሺ ብርጊዛ የር ስን ታገባለች'
+  [92mSTT done[0m in [93m0.64s[0m | lang=am-ET | transcript: ሺ ብርጊዛ የር ስን ታገባለች
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m4.77s[0m | response: ይቅርታ፣ ጥያቄዎ አልገባኝም። እባክዎ እንደገና ይሞክሩ።
+  [92mTTS done[0m in [93m0.90s[0m
+  [1m[92m✔ /talk total[0m [93m6.31s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:20:56] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:21:05][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 434 KB  (filename=recorded_audio_c95ce3ac.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 445370 input bytes → 80782 PCM bytes (2.52s)
+[Ethio-ASR][DEBUG] PCM→float32: 40391 samples, duration=2.52s, max=0.1732, rms=0.0265
+[Ethio-ASR][DEBUG] VAD: 40391 samples → 40391 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: 'ብሩቅ ኢሳያ ስንት አውዋለች ወይ'
+  [92mSTT done[0m in [93m0.59s[0m | lang=am-ET | transcript: ብሩቅ ኢሳያ ስንት አውዋለች ወይ
+  [Context Filter] All retrieved chunks fell below relevance threshold (0.25) — no context injected.
+  [92mLLM done[0m in [93m6.06s[0m | response: ብሩቅ ኢሳያ ስንት ጊዜ አግብታ እንደሆነ ወይም እንደተፋታ የሚገልጽ ይፋዊ መረጃ የለም።
+  [92mTTS done[0m in [93m1.51s[0m
+  [1m[92m✔ /talk total[0m [93m8.16s[0m
+
+127.0.0.1 - - [24/Sep/2026 10:21:13] "POST /tesfansh-api/api/v1/chat/talk HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:25:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:30:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:36:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:36:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Sep/2026 10:41:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 10:41:24] "[31m[1mPROPFIND / HTTP/1.1[0m" 405 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:49:52][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_013a95b3.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0279, rms=0.0093
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.25s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 10:49:52] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[10:49:53][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_4bb7624f.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0275, rms=0.0094
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.19s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 10:49:53] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [24/Sep/2026 11:01:27] "[31m[1mGET /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 405 -
+127.0.0.1 - - [24/Sep/2026 11:01:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Sep/2026 11:01:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:01:35] "GET /style.css?v=3.2 HTTP/1.1" 200 -
+
+[1m[92m▶ POST /clear[0m [2m[11:01:36][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m [clear history]
+  [92m✔ /clear done[0m in [93m0.01s[0m
+
+127.0.0.1 - - [24/Sep/2026 11:01:36] "POST /clear HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:01:36] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /refresh[0m [2m[11:01:44][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m [rescan index]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 10 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+  [92m✔ /refresh done[0m in [93m1.03s[0m
+
+127.0.0.1 - - [24/Sep/2026 11:01:45] "POST /refresh HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:01:45] "GET /files HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:50][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...
+  [2m[queued — lock acquired][0m
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.569).
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:51][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:51][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+127.0.0.1 - - [24/Sep/2026 11:01:52] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:52][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m3.87s[0m | [93m14 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:01:56] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:57][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Connecting to microphone... / ማይክሮፎን በማገናኘት ላይ...
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:58][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m7.26s[0m | [93m14 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:01:59][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+127.0.0.1 - - [24/Sep/2026 11:02:00] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m10.60s[0m | [93m14 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:02:02][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Thinking... / በማሰብ ላይ...
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:02:04] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m14.74s[0m | [93m14 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:02:07][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Happy to
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.569).
+127.0.0.1 - - [24/Sep/2026 11:02:09] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m14.00s[0m | [93m14 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:02:11][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Happy to see you! Could
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:02:13] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see you! Could you clarify what you said?
+  [92m✔ /chat/stream done[0m in [93m17.46s[0m | [93m14 tokens[0m
+
+
+[1m[92m▶ POST /chat/stream[0m [2m[11:02:15][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m 1790236896432
+  [96mPrompt :[0m Happy to see you! Could you clarify what
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:02:17] "POST /chat/stream HTTP/1.1" 200 -
+
+[1m[92m▶ GET /api/tts/audio?lang=am-ET[0m [2m[11:02:18][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m -
+  [96mPrompt :[0m Happy to see you! Could you clarify what you said?
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy to see
+  [92m✔ /chat/stream done[0m in [93m19.57s[0m | [93m4 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:02:19] "GET /api/tts/audio?text=Happy%20to%20see%20you!%20Could%20you%20clarify%20what%20you%20said?&lang=am-ET HTTP/1.1" 200 -
+  [92m✔ /api/tts/audio done[0m in [93m0.92s[0m
+
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f540d506440>
+127.0.0.1 - - [24/Sep/2026 11:02:20] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy
+  [92m✔ /chat/stream done[0m in [93m21.62s[0m | [93m2 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.504).
+127.0.0.1 - - [24/Sep/2026 11:02:23] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy
+  [92m✔ /chat/stream done[0m in [93m21.85s[0m | [93m2 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.631).
+127.0.0.1 - - [24/Sep/2026 11:02:26] "POST /chat/stream HTTP/1.1" 200 -
+  [2m[queued — lock acquired][0m
+  [92mResponse:[0m Happy
+  [92m✔ /chat/stream done[0m in [93m19.85s[0m | [93m2 tokens[0m
+
+  [Context Filter] Accepted 4/4 context chunks (top score: 0.879).
+Exception in thread Thread-53 (_run)Exception in thread Thread-55 (_run):
+:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()    self.run()
+
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)    self._target(*self._args, **self._kwargs)
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 269, in _run
+    
+self.model.generate(**generation_kwargs)  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 269, in _run
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    self.model.generate(**generation_kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+    return func(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2681, in generate
+    result = decoding_method(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2895, in _sample
+    result = decoding_method(
+    outputs = model_forward(**model_inputs, return_dict=True)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 2881, in _sample
+
+    outputs = self._prefill(  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/generation/utils.py", line 3961, in _prefill
+    return self(**model_inputs, return_dict=True)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+return self._call_impl(*args, **kwargs)
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+return forward_call(*args, **kwargs)    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+    output = func(self, *args, **kwargs)    output = func(self, *args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2570, in forward
+    outputs = self.model(    
+outputs = self.model(  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+    return self._call_impl(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+
+    return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    return forward_call(*args, **kwargs)
+    output = func(self, *args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+        output = func(self, *args, **kwargs)output = func(self, *args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 911, in wrapper
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+    output = func(self, *args, **kwargs)
+    outputs = self.language_model(  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2424, in forward
+
+    outputs = self.language_model(  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)    return self._call_impl(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+        output = func(self, *args, **kwargs)return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    hidden_states = decoder_layer(    
+output = func(self, *args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+
+    return super().__call__(*args, **kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    outputs = func(self, *args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)    
+hidden_states = decoder_layer(  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 101, in custom_forward
+
+    return original_forward(*new_args, **new_kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 110, in __call__
+
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+return super().__call__(*args, **kwargs)    hidden_states, _ = self.self_attn(
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+      File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+return self._call_impl(*args, **kwargs)    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+    attn_output, attn_weights = attention_interface(    return forward_call(*args, **kwargs)
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 100, in sdpa_attention_forward
+  File "/mnt/data/biruk/chatbot_model_4_31B-it/src/models/llm_client.py", line 101, in custom_forward
+    value = repeat_kv(value, module.num_key_value_groups)    
+return original_forward(*new_args, **new_kwargs)  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py", line 25, in repeat_kv
+
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+    return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 25.50 MiB is free. Including non-PyTorch memory, this process has 31.70 GiB memory in use. Of the allocated memory 31.04 GiB is allocated by PyTorch, and 273.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    hidden_states, _ = self.self_attn(
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1250, in forward
+    query_states = self.q_norm(query_states)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 212, in forward
+    normed_output = self._norm(hidden_states.float())
+  File "/home/iotadmin/.local/lib/python3.10/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 207, in _norm
+    mean_squared = hidden_states.pow(2).mean(-1, keepdim=True) + self.eps
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 96.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 85.50 MiB is free. Including non-PyTorch memory, this process has 31.64 GiB memory in use. Of the allocated memory 30.96 GiB is allocated by PyTorch, and 298.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Starting background service initialization (attempt 1/5)...================================================================
+
+  🌐 Amani AI — Nginx Gateway Active (Port 80 / 443)
+  • Web Chat UI    : http://196.188.240.106
+  • API Swagger UI : http://196.188.240.106/API/docs
+  • Health Status  : http://196.188.240.106/health
+  • Talk Voice API : http://196.188.240.106/tesfansh-api/api/v1/chat/talk
+  • Internal Proxy : http://127.0.0.1:5000
+================================================================
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+Database initialized successfully!
+Loading local multilingual sentence embeddings model...
+Loading local embedding model from: rasyosef/bert-amharic-text-embedding-medium onto cpu
+Loading weights:   0%|          | 0/135 [00:00<?, ?it/s]Loading weights: 100%|##########| 135/135 [00:00<00:00, 5577.81it/s]
+Indexing file: ethiopian_history_amharic.txt
+Successfully indexed 27 chunks from ethiopian_history_amharic.txt
+Indexing file: ethiopian_politics_leaders_ministers.txt
+Successfully indexed 12 chunks from ethiopian_politics_leaders_ministers.txt
+Indexing file: amani_info.txt
+Successfully indexed 10 chunks from amani_info.txt
+Indexed 3 files from /mnt/data/local_data
+Initializing Gemma4LLMClient from: /mnt/data/chatbot_model_4_31B-it/src/models/model
+Loading model weights onto CPU RAM...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<11:25,  1.73it/s]Loading weights:  20%|##        | 242/1188 [00:01<00:03, 259.44it/s]Loading weights:  30%|###       | 359/1188 [00:01<00:03, 246.20it/s]Loading weights:  36%|###6      | 433/1188 [00:02<00:03, 234.25it/s]Loading weights:  41%|####      | 486/1188 [00:02<00:03, 232.38it/s]Loading weights:  44%|####4     | 528/1188 [00:02<00:02, 225.25it/s]Loading weights:  47%|####7     | 563/1188 [00:02<00:02, 229.35it/s]Loading weights:  50%|#####     | 595/1188 [00:02<00:02, 234.44it/s]Loading weights:  53%|#####2    | 625/1188 [00:03<00:02, 224.97it/s]Loading weights:  55%|#####4    | 652/1188 [00:03<00:02, 220.23it/s]Loading weights:  57%|#####6    | 677/1188 [00:03<00:02, 220.20it/s]Loading weights:  59%|#####9    | 701/1188 [00:03<00:02, 214.00it/s]Loading weights:  61%|######1   | 725/1188 [00:03<00:02, 214.13it/s]Loading weights:  63%|######2   | 748/1188 [00:03<00:02, 212.54it/s]Loading weights:  65%|######5   | 776/1188 [00:03<00:01, 220.59it/s]Loading weights:  67%|######7   | 799/1188 [00:05<00:10, 36.34it/s] Loading weights:  69%|######8   | 818/1188 [00:06<00:09, 38.77it/s]Loading weights:  70%|######9   | 831/1188 [00:08<00:18, 19.03it/s]Loading weights:  71%|#######   | 842/1188 [00:08<00:15, 22.23it/s]Loading weights:  74%|#######3  | 874/1188 [00:08<00:08, 37.01it/s]Loading weights:  78%|#######7  | 924/1188 [00:08<00:04, 62.91it/s]Loading weights:  80%|########  | 954/1188 [00:08<00:02, 82.01it/s]Loading weights:  83%|########3 | 988/1188 [00:09<00:01, 107.62it/s]Loading weights:  86%|########6 | 1024/1188 [00:09<00:01, 139.28it/s]Loading weights:  88%|########8 | 1051/1188 [00:09<00:00, 146.35it/s]Loading weights:  91%|######### | 1079/1188 [00:09<00:00, 164.75it/s]Loading weights:  93%|#########3| 1109/1188 [00:09<00:00, 172.28it/s]Loading weights:  96%|#########6| 1141/1188 [00:09<00:00, 200.57it/s]Loading weights:  98%|#########8| 1167/1188 [00:09<00:00, 208.98it/s]Loading weights: 100%|##########| 1188/1188 [00:09<00:00, 119.94it/s]
+Partitioning model layers across GPU 0 and GPU 1...
+Layer balancing complete: cuda:0=29 layers (31.04GB, ~700MB headroom), cuda:1=31 layers (30.36GB, ~1.4GB headroom), vision=cpu (saved 1.14GB VRAM)
+Model sharding completed successfully.
+All services loaded and ready!
+127.0.0.1 - - [24/Sep/2026 11:11:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:11:17] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Sep/2026 11:13:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:13:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:24:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:24:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [24/Sep/2026 11:24:30] "GET / HTTP/1.1" 200 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:25:50][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 35 KB  (filename=recorded_audio_4e2402cd.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 36410 input bytes → 6594 PCM bytes (0.21s)
+[Ethio-ASR] Loading badrex/Ethio-ASR-amharic on cpu...
+Loading weights:   0%|          | 0/796 [00:00<?, ?it/s]Loading weights:  41%|####1     | 327/796 [00:00<00:00, 3258.86it/s]
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:25:50][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_931a98ba.wav)
+Loading weights: 100%|##########| 796/796 [00:00<00:00, 5439.52it/s]
+[Ethio-ASR] Model loaded successfully on cpu ✔
+[Ethio-ASR][DEBUG] PCM→float32: 3297 samples, duration=0.21s, max=0.0231, rms=0.0077
+[Ethio-ASR][DEBUG] VAD: 3297 samples → 3297 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0236, rms=0.0083
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.82s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 11:25:51] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.60s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 11:25:51] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:26:02][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_4d574b0c.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0509, rms=0.0134
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.29s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 11:26:02] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+
+[1m[96m▶ POST /tesfansh-api/api/v1/chat/talk[0m [2m[11:26:03][0m
+  [96mClient :[0m 196.191.214.185
+  [96mSession:[0m default_session | lang=auto
+  [96mAudio  :[0m 17 KB  (filename=recorded_audio_70251802.wav)
+[Ethio-ASR][DEBUG] ffmpeg OK: 18234 input bytes → 3298 PCM bytes (0.10s)
+[Ethio-ASR][DEBUG] PCM→float32: 1649 samples, duration=0.10s, max=0.0312, rms=0.0100
+[Ethio-ASR][DEBUG] VAD: 1649 samples → 1649 samples, has_speech=True, trimmed=0 samples (0.00s removed)
+[Ethio-ASR][DEBUG] Single-chunk result: ''
+  [92mSTT done[0m in [93m0.26s[0m | lang=am-ET | transcript: 
+127.0.0.1 - - [24/Sep/2026 11:26:03] "[31m[1mPOST /tesfansh-api/api/v1/chat/talk HTTP/1.1[0m" 422 -
+127.0.0.1 - - [24/Sep/2026 11:27:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2026 11:29:08] "GET / HTTP/1.1" 200 -
