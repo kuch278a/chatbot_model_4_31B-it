@@ -10,6 +10,8 @@ import numpy as np
 import torch
 from transformers import AutoProcessor, AutoModelForCTC
 from src.stt.vad import apply_vad
+from src.stt.llm_corrector import correct_transcript
+from src.stt.audio_quality import ensure_audio_constraints, validate_for_ctc
 
 # Global singleton instance
 _model_instance = None
@@ -51,13 +53,34 @@ class EthioASRTranscriber:
             else:
                 raise e
 
-    def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000) -> str:
+    def transcribe_audio_array(self, audio_array: np.ndarray, sample_rate: int = 16000, use_llm_correction: bool = True) -> str:
         """
         Transcribe 1D float32 numpy audio array to Amharic Ge'ez text.
         Splits long audio into safe chunks (<= 20s) to prevent quadratic self-attention memory blowup.
+        
+        Args:
+            audio_array: 1D float32 numpy audio array
+            sample_rate: Audio sample rate (default 16000)
+            use_llm_correction: Whether to apply LLM post-correction (default True)
         """
         if len(audio_array) == 0:
             return ""
+
+        # ─── Audio Quality Validation & Normalization for CTC Encoder ────────────
+        is_valid, violation_msg = validate_for_ctc(audio_array, sample_rate)
+        if not is_valid:
+            print(f"[Ethio-ASR][WARN] Audio quality issues: {violation_msg}. Attempting auto-fix...", flush=True)
+            audio_array, metrics = ensure_audio_constraints(
+                audio_array, 
+                sample_rate=sample_rate,
+                auto_normalize=True,
+                auto_resample=True,
+            )
+            sample_rate = 16000  # After ensure_audio_constraints, it's always 16kHz
+            if not metrics.passes_constraints:
+                print(f"[Ethio-ASR][WARN] Auto-fix incomplete: {metrics.violations}", flush=True)
+        else:
+            print(f"[Ethio-ASR][DEBUG] Audio quality OK: {len(audio_array)} samples @ {sample_rate}Hz", flush=True)
 
         # Apply VAD to trim leading/trailing silence before processing
         pre_vad_len = len(audio_array)
@@ -89,10 +112,16 @@ class EthioASRTranscriber:
                     transcripts.append(sub_text)
             result = " ".join(transcripts)
             print(f"[Ethio-ASR][DEBUG] Multi-chunk result: '{result}'", flush=True)
-            return result
+        else:
+            result = self._transcribe_single_chunk(audio_array, sample_rate=sample_rate)
+            print(f"[Ethio-ASR][DEBUG] Single-chunk result: '{result}'", flush=True)
 
-        result = self._transcribe_single_chunk(audio_array, sample_rate=sample_rate)
-        print(f"[Ethio-ASR][DEBUG] Single-chunk result: '{result}'", flush=True)
+        # Apply LLM post-correction if enabled and we have a result
+        if use_llm_correction and result:
+            print(f"[Ethio-ASR][DEBUG] Applying LLM correction...", flush=True)
+            result = correct_transcript(result)
+            print(f"[Ethio-ASR][DEBUG] Corrected result: '{result}'", flush=True)
+
         return result
 
     def _transcribe_single_chunk(self, chunk: np.ndarray, sample_rate: int = 16000) -> str:
@@ -128,9 +157,14 @@ def _get_transcriber_instance() -> EthioASRTranscriber:
     return _model_instance
 
 
-def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000) -> str:
+def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000, use_llm_correction: bool = True) -> str:
     """
     Transcribe raw 16-bit PCM audio bytes into Amharic text.
+    
+    Args:
+        audio_bytes: Raw 16-bit PCM audio bytes
+        sample_rate: Audio sample rate (default 16000)
+        use_llm_correction: Whether to apply LLM post-correction (default True)
     """
     if not audio_bytes or len(audio_bytes) < 4:
         return ""
@@ -154,13 +188,17 @@ def transcribe_audio(audio_bytes: bytes, sample_rate: int = 16000) -> str:
         num_samples = int(len(audio_array) * 16000 / sample_rate)
         audio_array = signal.resample(audio_array, num_samples)
 
-    return transcriber.transcribe_audio_array(audio_array, sample_rate=16000)
+    return transcriber.transcribe_audio_array(audio_array, sample_rate=16000, use_llm_correction=use_llm_correction)
 
 
-def transcribe_audio_blob(audio_bytes: bytes) -> str:
+def transcribe_audio_blob(audio_bytes: bytes, use_llm_correction: bool = True) -> str:
     """
     Transcribe WebM/MP4/OGG/WAV audio blob from browser MediaRecorder to Amharic text.
     Uses ffmpeg in-memory to universally normalize any client container into 16kHz mono PCM.
+    
+    Args:
+        audio_bytes: Audio blob bytes from browser MediaRecorder
+        use_llm_correction: Whether to apply LLM post-correction (default True)
     """
     if not audio_bytes or len(audio_bytes) < 64:
         print(f"[Ethio-ASR][DEBUG] Audio too short: {len(audio_bytes) if audio_bytes else 0} bytes", flush=True)
@@ -190,14 +228,14 @@ def transcribe_audio_blob(audio_bytes: bytes) -> str:
         pcm_bytes = proc.stdout
         print(f"[Ethio-ASR][DEBUG] ffmpeg OK: {len(audio_bytes)} input bytes → {len(pcm_bytes)} PCM bytes ({len(pcm_bytes)/32000:.2f}s)", flush=True)
 
-        return transcribe_audio(pcm_bytes, sample_rate=16000)
+        return transcribe_audio(pcm_bytes, sample_rate=16000, use_llm_correction=use_llm_correction)
     except Exception as e:
         print(f"[Ethio-ASR] FFMPEG pipe error: {e}", flush=True)
         return ""
 
 
 # Backward compatibility alias
-def transcribe_webm(audio_bytes: bytes) -> str:
+def transcribe_webm(audio_bytes: bytes, use_llm_correction: bool = True) -> str:
     """Legacy wrapper for transcribe_audio_blob."""
-    return transcribe_audio_blob(audio_bytes)
+    return transcribe_audio_blob(audio_bytes, use_llm_correction=use_llm_correction)
 
